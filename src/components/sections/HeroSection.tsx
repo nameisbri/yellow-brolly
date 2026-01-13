@@ -1,8 +1,11 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Button, SlideUpText } from '../common';
-import { HeroBackground } from '../three';
+import { lazy } from 'react';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+
+// Lazy load Three.js background only when needed
+const HeroBackground = lazy(() => import('../three/HeroBackground').then(m => ({ default: m.HeroBackground })));
 
 interface HeroSectionProps {
   headline: string;

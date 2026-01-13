@@ -60,7 +60,7 @@ export function Footer() {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className="text-gray hover:text-yellow-primary transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                  className="text-gray hover:text-yellow-primary transition-colors duration-300 hover:translate-x-1 transform inline-block py-2 min-h-[48px] flex items-center"
                 >
                   {item.label}
                 </Link>
@@ -75,7 +75,7 @@ export function Footer() {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className="text-gray hover:text-yellow-primary transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                  className="text-gray hover:text-yellow-primary transition-colors duration-300 hover:translate-x-1 transform inline-block py-2 min-h-[48px] flex items-center"
                 >
                   {item.label}
                 </Link>
@@ -88,12 +88,12 @@ export function Footer() {
           <p className="text-gray/60 text-sm">
             © {currentYear} {siteContent.brand.name}. All rights reserved.
           </p>
-          <div className="flex gap-8">
+          <div className="flex gap-6 sm:gap-8">
             {siteContent.footer.links.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className="text-gray/60 hover:text-yellow-primary text-sm transition-colors duration-300"
+                className="text-gray/60 hover:text-yellow-primary text-sm transition-colors duration-300 py-2 min-h-[48px] inline-flex items-center"
               >
                 {link.label}
               </Link>
