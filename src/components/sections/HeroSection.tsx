@@ -33,59 +33,58 @@ export function HeroSection({
   const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
-  useEffect(() => {
+    useEffect(() => {
     if (prefersReducedMotion || !containerRef.current) return;
 
     const ctx = gsap.context(() => {
       // Eyebrow animation
       gsap.fromTo(
         '.hero-eyebrow',
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
+        { opacity: 0 },
+        { opacity: 1, duration: 0.4, ease: 'power2.out' }
       );
 
-      // Headline word-by-word animation
+      // Headline word-by-word animation - reduced complexity, no initial opacity
       gsap.fromTo(
         '.hero-word',
-        { opacity: 0, y: 80, rotateX: -45 },
+        { y: 30, opacity: 0.8 },
         {
           opacity: 1,
           y: 0,
-          rotateX: 0,
-          duration: 1,
-          stagger: 0.08,
-          delay: 0.2,
-          ease: 'power4.out',
+          duration: 0.6,
+          stagger: 0.04,
+          delay: 0.1,
+          ease: 'power2.out',
         }
       );
 
       // Subhead animation
       gsap.fromTo(
         '.hero-subhead',
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.8, delay: 0.8, ease: 'power3.out' }
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5, delay: 0.3, ease: 'power2.out' }
       );
 
       // CTA animation
       gsap.fromTo(
         '.hero-cta',
-        { opacity: 0, y: 30, scale: 0.9 },
+        { opacity: 0, y: 20, scale: 0.95 },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 0.6,
-          delay: 1,
-          stagger: 0.1,
-          ease: 'back.out(1.5)'
+          duration: 0.5,
+          delay: 0.4,
+          stagger: 0.08,
+          ease: 'power2.out',
         }
       );
 
       // Decorative elements
       gsap.fromTo(
         '.hero-decoration',
-        { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1.2, delay: 0.5, ease: 'elastic.out(1, 0.5)' }
+        { scale: 0.8, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.6, delay: 0.2, ease: 'power2.out' }
       );
     }, containerRef);
 

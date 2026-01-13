@@ -2,9 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Critical CSS for above-the-fold rendering -->
+    <style>
+      body { margin: 0; font-family: 'Montserrat', system-ui, sans-serif; background: #0A0A0A; color: #FAFAFA; }
+      #root { min-height: 100vh; }
+      .hero-word { display: inline-block; transform-style: preserve-3d; }
+      .hero-eyebrow { display: inline-block; }
+      .hero-subhead { display: block; }
+      .hero-cta { display: inline-flex; }
+    </style>
+
     <!-- Preconnect to font domains for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="/src/index.css" as="style" />
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.cdnfonts.com/s/13277/coolvetica.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v26/JTUQjIg1_i6t8kCHKm459WRhyzbi.woff2" as="font" type="font/woff2" crossorigin />
+
     <link rel="icon" type="image/svg+xml" href="/umbrella.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Technology consulting that fits your culture. We help nonprofits and agencies adopt AI, improve cybersecurity, and build tech stacks that actually work. Book a discovery call." />
