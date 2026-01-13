@@ -23,7 +23,6 @@ export function HeroSection({
   ctaPrimary,
   ctaSecondary,
   showBackground = true,
-  lazyBackground = false,
   centered = true,
   compact = false,
   eyebrow,
@@ -120,7 +119,7 @@ export function HeroSection({
               <span
                 key={index}
                 className="hero-word inline-block mr-[0.25em] last:mr-0"
-                style={{ transformStyle: 'preserve-3d' }}
+                style={{ transform: 'preserve-3d' }}
               >
                 {highlightedWord && word.toLowerCase().includes(highlightedWord.toLowerCase()) ? (
                   <span className="text-yellow-primary glow">{word}</span>
@@ -188,7 +187,7 @@ export function PageHero({ headline, subhead, eyebrow }: PageHeroProps) {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark-elevated/50 to-black" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,221,0,0.08),transparent_50%)]" />
-
+      
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
         {eyebrow && (
           <span className="inline-block text-yellow-primary text-sm font-semibold tracking-[0.3em] uppercase mb-6">
