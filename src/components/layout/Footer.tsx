@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="bg-dark border-t border-dark-border">
       {/* Marquee */}
       <div className="py-6 border-b border-dark-border overflow-hidden">
-        <MarqueeText speed={40} className="text-2xl md:text-3xl lg:text-4xl font-display text-dark-border select-none tracking-wider">
+        <MarqueeText speed={40} className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-display text-dark-border select-none tracking-wider">
           <span className="mx-6 text-yellow-primary">DIGITAL STRATEGY</span>
           <span className="mx-6">•</span>
           <span className="mx-6">TECHNOLOGY-FORWARD</span>
@@ -39,8 +39,8 @@ export function Footer() {
         </MarqueeText>
       </div>
 
-      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl py-12 md:py-16 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-8">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-flex items-center gap-3 mb-6 group">
               <UmbrellaIcon size={40} className="text-yellow-primary group-hover:scale-110 transition-transform duration-300" />
@@ -84,7 +84,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-dark-border mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-dark-border mt-12 md:mt-16 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray/60 text-sm">
             © {currentYear} {siteContent.brand.name}. All rights reserved.
           </p>

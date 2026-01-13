@@ -67,7 +67,7 @@ export function BlogGrid() {
         ))}
       </div>
 
-      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {filteredPosts.map((post) => (
           <div key={post.id} className="blog-card">
             <Card className="group cursor-pointer h-full">

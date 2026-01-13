@@ -58,10 +58,10 @@ export function CTASection({
 
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
         <div className="cta-content text-center max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white mb-6 leading-tight">
             {headline}
           </h2>
-          <p className="text-xl md:text-2xl text-gray max-w-2xl mx-auto mb-12 leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl text-gray max-w-2xl mx-auto mb-12 leading-relaxed">
             {subhead}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">

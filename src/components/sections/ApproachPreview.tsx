@@ -108,7 +108,7 @@ export function ApproachPreview() {
           <div className="progress-line-fill absolute inset-0 bg-gradient-to-r from-yellow-primary via-yellow-primary to-yellow-primary/30 origin-left" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 relative">
           {approachPreview.stages.map((stage, index) => (
             <div
               key={stage.name}
@@ -132,10 +132,10 @@ export function ApproachPreview() {
                   )}
                 </div>
 
-                <h3 className="text-xl lg:text-2xl font-display text-white mb-3 group-hover:text-yellow-primary transition-colors duration-300">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-display text-white mb-3 group-hover:text-yellow-primary transition-colors duration-300">
                   {stage.name}
                 </h3>
-                <p className="text-gray text-sm lg:text-base leading-relaxed">{stage.description}</p>
+                <p className="text-gray text-xs sm:text-sm lg:text-base leading-relaxed">{stage.description}</p>
 
                 {/* Bottom corner accent */}
                 <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-yellow-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

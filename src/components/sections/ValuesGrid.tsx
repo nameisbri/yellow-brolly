@@ -71,7 +71,7 @@ export function ValuesGrid() {
         eyebrow="What We Believe"
       />
 
-      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ perspective: '1000px' }}>
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6" style={{ perspective: '1000px' }}>
         {values.map((value) => (
           <div key={value.title} className="value-card">
             <Card className="text-center group h-full">

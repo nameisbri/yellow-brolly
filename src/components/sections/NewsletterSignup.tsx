@@ -23,16 +23,16 @@ export function NewsletterSignup({
 
   if (variant === 'inline') {
     return (
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md">
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
           required
-          className="flex-1 px-4 py-3 bg-dark-elevated border border-dark-border rounded-lg text-white placeholder-gray focus:outline-none focus:border-yellow-primary transition-colors"
+          className="flex-1 px-4 py-3 sm:py-3.5 bg-dark-elevated border border-dark-border rounded-lg text-white placeholder-gray focus:outline-none focus:border-yellow-primary transition-colors"
         />
-        <Button type="submit" variant="primary">
+        <Button type="submit" variant="primary" size="md">
           Subscribe
         </Button>
       </form>
@@ -40,8 +40,8 @@ export function NewsletterSignup({
   }
 
   return (
-    <div className="bg-dark-elevated rounded-2xl p-8 md:p-10 border border-dark-border">
-      <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-4">
+    <div className="bg-dark-elevated rounded-2xl p-6 md:p-8 lg:p-10 border border-dark-border">
+      <h3 className="text-xl md:text-2xl lg:text-3xl font-display font-bold text-white mb-4">
         {newsletter.headline}
       </h3>
       <p className="text-gray mb-6">{newsletter.description}</p>
@@ -62,16 +62,16 @@ export function NewsletterSignup({
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 mb-4">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4">
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
           required
-          className="flex-1 px-4 py-3 bg-black border border-dark-border rounded-lg text-white placeholder-gray focus:outline-none focus:border-yellow-primary transition-colors"
+          className="flex-1 px-4 py-3 sm:py-3.5 bg-black border border-dark-border rounded-lg text-white placeholder-gray focus:outline-none focus:border-yellow-primary transition-colors"
         />
-        <Button type="submit" variant="primary">
+        <Button type="submit" variant="primary" size="md">
           Subscribe
         </Button>
       </form>

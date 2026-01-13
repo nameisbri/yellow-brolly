@@ -52,7 +52,7 @@ export function ServicePillars() {
 
   return (
     <Section background="dark">
-      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-8" style={{ perspective: '1000px' }}>
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" style={{ perspective: '1000px' }}>
         {pillars.map((pillar) => (
           <div key={pillar.title} className="pillar-card">
             <ServiceCard

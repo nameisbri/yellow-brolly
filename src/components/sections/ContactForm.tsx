@@ -83,9 +83,9 @@ export function ContactForm() {
 
   return (
     <Section background="dark">
-      <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+      <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
         <div className="contact-form-panel">
-          <h2 className="text-3xl font-display font-bold text-white mb-8">Send Us a Message</h2>
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-8">Send Us a Message</h2>
 
           {isSubmitted ? (
             <div className="bg-dark-elevated border border-yellow-primary/30 rounded-2xl p-10 text-center">
@@ -178,14 +178,14 @@ export function ContactForm() {
         </div>
 
         <div className="contact-info-panel lg:pl-8">
-          <div className="bg-dark-elevated rounded-2xl p-8 border border-dark-border sticky top-28 relative overflow-hidden">
+          <div className="bg-dark-elevated rounded-2xl p-8 border border-dark-border lg:sticky lg:top-28 relative overflow-hidden">
             {/* Decorative gradient */}
             <div className="absolute -top-20 -right-20 w-40 h-40 bg-yellow-primary/10 rounded-full blur-3xl" />
 
-            <h2 className="text-2xl font-display font-bold text-white mb-4 relative">
+            <h2 className="text-xl md:text-2xl font-display font-bold text-white mb-4 relative">
               {siteContent.contact.calendly.headline}
             </h2>
-            <p className="text-gray mb-8 relative">
+            <p className="text-sm md:text-base text-gray mb-8 relative">
               Schedule a free 30-minute discovery call to discuss your needs.
             </p>
             <Button

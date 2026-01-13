@@ -76,7 +76,7 @@ export function TeamSection() {
         </p>
       )}
 
-      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
         {team.members.map((member) => (
           <div key={member.name} className="team-card">
             <Card className="text-center group h-full">
