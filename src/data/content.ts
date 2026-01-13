@@ -1,6 +1,6 @@
 export const siteContent = {
   brand: {
-    name: 'YellowBrollyCo',
+    name: 'Yellow Brolly Co',
     tagline: 'Technology-forward strategy. Human-first results.',
   },
 
@@ -322,7 +322,7 @@ export const siteContent = {
 
   footer: {
     tagline: 'Technology-forward strategy. Human-first results.',
-    copyright: '© 2024 YellowBrollyCo. All rights reserved.',
+    copyright: '© 2024 Yellow Brolly Co. All rights reserved.',
     links: [
       { label: 'Privacy Policy', path: '/privacy' },
       { label: 'Terms of Service', path: '/terms' },

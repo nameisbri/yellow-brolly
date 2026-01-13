@@ -19,8 +19,7 @@ export function Home() {
         ctaPrimary={{ label: hero.ctaPrimary, to: '/contact' }}
         ctaSecondary={{ label: hero.ctaSecondary, to: '/services' }}
         showBackground={true}
-        eyebrow="YellowBrollyCo"
-        lazyBackground={true}
+        eyebrow="Yellow Brolly Co"
       />
       <ApproachPreview />
       <ServicesPreview />
