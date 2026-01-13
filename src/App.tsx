@@ -9,6 +9,8 @@ const Services = lazy(() => import('./pages/Services').then((m) => ({ default: m
 const CaseStudies = lazy(() => import('./pages/CaseStudies').then((m) => ({ default: m.CaseStudies })));
 const Blog = lazy(() => import('./pages/Blog').then((m) => ({ default: m.Blog })));
 const Contact = lazy(() => import('./pages/Contact').then((m) => ({ default: m.Contact })));
+const FAQ = lazy(() => import('./pages/FAQ').then((m) => ({ default: m.FAQ })));
+const WhyYellowBrolly = lazy(() => import('./pages/WhyYellowBrolly').then((m) => ({ default: m.WhyYellowBrolly })));
 
 function LoadingFallback() {
   return (
@@ -34,6 +36,8 @@ function App() {
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/why-yellowbrolly" element={<WhyYellowBrolly />} />
           </Routes>
         </Suspense>
       </Layout>

@@ -10,3 +10,7 @@ export { ServicePillars } from './ServicePillars';
 export { CaseStudiesGrid } from './CaseStudiesGrid';
 export { BlogGrid } from './BlogGrid';
 export { ContactForm } from './ContactForm';
+export { PMCWaySection } from './PMCWaySection';
+export { WhatSetsUsApart } from './WhatSetsUsApart';
+export { NewsletterSignup } from './NewsletterSignup';
+export { ProcessTransparency } from './ProcessTransparency';

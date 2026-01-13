@@ -5,6 +5,8 @@ import {
   ServicesPreview,
   SocialProof,
   CTASection,
+  PMCWaySection,
+  WhatSetsUsApart,
 } from '../components/sections';
 
 export function Home() {
@@ -21,6 +23,8 @@ export function Home() {
         showBackground={true}
         eyebrow="Yellow Brolly Co"
       />
+      <PMCWaySection />
+      <WhatSetsUsApart />
       <ApproachPreview />
       <ServicesPreview />
       <SocialProof />

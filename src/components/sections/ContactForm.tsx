@@ -8,10 +8,11 @@ import { useReducedMotion } from '../../hooks/useReducedMotion';
 gsap.registerPlugin(ScrollTrigger);
 
 export function ContactForm() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<Record<string, string>>({
     name: '',
     email: '',
-    subject: '',
+    organization: '',
+    inquiryType: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -68,11 +69,11 @@ export function ContactForm() {
 
     setIsSubmitting(false);
     setIsSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setFormData({ name: '', email: '', organization: '', inquiryType: '', message: '' });
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData((prev) => ({
       ...prev,
@@ -121,19 +122,35 @@ export function ContactForm() {
                     <textarea
                       id={field.name}
                       name={field.name}
-                      value={formData[field.name as keyof typeof formData]}
+                      value={formData[field.name] || ''}
                       onChange={handleChange}
                       required={field.required}
                       rows={5}
                       className="w-full px-5 py-4 rounded-xl bg-dark-elevated border border-dark-border text-white placeholder-gray/50 focus:border-yellow-primary focus:outline-none focus:ring-2 focus:ring-yellow-primary/20 transition-all resize-none"
                       placeholder={`Enter your ${field.label.toLowerCase()}`}
                     />
+                  ) : field.type === 'select' ? (
+                    <select
+                      id={field.name}
+                      name={field.name}
+                      value={formData[field.name] || ''}
+                      onChange={handleChange}
+                      required={field.required}
+                      className="w-full px-5 py-4 rounded-xl bg-dark-elevated border border-dark-border text-white focus:border-yellow-primary focus:outline-none focus:ring-2 focus:ring-yellow-primary/20 transition-all"
+                    >
+                      <option value="">Select an option</option>
+                      {field.options?.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
                   ) : (
                     <input
                       type={field.type}
                       id={field.name}
                       name={field.name}
-                      value={formData[field.name as keyof typeof formData]}
+                      value={formData[field.name] || ''}
                       onChange={handleChange}
                       required={field.required}
                       className="w-full px-5 py-4 rounded-xl bg-dark-elevated border border-dark-border text-white placeholder-gray/50 focus:border-yellow-primary focus:outline-none focus:ring-2 focus:ring-yellow-primary/20 transition-all"
@@ -142,6 +159,11 @@ export function ContactForm() {
                   )}
                 </div>
               ))}
+              {siteContent.contact.form.responseTime && (
+                <p className="text-xs text-gray text-center">
+                  {siteContent.contact.form.responseTime}
+                </p>
+              )}
               <Button
                 type="submit"
                 variant="primary"

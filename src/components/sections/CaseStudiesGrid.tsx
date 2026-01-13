@@ -79,6 +79,12 @@ export function CaseStudiesGrid() {
               solution={study.solution}
               outcome={study.outcome}
               metrics={study.metrics}
+              sectorPainPoint={study.sectorPainPoint}
+              before={study.before}
+              after={study.after}
+              quote={study.quote}
+              quoteAuthor={study.quoteAuthor}
+              quoteRole={study.quoteRole}
             />
           </div>
         ))}

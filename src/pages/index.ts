@@ -5,3 +5,5 @@ export { Services } from './Services';
 export { CaseStudies } from './CaseStudies';
 export { Blog } from './Blog';
 export { Contact } from './Contact';
+export { FAQ } from './FAQ';
+export { WhyYellowBrolly } from './WhyYellowBrolly';
