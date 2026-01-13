@@ -3,8 +3,8 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
-// Subtle floating particles
-function FloatingParticles({ count = 50 }: { count?: number }) {
+// Subtle floating particles - reduced count for better performance
+function FloatingParticles({ count = 30 }: { count?: number }) {
   const mesh = useRef<THREE.Points>(null);
   const prefersReducedMotion = useReducedMotion();
 
@@ -264,7 +264,7 @@ function Scene() {
       <directionalLight position={[5, 5, 5]} intensity={0.5} color="#F7B32B" />
       <InteractiveGrid />
       <GridDots />
-      <FloatingParticles count={50} />
+      <FloatingParticles count={30} />
     </>
   );
 }
@@ -284,8 +284,8 @@ export function HeroBackground() {
     <div className="absolute inset-0 z-0">
       <Canvas
         camera={{ position: [0, 0, 10], fov: 60 }}
-        dpr={[1, 2]}
-        gl={{ antialias: true, alpha: true }}
+        dpr={[1, 1.5]} // Reduced from [1, 2] for better performance
+        gl={{ antialias: false, alpha: true }} // Disable antialias for mobile performance
         style={{ background: 'transparent' }}
       >
         <Suspense fallback={null}>

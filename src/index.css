@@ -15,12 +15,12 @@
   --color-yellow-primary: #F7B32B;
   --color-yellow-hover: #FFCA4D;
   --color-yellow-glow: rgba(247, 179, 43, 0.4);
-  --color-yellow-dim: rgba(247, 179, 43, 0.1);
+  --color-yellow-dim: rgba(247, 179, 43, 0.15);
   --color-black: #0A0A0A;
   --color-dark: #111111;
   --color-dark-elevated: #1A1A1A;
-  --color-dark-border: #2A2A2A;
-  --color-gray: #888888;
+  --color-dark-border: #4A4A4A;
+  --color-gray: #B0B0B0;
   --color-light-gray: #CCCCCC;
   --color-white: #FAFAFA;
 

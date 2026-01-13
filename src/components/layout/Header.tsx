@@ -101,7 +101,7 @@ export function Header() {
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden relative w-10 h-10 flex items-center justify-center text-white hover:text-yellow-primary transition-colors duration-300"
+              className="lg:hidden relative w-12 h-12 flex items-center justify-center text-white hover:text-yellow-primary transition-colors duration-300 rounded-lg hover:bg-white/5"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMenuOpen}
             >
