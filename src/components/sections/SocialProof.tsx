@@ -14,6 +14,12 @@ export function SocialProof() {
         eyebrow="Testimonials"
       />
 
+      {socialProof.clientCount && (
+        <p className="text-center text-gray mb-12 relative z-10">
+          {socialProof.clientCount}
+        </p>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto relative z-10">
         {socialProof.testimonials.map((testimonial, index) => (
           <TestimonialCard

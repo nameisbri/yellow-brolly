@@ -89,6 +89,11 @@ export function About() {
             <div className="absolute -top-20 -left-20 w-40 h-40 bg-yellow-primary/10 rounded-full blur-3xl" />
             <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-yellow-primary/10 rounded-full blur-3xl" />
 
+            {pmcWay.subhead && (
+              <span className="inline-block px-4 py-1.5 text-sm font-medium bg-yellow-primary text-black rounded-full mb-5 relative">
+                {pmcWay.subhead}
+              </span>
+            )}
             <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-5 relative">
               {pmcWay.headline}
             </h2>

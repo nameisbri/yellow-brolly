@@ -273,6 +273,83 @@ export function CalendarIcon({ className = '', size = 24 }: IconProps) {
   );
 }
 
+export function LightbulbIcon({ className = '', size = 24 }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M9 21h6" />
+      <path d="M12 3a6 6 0 0 0-6 6c0 2.5 1.5 4.5 3 6l1.5 2h3l1.5-2c1.5-1.5 3-3.5 3-6a6 6 0 0 0-6-6z" />
+      <path d="M12 9v3" />
+    </svg>
+  );
+}
+
+export function ShieldIcon({ className = '', size = 24 }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    </svg>
+  );
+}
+
+export function CompassIcon({ className = '', size = 24 }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <circle cx="12" cy="12" r="10" />
+      <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+    </svg>
+  );
+}
+
+export function TargetIcon({ className = '', size = 24 }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+    </svg>
+  );
+}
+
 export function getServiceIcon(iconName: string): React.ReactNode {
   const iconMap: Record<string, React.ReactNode> = {
     tools: <ToolsIcon />,
@@ -283,6 +360,10 @@ export function getServiceIcon(iconName: string): React.ReactNode {
     people: <PeopleIcon />,
     secure: <SecureIcon />,
     purpose: <PurposeIcon />,
+    lightbulb: <LightbulbIcon />,
+    shield: <ShieldIcon />,
+    compass: <CompassIcon />,
+    target: <TargetIcon />,
   };
 
   return iconMap[iconName] || <ToolsIcon />;

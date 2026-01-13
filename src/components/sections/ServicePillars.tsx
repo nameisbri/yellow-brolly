@@ -60,6 +60,10 @@ export function ServicePillars() {
               description={pillar.description}
               icon={getServiceIcon(pillar.icon)}
               outcome={pillar.outcome}
+              whatWeDo={pillar.whatWeDo}
+              whatYouGet={pillar.whatYouGet}
+              timeline={pillar.timeline}
+              investment={pillar.investment}
               className="h-full"
             />
           </div>

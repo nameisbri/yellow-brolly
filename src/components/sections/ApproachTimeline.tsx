@@ -119,9 +119,15 @@ export function ApproachTimeline() {
                   <h3 className="text-2xl font-display font-bold text-white mb-2 group-hover:text-yellow-primary transition-colors duration-300">
                     {stage.name}
                   </h3>
-                  <p className="text-yellow-primary font-medium mb-5">
+                  <p className="text-yellow-primary font-medium mb-3">
                     {stage.tagline}
                   </p>
+                  
+                  {stage.whoThisIsFor && (
+                    <p className="text-sm text-gray mb-5 italic border-l-2 border-yellow-primary/30 pl-3">
+                      {stage.whoThisIsFor}
+                    </p>
+                  )}
 
                   <ul className="space-y-3 mb-6">
                     {stage.activities.map((activity) => (
@@ -138,11 +144,23 @@ export function ApproachTimeline() {
                     ))}
                   </ul>
 
-                  <div className="pt-5 border-t border-dark-border">
+                  <div className="space-y-3 pt-5 border-t border-dark-border">
                     <p className="text-sm font-medium text-light-gray">
                       <span className="text-yellow-primary font-semibold">Outcome:</span>{' '}
                       {stage.outcome}
                     </p>
+                    {stage.timeline && (
+                      <p className="text-xs text-gray">
+                        <span className="text-yellow-primary font-semibold">Timeline:</span>{' '}
+                        {stage.timeline}
+                      </p>
+                    )}
+                    {stage.communication && (
+                      <p className="text-xs text-gray">
+                        <span className="text-yellow-primary font-semibold">Communication:</span>{' '}
+                        {stage.communication}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
