@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* Coolvetica-style font - using Bebas Neue as a similar alternative */
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('https://fonts.cdnfonts.com/s/15909/coolvetica rg.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Brand Colors - Updated Yellow */
+  --color-yellow-primary: #F7B32B;
+  --color-yellow-hover: #FFCA4D;
+  --color-yellow-glow: rgba(247, 179, 43, 0.4);
+  --color-yellow-dim: rgba(247, 179, 43, 0.1);
+  --color-black: #0A0A0A;
+  --color-dark: #111111;
+  --color-dark-elevated: #1A1A1A;
+  --color-dark-border: #2A2A2A;
+  --color-gray: #888888;
+  --color-light-gray: #CCCCCC;
+  --color-white: #FAFAFA;
+
+  /* Typography */
+  --font-display: 'Coolvetica', 'Bebas Neue', 'Impact', system-ui, sans-serif;
+  --font-body: 'Montserrat', system-ui, sans-serif;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-white);
+  background-color: var(--color-black);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Display Font for Headlines */
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--color-yellow-primary);
+  color: var(--color-black);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-yellow-primary);
+  outline-offset: 2px;
+}
+
+/* Scroll anchor offset */
+:target {
+  scroll-margin-top: 100px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-yellow-primary);
+}
+
+/* Text Gradient Utility */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-yellow-primary) 0%, var(--color-yellow-hover) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow Effect */
+.glow {
+  text-shadow: 0 0 40px var(--color-yellow-glow), 0 0 80px var(--color-yellow-glow);
+}
+
+/* Line reveal animation base */
+.line-reveal {
+  overflow: hidden;
+}
+
+.line-reveal span {
+  display: inline-block;
+}
+
+/* Magnetic button effect base */
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Noise texture overlay */
+.noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Horizontal rule styling */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-dark-border) 20%, var(--color-dark-border) 80%, transparent);
+}
+
+/* Float in animation */
+@keyframes float-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-float-in {
+  animation: float-in 0.5s ease-out forwards;
+}
