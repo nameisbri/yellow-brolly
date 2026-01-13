@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Button, SlideUpText } from '../common';
-import { Suspense, lazy } from 'react';
+import { lazy } from 'react';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 // Lazy load Three.js background only when needed
