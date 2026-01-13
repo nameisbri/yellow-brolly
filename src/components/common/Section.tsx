@@ -26,7 +26,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`${noPadding ? '' : 'py-24 md:py-32 lg:py-40'} ${bgStyles[background]} ${className}`}
+      className={`${noPadding ? '' : 'py-16 md:py-24 lg:py-32'} ${bgStyles[background]} ${className}`}
     >
       {fullWidth ? (
         children

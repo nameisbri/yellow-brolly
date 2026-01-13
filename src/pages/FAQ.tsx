@@ -20,18 +20,18 @@ export function FAQ() {
       />
 
       <Section background="dark">
-        <div className="max-w-4xl mx-auto space-y-4">
+        <div className="max-w-4xl mx-auto space-y-3 sm:space-y-4">
           {faq.questions.map((item, index) => (
             <Card key={index} className="overflow-hidden">
               <button
                 onClick={() => toggleQuestion(index)}
-                className="w-full text-left flex items-center justify-between p-6 hover:bg-dark/50 transition-colors"
+                className="w-full text-left flex items-center justify-between p-4 sm:p-6 hover:bg-dark/50 transition-colors min-h-[60px] sm:min-h-auto"
               >
-                <h3 className="text-xl font-display font-bold text-white pr-8">
+                <h3 className="text-lg sm:text-xl font-display font-bold text-white pr-8">
                   {item.question}
                 </h3>
                 <div
-                  className={`flex-shrink-0 w-8 h-8 rounded-full bg-yellow-dim flex items-center justify-center text-yellow-primary transition-transform ${
+                  className={`flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-yellow-dim flex items-center justify-center text-yellow-primary transition-transform ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                 >
@@ -50,7 +50,7 @@ export function FAQ() {
                 </div>
               </button>
               {openIndex === index && (
-                <div className="px-6 pb-6 text-gray leading-relaxed">
+                <div className="px-4 pb-4 sm:px-6 sm:pb-6 text-gray leading-relaxed text-sm sm:text-base">
                   {item.answer}
                 </div>
               )}

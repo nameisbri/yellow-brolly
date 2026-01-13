@@ -289,7 +289,7 @@ export function CaseStudyCard({
         </div>
         
         {before && after && (
-          <div className="grid grid-cols-2 gap-4 pt-4 border-t border-dark-border">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-dark-border">
             <div>
               <span className="font-semibold text-red-400 text-sm uppercase tracking-wider">
                 Before

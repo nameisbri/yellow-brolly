@@ -112,7 +112,7 @@ export function HeroSection({
           )}
 
           <h1
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.05] tracking-tight mb-8"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.05] tracking-tight mb-8"
             style={{ perspective: '1000px' }}
           >
             {words.map((word, index) => (
@@ -131,7 +131,7 @@ export function HeroSection({
           </h1>
 
           {subhead && (
-            <p className="hero-subhead text-lg md:text-xl lg:text-2xl text-gray max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p className="hero-subhead text-base md:text-lg lg:text-xl xl:text-2xl text-gray max-w-3xl mx-auto mb-12 leading-relaxed">
               {subhead}
             </p>
           )}
@@ -183,7 +183,7 @@ interface PageHeroProps {
 
 export function PageHero({ headline, subhead, eyebrow }: PageHeroProps) {
   return (
-    <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 bg-black overflow-hidden">
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32 bg-black overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark-elevated/50 to-black" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,221,0,0.08),transparent_50%)]" />
@@ -194,7 +194,7 @@ export function PageHero({ headline, subhead, eyebrow }: PageHeroProps) {
             {eyebrow}
           </span>
         )}
-        <SlideUpText className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-[1.1] tracking-tight max-w-4xl">
+        <SlideUpText className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-[1.1] tracking-tight max-w-4xl">
           {headline}
         </SlideUpText>
         {subhead && (
