@@ -36,6 +36,10 @@
 /* Base Styles */
 html {
   scroll-behavior: smooth;
+  /* Optimize font rendering */
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -58,6 +62,8 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Reduce paint by avoiding layout thrashing */
+  contain: paint;
 }
 
 /* Display Font for Headlines - Elegant & Professional */
@@ -66,6 +72,8 @@ h1, h2, h3, .font-display {
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.02em;
   text-transform: none;
+  /* Optimize GPU acceleration for animated elements only */
+  will-change: transform, opacity;
 }
 
 /* Selection styling */
