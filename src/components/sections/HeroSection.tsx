@@ -113,7 +113,7 @@ export function HeroSection({
           )}
 
           <h1
-            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.05] tracking-tight mb-8"
+            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.05] tracking-tight mb-8"
             style={{ perspective: '1000px' }}
           >
             {words.map((word, index) => (

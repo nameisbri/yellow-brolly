@@ -51,7 +51,7 @@ src/
 
 ## Key Features
 
-### 🎨 Design
+### Design
 - Dark theme with brand yellow (#F7B32B) accent
 - Animated hero section with interactive 3D background
 - Floating particles, grid, and mouse-following glow effects
@@ -59,15 +59,14 @@ src/
 - Fully responsive design
 - Accessibility-first with reduced motion support
 
-### ✨ Components
+### Components
 - **Floating CTA**: Persistent call-to-action widget on all pages
 - **Marquee**: Scrolling text with comprehensive service keywords
 - **Text Animations**: Slide-up reveals, character-by-character animations
 - **Buttons**: Primary/outline variants with hover effects
 - **Forms**: Contact form with validation and external calendar integration
 
-### 🚀 Performance
-- Code splitting and lazy loading
+### Performance
 - Optimized 3D rendering
 - Smooth page transitions
 - Production-ready build configuration

@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
-/* Coolvetica-style font - using Bebas Neue as a similar alternative */
+/* Coolvetica font */
 @font-face {
   font-family: 'Coolvetica';
-  src: url('https://fonts.cdnfonts.com/s/15909/coolvetica rg.woff') format('woff');
+  src: url('https://fonts.cdnfonts.com/s/13277/coolvetica.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -27,6 +27,10 @@
   /* Typography */
   --font-display: 'Coolvetica', 'Bebas Neue', 'Impact', system-ui, sans-serif;
   --font-body: 'Montserrat', system-ui, sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 }
 
 /* Base Styles */
@@ -56,12 +60,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Display Font for Headlines */
+/* Display Font for Headlines - Elegant & Professional */
 h1, h2, h3, .font-display {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: var(--font-weight-bold);
   letter-spacing: 0.02em;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 /* Selection styling */
