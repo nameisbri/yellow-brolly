@@ -7,6 +7,20 @@ import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 gsap.registerPlugin(ScrollTrigger);
 
+function LinkedInIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  );
+}
+
 export function TeamSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -16,7 +30,6 @@ export function TeamSection() {
     if (prefersReducedMotion || !sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Heading
       gsap.fromTo(
         '.team-heading',
         { opacity: 0, y: 20 },
@@ -33,7 +46,6 @@ export function TeamSection() {
         }
       );
 
-      // Stagger members
       gsap.fromTo(
         '.team-member',
         { opacity: 0, y: 30 },
@@ -81,14 +93,38 @@ export function TeamSection() {
                   : ''
               }`}
             >
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-primary to-yellow-hover flex-shrink-0 flex items-center justify-center">
-                <span className="text-2xl font-bold text-black">
-                  {member.name.split(' ').map(n => n[0]).join('')}
-                </span>
+              <div className="w-28 md:w-32 flex-shrink-0 overflow-hidden rounded-lg bg-dark-elevated" style={{ aspectRatio: '4/7' }}>
+                {member.image ? (
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-yellow-primary to-yellow-hover flex items-center justify-center">
+                    <span className="text-2xl font-bold text-black">
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  </div>
+                )}
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-white">{member.name}</h3>
+                <div className="flex items-center gap-3">
+                  <h3 className="text-xl font-bold text-white">{member.name}</h3>
+                  {member.linkedin && (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray hover:text-light-gray transition-colors duration-200"
+                      aria-label={`${member.name} on LinkedIn`}
+                    >
+                      <LinkedInIcon size={16} />
+                    </a>
+                  )}
+                </div>
                 <p className="text-yellow-primary text-sm font-medium">{member.role}</p>
                 {member.tagline && (
                   <p className="italic text-sm text-gray">{member.tagline}</p>
