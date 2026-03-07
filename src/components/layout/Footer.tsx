@@ -10,16 +10,16 @@ export function Footer() {
       {/* Marquee */}
       <div className="py-6 border-b border-dark-border overflow-hidden">
         <MarqueeText speed={40} className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-display text-dark-border select-none tracking-wider">
-          <span className="mx-8">DIGITAL STRATEGY</span>
-          <span className="mx-8">•</span>
-          <span className="mx-8 text-yellow-primary">HUMAN-FIRST</span>
-          <span className="mx-8">•</span>
-          <span className="mx-8">CYBERSECURITY</span>
-          <span className="mx-8">•</span>
-          <span className="mx-8">BRAND & CULTURE</span>
-          <span className="mx-8">•</span>
-          <span className="mx-8">AI INTEGRATION</span>
-          <span className="mx-8">•</span>
+          <span className="mx-3 sm:mx-5 md:mx-8">DIGITAL STRATEGY</span>
+          <span className="mx-3 sm:mx-5 md:mx-8">•</span>
+          <span className="mx-3 sm:mx-5 md:mx-8 text-yellow-primary">HUMAN-FIRST</span>
+          <span className="mx-3 sm:mx-5 md:mx-8">•</span>
+          <span className="mx-3 sm:mx-5 md:mx-8">CYBERSECURITY</span>
+          <span className="mx-3 sm:mx-5 md:mx-8">•</span>
+          <span className="mx-3 sm:mx-5 md:mx-8">BRAND & CULTURE</span>
+          <span className="mx-3 sm:mx-5 md:mx-8">•</span>
+          <span className="mx-3 sm:mx-5 md:mx-8">AI INTEGRATION</span>
+          <span className="mx-3 sm:mx-5 md:mx-8">•</span>
         </MarqueeText>
       </div>
 

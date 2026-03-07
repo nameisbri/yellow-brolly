@@ -42,7 +42,7 @@ export function ValuesGrid() {
         Our Core Values
       </h2>
 
-      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-x-6 md:gap-x-8 lg:gap-x-12 gap-y-8 md:gap-y-10">
         {values.map((value) => (
           <div key={value.title}>
             <div className="flex items-center gap-3 mb-2">

@@ -120,7 +120,7 @@ export function Header() {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`mobile-menu-item py-4 text-3xl font-display font-bold transition-colors duration-300 ${
+                  className={`mobile-menu-item py-4 min-h-[48px] flex items-center text-2xl sm:text-3xl font-display font-bold transition-colors duration-300 ${
                     isActive(item.path)
                       ? 'text-yellow-primary'
                       : 'text-white hover:text-yellow-primary'

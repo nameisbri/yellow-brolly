@@ -29,7 +29,7 @@ export function FloatingCTA() {
     return (
       <button
         onClick={() => setIsMinimized(false)}
-        className="fixed bottom-6 right-6 z-40 bg-yellow-primary text-black p-3 rounded-full shadow-lg shadow-yellow-primary/50 hover:scale-110 active:scale-95 transition-all duration-300 group"
+        className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40 bg-yellow-primary text-black w-14 h-14 flex items-center justify-center rounded-full shadow-lg shadow-yellow-primary/50 hover:scale-110 active:scale-95 transition-all duration-300 group"
         aria-label="Open contact"
       >
         <UmbrellaIcon size={24} className="group-hover:rotate-12 transition-transform duration-300" />
@@ -38,7 +38,7 @@ export function FloatingCTA() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 animate-float-in">
+    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40 flex flex-col items-end gap-3 animate-float-in">
       <div className="relative">
         {/* Close button */}
         <button
@@ -52,7 +52,7 @@ export function FloatingCTA() {
         {/* Main CTA card */}
         <Link
           to="/contact"
-          className="group relative bg-dark-elevated backdrop-blur-xl border border-yellow-primary/30 rounded-2xl p-4 shadow-2xl shadow-yellow-primary/20 hover:shadow-yellow-primary/40 hover:scale-105 transition-all duration-300 flex items-center gap-4 max-w-xs"
+          className="group relative bg-dark-elevated backdrop-blur-xl border border-yellow-primary/30 rounded-2xl p-4 shadow-2xl shadow-yellow-primary/20 hover:shadow-yellow-primary/40 hover:scale-105 transition-all duration-300 flex items-center gap-4 max-w-[280px] sm:max-w-xs"
         >
           {/* Umbrella icon with glow */}
           <div className="relative">

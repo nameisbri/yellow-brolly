@@ -105,7 +105,7 @@ export function ContactForm() {
 
   return (
     <Section background="dark">
-      <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+      <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 lg:gap-12 max-w-6xl mx-auto">
         <div className="contact-form-panel">
           <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-8">Send Us a Message</h2>
 
@@ -202,8 +202,8 @@ export function ContactForm() {
           )}
         </div>
 
-        <div className="contact-info-panel lg:pl-8">
-          <div className="bg-dark-elevated rounded-2xl p-8 border border-dark-border lg:sticky lg:top-28 relative overflow-hidden">
+        <div className="contact-info-panel md:pl-4 lg:pl-8">
+          <div className="bg-dark-elevated rounded-2xl p-6 md:p-8 border border-dark-border md:sticky md:top-28 relative overflow-hidden">
             {/* Decorative gradient */}
             <div className="absolute -top-20 -right-20 w-40 h-40 bg-yellow-primary/5 rounded-full blur-3xl" />
 

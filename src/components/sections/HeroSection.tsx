@@ -97,7 +97,7 @@ export function HeroSection({
   return (
     <section
       ref={containerRef}
-      className={`relative overflow-hidden ${compact ? 'min-h-[60vh] py-32 md:py-40' : 'min-h-screen py-32 md:py-40 lg:py-48'} flex items-center`}
+      className={`relative overflow-hidden ${compact ? 'min-h-[60vh] py-24 md:py-32 lg:py-40' : 'min-h-screen py-24 md:py-32 lg:py-40 xl:py-48'} flex items-center`}
     >
       {showBackground && <HeroBackground />}
 
@@ -182,7 +182,7 @@ interface PageHeroProps {
 
 export function PageHero({ headline, subhead, eyebrow }: PageHeroProps) {
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32 bg-black overflow-hidden">
+    <section className="relative pt-24 pb-16 md:pt-36 md:pb-20 lg:pt-48 lg:pb-32 bg-black overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark-elevated/50 to-black" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,221,0,0.08),transparent_50%)]" />
@@ -197,7 +197,7 @@ export function PageHero({ headline, subhead, eyebrow }: PageHeroProps) {
           {headline}
         </SlideUpText>
         {subhead && (
-          <p className="mt-8 text-xl text-gray max-w-2xl leading-relaxed">
+          <p className="mt-6 md:mt-8 text-base md:text-xl text-gray max-w-2xl leading-relaxed">
             {subhead}
           </p>
         )}

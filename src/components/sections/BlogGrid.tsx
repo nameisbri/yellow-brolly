@@ -56,7 +56,7 @@ export function BlogGrid() {
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
-            className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+            className={`px-5 py-2.5 min-h-[44px] rounded-full text-sm font-medium transition-all duration-300 ${
               activeCategory === category
                 ? 'bg-yellow-primary text-black'
                 : 'bg-dark-elevated text-gray border border-dark-border hover:border-dark-border/80 hover:text-white'

@@ -88,7 +88,7 @@ export function ApproachTimeline() {
           <div className="absolute inset-0 bg-gradient-to-b from-dark-border via-dark-border/50 to-transparent" />
         </div>
 
-        <div className="space-y-12 lg:space-y-0">
+        <div className="space-y-8 md:space-y-10 lg:space-y-0">
           {stages.map((stage, index) => (
             <div
               key={stage.name}
