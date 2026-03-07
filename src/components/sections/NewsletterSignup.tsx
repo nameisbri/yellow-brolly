@@ -49,14 +49,14 @@ export function NewsletterSignup({
       <ul className="space-y-2 mb-6 text-gray">
         {newsletter.benefits.map((benefit, index) => (
           <li key={index} className="flex items-start gap-2">
-            <span className="text-yellow-primary mt-1">•</span>
+            <span className="text-light-gray mt-1">•</span>
             <span>{benefit}</span>
           </li>
         ))}
       </ul>
 
       {showLeadMagnet && (
-        <div className="mb-6 p-4 bg-yellow-dim rounded-lg border border-yellow-primary/20">
+        <div className="mb-6 p-4 bg-dark-border/20 rounded-lg border border-dark-border">
           <h4 className="font-semibold text-white mb-2">{newsletter.leadMagnet.title}</h4>
           <p className="text-sm text-gray">{newsletter.leadMagnet.description}</p>
         </div>

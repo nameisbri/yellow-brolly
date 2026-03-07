@@ -1,5 +1,4 @@
 import { siteContent } from '../data/content';
-import { Section, SectionHeader } from '../components/common';
 import { PageHero, CaseStudiesGrid, CTASection } from '../components/sections';
 
 export function CaseStudies() {
@@ -9,17 +8,9 @@ export function CaseStudies() {
     <>
       <PageHero
         headline={hero.headline}
-        subhead="Real stories of transformation and impact."
+        subhead="How it actually went."
         eyebrow="Case Studies"
       />
-
-      <Section background="black">
-        <SectionHeader
-          headline="Featured Work"
-          subhead="See how we've helped organizations navigate digital transformation."
-          eyebrow="Our Impact"
-        />
-      </Section>
 
       <CaseStudiesGrid />
 

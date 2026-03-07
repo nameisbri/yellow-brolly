@@ -1,5 +1,4 @@
 import { siteContent } from '../data/content';
-import { Section, SectionHeader } from '../components/common';
 import { PageHero, ServicePillars, CTASection } from '../components/sections';
 
 export function Services() {
@@ -9,16 +8,9 @@ export function Services() {
     <>
       <PageHero
         headline={hero.headline}
+        subhead="What we do for teams trying to get technology right."
         eyebrow="What We Do"
       />
-
-      <Section background="black">
-        <SectionHeader
-          headline="Our Service Pillars"
-          subhead="We offer a comprehensive suite of services designed to help organizations thrive in the digital age."
-          eyebrow="Services"
-        />
-      </Section>
 
       <ServicePillars />
 

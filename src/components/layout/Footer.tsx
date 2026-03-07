@@ -10,32 +10,16 @@ export function Footer() {
       {/* Marquee */}
       <div className="py-6 border-b border-dark-border overflow-hidden">
         <MarqueeText speed={40} className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-display text-dark-border select-none tracking-wider">
-          <span className="mx-6 text-yellow-primary">DIGITAL STRATEGY</span>
-          <span className="mx-6">•</span>
-          <span className="mx-6">TECHNOLOGY-FORWARD</span>
-          <span className="mx-6">•</span>
-          <span className="mx-6 text-yellow-primary">HUMAN-FIRST</span>
-          <span className="mx-6">•</span>
-          <span className="mx-6">SECURE BY DESIGN</span>
-          <span className="mx-6">•</span>
-          <span className="mx-6 text-yellow-primary">AI INTEGRATION</span>
-          <span className="mx-6">•</span>
-          <span className="mx-6">BRAND & CULTURE</span>
-          <span className="mx-6">•</span>
-          <span className="mx-6 text-yellow-primary">WORKFLOW AUTOMATION</span>
-          <span className="mx-6">•</span>
-          <span className="mx-6">CLARITY OVER COMPLEXITY</span>
-          <span className="mx-6">•</span>
-          <span className="mx-6 text-yellow-primary">CYBERSECURITY</span>
-          <span className="mx-6">•</span>
-          <span className="mx-6">PEOPLE-FIRST TECH</span>
-          <span className="mx-6">•</span>
-          <span className="mx-6 text-yellow-primary">STRATEGIC OUTCOMES</span>
-          <span className="mx-6">•</span>
-          <span className="mx-6">DIGITAL READINESS</span>
-          <span className="mx-6">•</span>
-          <span className="mx-6 text-yellow-primary">SCALE YOUR BUSINESS</span>
-          <span className="mx-6">•</span>
+          <span className="mx-8">DIGITAL STRATEGY</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8 text-yellow-primary">HUMAN-FIRST</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8">CYBERSECURITY</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8">BRAND & CULTURE</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8">AI INTEGRATION</span>
+          <span className="mx-8">•</span>
         </MarqueeText>
       </div>
 

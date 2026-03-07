@@ -101,9 +101,6 @@ export function HeroSection({
     >
       {showBackground && <HeroBackground />}
 
-      {/* Decorative corner elements */}
-      <div className="hero-decoration absolute top-32 left-8 w-24 h-24 border border-yellow-primary/20 rounded-full hidden lg:block" />
-      <div className="hero-decoration absolute bottom-32 right-8 w-16 h-16 bg-yellow-primary/10 rounded-full hidden lg:block" />
 
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
         <div className={`max-w-5xl ${centered ? 'mx-auto text-center' : ''}`}>

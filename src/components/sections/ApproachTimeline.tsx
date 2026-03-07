@@ -65,7 +65,7 @@ export function ApproachTimeline() {
               rotation: 0,
               duration: 0.6,
               delay: 0.2,
-              ease: 'back.out(2)',
+              ease: 'expo.out',
               scrollTrigger: {
                 trigger: card,
                 start: 'top 80%',
@@ -85,7 +85,7 @@ export function ApproachTimeline() {
       <div ref={timelineRef} className="relative max-w-5xl mx-auto">
         {/* Timeline center line */}
         <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2">
-          <div className="absolute inset-0 bg-gradient-to-b from-yellow-primary via-yellow-primary/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-dark-border via-dark-border/50 to-transparent" />
         </div>
 
         <div className="space-y-12 lg:space-y-0">
@@ -102,29 +102,29 @@ export function ApproachTimeline() {
                 }`}
               >
                 {/* Timeline number badge */}
-                <div className="timeline-number hidden lg:flex absolute left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-yellow-primary text-black font-display font-bold items-center justify-center text-xl z-10 shadow-[0_0_30px_rgba(255,221,0,0.4)]">
+                <div className="timeline-number hidden lg:flex absolute left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-yellow-primary text-black font-display font-bold items-center justify-center text-xl z-10">
                   {index + 1}
                 </div>
 
                 {index < stages.length - 1 && (
-                  <div className="timeline-connector hidden lg:block absolute left-1/2 -translate-x-1/2 top-14 w-px h-full bg-gradient-to-b from-yellow-primary to-yellow-primary/30 origin-top" />
+                  <div className="timeline-connector hidden lg:block absolute left-1/2 -translate-x-1/2 top-14 w-px h-full bg-gradient-to-b from-dark-border to-transparent origin-top" />
                 )}
 
-                <div className="bg-dark-elevated rounded-2xl p-8 border border-dark-border hover:border-yellow-primary/30 transition-all duration-500 group">
+                <div className="bg-dark-elevated rounded-2xl p-8 border border-dark-border transition-all duration-500">
                   {/* Mobile number badge */}
                   <div className="lg:hidden flex w-12 h-12 rounded-full bg-yellow-primary text-black font-display font-bold items-center justify-center text-lg mb-5">
                     {index + 1}
                   </div>
 
-                  <h3 className="text-2xl font-display font-bold text-white mb-2 group-hover:text-yellow-primary transition-colors duration-300">
+                  <h3 className="text-2xl font-display font-bold text-white mb-2">
                     {stage.name}
                   </h3>
-                  <p className="text-yellow-primary font-medium mb-3">
+                  <p className="text-light-gray font-medium mb-3">
                     {stage.tagline}
                   </p>
-                  
+
                   {stage.whoThisIsFor && (
-                    <p className="text-sm text-gray mb-5 italic border-l-2 border-yellow-primary/30 pl-3">
+                    <p className="text-sm text-gray mb-5 italic border-l-2 border-dark-border pl-3">
                       {stage.whoThisIsFor}
                     </p>
                   )}
@@ -137,7 +137,7 @@ export function ApproachTimeline() {
                       >
                         <CheckIcon
                           size={18}
-                          className="text-yellow-primary flex-shrink-0 mt-0.5"
+                          className="text-light-gray flex-shrink-0 mt-0.5"
                         />
                         <span>{activity}</span>
                       </li>
@@ -146,18 +146,18 @@ export function ApproachTimeline() {
 
                   <div className="space-y-3 pt-5 border-t border-dark-border">
                     <p className="text-sm font-medium text-light-gray">
-                      <span className="text-yellow-primary font-semibold">Outcome:</span>{' '}
+                      <span className="text-light-gray font-semibold">Outcome:</span>{' '}
                       {stage.outcome}
                     </p>
                     {stage.timeline && (
                       <p className="text-xs text-gray">
-                        <span className="text-yellow-primary font-semibold">Timeline:</span>{' '}
+                        <span className="text-light-gray font-semibold">Timeline:</span>{' '}
                         {stage.timeline}
                       </p>
                     )}
                     {stage.communication && (
                       <p className="text-xs text-gray">
-                        <span className="text-yellow-primary font-semibold">Communication:</span>{' '}
+                        <span className="text-light-gray font-semibold">Communication:</span>{' '}
                         {stage.communication}
                       </p>
                     )}

@@ -82,7 +82,7 @@ export function Card({
   return (
     <div
       ref={cardRef}
-      className={`bg-dark-elevated rounded-2xl p-8 border border-dark-border hover:border-yellow-primary/30 transition-colors duration-500 ${className}`}
+      className={`bg-dark-elevated rounded-2xl p-8 border border-dark-border transition-colors duration-500 ${className}`}
     >
       {children}
     </div>
@@ -98,6 +98,7 @@ interface ServiceCardProps {
   whatYouGet?: string;
   timeline?: string;
   investment?: string;
+  accentColor?: string;
   className?: string;
 }
 
@@ -110,29 +111,44 @@ export function ServiceCard({
   whatYouGet,
   timeline,
   investment,
+  accentColor,
   className = '',
 }: ServiceCardProps) {
   return (
     <Card className={`group relative overflow-hidden ${className}`}>
-      <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700" />
+      {/* Colored top accent line */}
+      {accentColor && (
+        <div
+          className="absolute top-0 left-0 right-0 h-[2px]"
+          style={{ backgroundColor: accentColor }}
+        />
+      )}
       <div className="relative z-10">
-        <div className="mb-6 w-14 h-14 rounded-xl bg-yellow-dim flex items-center justify-center text-yellow-primary group-hover:bg-yellow-primary group-hover:text-black transition-all duration-300">
+        <div
+          className={`mb-6 w-14 h-14 rounded-xl flex items-center justify-center transition-colors duration-300 ${
+            !accentColor ? 'bg-dark-border/40 text-light-gray group-hover:text-yellow-primary' : ''
+          }`}
+          style={accentColor ? {
+            backgroundColor: `color-mix(in srgb, ${accentColor} 15%, transparent)`,
+            color: accentColor,
+          } : undefined}
+        >
           {icon}
         </div>
-        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-yellow-primary transition-colors duration-300">
+        <h3 className="text-xl font-bold text-white mb-3">
           {title}
         </h3>
         <p className="text-gray leading-relaxed mb-4">{description}</p>
         
         {whatWeDo && whatWeDo.length > 0 && (
           <div className="mb-4">
-            <h4 className="text-sm font-semibold text-yellow-primary mb-2 uppercase tracking-wider">
-              What We Do:
+            <h4 className="text-sm font-semibold text-light-gray mb-2 uppercase tracking-wider">
+              What we do
             </h4>
             <ul className="space-y-2 text-sm text-gray">
               {whatWeDo.map((item, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="text-yellow-primary mt-1">•</span>
+                  <span className="text-light-gray mt-1">•</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -141,9 +157,9 @@ export function ServiceCard({
         )}
 
         {whatYouGet && (
-          <div className="mb-4 p-3 bg-yellow-dim/10 rounded-lg border border-yellow-primary/10">
-            <h4 className="text-sm font-semibold text-yellow-primary mb-2 uppercase tracking-wider">
-              What You Get:
+          <div className="mb-4 p-3 bg-dark-border/20 rounded-lg border border-dark-border">
+            <h4 className="text-sm font-semibold text-light-gray mb-2 uppercase tracking-wider">
+              What you get
             </h4>
             <p className="text-sm text-gray leading-relaxed">{whatYouGet}</p>
           </div>
@@ -153,12 +169,12 @@ export function ServiceCard({
           <div className="mb-4 pt-4 border-t border-dark-border flex gap-4 text-xs text-gray">
             {timeline && (
               <span>
-                <span className="text-yellow-primary font-semibold">Timeline:</span> {timeline}
+                <span className="text-light-gray font-semibold">Timeline:</span> {timeline}
               </span>
             )}
             {investment && (
               <span>
-                <span className="text-yellow-primary font-semibold">Investment:</span> {investment}
+                <span className="text-light-gray font-semibold">Investment:</span> {investment}
               </span>
             )}
           </div>
@@ -166,7 +182,7 @@ export function ServiceCard({
 
         {outcome && (
           <p className="text-sm font-medium text-light-gray border-t border-dark-border pt-4">
-            <span className="text-yellow-primary mr-2">→</span>
+            <span className="text-gray mr-2">→</span>
             {outcome}
           </p>
         )}
@@ -264,25 +280,25 @@ export function CaseStudyCard({
       <span className="inline-block px-4 py-1.5 text-sm font-medium bg-yellow-primary text-black rounded-full mb-5">
         {clientType}
       </span>
-      <h3 className="text-2xl font-bold text-white mb-5 group-hover:text-yellow-primary transition-colors">
+      <h3 className="text-2xl font-bold text-white mb-5">
         {title}
       </h3>
       
       {sectorPainPoint && (
-        <div className="mb-4 p-4 bg-yellow-dim/20 rounded-lg border border-yellow-primary/20">
+        <div className="mb-4 p-4 bg-dark-border/20 rounded-lg border border-dark-border">
           <p className="text-sm text-gray italic">{sectorPainPoint}</p>
         </div>
       )}
 
       <div className="space-y-4 text-gray">
         <div>
-          <span className="font-semibold text-yellow-primary text-sm uppercase tracking-wider">
+          <span className="font-semibold text-light-gray text-sm uppercase tracking-wider">
             Challenge
           </span>
           <p className="mt-2 text-light-gray">{challenge}</p>
         </div>
         <div>
-          <span className="font-semibold text-yellow-primary text-sm uppercase tracking-wider">
+          <span className="font-semibold text-light-gray text-sm uppercase tracking-wider">
             Solution
           </span>
           <p className="mt-2 text-light-gray">{solution}</p>
@@ -304,7 +320,7 @@ export function CaseStudyCard({
               </ul>
             </div>
             <div>
-              <span className="font-semibold text-yellow-primary text-sm uppercase tracking-wider">
+              <span className="font-semibold text-light-gray text-sm uppercase tracking-wider">
                 After
               </span>
               <ul className="mt-2 space-y-1 text-xs text-gray">
@@ -321,7 +337,7 @@ export function CaseStudyCard({
         )}
 
         <div>
-          <span className="font-semibold text-yellow-primary text-sm uppercase tracking-wider">
+          <span className="font-semibold text-light-gray text-sm uppercase tracking-wider">
             Outcome
           </span>
           <p className="mt-2 text-light-gray">{outcome}</p>
@@ -347,7 +363,7 @@ export function CaseStudyCard({
             {metrics.map((metric, index) => (
               <span
                 key={index}
-                className="px-4 py-2 text-sm bg-yellow-dim text-yellow-primary rounded-full font-medium metrics-badge"
+                className="px-4 py-2 text-sm bg-dark-border/40 text-light-gray rounded-full font-medium metrics-badge"
               >
                 {metric}
               </span>

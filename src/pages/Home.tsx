@@ -7,6 +7,7 @@ import {
   CTASection,
   PMCWaySection,
   WhatSetsUsApart,
+  BigTextCTA,
 } from '../components/sections';
 
 export function Home() {
@@ -25,12 +26,17 @@ export function Home() {
       />
       <PMCWaySection />
       <WhatSetsUsApart />
+      <BigTextCTA
+        text="STRATEGY • PEOPLE • SECURITY • TECHNOLOGY • STRATEGY • PEOPLE • SECURITY • TECHNOLOGY •"
+        ctaLabel="See How We Work"
+        ctaTo="/approach"
+      />
       <ApproachPreview />
       <ServicesPreview />
       <SocialProof />
       <CTASection
         headline="Ready to make digital make sense?"
-        subhead="Let's discuss how we can help your organization thrive."
+        subhead="Let's talk about what your organization actually needs."
         primaryCta={{ label: 'Book a Discovery Call', to: '/contact' }}
         secondaryCta={{ label: 'Learn About Our Approach', to: '/approach' }}
       />

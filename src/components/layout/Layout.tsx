@@ -4,7 +4,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Header } from './Header';
 import { Footer } from './Footer';
-import { FloatingCTA } from '../common';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -59,7 +58,6 @@ export function Layout({ children }: LayoutProps) {
       <main ref={mainRef} className="flex-grow">
         {children}
       </main>
-      <FloatingCTA />
       <Footer />
     </div>
   );

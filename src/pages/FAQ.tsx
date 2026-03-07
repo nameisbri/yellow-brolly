@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { PageHero } from '../components/sections';
-import { Section, Card } from '../components/common';
+import { Section } from '../components/common';
 import { siteContent } from '../data/content';
 
 export function FAQ() {
@@ -20,41 +20,43 @@ export function FAQ() {
       />
 
       <Section background="dark">
-        <div className="max-w-4xl mx-auto space-y-3 sm:space-y-4">
+        <div className="max-w-3xl mx-auto">
           {faq.questions.map((item, index) => (
-            <Card key={index} className="overflow-hidden">
+            <div key={index} className="border-b border-dark-border">
               <button
                 onClick={() => toggleQuestion(index)}
-                className="w-full text-left flex items-center justify-between p-4 sm:p-6 hover:bg-dark/50 transition-colors min-h-[60px] sm:min-h-auto"
+                className="w-full text-left flex items-center justify-between py-5 group transition-colors"
               >
-                <h3 className="text-lg sm:text-xl font-display font-bold text-white pr-8">
+                <h3 className="text-lg font-bold text-white group-hover:text-yellow-primary transition-colors duration-300 pr-8">
                   {item.question}
                 </h3>
-                <div
-                  className={`flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-yellow-dim flex items-center justify-center text-yellow-primary transition-transform ${
+                <svg
+                  className={`flex-shrink-0 text-gray transition-transform duration-300 ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </div>
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
               </button>
-              {openIndex === index && (
-                <div className="px-4 pb-4 sm:px-6 sm:pb-6 text-gray leading-relaxed text-sm sm:text-base">
-                  {item.answer}
+              <div
+                className="grid transition-[grid-template-rows] duration-300 ease-out"
+                style={{ gridTemplateRows: openIndex === index ? '1fr' : '0fr' }}
+              >
+                <div className="overflow-hidden">
+                  <div className="text-gray leading-relaxed text-base pb-5">
+                    {item.answer}
+                  </div>
                 </div>
-              )}
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
       </Section>

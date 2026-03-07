@@ -18,7 +18,7 @@ export const siteContent = {
     hero: {
       headline: 'Technology-forward strategy. Human-first results.',
       subhead:
-        'We help teams unlock digital tools, AI, and cybersecurity best practices—while keeping culture, brand, and real outcomes at the core.',
+        'We help teams adopt digital tools, AI, and cybersecurity practices without losing sight of their culture, brand, or what actually matters.',
       ctaPrimary: 'Book a Discovery Call',
       ctaSecondary: 'Explore What We Have to Offer',
     },
@@ -26,35 +26,35 @@ export const siteContent = {
       headline: 'The PMC Way',
       subhead: 'People Matter Culture',
       description:
-        "We don't just implement technology—we build People Matter Culture into every system we touch. PMC isn't just a tagline—it's a reflection of the values we live by and the kind of company we're committed to building. Integrity, practical creativity, thought diversity, and Kingdom values foundation guide everything we do.",
+        "Every system we build has People Matter Culture baked in. PMC is how we work, not a slogan. It means integrity in our recommendations, practical creativity, thought diversity, and Kingdom values at the foundation.",
     },
     whatSetsUsApart: {
       headline: 'What Sets Us Apart',
       differentiators: [
         {
           title: 'Human-Centered Tech',
-          description: 'Aligning systems with people—not egos or hype—so digital tools work for your goals.',
+          description: 'We match systems to people, not to egos or hype. Your tools should work for your goals.',
           icon: 'lightbulb',
         },
         {
           title: 'Secure by Design',
-          description: 'Cyber-first practices baked into every recommendation. We build trust through proper data hygiene.',
+          description: 'Cybersecurity is in every recommendation we make. Trust starts with proper data hygiene.',
           icon: 'shield',
         },
         {
           title: 'Straightforward Action',
-          description: 'From audits to activations, we build what works. No consultant-speak, no AI hand-waving.',
+          description: 'We build what works. No consultant-speak, no AI hand-waving.',
           icon: 'compass',
         },
         {
           title: 'The Right Fit, Fast',
-          description: 'We help you select the stack that fits your stage, team capacity, and mission—not ours.',
+          description: 'We help you pick the stack that fits your stage and team, not ours.',
           icon: 'target',
         },
       ],
     },
     approachPreview: {
-      headline: 'We translate complexity into clarity.',
+      headline: 'How we turn messy tech into something your team can use.',
       stages: [
         { name: 'Assess', description: 'Uncover real challenges' },
         { name: 'Align', description: 'Map strategy to operations' },
@@ -65,7 +65,7 @@ export const siteContent = {
     servicesPreview: [
       {
         title: 'Deploy Tools You Need At Every Stage',
-        description: 'Digital readiness assessments, roadmap development, and future-proof planning.',
+        description: 'Digital readiness assessments, roadmap development, and planning that holds up.',
         icon: 'tools',
       },
       {
@@ -89,12 +89,12 @@ export const siteContent = {
       clientCount: '45+ organizations across nonprofit, agency, and tech sectors',
       testimonials: [
         {
-          quote: 'YellowBrolly transformed how we think about technology. They made it human.',
+          quote: 'We used to dread tech conversations. YellowBrolly made them feel manageable.',
           author: 'Sarah M.',
           role: 'Executive Director, Nonprofit',
         },
         {
-          quote: 'Finally, a consulting firm that speaks our language and understands our values.',
+          quote: 'They actually listened to how we work before recommending anything. That was new for us.',
           author: 'David K.',
           role: 'Founder, Creative Agency',
         },
@@ -111,12 +111,12 @@ export const siteContent = {
     hero: {
       headline: 'Tech with soul. Strategy with impact.',
       mission:
-        'To empower people-first organizations to thrive in a digital world—securely, strategically, and sustainably.',
+        'Helping people-first organizations do well in a digital world, without compromising on security, strategy, or staying power.',
     },
     story: {
       headline: 'Our Story',
       content:
-        'YellowBrollyCo began at the intersection of creativity, consulting, and community. We saw a need for teams to adopt powerful digital tools—but without sacrificing their identity, culture, or clarity. Founded by leaders who spent years watching organizations struggle with technology that didn\'t match their values, we built YellowBrolly to bridge that gap—bringing the strategic rigor of consulting with the creative empathy of branding, all grounded in People Matter Culture.',
+        'YellowBrollyCo started because we kept seeing the same problem: teams adopting powerful digital tools and losing their identity in the process. We spent years in consulting and branding, watching organizations struggle with technology that didn\'t match their values. So we built YellowBrolly to close that gap, combining strategic rigor with creative empathy, grounded in People Matter Culture.',
     },
     values: [
       {
@@ -126,17 +126,17 @@ export const siteContent = {
       },
       {
         title: 'People-First Tech',
-        description: 'Tools should serve people—not the other way around. We design technology around human workflow, not the other way around.',
+        description: 'Tools should serve people. We design technology around how humans actually work, not the reverse.',
         icon: 'people',
       },
       {
         title: 'Secure by Design',
-        description: 'We build with safety and trust in mind from day one. Security isn\'t a checkbox—it\'s woven into everything we recommend.',
+        description: 'We build with safety and trust from day one. Security is part of every recommendation, not a checkbox.',
         icon: 'secure',
       },
       {
         title: 'Purpose + Progress',
-        description: 'We support organizations doing meaningful work. Your mission matters to us, and we measure success by your impact, not just our deliverables.',
+        description: 'We support organizations doing meaningful work. We measure success by your impact, not our deliverables.',
         icon: 'purpose',
       },
     ],
@@ -144,7 +144,7 @@ export const siteContent = {
       headline: 'The PMC Way',
       subhead: 'People Matter Culture',
       description:
-        'People Matter Culture (PMC) isn\'t just a tagline—it\'s a reflection of the values we live by and the kind of company we\'re committed to building. PMC guides how we work with clients, how we build systems, and how we measure success. It means integrity in every recommendation, practical creativity in our solutions, thought diversity in our approach, and a Kingdom values foundation that shapes our purpose. We don\'t just implement technology—we build People Matter Culture into every system we touch.',
+        'People Matter Culture is how we run this company. PMC shapes how we work with clients, build systems, and measure success. It means integrity in our recommendations, practical creativity in our solutions, thought diversity in our approach, and Kingdom values at the foundation. Every system we touch has PMC built in.',
     },
     team: {
       headline: 'Meet the Team',
@@ -154,30 +154,30 @@ export const siteContent = {
           name: 'Aimee Slater',
           role: 'Founder & Strategic Lead',
           tagline: 'Merging systems thinking with creative strategy.',
-          bio: 'Aimee spent a decade at the intersection of brand agencies and technology consulting, watching teams struggle to adopt tools that didn\'t match their culture. She founded YellowBrolly to bridge that gap—bringing the strategic rigor of consulting with the creative empathy of branding. When she\'s not mapping tech stacks, she\'s probably advocating for better documentation practices (yes, really).',
+          bio: 'Aimee spent a decade bouncing between brand agencies and technology consulting, watching teams struggle to adopt tools that didn\'t match their culture. She started YellowBrolly to fix that, combining strategic consulting with brand-minded empathy. When she\'s not mapping tech stacks, she\'s probably advocating for better documentation practices (yes, really).',
         },
         {
           name: 'Abbey Ferreira',
           role: 'Founder',
-          tagline: 'Expert in brand development and organizational culture transformation.',
-          bio: 'Abbey brings deep expertise in helping organizations align their brand identity with their internal culture and technology choices. She understands that tools are only effective when they reinforce—not undermine—how teams actually work and communicate. Her background in brand strategy and culture transformation makes her uniquely positioned to help teams navigate change without losing their identity.',
+          tagline: 'Brand development and organizational culture, from the inside out.',
+          bio: 'Abbey helps organizations get their brand identity, internal culture, and technology pulling in the same direction. She knows tools only work when they reinforce how teams actually communicate, not fight against it. Her background in brand strategy and culture change means she can help teams adopt new systems without losing who they are.',
         },
         {
           name: 'Jon Ferreira',
           role: 'Founder',
-          tagline: 'Technical architect specializing in secure, scalable digital solutions.',
-          bio: 'Jon is the technical architect behind YellowBrolly\'s secure-by-design approach. With years of experience in cybersecurity, automation, and system architecture, he ensures every recommendation is not just functional but fundamentally safe. He believes technology should empower teams, not create new vulnerabilities, and he builds that philosophy into every solution we deliver.',
+          tagline: 'Technical architect focused on secure, scalable systems.',
+          bio: 'Jon is the technical architect behind YellowBrolly\'s security-first approach. With years in cybersecurity, automation, and system architecture, he makes sure every recommendation is functional and safe. His rule: technology should help teams, not create new attack surfaces. That\'s baked into everything we deliver.',
         },
       ],
-      combinedExperience: '30+ combined years of experience across brand strategy, cybersecurity consulting, and nonprofit technology implementation.',
+      combinedExperience: '30+ years combined in brand strategy, cybersecurity, and nonprofit technology.',
     },
-    cta: "Let's bring strategy, systems, and soul together.",
+    cta: "Let's figure out what your team actually needs.",
   },
 
   approach: {
     hero: {
-      headline: 'The YB Approach: Translating Complexity into Clarity',
-      subhead: "We don't just deploy tools—we align them to your strategy, culture, and people.",
+      headline: 'The YB Approach: from messy to manageable',
+      subhead: "We align tools to your strategy, culture, and people.",
     },
     stages: [
       {
@@ -245,7 +245,7 @@ export const siteContent = {
       details: [
         {
           title: 'Communication Cadence',
-          description: 'We maintain regular check-ins throughout your engagement—weekly during active phases, monthly during optimization. You\'ll have direct Slack access to our team for quick questions.',
+          description: 'Regular check-ins throughout your engagement: weekly during active phases, monthly during optimization. You\'ll have direct Slack access to our team for quick questions.',
         },
         {
           title: 'Typical Project Length',
@@ -253,7 +253,7 @@ export const siteContent = {
         },
         {
           title: 'Deliverables Format',
-          description: 'You\'ll receive executive-ready documentation (PDF), collaborative Notion workspaces for ongoing reference, and live training sessions. All deliverables are designed to be board-meeting ready.',
+          description: 'You\'ll get executive-ready PDFs, Notion workspaces for ongoing reference, and live training sessions. Everything is designed to hold up in a board meeting.',
         },
         {
           title: 'Pricing Approach',
@@ -261,18 +261,18 @@ export const siteContent = {
         },
       ],
     },
-    cta: "We'll meet you where you are—and build from there.",
+    cta: "We'll start where you are and build from there.",
   },
 
   services: {
     hero: {
-      headline: 'Smart Tech. Strong Culture. Strategic Outcomes.',
+      headline: 'Smart tech. Strong culture. Real outcomes.',
     },
     pillars: [
       {
         title: 'Deploy Tools You Need At Every Stage',
         description:
-          'Whether you\'re bootstrapping or scaling, we help you build a tech stack that grows with you—without the chaos.',
+          'Whether you\'re bootstrapping or scaling, we help you build a tech stack that grows with you and doesn\'t fall apart.',
         whatWeDo: [
           'Digital readiness assessments',
           'Roadmap development for your goals',
@@ -280,7 +280,7 @@ export const siteContent = {
           'Tool recommendations matched to your stage',
         ],
         whatYouGet:
-          'A future-proof technology plan backed by team buy-in. You\'ll know exactly what to implement now, what to plan for next quarter, and how to avoid expensive mistakes. Plus: executive-ready documentation for board meetings or investor decks.',
+          'A technology plan your team actually supports. You\'ll know what to implement now, what to plan for next quarter, and how to avoid expensive mistakes. Plus: documentation ready for board meetings or investor decks.',
         outcome: 'Future-proof plan with buy-in',
         timeline: '2-4 weeks',
         investment: 'Starting at $X,XXX',
@@ -289,7 +289,7 @@ export const siteContent = {
       {
         title: 'Align Brand, Culture & Tech',
         description:
-          'Your team won\'t adopt tools that clash with how you actually work. We ensure your tech stack enhances—not erodes—your brand voice, internal communication, and cultural values.',
+          'Your team won\'t adopt tools that clash with how they actually work. We make sure your tech stack supports your brand voice, internal communication, and cultural values instead of undermining them.',
         whatWeDo: [
           'Brand workshops and voice alignment',
           'Internal communication frameworks',
@@ -298,7 +298,7 @@ export const siteContent = {
           'Leadership development for tech transitions',
         ],
         whatYouGet:
-          'Tools that feel like they belong to your organization. From Slack tone guides to CRM workflows that match your sales process, we ensure technology reinforces your culture—not fights it.',
+          'Tools that feel like they belong to your organization. From Slack tone guides to CRM workflows that match your sales process, technology that reinforces your culture instead of fighting it.',
         outcome: 'Stronger engagement, smoother change',
         timeline: '3-6 weeks',
         investment: 'Starting at $X,XXX',
@@ -307,16 +307,16 @@ export const siteContent = {
       {
         title: 'Secure Your Digital Properties',
         description:
-          'We build with safety and trust in mind from day one. Security isn\'t a checkbox—it\'s woven into everything we recommend.',
+          'We build with safety and trust from day one. Security is part of every recommendation, not a checkbox at the end.',
         whatWeDo: [
-          'Comprehensive cyber audits',
+          'Full cyber audits',
           'Policy development and support',
           'Phishing simulation and training',
           'Digital hygiene protocols',
           'Compliance readiness (GDPR, HIPAA, etc.)',
         ],
         whatYouGet:
-          'Peace of mind with IRCC-ready protocols. You\'ll have documented security policies, trained staff, and systems that protect your data and your clients\' trust.',
+          'IRCC-ready protocols, documented security policies, trained staff, and systems that protect your data and your clients\' trust.',
         outcome: 'Peace of mind, IRCC-ready protocols',
         timeline: '2-6 weeks',
         investment: 'Starting at $X,XXX',
@@ -334,14 +334,14 @@ export const siteContent = {
           'Adoption strategy and training',
         ],
         whatYouGet:
-          'Streamlined workflows and better insights. You\'ll know which AI tools actually save time (not just create busywork) and how to introduce them without scaring your team.',
-        outcome: 'Streamlined workflows, better insights',
+          'Faster workflows and better insights. You\'ll know which AI tools actually save time (not just create busywork) and how to introduce them without scaring your team.',
+        outcome: 'Faster workflows, better insights',
         timeline: '3-8 weeks',
         investment: 'Starting at $X,XXX',
         icon: 'ai',
       },
     ],
-    cta: "Let's build something that works—technically and culturally.",
+    cta: "Let's build something that works for your team.",
   },
 
   caseStudies: {
@@ -355,7 +355,7 @@ export const siteContent = {
         sectorPainPoint:
           'Picture this: Your team is using Google Drive, Dropbox, SharePoint, AND email attachments. Nobody knows where the latest grant proposal lives. Your ED is working weekends to find files. Sound familiar?',
         challenge: 'Outdated systems causing inefficiencies and audit risks',
-        solution: 'Comprehensive tech stack overhaul with documented SOPs',
+        solution: 'Full tech stack overhaul with documented SOPs',
         outcome: '38% time savings, documented SOPs, passed audit with zero flags',
         before: {
           tools: '12 different tools with overlapping functions',
@@ -382,7 +382,7 @@ export const siteContent = {
         sectorPainPoint:
           'Your remote team is sharing files via email, Slack, WeTransfer, and three different cloud drives. Client assets are scattered. You\'re one security incident away from a nightmare.',
         challenge: 'Remote team with security vulnerabilities and scattered workflows',
-        solution: 'Implemented cybersecurity protocols and streamlined file-sharing',
+        solution: 'Implemented cybersecurity protocols and unified file-sharing',
         outcome: 'Secure remote operations, improved client onboarding',
         before: {
           tools: 'Multiple file-sharing platforms, no central system',
@@ -392,11 +392,11 @@ export const siteContent = {
         after: {
           tools: 'Unified file system with proper access controls',
           security: '100% remote security compliance',
-          onboarding: 'Streamlined client onboarding process',
+          onboarding: 'Consistent client onboarding process',
         },
-        metrics: ['100% remote security', 'Streamlined onboarding', 'Unified file system'],
+        metrics: ['100% remote security', 'Consistent onboarding', 'Unified file system'],
         quote:
-          'Finally, a consulting firm that speaks our language and understands our values. They made security feel like part of our creative process, not a burden.',
+          'They got that we\'re a creative team first. Security stopped feeling like a chore once they showed us how it fits our actual workflow.',
         quoteAuthor: 'Founder',
         quoteRole: 'Creative Agency',
       },
@@ -420,7 +420,7 @@ export const siteContent = {
         },
         metrics: ['50% less noise', 'Clear ownership', 'Mapped processes'],
         quote:
-          'YellowBrolly helped us go from chaos to clarity. We finally have systems that scale with us instead of breaking under pressure.',
+          'We went from daily firefighting to actually knowing who owns what. Our systems can handle growth now instead of cracking under it.',
         quoteAuthor: 'COO',
         quoteRole: 'Tech Startup',
       },
@@ -444,12 +444,12 @@ export const siteContent = {
         },
         metrics: ['100% staff trained', 'Unified platform', 'Cultural buy-in'],
         quote:
-          'They understood our culture and helped us introduce technology in a way that felt natural, not forced. Our team actually embraced the change.',
+          'Our staff were skeptical about new tech. YellowBrolly rolled it out in a way that didn\'t feel like a top-down mandate, and people actually got on board.',
         quoteAuthor: 'Executive Director',
         quoteRole: 'Faith-Based Organization',
       },
     ],
-    cta: "You're not starting from scratch. Let's build on what's working—and fix what's not.",
+    cta: "You're not starting from scratch. Let's build on what's working and fix what's not.",
   },
 
   blog: {
@@ -462,7 +462,7 @@ export const siteContent = {
         id: '1',
         title: 'Why People-First Tech Matters More Than Ever',
         excerpt:
-          'In a world racing toward automation, the organizations that thrive are those that keep humans at the center.',
+          'Automation is accelerating. The organizations doing well are the ones keeping humans in the loop.',
         date: '2024-01-15',
         category: 'Culture',
         image: '/blog/people-first.jpg',
@@ -471,7 +471,7 @@ export const siteContent = {
         id: '2',
         title: '5 Signs Your Tech Stack Needs an Audit',
         excerpt:
-          'Is your technology helping or hindering your team? Here are the warning signs to watch for.',
+          'Five signs your tools are slowing your team down instead of helping them.',
         date: '2024-01-08',
         category: 'Technology',
         image: '/blog/tech-audit.jpg',
@@ -480,7 +480,7 @@ export const siteContent = {
         id: '3',
         title: 'Building a Culture of Digital Confidence',
         excerpt:
-          'How to transform tech-resistant teams into confident digital adopters.',
+          'What we\'ve learned about getting reluctant teams comfortable with new tools.',
         date: '2024-01-02',
         category: 'Strategy',
         image: '/blog/digital-confidence.jpg',
@@ -492,7 +492,7 @@ export const siteContent = {
   contact: {
     hero: {
       headline: "Let's Talk",
-      subhead: 'Ready to discuss your tech + strategy goals? We\'d love to hear from you.',
+      subhead: 'Tell us about your tech and strategy goals.',
     },
     form: {
       fields: [
@@ -531,13 +531,13 @@ export const siteContent = {
     frequency: 'We send 1 email/month. Unsubscribe anytime.',
     leadMagnet: {
       title: 'Download: The Digital Readiness Assessment',
-      description: 'A free self-assessment tool to evaluate your organization\'s technology maturity and identify key areas for improvement.',
+      description: 'A free self-assessment to see where your organization stands with technology and where to focus next.',
     },
   },
   faq: {
     hero: {
       headline: 'Frequently Asked Questions',
-      subhead: 'Everything you need to know about working with YellowBrolly.',
+      subhead: 'Common questions about working with us.',
     },
     questions: [
       {
@@ -548,90 +548,90 @@ export const siteContent = {
       {
         question: 'What\'s a digital readiness assessment?',
         answer:
-          'A digital readiness assessment is a comprehensive evaluation of your current technology stack, team capacity, and cultural readiness for change. We review your tools, processes, security posture, and team adoption rates to create a clear picture of where you are and where you need to go. Typical timeline: 2-4 weeks.',
+          'We look at your current tech stack, team capacity, and how ready your organization is for change. That means reviewing tools, processes, security, and adoption rates to figure out where you are and what needs attention. Usually takes 2-4 weeks.',
       },
       {
         question: 'How long does a tech stack audit take?',
         answer:
-          'A comprehensive tech stack audit typically takes 2-4 weeks. This includes stakeholder interviews, tool inventory, usage analysis, security review, and documentation. We deliver an executive-ready report with prioritized recommendations and a roadmap for implementation.',
+          'Usually 2-4 weeks. We do stakeholder interviews, inventory your tools, analyze usage, review security, and document everything. You get a report with prioritized recommendations and an implementation roadmap.',
       },
       {
         question: 'Do we need to be technical to work with you?',
         answer:
-          'Not at all. We specialize in working with non-technical leaders who need technology to work for their teams. We translate technical concepts into clear, actionable strategies. Our goal is to make technology accessible, not intimidating.',
+          'No. Most of our clients aren\'t technical. We translate the jargon into clear, actionable plans your team can follow.',
       },
       {
         question: 'What\'s the difference between a CTO and a technology consultant?',
         answer:
-          'A CTO is a full-time executive role focused on long-term technology strategy and team management. A technology consultant (like us) provides strategic guidance, implementation support, and expertise on a project basis. We help you build the right systems and processes, then hand them over to your team. Many organizations work with us to establish their tech foundation before hiring a full-time CTO.',
+          'A CTO is full-time and owns long-term tech strategy and team management. We provide strategic guidance and implementation support on a project basis, then hand it off. A lot of organizations work with us to build their tech foundation before hiring a CTO.',
       },
       {
         question: 'Can you help us if we\'re just starting out?',
         answer:
-          'Absolutely. We specialize in helping organizations at every stage—from bootstrapping startups to scaling nonprofits. Early-stage work often focuses on selecting the right foundational tools and establishing good practices from the start, which saves significant time and money later.',
+          'Yes. Early-stage work usually means picking the right foundational tools and setting up good practices from the start. That saves real time and money down the road.',
       },
       {
         question: 'What if we already have tools in place?',
         answer:
-          'Most of our clients come to us with existing tools. We help you audit what you have, identify gaps and redundancies, and create a plan to optimize your current stack. Sometimes the solution is better adoption of existing tools, not new ones.',
+          'Most of our clients already have tools in place. We audit what you have, find gaps and redundancies, and make a plan to fix your stack. Sometimes the answer is better adoption of what you already own, not new purchases.',
       },
       {
         question: 'Do you only work with nonprofits?',
         answer:
-          'While we have deep expertise with nonprofits and mission-driven organizations, we also work with creative agencies, tech startups, and other people-first organizations. What unites our clients is a commitment to culture and values, not just profit.',
+          'We know nonprofits and mission-driven organizations well, but we also work with creative agencies, tech startups, and other people-first teams. What our clients have in common is that they care about culture and values, not just profit.',
       },
       {
         question: 'How do you handle cybersecurity?',
         answer:
-          'Security is built into everything we do, not added as an afterthought. We conduct comprehensive security audits, develop policies and protocols, provide training, and ensure compliance with relevant regulations (GDPR, HIPAA, etc.). We believe security should be practical and accessible, not overwhelming.',
+          'Security is part of everything we do, not bolted on at the end. We run security audits, develop policies, train staff, and help with compliance (GDPR, HIPAA, etc.). We keep it practical, not overwhelming.',
       },
       {
         question: 'What happens after a project ends?',
         answer:
-          'We provide comprehensive documentation and training so your team can maintain what we\'ve built. Many clients choose ongoing support for optimization, new integrations, or strategic guidance. We also offer quarterly check-ins and "Amplify" phase support for organizations that want continuous improvement.',
+          'You get full documentation and training so your team can maintain what we\'ve built. Many clients stick around for ongoing support, new integrations, or strategic check-ins. We also offer quarterly reviews for organizations that want to keep improving.',
       },
       {
         question: 'Can you help with AI adoption?',
         answer:
-          'Yes, but we\'re thoughtful about it. We help you assess whether AI actually solves your problems (sometimes a spreadsheet is better). When AI makes sense, we help you integrate it thoughtfully, train your team, and measure real impact—not just hype.',
+          'Yes, but we\'re honest about it. We help you figure out if AI actually solves your problem (sometimes a spreadsheet is better). When it does make sense, we integrate it, train your team, and measure real impact.',
       },
       {
         question: 'What makes YellowBrolly different from other consultants?',
         answer:
-          'We focus on the intersection of technology and culture. We don\'t just recommend tools—we ensure they fit how your team actually works. Our PMC (People Matter Culture) approach means we care about your values, not just your efficiency. Plus, we\'re built for teams of 10-100, not 10,000, so you get personalized attention without enterprise bloat.',
+          'We care about how technology and culture fit together. We don\'t just recommend tools; we make sure they work with how your team operates. Our PMC approach means your values matter as much as your efficiency. And we\'re built for teams of 10-100, not 10,000.',
       },
       {
         question: 'How do we get started?',
         answer:
-          'Start with a discovery call. We\'ll discuss your challenges, goals, and current state. If there\'s a good fit, we\'ll propose a scope of work tailored to your needs. No pressure, no hard sell—just honest conversation about whether we can help.',
+          'Book a discovery call. We\'ll talk through your challenges, goals, and where things stand. If there\'s a fit, we\'ll propose a scope of work. No hard sell.',
       },
     ],
   },
   whyYellowBrolly: {
     hero: {
       headline: 'Why YellowBrolly?',
-      subhead: 'Understanding when to hire us—and when other options might be better.',
+      subhead: 'When to hire us, and when other options might be better.',
     },
     positioning: {
       vsTraditionalConsultancies: {
-        title: 'vs. Traditional Consultancies (Deloitte, Accenture)',
+        title: 'Traditional Consultancies (Deloitte, Accenture)',
         advantage:
           'We\'re built for teams of 10-100, not 10,000. No enterprise bloat, no cookie-cutter solutions. You get personalized attention and recommendations that actually fit your stage and budget.',
       },
       vsFreelanceDevelopers: {
-        title: 'vs. Freelance Developers',
+        title: 'Freelance Developers',
         advantage:
           'Strategy first, then implementation. We solve the "what and why" before touching code. Many developers are great at building, but we help you figure out what to build and why it matters to your team.',
       },
       vsDIYTools: {
-        title: 'vs. DIY Tools (SaaS)',
+        title: 'DIY Tools (SaaS)',
         advantage:
-          'Tools are only useful if your team actually adopts them. We ensure that happens. We help you select the right tools, implement them properly, train your team, and measure real adoption—not just subscriptions.',
+          'Tools are only useful if your team actually adopts them. We help you select the right ones, implement them properly, train your team, and measure real adoption, not just subscriptions.',
       },
       vsAITechHype: {
-        title: 'vs. AI/Tech Hype Firms',
+        title: 'AI/Tech Hype Firms',
         advantage:
-          'We recommend what you need, not what\'s trendy. Sometimes that\'s a spreadsheet, not AI. We focus on real outcomes, not buzzwords. Your mission matters to us, and we measure success by your impact.',
+          'We recommend what you need, not what\'s trendy. Sometimes that\'s a spreadsheet, not AI. We measure success by your outcomes, not by how many tools we sold you.',
       },
     },
     goodFit: {

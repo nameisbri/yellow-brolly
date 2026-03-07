@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { siteContent } from '../data/content';
-import { Section, SectionHeader } from '../components/common';
+import { Section } from '../components/common';
 import {
   PageHero,
   ValuesGrid,
@@ -44,10 +44,10 @@ export function About() {
       if (pmcRef.current) {
         gsap.fromTo(
           pmcRef.current,
-          { opacity: 0, scale: 0.95 },
+          { opacity: 0, y: 40 },
           {
             opacity: 1,
-            scale: 1,
+            y: 0,
             duration: 0.9,
             ease: 'power3.out',
             scrollTrigger: {
@@ -72,8 +72,10 @@ export function About() {
       />
 
       <Section background="dark">
-        <div ref={storyRef} className="max-w-3xl mx-auto text-center">
-          <SectionHeader headline={story.headline} eyebrow="Our Story" />
+        <div ref={storyRef} className="max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
+            {story.headline}
+          </h2>
           <p className="text-lg text-gray leading-relaxed">
             {story.content}
           </p>
@@ -83,22 +85,16 @@ export function About() {
       <ValuesGrid />
 
       <Section background="black">
-        <div ref={pmcRef} className="max-w-3xl mx-auto text-center">
-          <div className="bg-dark-elevated rounded-2xl p-10 md:p-14 border border-dark-border relative overflow-hidden">
-            {/* Decorative gradient */}
-            <div className="absolute -top-20 -left-20 w-40 h-40 bg-yellow-primary/10 rounded-full blur-3xl" />
-            <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-yellow-primary/10 rounded-full blur-3xl" />
-
-            {pmcWay.subhead && (
-              <span className="inline-block px-4 py-1.5 text-sm font-medium bg-yellow-primary text-black rounded-full mb-5 relative">
-                {pmcWay.subhead}
-              </span>
-            )}
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-5 relative">
-              {pmcWay.headline}
-            </h2>
-            <p className="text-lg text-gray leading-relaxed relative">{pmcWay.description}</p>
-          </div>
+        <div ref={pmcRef} className="max-w-3xl">
+          {pmcWay.subhead && (
+            <span className="inline-block px-2 py-1 text-sm font-medium bg-dark-border text-light-gray mb-4 tracking-wider uppercase">
+              {pmcWay.subhead}
+            </span>
+          )}
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-5">
+            {pmcWay.headline}
+          </h2>
+          <p className="text-lg text-gray leading-relaxed border-l-4 border-yellow-primary pl-4">{pmcWay.description}</p>
         </div>
       </Section>
 

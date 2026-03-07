@@ -15,7 +15,7 @@ interface CTASectionProps {
 
 export function CTASection({
   headline = "Ready to get started?",
-  subhead = "Let's discuss how we can help your organization thrive.",
+  subhead = "Let's talk about what your organization actually needs.",
   primaryCta = { label: 'Book a Discovery Call', to: '/contact' },
   secondaryCta,
 }: CTASectionProps) {

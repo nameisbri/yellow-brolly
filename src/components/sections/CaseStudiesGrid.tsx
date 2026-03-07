@@ -53,7 +53,7 @@ export function CaseStudiesGrid() {
             opacity: 1,
             duration: 0.4,
             delay: 0.6 + index * 0.05,
-            ease: 'back.out(2)',
+            ease: 'expo.out',
             scrollTrigger: {
               trigger: gridRef.current,
               start: 'top 75%',

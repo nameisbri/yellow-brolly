@@ -1,72 +1,110 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Section, SectionHeader, Card, getServiceIcon } from '../common';
+import { Section } from '../common';
 import { siteContent } from '../../data/content';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function WhatSetsUsApart() {
-  const gridRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const { whatSetsUsApart } = siteContent.home;
 
+  const [featured, ...rest] = whatSetsUsApart.differentiators;
+
   useEffect(() => {
-    if (prefersReducedMotion || !gridRef.current) return;
+    if (prefersReducedMotion || !containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      const cards = gsap.utils.toArray<HTMLElement>('.differentiator-card');
+      // Heading slides up
+      gsap.fromTo(
+        '.wsua-heading',
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
 
-      cards.forEach((card, index) => {
-        gsap.fromTo(
-          card,
-          { opacity: 0, y: 60, rotateX: -15 },
-          {
-            opacity: 1,
-            y: 0,
-            rotateX: 0,
-            duration: 0.8,
-            delay: index * 0.1,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: gridRef.current,
-              start: 'top 75%',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      });
-    }, gridRef);
+      // Featured item
+      gsap.fromTo(
+        '.wsua-featured',
+        { opacity: 0, x: -30 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.7,
+          delay: 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
+
+      // Grid items stagger in
+      gsap.fromTo(
+        '.wsua-item',
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.1,
+          delay: 0.3,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top 70%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
+    }, containerRef);
 
     return () => ctx.revert();
   }, [prefersReducedMotion]);
 
   return (
-    <Section background="dark" className="relative overflow-hidden">
-      <SectionHeader
-        headline={whatSetsUsApart.headline}
-        eyebrow="Differentiators"
-      />
+    <Section background="dark">
+      <div ref={containerRef}>
+        <h2 className="wsua-heading text-3xl md:text-4xl font-display font-bold text-white mb-10">
+          What Sets Us Apart
+        </h2>
 
-      <div
-        ref={gridRef}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-        style={{ perspective: '1000px' }}
-      >
-        {whatSetsUsApart.differentiators.map((item) => (
-          <div key={item.title} className="differentiator-card">
-            <Card className="text-center group h-full">
-              <div className="mx-auto mb-5 w-16 h-16 rounded-2xl bg-yellow-dim flex items-center justify-center text-yellow-primary group-hover:bg-yellow-primary group-hover:text-black transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                {getServiceIcon(item.icon)}
-              </div>
-              <h3 className="text-xl font-display font-bold text-white mb-3 group-hover:text-yellow-primary transition-colors duration-300">
+        <div className="wsua-featured border-l-4 border-yellow-primary pl-6 mb-12">
+          <h3 className="text-2xl font-display font-bold text-white mb-3">
+            {featured.title}
+          </h3>
+          <p className="text-lg text-gray leading-relaxed">
+            {featured.description}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {rest.map((item) => (
+            <div key={item.title} className="wsua-item">
+              <h3 className="text-lg font-bold text-white mb-2">
+                <span className="inline-block w-2 h-2 rounded-full bg-yellow-primary mr-2 align-middle" />
                 {item.title}
               </h3>
-              <p className="text-gray leading-relaxed">{item.description}</p>
-            </Card>
-          </div>
-        ))}
+              <p className="text-sm text-gray leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </Section>
   );

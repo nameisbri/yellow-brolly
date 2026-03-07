@@ -7,6 +7,13 @@ import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const pillarAccentColors: Record<string, string> = {
+  tools: 'var(--color-accent-teal)',
+  culture: 'var(--color-accent-amber)',
+  security: 'var(--color-accent-sage)',
+  ai: 'var(--color-accent-mauve)',
+};
+
 export function ServicePillars() {
   const gridRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -64,6 +71,7 @@ export function ServicePillars() {
               whatYouGet={pillar.whatYouGet}
               timeline={pillar.timeline}
               investment={pillar.investment}
+              accentColor={pillarAccentColors[pillar.icon]}
               className="h-full"
             />
           </div>

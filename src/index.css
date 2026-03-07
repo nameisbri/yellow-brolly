@@ -16,13 +16,19 @@
   --color-yellow-hover: #FFCA4D;
   --color-yellow-glow: rgba(247, 179, 43, 0.4);
   --color-yellow-dim: rgba(247, 179, 43, 0.15);
-  --color-black: #0A0A0A;
-  --color-dark: #111111;
-  --color-dark-elevated: #1A1A1A;
-  --color-dark-border: #4A4A4A;
-  --color-gray: #B0B0B0;
-  --color-light-gray: #CCCCCC;
-  --color-white: #FAFAFA;
+  --color-black: #0C0A08;
+  --color-dark: #141210;
+  --color-dark-elevated: #1E1B17;
+  --color-dark-border: #3D3830;
+  --color-gray: #A89F94;
+  --color-light-gray: #C8BFB4;
+  --color-white: #F5F0E8;
+
+  /* Service pillar accent colors */
+  --color-accent-teal: #6B9E9E;
+  --color-accent-amber: #C4956A;
+  --color-accent-sage: #7A9E7A;
+  --color-accent-mauve: #9B7EA0;
 
   /* Typography */
   --font-display: 'Coolvetica', 'Bebas Neue', 'Impact', system-ui, sans-serif;
@@ -37,7 +43,7 @@
 html {
   scroll-behavior: smooth;
   /* Optimize font rendering */
-  text-rendering: optimizeSpeed;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -62,8 +68,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Reduce paint by avoiding layout thrashing */
-  contain: paint;
+  /* contain: paint breaks position:fixed children like the header */
 }
 
 /* Display Font for Headlines - Elegant & Professional */
@@ -72,8 +77,6 @@ h1, h2, h3, .font-display {
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.02em;
   text-transform: none;
-  /* Optimize GPU acceleration for animated elements only */
-  will-change: transform, opacity;
 }
 
 /* Selection styling */
@@ -111,17 +114,9 @@ h1, h2, h3, .font-display {
   background: var(--color-yellow-primary);
 }
 
-/* Text Gradient Utility */
-.text-gradient {
-  background: linear-gradient(135deg, var(--color-yellow-primary) 0%, var(--color-yellow-hover) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* Glow Effect */
 .glow {
-  text-shadow: 0 0 40px var(--color-yellow-glow), 0 0 80px var(--color-yellow-glow);
+  text-shadow: 0 0 20px var(--color-yellow-glow);
 }
 
 /* Line reveal animation base */

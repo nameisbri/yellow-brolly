@@ -58,8 +58,8 @@ export function BlogGrid() {
             onClick={() => setActiveCategory(category)}
             className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
               activeCategory === category
-                ? 'bg-yellow-primary text-black shadow-[0_0_20px_rgba(255,221,0,0.3)]'
-                : 'bg-dark-elevated text-gray border border-dark-border hover:border-yellow-primary/50 hover:text-white'
+                ? 'bg-yellow-primary text-black'
+                : 'bg-dark-elevated text-gray border border-dark-border hover:border-dark-border/80 hover:text-white'
             }`}
           >
             {category}
@@ -73,20 +73,20 @@ export function BlogGrid() {
             <Card className="group cursor-pointer h-full">
               {/* Image placeholder */}
               <div className="aspect-video bg-dark rounded-xl mb-5 overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-primary/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-br from-dark-border/30 to-transparent" />
                 <div className="w-full h-full flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-yellow-dim flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                    <span className="text-2xl text-yellow-primary">+</span>
+                  <div className="w-16 h-16 rounded-full bg-dark-border/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                    <span className="text-2xl text-light-gray">+</span>
                   </div>
                 </div>
               </div>
 
               {/* Category badge */}
-              <span className="inline-block px-4 py-1.5 text-xs font-semibold bg-yellow-dim text-yellow-primary rounded-full mb-4 uppercase tracking-wider">
+              <span className="inline-block px-4 py-1.5 text-xs font-semibold bg-dark-border/40 text-light-gray rounded-full mb-4 uppercase tracking-wider">
                 {post.category}
               </span>
 
-              <h3 className="text-xl font-display font-bold text-white mb-3 group-hover:text-yellow-primary transition-colors duration-300 leading-tight">
+              <h3 className="text-xl font-display font-bold text-white mb-3 leading-tight">
                 {post.title}
               </h3>
               <p className="text-gray text-sm mb-5 leading-relaxed">{post.excerpt}</p>
@@ -106,7 +106,7 @@ export function BlogGrid() {
       <div className="mt-16 text-center">
         <div className="bg-dark-elevated rounded-2xl p-10 max-w-xl mx-auto border border-dark-border relative overflow-hidden">
           {/* Decorative glow */}
-          <div className="absolute -top-20 -right-20 w-40 h-40 bg-yellow-primary/10 rounded-full blur-3xl" />
+          <div className="absolute -top-20 -right-20 w-40 h-40 bg-yellow-primary/5 rounded-full blur-3xl" />
 
           <h3 className="text-2xl font-display font-bold text-white mb-3 relative">
             Stay in the Loop
