@@ -532,21 +532,6 @@ export const siteContent = {
       description: 'Book a 15-min intro call (no pressure)',
     },
   },
-  newsletter: {
-    headline: 'Join 1,200+ nonprofit leaders getting practical tech + culture insights',
-    description: 'Get our monthly Digital Culture Notes:',
-    benefits: [
-      'Tool recommendations that actually fit small teams',
-      'Cybersecurity checklists for non-technical leaders',
-      'Real case studies (wins and lessons)',
-      'No vendor pitches. No AI hype. Just honest guidance.',
-    ],
-    frequency: 'We send 1 email/month. Unsubscribe anytime.',
-    leadMagnet: {
-      title: 'Download: The Digital Readiness Assessment',
-      description: 'A free self-assessment to see where your organization stands with technology and where to focus next.',
-    },
-  },
   faq: {
     hero: {
       headline: 'Frequently Asked Questions',

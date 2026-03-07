@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Section, Card, Button } from '../common';
+import { Section, Card } from '../common';
 import { siteContent } from '../../data/content';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
@@ -102,30 +102,6 @@ export function BlogGrid() {
         ))}
       </div>
 
-      {/* Newsletter signup */}
-      <div className="mt-16 text-center">
-        <div className="bg-dark-elevated rounded-2xl p-10 max-w-xl mx-auto border border-dark-border relative overflow-hidden">
-          {/* Decorative glow */}
-          <div className="absolute -top-20 -right-20 w-40 h-40 bg-yellow-primary/5 rounded-full blur-3xl" />
-
-          <h3 className="text-2xl font-display font-bold text-white mb-3 relative">
-            Stay in the Loop
-          </h3>
-          <p className="text-gray mb-6 relative">
-            Get insights on tech, culture, and strategy delivered to your inbox.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-3 relative">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-5 py-3.5 rounded-full bg-dark border border-dark-border text-white placeholder-gray/50 focus:border-yellow-primary focus:outline-none focus:ring-2 focus:ring-yellow-primary/20 transition-all"
-            />
-            <Button type="submit" variant="primary">
-              Subscribe
-            </Button>
-          </form>
-        </div>
-      </div>
     </Section>
   );
 }

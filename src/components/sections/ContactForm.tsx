@@ -17,6 +17,7 @@ export function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
@@ -64,12 +65,33 @@ export function ContactForm() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError('');
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          subject: `New inquiry from ${formData.name} — ${formData.inquiryType || 'General'}`,
+          from_name: formData.name,
+          ...formData,
+        }),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', organization: '', inquiryType: '', message: '' });
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', organization: '', inquiryType: '', message: '' });
+      } else {
+        setSubmitError('Something went wrong. Please try again or email us directly.');
+      }
+    } catch {
+      setSubmitError('Could not send your message. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -159,6 +181,9 @@ export function ContactForm() {
                   )}
                 </div>
               ))}
+              {submitError && (
+                <p className="text-sm text-red-400 text-center">{submitError}</p>
+              )}
               {siteContent.contact.form.responseTime && (
                 <p className="text-xs text-gray text-center">
                   {siteContent.contact.form.responseTime}
