@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/astro/PageHero.astro';
+import Section from '../components/astro/Section.astro';
+import FAQAccordion from '../components/react/FAQAccordion.tsx';
+import { siteContent } from '../data/content';
+---
+
+<Base
+  title="FAQ — Technology Consulting Questions | YellowBrollyCo"
+  description="Common questions about working with YellowBrolly: pricing, timelines, cybersecurity, AI adoption, and more."
+>
+  <PageHero headline="Frequently Asked Questions" subhead="Common questions about working with us." eyebrow="FAQ" />
+  <Section background="dark">
+    <FAQAccordion client:visible questions={siteContent.faq.questions} />
+  </Section>
+</Base>

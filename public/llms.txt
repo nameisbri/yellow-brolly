@@ -1,0 +1,25 @@
+# Yellow Brolly Co
+
+> Technology-forward strategy. Human-first results.
+
+Yellow Brolly Co is a technology consulting firm helping nonprofits, agencies, and mission-driven organizations adopt AI, cybersecurity, and digital tools that fit their culture.
+
+## Services
+- Digital readiness assessments and tech stack audits
+- Brand and culture alignment for technology adoption
+- Cybersecurity audits, policy development, and compliance
+- AI integration and workflow automation
+
+## Pages
+- [Home](https://yellow-brolly.vercel.app/)
+- [About Us](https://yellow-brolly.vercel.app/about)
+- [Services](https://yellow-brolly.vercel.app/services)
+- [Our Approach](https://yellow-brolly.vercel.app/approach)
+- [Case Studies](https://yellow-brolly.vercel.app/case-studies)
+- [FAQ](https://yellow-brolly.vercel.app/faq)
+- [Contact](https://yellow-brolly.vercel.app/contact)
+- [Blog](https://yellow-brolly.vercel.app/blog)
+
+## Contact
+- Email: hello@yellowbrolly.co
+- Calendly: https://calendly.com/yellowbrolly
