@@ -1,0 +1,104 @@
+---
+const navItems = [
+  { label: 'Home', path: '/' },
+  { label: 'About Us', path: '/about' },
+  { label: 'The YB Approach', path: '/approach' },
+  { label: 'What We Do', path: '/services' },
+];
+
+const moreItems = [
+  { label: 'Why YellowBrolly', path: '/why-yellowbrolly' },
+  { label: 'FAQ', path: '/faq' },
+  { label: "Let's Talk", path: '/contact' },
+];
+
+const footerLinks = [
+  { label: 'Privacy Policy', path: '/privacy' },
+  { label: 'Terms of Service', path: '/terms' },
+];
+
+const currentYear = new Date().getFullYear();
+const marqueeText = 'DIGITAL STRATEGY \u00B7 HUMAN-FIRST \u00B7 CYBERSECURITY \u00B7 BRAND & CULTURE \u00B7 AI INTEGRATION \u00B7 ';
+---
+
+<footer class="bg-dark border-t border-dark-border">
+  <div class="py-6 border-b border-dark-border overflow-hidden">
+    <div class="marquee-track">
+      <div class="marquee-content text-xl md:text-2xl lg:text-3xl xl:text-4xl font-display text-dark-border select-none tracking-wider">
+        <span>{marqueeText}</span>
+        <span>{marqueeText}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl py-12 md:py-16 lg:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-8">
+      <div class="lg:col-span-2">
+        <a href="/" class="inline-flex items-center gap-3 mb-6 group">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-primary group-hover:scale-110 transition-transform duration-300">
+            <path d="M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7" />
+          </svg>
+          <span class="font-display font-bold text-2xl text-white">Yellow Brolly Co</span>
+        </a>
+        <p class="text-gray max-w-md text-lg leading-relaxed">
+          Technology-forward strategy. Human-first results.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-display font-bold text-white mb-6 text-lg">Navigate</h4>
+        <nav class="flex flex-col gap-3">
+          {navItems.map((item) => (
+            <a href={item.path} class="text-gray hover:text-yellow-primary transition-colors duration-300 hover:translate-x-1 transform inline-block py-2 min-h-[48px] flex items-center">
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+
+      <div>
+        <h4 class="font-display font-bold text-white mb-6 text-lg">More</h4>
+        <nav class="flex flex-col gap-3">
+          {moreItems.map((item) => (
+            <a href={item.path} class="text-gray hover:text-yellow-primary transition-colors duration-300 hover:translate-x-1 transform inline-block py-2 min-h-[48px] flex items-center">
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </div>
+
+    <div class="border-t border-dark-border mt-12 md:mt-16 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-gray/60 text-sm">&copy; {currentYear} Yellow Brolly Co. All rights reserved.</p>
+      <div class="flex gap-6 sm:gap-8">
+        {footerLinks.map((link) => (
+          <a href={link.path} class="text-gray/60 hover:text-yellow-primary text-sm transition-colors duration-300 py-2 min-h-[48px] inline-flex items-center">
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .marquee-track {
+    overflow: hidden;
+    width: 100%;
+  }
+  .marquee-content {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+  }
+  .marquee-content span {
+    padding-right: 2rem;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-content { animation: none; }
+  }
+</style>

@@ -1,5 +1,7 @@
 ---
 import SEOHead from '../components/astro/SEOHead.astro';
+import Header from '../components/astro/Header.astro';
+import Footer from '../components/astro/Footer.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -30,10 +32,11 @@ const currentPath = Astro.url.pathname;
       <!-- Noise texture overlay -->
       <div class="fixed inset-0 pointer-events-none z-40 opacity-[0.02]" style={`background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`} />
 
-      <!-- Header and Footer will be added in Task 4 -->
+      <Header currentPath={currentPath} />
       <main class="flex-grow">
         <slot />
       </main>
+      <Footer />
     </div>
   </body>
 </html>
