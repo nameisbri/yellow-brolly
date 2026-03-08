@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/astro/PageHero.astro';
+import Section from '../../components/astro/Section.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<Base title="Insights & Ideas | YellowBrollyCo" description="Thoughts on technology, culture, and people-first strategy from the YellowBrolly team.">
+  <PageHero headline="Insights & Ideas" subhead="Thoughts on technology, culture, and people-first strategy." eyebrow="Blog" />
+
+  <Section background="dark">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {posts.map((post) => (
+        <a href={`/blog/${post.id}`} class="group block bg-dark-elevated border border-dark-border rounded-2xl overflow-hidden hover:border-yellow-primary/30 transition-all duration-300">
+          <div class="p-6">
+            <span class="text-yellow-primary text-xs font-semibold tracking-wider uppercase">{post.data.category}</span>
+            <h2 class="text-lg font-bold text-white mt-2 mb-3 group-hover:text-yellow-primary transition-colors">{post.data.title}</h2>
+            <p class="text-gray text-sm leading-relaxed">{post.data.excerpt}</p>
+            <time class="block text-gray/60 text-xs mt-4">{new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+          </div>
+        </a>
+      ))}
+    </div>
+  </Section>
+</Base>
