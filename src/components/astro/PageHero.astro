@@ -1,0 +1,30 @@
+---
+interface Props {
+  headline: string;
+  subhead?: string;
+  eyebrow?: string;
+}
+
+const { headline, subhead, eyebrow } = Astro.props;
+---
+
+<section class="relative pt-24 pb-16 md:pt-36 md:pb-20 lg:pt-48 lg:pb-32 bg-black overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-dark-elevated/50 to-black"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,221,0,0.08),transparent_50%)]"></div>
+
+  <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
+    {eyebrow && (
+      <span class="inline-block text-yellow-primary text-sm font-semibold tracking-[0.3em] uppercase mb-6">
+        {eyebrow}
+      </span>
+    )}
+    <h1 class="scroll-fade-up text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-[1.1] tracking-tight max-w-4xl">
+      {headline}
+    </h1>
+    {subhead && (
+      <p class="scroll-fade-up mt-6 md:mt-8 text-base md:text-xl text-gray max-w-2xl leading-relaxed">
+        {subhead}
+      </p>
+    )}
+  </div>
+</section>

@@ -1,0 +1,38 @@
+---
+import Section from './Section.astro';
+import { siteContent } from '../../data/content';
+
+const { whatSetsUsApart } = siteContent.home;
+const [featured, ...rest] = whatSetsUsApart.differentiators;
+---
+
+<Section background="dark">
+  <div>
+    <h2 class="scroll-fade-up text-3xl md:text-4xl font-display font-bold text-white mb-10">
+      What Sets Us Apart
+    </h2>
+
+    <div class="scroll-fade-up border-l-4 border-yellow-primary pl-6 mb-12">
+      <h3 class="text-2xl font-display font-bold text-white mb-3">
+        {featured.title}
+      </h3>
+      <p class="text-lg text-gray leading-relaxed">
+        {featured.description}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {rest.map((item) => (
+        <div class="scroll-fade-up">
+          <h3 class="text-lg font-bold text-white mb-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-yellow-primary mr-2 align-middle"></span>
+            {item.title}
+          </h3>
+          <p class="text-sm text-gray leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</Section>
