@@ -166,3 +166,27 @@ hr {
 .animate-float-in {
   animation: float-in 0.5s ease-out forwards;
 }
+
+/* Scroll-driven fade-up animation */
+.scroll-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fade-up-in 0.6s ease-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+@keyframes fade-up-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fallback for browsers without scroll-driven animations */
+@supports not (animation-timeline: view()) {
+  .scroll-fade-up {
+    opacity: 1;
+    transform: none;
+  }
+}
