@@ -1,11 +1,71 @@
 ---
 import Base from '../layouts/Base.astro';
+import HeroSection from '../components/react/HeroSection.tsx';
+import PMCWaySection from '../components/astro/PMCWaySection.astro';
+import WhatSetsUsApart from '../components/astro/WhatSetsUsApart.astro';
+import ApproachPreview from '../components/react/sections/ApproachPreview.tsx';
+import ServicesPreview from '../components/astro/ServicesPreview.astro';
+import SocialProof from '../components/react/sections/SocialProof.tsx';
+import CTASection from '../components/react/sections/CTASection.tsx';
+import { BigTextCTA } from '../components/react/sections/CTASection.tsx';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Yellow Brolly Co",
+    "url": "https://yellow-brolly.vercel.app",
+    "logo": "https://yellow-brolly.vercel.app/umbrella.svg",
+    "description": "Technology consulting that fits your culture. We help nonprofits and agencies adopt AI, improve cybersecurity, and build tech stacks that work.",
+    "email": "hello@yellowbrolly.co",
+    "founders": [
+      { "@type": "Person", "name": "Aimee Slater" },
+      { "@type": "Person", "name": "Abbey Ferreira" },
+      { "@type": "Person", "name": "Jon Ferreira" }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/aimeelslater/",
+      "https://www.linkedin.com/in/abbey-ferreira-92b1291b2/",
+      "https://www.linkedin.com/in/kevinjburgess1/"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Yellow Brolly Co",
+    "url": "https://yellow-brolly.vercel.app"
+  }
+];
 ---
 
 <Base
   title="Technology Consulting for Nonprofits & Agencies | YellowBrollyCo"
-  description="Technology consulting that fits your culture. We help nonprofits and agencies adopt AI, improve cybersecurity, and build tech stacks that actually work."
+  description="Technology consulting that fits your culture. We help nonprofits and agencies adopt AI, improve cybersecurity, and build tech stacks that actually work. Book a discovery call."
+  jsonLd={jsonLd}
 >
-  <h1>Yellow Brolly Co</h1>
-  <p>Site is being migrated to Astro. Coming soon.</p>
+  <HeroSection client:load
+    headline="Technology-forward strategy. Human-first results."
+    highlightedWord="Human-first"
+    subhead="We help teams adopt digital tools, AI, and cybersecurity practices without losing sight of their culture, brand, or what actually matters."
+    ctaPrimary={{ label: 'Book a Discovery Call', to: '/contact' }}
+    ctaSecondary={{ label: 'Explore What We Have to Offer', to: '/services' }}
+    showBackground={true}
+    eyebrow="Yellow Brolly Co"
+  />
+  <PMCWaySection />
+  <WhatSetsUsApart />
+  <BigTextCTA client:visible
+    text="Technology-forward strategy. Human-first results. Technology-forward strategy. Human-first results."
+    ctaLabel="See What We Do"
+    ctaTo="/services"
+  />
+  <ApproachPreview client:visible />
+  <ServicesPreview />
+  <SocialProof client:visible />
+  <CTASection client:visible
+    headline="Ready to make digital make sense?"
+    subhead="Let's talk about what your organization actually needs."
+    primaryCta={{ label: 'Book a Discovery Call', to: '/contact' }}
+    secondaryCta={{ label: 'Learn About Our Approach', to: '/approach' }}
+  />
 </Base>

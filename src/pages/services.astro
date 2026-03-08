@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/astro/PageHero.astro';
+import ServicePillars from '../components/react/sections/ServicePillars.tsx';
+import CTASection from '../components/react/sections/CTASection.tsx';
+import { siteContent } from '../data/content';
+---
+
+<Base
+  title="What We Do — Tech Strategy & Security | YellowBrollyCo"
+  description="Digital readiness, cybersecurity, AI integration, and brand-aligned tech stacks for nonprofits and agencies."
+>
+  <PageHero headline="Smart tech. Strong culture. Real outcomes." subhead="What we do for teams trying to get technology right." eyebrow="What We Do" />
+  <ServicePillars client:visible />
+  <CTASection client:visible headline={siteContent.services.cta} primaryCta={{ label: "Let's Build Together", to: '/contact' }} />
+</Base>

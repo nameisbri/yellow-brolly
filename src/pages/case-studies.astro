@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/astro/PageHero.astro';
+import CaseStudiesGrid from '../components/react/sections/CaseStudiesGrid.tsx';
+import CTASection from '../components/react/sections/CTASection.tsx';
+import { siteContent } from '../data/content';
+---
+
+<Base
+  title="Case Studies — Real Results | YellowBrollyCo"
+  description="Real results from nonprofits, agencies, and startups. 38% time savings, 100% security compliance, unified platforms."
+>
+  <PageHero headline="Real Results. Real Organizations." eyebrow="Case Studies" />
+  <CaseStudiesGrid client:visible />
+  <CTASection client:visible headline={siteContent.caseStudies.cta} primaryCta={{ label: "Let's Talk About Your Challenges", to: '/contact' }} />
+</Base>

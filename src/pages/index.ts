@@ -1,9 +1,0 @@
-export { Home } from './Home';
-export { About } from './About';
-export { Approach } from './Approach';
-export { Services } from './Services';
-export { CaseStudies } from './CaseStudies';
-export { Blog } from './Blog';
-export { Contact } from './Contact';
-export { FAQ } from './FAQ';
-export { WhyYellowBrolly } from './WhyYellowBrolly';

@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/astro/PageHero.astro';
+import ApproachTimeline from '../components/react/sections/ApproachTimeline.tsx';
+import ProcessTransparency from '../components/react/sections/ProcessTransparency.tsx';
+import CTASection from '../components/react/sections/CTASection.tsx';
+import { siteContent } from '../data/content';
+---
+
+<Base
+  title="The YB Approach — From Messy to Manageable | YellowBrollyCo"
+  description="Our 4-stage process: Assess, Align, Activate, Amplify. We align tools to your strategy, culture, and people."
+>
+  <PageHero headline="The YB Approach: from messy to manageable" subhead="We align tools to your strategy, culture, and people." eyebrow="Our Approach" />
+  <ApproachTimeline client:visible />
+  <ProcessTransparency client:visible />
+  <CTASection client:visible headline={siteContent.approach.cta} primaryCta={{ label: "Let's Start Where You Are", to: '/contact' }} />
+</Base>
