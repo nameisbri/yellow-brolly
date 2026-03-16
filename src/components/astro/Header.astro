@@ -36,7 +36,7 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
     <div class="flex items-center justify-between h-20 md:h-24">
       <a
         href="/"
-        class="flex items-center gap-3 text-white hover:text-yellow-primary transition-colors duration-300 group"
+        class="flex items-center gap-3 text-[var(--nav-text)] hover:text-yellow-primary transition-colors duration-300 group"
       >
         <div class="relative">
           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-primary group-hover:scale-110 transition-transform duration-300">
@@ -53,7 +53,7 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
           <button
             type="button"
             class={`relative font-medium text-sm tracking-wide transition-colors duration-300 flex items-center gap-1 ${
-              aboutIsActive ? 'text-yellow-primary' : 'text-gray hover:text-white'
+              aboutIsActive ? 'text-yellow-primary' : 'text-[var(--nav-text)] hover:text-[var(--nav-text-hover)]'
             }`}
           >
             About
@@ -88,7 +88,7 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
           <a
             href={item.path}
             class={`relative font-medium text-sm tracking-wide transition-colors duration-300 ${
-              isActive(item.path) ? 'text-yellow-primary' : 'text-gray hover:text-white'
+              isActive(item.path) ? 'text-yellow-primary' : 'text-[var(--nav-text)] hover:text-[var(--nav-text-hover)]'
             }`}
           >
             {item.label}
@@ -136,6 +136,21 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
   .nav-dropdown:focus-within .nav-dropdown-chevron {
     transform: rotate(180deg);
   }
+
+  /* Scrolled state: cream background, dark text */
+  #main-header.scrolled a:not([class*="bg-yellow"]) {
+    --nav-text: var(--color-text-secondary);
+    --nav-text-hover: var(--color-text-primary);
+  }
+  #main-header.scrolled .font-display {
+    color: var(--color-text-primary);
+  }
+
+  /* Not scrolled: over dark hero, light text */
+  #main-header:not(.scrolled) a:not([class*="bg-yellow"]) {
+    --nav-text: var(--color-light-gray);
+    --nav-text-hover: var(--color-white);
+  }
 </style>
 
 <script>
@@ -143,10 +158,10 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
   if (header) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
-        header.classList.add('bg-dark/95', 'backdrop-blur-xl', 'border-b', 'border-dark-border');
+        header.classList.add('bg-cream/95', 'backdrop-blur-xl', 'border-b', 'border-light-border', 'scrolled');
         header.classList.remove('bg-transparent');
       } else {
-        header.classList.remove('bg-dark/95', 'backdrop-blur-xl', 'border-b', 'border-dark-border');
+        header.classList.remove('bg-cream/95', 'backdrop-blur-xl', 'border-b', 'border-light-border', 'scrolled');
         header.classList.add('bg-transparent');
       }
     }, { passive: true });

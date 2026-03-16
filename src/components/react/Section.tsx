@@ -3,7 +3,7 @@ import { BlurReveal } from './TextAnimations';
 interface SectionProps {
   children: React.ReactNode;
   className?: string;
-  background?: 'black' | 'dark' | 'elevated' | 'warm' | 'warmer' | 'light';
+  background?: 'cream' | 'sand' | 'sand-dark' | 'warm' | 'dark' | 'black';
   id?: string;
   fullWidth?: boolean;
   noPadding?: boolean;
@@ -12,24 +12,26 @@ interface SectionProps {
 export function Section({
   children,
   className = '',
-  background = 'black',
+  background = 'cream',
   id,
   fullWidth = false,
   noPadding = false,
 }: SectionProps) {
   const bgStyles: Record<string, string> = {
-    black: 'bg-black',
+    cream: 'bg-cream',
+    sand: 'bg-sand',
+    'sand-dark': 'bg-sand-dark',
+    warm: 'bg-cream-warm',
     dark: 'bg-dark',
-    elevated: 'bg-dark-elevated',
-    warm: 'bg-dark-warm',
-    warmer: 'bg-dark-warmer',
-    light: 'bg-dark-light',
+    black: 'bg-black',
   };
+
+  const textClass = background === 'dark' || background === 'black' ? 'text-white' : 'text-text-primary';
 
   return (
     <section
       id={id}
-      className={`${noPadding ? '' : 'py-16 md:py-24 lg:py-32'} ${bgStyles[background]} ${className}`}
+      className={`${noPadding ? '' : 'py-16 md:py-24 lg:py-32'} ${bgStyles[background]} ${textClass} ${className}`}
     >
       {fullWidth ? (
         children

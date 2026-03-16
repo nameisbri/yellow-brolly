@@ -42,7 +42,7 @@ interface Props {
   illustration: string;
   illustrationAlt: string;
   reversed?: boolean;
-  background: 'warm' | 'warmer' | 'elevated' | 'dark';
+  background: 'cream' | 'warm' | 'sand' | 'sand-dark' | 'dark';
 }
 
 const {
@@ -67,13 +67,20 @@ const {
 } = Astro.props;
 
 const bgMap: Record<string, string> = {
+  cream: 'bg-cream',
+  warm: 'bg-cream-warm',
+  sand: 'bg-sand',
+  'sand-dark': 'bg-sand-dark',
   dark: 'bg-dark',
-  elevated: 'bg-dark-elevated',
-  warm: 'bg-dark-warm',
-  warmer: 'bg-dark-warmer',
 };
 
-const bgClass = bgMap[background] || 'bg-dark-warm';
+const bgClass = bgMap[background] || 'bg-cream';
+const isDark = background === 'dark';
+const textHeading = isDark ? 'text-white' : 'text-text-primary';
+const textBody = isDark ? 'text-gray' : 'text-text-muted';
+const textMedium = isDark ? 'text-light-gray' : 'text-text-secondary';
+const borderColor = isDark ? 'border-dark-border' : 'border-light-border';
+const cardBg = isDark ? 'bg-dark-elevated/50' : 'bg-white/50';
 
 // Extract before/after entries as arrays of [label, value]
 function extractEntries(obj: Record<string, string | undefined> | undefined): [string, string][] {
@@ -125,11 +132,11 @@ function parseMetric(metric: string): { number: string; label: string } {
           <span class="inline-block px-4 py-1.5 text-sm font-semibold bg-yellow-primary text-black rounded-full mb-6 tracking-wide">
             {clientType}
           </span>
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-[1.15] tracking-tight mb-6">
+          <h2 class:list={['text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.15] tracking-tight mb-6', textHeading]}>
             {title}
           </h2>
-          <p class="text-lg text-gray leading-relaxed max-w-xl">
-            {challenge}. <span class="text-light-gray">{solution}.</span>
+          <p class:list={['text-lg leading-relaxed max-w-xl', textBody]}>
+            {challenge}. <span class={textMedium}>{solution}.</span>
           </p>
         </div>
 
@@ -167,7 +174,7 @@ function parseMetric(metric: string): { number: string; label: string } {
         <div class="scroll-fade-up max-w-4xl mx-auto">
           <h3 class="text-sm font-semibold text-yellow-primary uppercase tracking-[0.2em] mb-6">The Challenge</h3>
           <blockquote class="relative pl-6 md:pl-8 border-l-4 border-yellow-primary">
-            <p class="text-xl md:text-2xl lg:text-3xl text-light-gray leading-relaxed font-light italic">
+            <p class:list={['text-xl md:text-2xl lg:text-3xl leading-relaxed font-light italic', textMedium]}>
               {sectorPainPoint}
             </p>
           </blockquote>
@@ -204,8 +211,8 @@ function parseMetric(metric: string): { number: string; label: string } {
                   <li class="flex items-start gap-3">
                     <span class="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400/60"></span>
                     <div>
-                      <span class="text-gray text-sm block">{label}</span>
-                      <span class="text-light-gray text-base">{value}</span>
+                      <span class:list={['text-sm block', textBody]}>{label}</span>
+                      <span class:list={['text-base', textMedium]}>{value}</span>
                     </div>
                   </li>
                 ))}
@@ -234,8 +241,8 @@ function parseMetric(metric: string): { number: string; label: string } {
                   <li class="flex items-start gap-3">
                     <span class="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-yellow-primary"></span>
                     <div>
-                      <span class="text-gray text-sm block">{label}</span>
-                      <span class="text-white text-base font-medium">{value}</span>
+                      <span class:list={['text-sm block', textBody]}>{label}</span>
+                      <span class:list={['text-base font-medium', textHeading]}>{value}</span>
                     </div>
                   </li>
                 ))}
@@ -260,13 +267,14 @@ function parseMetric(metric: string): { number: string; label: string } {
             {metrics.map((metric) => {
               const parsed = parseMetric(metric);
               return (
-                <div class="text-center p-6 md:p-8 rounded-2xl bg-dark-elevated/50 border border-dark-border/50">
+                <div class:list={['text-center p-6 md:p-8 rounded-2xl border', cardBg, borderColor + '/50']}>
+
                   {parsed.number ? (
                     <Fragment>
                       <div class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-yellow-primary mb-2 leading-none">
                         {parsed.number}
                       </div>
-                      <div class="text-base md:text-lg text-light-gray">
+                      <div class:list={['text-base md:text-lg', textMedium]}>
                         {parsed.label}
                       </div>
                     </Fragment>
@@ -293,7 +301,7 @@ function parseMetric(metric: string): { number: string; label: string } {
             <!-- Large decorative quote mark -->
             <span class="block text-[6rem] md:text-[8rem] leading-none text-yellow-primary/10 font-display select-none -mb-12 md:-mb-16">"</span>
             <blockquote class="relative z-10">
-              <p class="text-xl md:text-2xl lg:text-3xl text-light-gray leading-relaxed font-light italic">
+              <p class:list={['text-xl md:text-2xl lg:text-3xl leading-relaxed font-light italic', textMedium]}>
                 {quote}
               </p>
               {quoteAuthor && (
@@ -302,11 +310,11 @@ function parseMetric(metric: string): { number: string; label: string } {
                     {quoteAuthor.charAt(0)}
                   </div>
                   <div class="text-left">
-                    <cite class="not-italic font-semibold text-white block text-lg">
+                    <cite class:list={['not-italic font-semibold block text-lg', textHeading]}>
                       {quoteAuthor}
                     </cite>
                     {quoteRole && (
-                      <p class="text-sm text-gray">{quoteRole}</p>
+                      <p class:list={['text-sm', textBody]}>{quoteRole}</p>
                     )}
                   </div>
                 </footer>
@@ -319,5 +327,5 @@ function parseMetric(metric: string): { number: string; label: string } {
   )}
 
   <!-- Bottom divider -->
-  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-dark-border/50 to-transparent"></div>
+  <div class:list={['absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent to-transparent', isDark ? 'via-dark-border/50' : 'via-light-border/50']}></div>
 </section>

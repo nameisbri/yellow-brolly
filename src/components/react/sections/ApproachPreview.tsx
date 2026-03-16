@@ -52,11 +52,11 @@ export default function ApproachPreview() {
   }, [prefersReducedMotion]);
 
   return (
-    <Section background="warmer">
+    <Section background="sand">
       <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div>
           <span className="text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-3 block">Our Approach</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-[1.1]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary leading-[1.1]">
             {approachPreview.headline}
           </h2>
         </div>
@@ -72,7 +72,7 @@ export default function ApproachPreview() {
             key={stage.name}
             className="preview-stage group relative overflow-hidden rounded-2xl p-6 lg:p-8 transition-all duration-500"
             style={{
-              backgroundColor: `color-mix(in srgb, ${stepAccents[index]} 8%, #262220)`,
+              backgroundColor: `color-mix(in srgb, ${stepAccents[index]} 8%, #FFFFFF)`,
             }}
           >
             {/* Illustration */}
@@ -92,10 +92,10 @@ export default function ApproachPreview() {
               Step {index + 1}
             </span>
 
-            <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-2">
+            <h3 className="text-xl md:text-2xl font-display font-bold text-text-primary mb-2">
               {stage.name}
             </h3>
-            <p className="text-gray text-sm leading-relaxed">{stage.description}</p>
+            <p className="text-text-muted text-sm leading-relaxed">{stage.description}</p>
 
             {/* Bottom accent line */}
             <div

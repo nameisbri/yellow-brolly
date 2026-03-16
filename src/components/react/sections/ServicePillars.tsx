@@ -50,7 +50,7 @@ export default function ServicePillars() {
   }, [prefersReducedMotion]);
 
   return (
-    <Section background="warmer">
+    <Section background="sand">
       <div ref={gridRef} className="space-y-6">
         {pillars.map((pillar, index) => {
           const isExpanded = expandedIndex === index;
@@ -63,7 +63,7 @@ export default function ServicePillars() {
             >
               <button
                 onClick={() => setExpandedIndex(isExpanded ? null : index)}
-                className="w-full text-left bg-dark-elevated border border-dark-border rounded-2xl p-6 md:p-8 hover:border-yellow-primary/30 transition-all duration-300 overflow-hidden relative"
+                className="w-full text-left bg-white border border-light-border rounded-2xl p-6 md:p-8 hover:border-yellow-primary/30 transition-all duration-300 overflow-hidden relative"
                 aria-expanded={isExpanded}
               >
                 {/* Accent top line */}
@@ -81,7 +81,7 @@ export default function ServicePillars() {
                       >
                         {index + 1}
                       </span>
-                      <h3 className="text-xl md:text-2xl font-display font-bold text-white">
+                      <h3 className="text-xl md:text-2xl font-display font-bold text-text-primary">
                         {pillar.title}
                       </h3>
                     </div>
@@ -95,7 +95,7 @@ export default function ServicePillars() {
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
-                      className={`w-6 h-6 text-gray transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                      className={`w-6 h-6 text-text-muted transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
                     >
                       <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -109,16 +109,16 @@ export default function ServicePillars() {
                   }`}
                 >
                   <div className="ml-11 space-y-6">
-                    <p className="text-gray leading-relaxed">
+                    <p className="text-text-muted leading-relaxed">
                       {pillar.description}
                     </p>
 
                     {pillar.supports && pillar.supports.length > 0 && (
                       <div>
-                        <h4 className="text-sm font-semibold text-light-gray mb-3 uppercase tracking-wider">
+                        <h4 className="text-sm font-semibold text-text-secondary mb-3 uppercase tracking-wider">
                           We support clients with:
                         </h4>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray">
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-text-muted">
                           {pillar.supports.map((item, i) => (
                             <li key={i} className="flex items-start gap-2">
                               <span className="text-yellow-primary mt-0.5 flex-shrink-0">
@@ -135,7 +135,7 @@ export default function ServicePillars() {
 
                     {pillar.outcome && (
                       <div className="p-4 rounded-xl border border-yellow-primary/20 bg-yellow-primary/5">
-                        <p className="text-sm font-medium text-white">
+                        <p className="text-sm font-medium text-text-primary">
                           <span className="text-yellow-primary font-semibold mr-2">Outcome:</span>
                           {pillar.outcome}
                         </p>

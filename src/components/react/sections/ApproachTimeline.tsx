@@ -117,12 +117,12 @@ export default function ApproachTimeline() {
   }, [prefersReducedMotion]);
 
   return (
-    <Section background="warm">
+    <Section background="sand">
       <div ref={containerRef} className="max-w-6xl mx-auto">
         {/* Section header */}
         <div className="mb-20 max-w-2xl">
           <span className="text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">How We Work</span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-[1.1]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-text-primary leading-[1.1]">
             Three steps.<br />One continuous cycle.
           </h2>
         </div>
@@ -170,10 +170,10 @@ export default function ApproachTimeline() {
                 >
                   {stage.name}
                 </h3>
-                <p className="text-light-gray font-medium text-sm mb-4">
+                <p className="text-text-secondary font-medium text-sm mb-4">
                   {stage.tagline}
                 </p>
-                <p className="text-gray leading-relaxed">
+                <p className="text-text-muted leading-relaxed">
                   {stage.description}
                 </p>
               </div>
@@ -191,14 +191,14 @@ export default function ApproachTimeline() {
               <path d="M42 24V30C42 36.63 36.63 42 30 42H6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
-          <p className="text-light-gray text-sm text-center max-w-xs">
+          <p className="text-text-secondary text-sm text-center max-w-xs">
             A continuous cycle. Each round builds on the last, compounding clarity and momentum.
           </p>
         </div>
 
         {/* Closing statement */}
         <div className="mt-20 text-center max-w-3xl mx-auto">
-          <p className="text-2xl md:text-3xl lg:text-4xl text-white font-display leading-[1.3]">
+          <p className="text-2xl md:text-3xl lg:text-4xl text-text-primary font-display leading-[1.3]">
             {closing}
           </p>
         </div>

@@ -40,9 +40,9 @@ export default function ProcessTransparency() {
   if (!processTransparency) return null;
 
   return (
-    <Section background="warmer">
+    <Section background="warm">
       <div ref={sectionRef}>
-        <h2 className="transparency-item text-3xl md:text-4xl font-display font-bold text-white mb-10">
+        <h2 className="transparency-item text-3xl md:text-4xl font-display font-bold text-text-primary mb-10">
           {processTransparency.headline}
         </h2>
 
@@ -52,14 +52,14 @@ export default function ProcessTransparency() {
               key={index}
               className={`transparency-item ${
                 index < processTransparency.details.length - 1
-                  ? 'border-b border-dark-border pb-6 mb-6'
+                  ? 'border-b border-light-border pb-6 mb-6'
                   : ''
               }`}
             >
-              <h3 className="text-lg font-bold text-white mb-2">
+              <h3 className="text-lg font-bold text-text-primary mb-2">
                 {detail.title}
               </h3>
-              <p className="text-gray leading-relaxed">{detail.description}</p>
+              <p className="text-text-muted leading-relaxed">{detail.description}</p>
             </div>
           ))}
         </div>

@@ -82,7 +82,7 @@ export function Card({
   return (
     <div
       ref={cardRef}
-      className={`bg-dark-elevated rounded-2xl p-8 border border-dark-border transition-colors duration-500 ${className}`}
+      className={`bg-white rounded-2xl p-8 border border-light-border transition-colors duration-500 ${className}`}
     >
       {children}
     </div>
@@ -126,7 +126,7 @@ export function ServiceCard({
       <div className="relative z-10">
         <div
           className={`mb-6 w-14 h-14 rounded-xl flex items-center justify-center transition-colors duration-300 ${
-            !accentColor ? 'bg-dark-border/40 text-light-gray group-hover:text-yellow-primary' : ''
+            !accentColor ? 'bg-sand text-text-secondary group-hover:text-yellow-primary' : ''
           }`}
           style={accentColor ? {
             backgroundColor: `color-mix(in srgb, ${accentColor} 15%, transparent)`,
@@ -135,20 +135,20 @@ export function ServiceCard({
         >
           {icon}
         </div>
-        <h3 className="text-xl font-bold text-white mb-3">
+        <h3 className="text-xl font-bold text-text-primary mb-3">
           {title}
         </h3>
-        <p className="text-gray leading-relaxed mb-4">{description}</p>
+        <p className="text-text-muted leading-relaxed mb-4">{description}</p>
 
         {whatWeDo && whatWeDo.length > 0 && (
           <div className="mb-4">
-            <h4 className="text-sm font-semibold text-light-gray mb-2 uppercase tracking-wider">
+            <h4 className="text-sm font-semibold text-text-secondary mb-2 uppercase tracking-wider">
               What we do
             </h4>
-            <ul className="space-y-2 text-sm text-gray">
+            <ul className="space-y-2 text-sm text-text-muted">
               {whatWeDo.map((item, index) => (
                 <li key={index} className="flex items-start gap-2">
-                  <span className="text-light-gray mt-1">•</span>
+                  <span className="text-text-secondary mt-1">•</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -157,32 +157,32 @@ export function ServiceCard({
         )}
 
         {whatYouGet && (
-          <div className="mb-4 p-3 bg-dark-border/20 rounded-lg border border-dark-border">
-            <h4 className="text-sm font-semibold text-light-gray mb-2 uppercase tracking-wider">
+          <div className="mb-4 p-3 bg-sand rounded-lg border border-light-border">
+            <h4 className="text-sm font-semibold text-text-secondary mb-2 uppercase tracking-wider">
               What you get
             </h4>
-            <p className="text-sm text-gray leading-relaxed">{whatYouGet}</p>
+            <p className="text-sm text-text-muted leading-relaxed">{whatYouGet}</p>
           </div>
         )}
 
         {(timeline || investment) && (
-          <div className="mb-4 pt-4 border-t border-dark-border flex gap-4 text-xs text-gray">
+          <div className="mb-4 pt-4 border-t border-light-border flex gap-4 text-xs text-text-muted">
             {timeline && (
               <span>
-                <span className="text-light-gray font-semibold">Timeline:</span> {timeline}
+                <span className="text-text-secondary font-semibold">Timeline:</span> {timeline}
               </span>
             )}
             {investment && (
               <span>
-                <span className="text-light-gray font-semibold">Investment:</span> {investment}
+                <span className="text-text-secondary font-semibold">Investment:</span> {investment}
               </span>
             )}
           </div>
         )}
 
         {outcome && (
-          <p className="text-sm font-medium text-light-gray border-t border-dark-border pt-4">
-            <span className="text-gray mr-2">→</span>
+          <p className="text-sm font-medium text-text-secondary border-t border-light-border pt-4">
+            <span className="text-text-muted mr-2">→</span>
             {outcome}
           </p>
         )}
@@ -210,7 +210,7 @@ export function TestimonialCard({
         "
       </div>
       <blockquote className="relative z-10">
-        <p className="text-xl text-light-gray mb-6 leading-relaxed font-light italic">
+        <p className="text-xl text-text-secondary mb-6 leading-relaxed font-light italic">
           {quote}
         </p>
         <footer className="flex items-center gap-4">
@@ -218,10 +218,10 @@ export function TestimonialCard({
             {author.charAt(0)}
           </div>
           <div>
-            <cite className="not-italic font-semibold text-white block">
+            <cite className="not-italic font-semibold text-text-primary block">
               {author}
             </cite>
-            <p className="text-sm text-gray">{role}</p>
+            <p className="text-sm text-text-muted">{role}</p>
           </div>
         </footer>
       </blockquote>
@@ -280,37 +280,37 @@ export function CaseStudyCard({
       <span className="inline-block px-4 py-1.5 text-sm font-medium bg-yellow-primary text-black rounded-full mb-5">
         {clientType}
       </span>
-      <h3 className="text-2xl font-bold text-white mb-5">
+      <h3 className="text-2xl font-bold text-text-primary mb-5">
         {title}
       </h3>
 
       {sectorPainPoint && (
-        <div className="mb-4 p-4 bg-dark-border/20 rounded-lg border border-dark-border">
-          <p className="text-sm text-gray italic">{sectorPainPoint}</p>
+        <div className="mb-4 p-4 bg-sand rounded-lg border border-light-border">
+          <p className="text-sm text-text-muted italic">{sectorPainPoint}</p>
         </div>
       )}
 
-      <div className="space-y-4 text-gray">
+      <div className="space-y-4 text-text-muted">
         <div>
-          <span className="font-semibold text-light-gray text-sm uppercase tracking-wider">
+          <span className="font-semibold text-text-secondary text-sm uppercase tracking-wider">
             Challenge
           </span>
-          <p className="mt-2 text-light-gray">{challenge}</p>
+          <p className="mt-2 text-text-secondary">{challenge}</p>
         </div>
         <div>
-          <span className="font-semibold text-light-gray text-sm uppercase tracking-wider">
+          <span className="font-semibold text-text-secondary text-sm uppercase tracking-wider">
             Solution
           </span>
-          <p className="mt-2 text-light-gray">{solution}</p>
+          <p className="mt-2 text-text-secondary">{solution}</p>
         </div>
 
         {before && after && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-dark-border">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-light-border">
             <div>
               <span className="font-semibold text-red-400 text-sm uppercase tracking-wider">
                 Before
               </span>
-              <ul className="mt-2 space-y-1 text-xs text-gray">
+              <ul className="mt-2 space-y-1 text-xs text-text-muted">
                 {before.tools && <li>• {before.tools}</li>}
                 {before.timeLost && <li>• {before.timeLost}</li>}
                 {before.adoption && <li>• {before.adoption}</li>}
@@ -320,10 +320,10 @@ export function CaseStudyCard({
               </ul>
             </div>
             <div>
-              <span className="font-semibold text-light-gray text-sm uppercase tracking-wider">
+              <span className="font-semibold text-text-secondary text-sm uppercase tracking-wider">
                 After
               </span>
-              <ul className="mt-2 space-y-1 text-xs text-gray">
+              <ul className="mt-2 space-y-1 text-xs text-text-muted">
                 {after.tools && <li>• {after.tools}</li>}
                 {after.timeSaved && <li>• {after.timeSaved}</li>}
                 {after.adoption && <li>• {after.adoption}</li>}
@@ -337,20 +337,20 @@ export function CaseStudyCard({
         )}
 
         <div>
-          <span className="font-semibold text-light-gray text-sm uppercase tracking-wider">
+          <span className="font-semibold text-text-secondary text-sm uppercase tracking-wider">
             Outcome
           </span>
-          <p className="mt-2 text-light-gray">{outcome}</p>
+          <p className="mt-2 text-text-secondary">{outcome}</p>
         </div>
       </div>
 
       {quote && (
-        <div className="mt-6 pt-6 border-t border-dark-border">
-          <blockquote className="text-light-gray italic mb-3">
+        <div className="mt-6 pt-6 border-t border-light-border">
+          <blockquote className="text-text-secondary italic mb-3">
             "{quote}"
           </blockquote>
           {quoteAuthor && (
-            <footer className="text-sm text-gray">
+            <footer className="text-sm text-text-muted">
               {quoteAuthor}{quoteRole && `, ${quoteRole}`}
             </footer>
           )}
@@ -358,12 +358,12 @@ export function CaseStudyCard({
       )}
 
       {metrics && metrics.length > 0 && (
-        <div className="mt-6 pt-6 border-t border-dark-border">
+        <div className="mt-6 pt-6 border-t border-light-border">
           <div className="flex flex-wrap gap-2">
             {metrics.map((metric, index) => (
               <span
                 key={index}
-                className="px-4 py-2 text-sm bg-dark-border/40 text-light-gray rounded-full font-medium metrics-badge"
+                className="px-4 py-2 text-sm bg-sand text-text-secondary rounded-full font-medium metrics-badge"
               >
                 {metric}
               </span>

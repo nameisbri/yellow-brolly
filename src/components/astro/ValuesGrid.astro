@@ -12,8 +12,8 @@ const iconSvgs: Record<string, string> = {
 };
 ---
 
-<Section background="warmer">
-  <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-12">
+<Section background="sand">
+  <h2 class="text-3xl md:text-4xl font-display font-bold text-text-primary mb-12">
     Our Core Values
   </h2>
 
@@ -24,11 +24,11 @@ const iconSvgs: Record<string, string> = {
           <div class="w-10 h-10 rounded-full bg-yellow-primary/10 flex items-center justify-center text-yellow-primary group-hover:bg-yellow-primary/20 transition-colors duration-300">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={iconSvgs[value.icon] || iconSvgs['clarity']} />
           </div>
-          <h3 class="text-lg font-bold text-white">
+          <h3 class="text-lg font-bold text-text-primary">
             {value.title}
           </h3>
         </div>
-        <p class="text-gray leading-relaxed">{value.description}</p>
+        <p class="text-text-muted leading-relaxed">{value.description}</p>
       </div>
     ))}
   </div>

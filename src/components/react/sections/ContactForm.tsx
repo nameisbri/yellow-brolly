@@ -145,17 +145,17 @@ export default function ContactForm() {
     }));
   };
 
-  const inputClasses = 'w-full px-5 py-4 rounded-xl bg-dark-elevated border border-dark-border text-white placeholder-gray/50 focus:border-yellow-primary focus:outline-none focus:ring-2 focus:ring-yellow-primary/20 transition-all';
+  const inputClasses = 'w-full px-5 py-4 rounded-xl bg-white border border-light-border text-text-primary placeholder-text-muted/50 focus:border-yellow-primary focus:outline-none focus:ring-2 focus:ring-yellow-primary/20 transition-all';
 
   return (
-    <Section background="warmer">
+    <Section background="cream">
       <div ref={containerRef} className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary mb-4">
             Let's talk about your tech and strategy goals
           </h2>
-          <p className="text-lg text-gray max-w-2xl mx-auto">
+          <p className="text-lg text-text-muted max-w-2xl mx-auto">
             Whether you're exploring a digital overhaul, need help with AI or cybersecurity, or want to align your tools with your team, we're ready to chat.
           </p>
         </div>
@@ -164,14 +164,14 @@ export default function ContactForm() {
           {/* Form (takes 3 cols) */}
           <div className="contact-form-panel lg:col-span-3">
             {isSubmitted ? (
-              <div className="bg-dark-elevated border border-dark-border rounded-2xl p-10 text-center">
+              <div className="bg-white border border-light-border rounded-2xl p-10 text-center">
                 <div className="w-20 h-20 bg-yellow-primary rounded-full flex items-center justify-center mx-auto mb-6">
                   <CheckIcon size={40} className="text-black" />
                 </div>
-                <h3 className="text-2xl font-display font-bold text-white mb-3">
+                <h3 className="text-2xl font-display font-bold text-text-primary mb-3">
                   Thank you!
                 </h3>
-                <p className="text-gray mb-6">
+                <p className="text-text-muted mb-6">
                   We've received your inquiry and will be in touch shortly.
                 </p>
                 <Button
@@ -186,7 +186,7 @@ export default function ContactForm() {
                 {/* Row 1: Name + Company */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-light-gray mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-2">
                       Name <span className="text-yellow-primary">*</span>
                     </label>
                     <input
@@ -201,7 +201,7 @@ export default function ContactForm() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="companyName" className="block text-sm font-medium text-light-gray mb-2">
+                    <label htmlFor="companyName" className="block text-sm font-medium text-text-secondary mb-2">
                       Company Name <span className="text-yellow-primary">*</span>
                     </label>
                     <input
@@ -220,7 +220,7 @@ export default function ContactForm() {
                 {/* Row 2: Industry + Service */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="industry" className="block text-sm font-medium text-light-gray mb-2">
+                    <label htmlFor="industry" className="block text-sm font-medium text-text-secondary mb-2">
                       Industry
                     </label>
                     <input
@@ -234,7 +234,7 @@ export default function ContactForm() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="serviceInterest" className="block text-sm font-medium text-light-gray mb-2">
+                    <label htmlFor="serviceInterest" className="block text-sm font-medium text-text-secondary mb-2">
                       Service Looking For
                     </label>
                     <select
@@ -255,7 +255,7 @@ export default function ContactForm() {
                 {/* Row 3: Email + Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-light-gray mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-2">
                       Email <span className="text-yellow-primary">*</span>
                     </label>
                     <input
@@ -270,7 +270,7 @@ export default function ContactForm() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-light-gray mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-text-secondary mb-2">
                       Phone Number
                     </label>
                     <input
@@ -287,7 +287,7 @@ export default function ContactForm() {
 
                 {/* Budget */}
                 <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-light-gray mb-2">
+                  <label htmlFor="budget" className="block text-sm font-medium text-text-secondary mb-2">
                     Estimated Budget
                   </label>
                   <select
@@ -306,7 +306,7 @@ export default function ContactForm() {
 
                 {/* Additional Info */}
                 <div>
-                  <label htmlFor="additionalInfo" className="block text-sm font-medium text-light-gray mb-2">
+                  <label htmlFor="additionalInfo" className="block text-sm font-medium text-text-secondary mb-2">
                     Any other information you would like to share with us
                   </label>
                   <textarea
@@ -339,13 +339,13 @@ export default function ContactForm() {
 
           {/* Calendly sidebar (takes 2 cols) */}
           <div className="contact-info-panel lg:col-span-2">
-            <div className="bg-dark-elevated rounded-2xl p-6 md:p-8 border border-dark-border lg:sticky lg:top-28 relative overflow-hidden">
+            <div className="bg-white rounded-2xl p-6 md:p-8 border border-light-border lg:sticky lg:top-28 relative overflow-hidden">
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-yellow-primary/5 rounded-full blur-3xl" />
 
-              <h2 className="text-xl md:text-2xl font-display font-bold text-white mb-4 relative">
+              <h2 className="text-xl md:text-2xl font-display font-bold text-text-primary mb-4 relative">
                 {siteContent.contact.calendly.headline}
               </h2>
-              <p className="text-sm md:text-base text-gray mb-8 relative">
+              <p className="text-sm md:text-base text-text-muted mb-8 relative">
                 Schedule a free 30-minute discovery call to discuss your needs.
               </p>
               <Button
@@ -358,8 +358,8 @@ export default function ContactForm() {
                 Schedule a Call
               </Button>
 
-              <div className="mt-10 pt-8 border-t border-dark-border relative">
-                <h3 className="font-display font-bold text-white mb-5">What to Expect</h3>
+              <div className="mt-10 pt-8 border-t border-light-border relative">
+                <h3 className="font-display font-bold text-text-primary mb-5">What to Expect</h3>
                 <ul className="space-y-4">
                   {[
                     '30-minute introductory conversation',
@@ -367,9 +367,9 @@ export default function ContactForm() {
                     'Initial recommendations and next steps',
                     'No pressure, no obligations',
                   ].map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-gray text-sm">
-                      <span className="w-5 h-5 rounded-full bg-dark-border/40 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <CheckIcon size={12} className="text-light-gray" />
+                    <li key={index} className="flex items-start gap-3 text-text-muted text-sm">
+                      <span className="w-5 h-5 rounded-full bg-sand flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <CheckIcon size={12} className="text-text-secondary" />
                       </span>
                       <span>{item}</span>
                     </li>
@@ -378,8 +378,8 @@ export default function ContactForm() {
               </div>
 
               {/* Async contact */}
-              <div className="mt-8 pt-6 border-t border-dark-border relative">
-                <p className="text-sm text-gray">
+              <div className="mt-8 pt-6 border-t border-light-border relative">
+                <p className="text-sm text-text-muted">
                   Prefer email? Reach us at{' '}
                   <a href="mailto:hello@yellowbrolly.co" className="text-yellow-primary hover:underline">
                     hello@yellowbrolly.co

@@ -69,10 +69,10 @@ export default function TeamSection() {
   }, [prefersReducedMotion]);
 
   return (
-    <Section background="warm">
+    <Section background="cream">
       <div ref={sectionRef}>
         <div className="team-heading mb-12">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-text-primary mb-4">
             {team.headline}
           </h2>
         </div>
@@ -81,7 +81,7 @@ export default function TeamSection() {
           {team.members.map((member) => (
             <div
               key={member.name}
-              className="team-member bg-dark-elevated border border-dark-border rounded-2xl overflow-hidden hover:border-yellow-primary/30 transition-all duration-300 group"
+              className="team-member bg-white border border-light-border rounded-2xl overflow-hidden hover:border-yellow-primary/30 transition-all duration-300 group"
             >
               {/* Large portrait photo */}
               <div className="aspect-[4/3] w-full overflow-hidden relative">
@@ -93,26 +93,26 @@ export default function TeamSection() {
                     loading="lazy"
                   />
                 ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-yellow-primary/20 to-dark-elevated flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-yellow-primary/20 to-white flex items-center justify-center">
                     <span className="text-6xl font-bold text-yellow-primary/40 font-display">
                       {member.name.split(' ').map(n => n[0]).join('')}
                     </span>
                   </div>
                 )}
                 {/* Subtle gradient overlay at bottom for text readability */}
-                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-dark-elevated to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" />
               </div>
 
               {/* Info section */}
               <div className="p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-1">
-                  <h3 className="text-xl font-bold text-white">{member.name}</h3>
+                  <h3 className="text-xl font-bold text-text-primary">{member.name}</h3>
                   {member.linkedin && (
                     <a
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray hover:text-yellow-primary transition-colors duration-200"
+                      className="text-text-muted hover:text-yellow-primary transition-colors duration-200"
                       aria-label={`${member.name} on LinkedIn`}
                     >
                       <LinkedInIcon size={16} />
@@ -120,7 +120,7 @@ export default function TeamSection() {
                   )}
                 </div>
                 <p className="text-yellow-primary text-sm font-medium mb-4">{member.role}</p>
-                <p className="text-gray text-sm leading-relaxed">{member.bio}</p>
+                <p className="text-text-muted text-sm leading-relaxed">{member.bio}</p>
               </div>
             </div>
           ))}
@@ -128,9 +128,9 @@ export default function TeamSection() {
 
         {/* Key Collaborators */}
         {'collaborators' in team && (
-          <div className="team-member mt-8 p-6 bg-dark-elevated/50 border border-dark-border rounded-xl text-center">
-            <h3 className="text-lg font-display font-bold text-white mb-2">Key Collaborators & Partners</h3>
-            <p className="text-gray text-sm">{(team as { collaborators: string }).collaborators}</p>
+          <div className="team-member mt-8 p-6 bg-white/50 border border-light-border rounded-xl text-center">
+            <h3 className="text-lg font-display font-bold text-text-primary mb-2">Key Collaborators & Partners</h3>
+            <p className="text-text-muted text-sm">{(team as { collaborators: string }).collaborators}</p>
           </div>
         )}
       </div>

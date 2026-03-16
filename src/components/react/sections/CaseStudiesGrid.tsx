@@ -69,7 +69,7 @@ export default function CaseStudiesGrid() {
   }, [prefersReducedMotion]);
 
   return (
-    <Section background="warmer">
+    <Section background="cream">
       <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {studies.map((study) => (
           <div key={study.title} className="case-study-card">
