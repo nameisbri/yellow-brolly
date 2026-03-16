@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/astro/PageHero.astro';
+import Section from '../components/astro/Section.astro';
 import ServicePillars from '../components/react/sections/ServicePillars.tsx';
 import CTASection from '../components/react/sections/CTASection.tsx';
 import { siteContent } from '../data/content';
@@ -22,5 +23,42 @@ import { siteContent } from '../data/content';
   </section>
 
   <ServicePillars client:visible />
+
+  <!-- Selected Projects / Our Work -->
+  <Section background="warm">
+    <div class="text-center mb-12">
+      <span class="inline-block text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4">Our Work</span>
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Selected Projects</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- TODO: Replace these placeholder cards with real project screenshots and details from the client -->
+      {[
+        { title: 'Nonprofit Tech Stack Transformation', type: 'Nonprofit', desc: 'Full digital readiness assessment, tool consolidation, and staff training for a 45-person organization.' },
+        { title: 'Creative Agency Digital Overhaul', type: 'Creative Agency', desc: 'Unified file systems, security protocols, and streamlined client onboarding for a remote creative team.' },
+        { title: 'Startup Operations & Scale', type: 'Tech Startup', desc: 'Workflow mapping, ownership clarity, and security foundations for a fast-growing team.' },
+      ].map((project) => (
+        <div class="scroll-fade-up bg-dark-elevated border border-dark-border rounded-2xl overflow-hidden group hover:border-yellow-primary/30 transition-all duration-300">
+          <!-- TODO: PHOTO: Replace with real project screenshot -->
+          <div class="aspect-[16/10] bg-dark-border/20 flex items-center justify-center">
+            <span class="text-gray/30 text-sm">Project image</span>
+          </div>
+          <div class="p-6">
+            <span class="inline-block px-3 py-1 text-xs font-medium bg-yellow-primary/10 text-yellow-primary rounded-full mb-3">{project.type}</span>
+            <h3 class="text-lg font-bold text-white mb-2">{project.title}</h3>
+            <p class="text-sm text-gray leading-relaxed">{project.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-10 text-center">
+      <a href="/case-studies" class="text-yellow-primary hover:text-yellow-hover transition-colors duration-300 font-medium text-sm inline-flex items-center gap-2">
+        View all case studies
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+      </a>
+    </div>
+  </Section>
+
   <CTASection client:visible headline={siteContent.services.cta} primaryCta={{ label: "Let's Build Together", to: '/contact' }} />
 </Base>

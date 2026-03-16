@@ -1,16 +1,30 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/astro/PageHero.astro';
+import Section from '../components/astro/Section.astro';
 import CaseStudiesGrid from '../components/react/sections/CaseStudiesGrid.tsx';
 import CTASection from '../components/react/sections/CTASection.tsx';
 import { siteContent } from '../data/content';
 ---
 
 <Base
-  title="Case Studies — Real Results | YellowBrollyCo"
-  description="Real results from nonprofits, agencies, and startups. 38% time savings, 100% security compliance, unified platforms."
+  title="Case Studies: Real Results | YellowBrollyCo"
+  description="Real results from nonprofits, agencies, and startups. See how we help organizations grow with clarity and confidence."
 >
   <PageHero headline="Real Results. Real Organizations." eyebrow="Case Studies" />
+
+  <!-- Coming soon banner -->
+  <Section background="warm">
+    <div class="text-center py-4">
+      <div class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-yellow-primary/10 border border-yellow-primary/20">
+        <svg class="w-5 h-5 text-yellow-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" />
+        </svg>
+        <span class="text-yellow-primary font-medium text-sm">Full case studies coming soon. The examples below represent the types of work we do.</span>
+      </div>
+    </div>
+  </Section>
+
   <CaseStudiesGrid client:visible />
   <CTASection client:visible headline={siteContent.caseStudies.cta} primaryCta={{ label: "Let's Talk About Your Challenges", to: '/contact' }} />
 </Base>
