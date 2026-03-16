@@ -35,6 +35,12 @@
   /* Typography */
   --font-display: 'Coolvetica', 'Bebas Neue', 'Impact', system-ui, sans-serif;
   --font-body: 'Poppins', system-ui, sans-serif;
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.25rem;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.5rem;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.75rem;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
@@ -65,9 +71,10 @@ html {
 
 body {
   font-family: var(--font-body);
+  font-size: 17px;
   color: var(--color-white);
   background-color: var(--color-black);
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* contain: paint breaks position:fixed children like the header */
