@@ -1,7 +1,6 @@
 import { useEffect, useRef, lazy } from 'react';
 import { gsap } from 'gsap';
 import { Button } from './Button';
-import { SlideUpText } from './TextAnimations';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 // Lazy load Three.js background only when needed
@@ -37,14 +36,12 @@ export default function HeroSection({
     if (prefersReducedMotion || !containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Eyebrow animation
       gsap.fromTo(
         '.hero-eyebrow',
         { opacity: 0 },
         { opacity: 1, duration: 0.4, ease: 'power2.out' }
       );
 
-      // Headline word-by-word animation - reduced complexity, no initial opacity
       gsap.fromTo(
         '.hero-word',
         { y: 30, opacity: 0.8 },
@@ -58,14 +55,12 @@ export default function HeroSection({
         }
       );
 
-      // Subhead animation
       gsap.fromTo(
         '.hero-subhead',
         { opacity: 0 },
         { opacity: 1, duration: 0.5, delay: 0.3, ease: 'power2.out' }
       );
 
-      // CTA animation
       gsap.fromTo(
         '.hero-cta',
         { opacity: 0, y: 20, scale: 0.95 },
@@ -80,7 +75,6 @@ export default function HeroSection({
         }
       );
 
-      // Decorative elements
       gsap.fromTo(
         '.hero-decoration',
         { scale: 0.8, opacity: 0 },
@@ -91,21 +85,19 @@ export default function HeroSection({
     return () => ctx.revert();
   }, [prefersReducedMotion]);
 
-  // Split headline into words for animation
   const words = headline.split(' ');
 
   return (
     <section
       ref={containerRef}
-      className={`relative overflow-hidden ${compact ? 'min-h-[60vh] py-24 md:py-32 lg:py-40' : 'min-h-screen py-24 md:py-32 lg:py-40 xl:py-48'} flex items-center`}
+      className={`relative overflow-hidden bg-yellow-primary ${compact ? 'min-h-[60vh] py-24 md:py-32 lg:py-40' : 'min-h-screen py-24 md:py-32 lg:py-40 xl:py-48'} flex items-center`}
     >
       {showBackground && <HeroBackground />}
-
 
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
         <div className={`max-w-5xl ${centered ? 'mx-auto text-center' : ''}`}>
           {eyebrow && (
-            <span className="hero-eyebrow inline-block text-yellow-primary text-sm font-semibold tracking-[0.3em] uppercase mb-8">
+            <span className="hero-eyebrow inline-block text-black/60 text-sm font-semibold tracking-[0.3em] uppercase mb-8">
               {eyebrow}
             </span>
           )}
@@ -121,16 +113,16 @@ export default function HeroSection({
                 style={{ transform: 'preserve-3d' }}
               >
                 {highlightedWord && word.toLowerCase().includes(highlightedWord.toLowerCase()) ? (
-                  <span className="text-yellow-primary glow">{word}</span>
+                  <span className="text-black drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)]">{word}</span>
                 ) : (
-                  <span className="text-white">{word}</span>
+                  <span className="text-black/90">{word}</span>
                 )}
               </span>
             ))}
           </h1>
 
           {subhead && (
-            <p className="hero-subhead text-base md:text-lg lg:text-xl xl:text-2xl text-gray max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p className="hero-subhead text-base md:text-lg lg:text-xl xl:text-2xl text-black/70 max-w-3xl mx-auto mb-12 leading-relaxed">
               {subhead}
             </p>
           )}
@@ -142,7 +134,7 @@ export default function HeroSection({
                   to={ctaPrimary.to}
                   variant="primary"
                   size="lg"
-                  className="hero-cta"
+                  className="hero-cta !bg-black !text-yellow-primary !border-black hover:!bg-black/80"
                 >
                   {ctaPrimary.label}
                 </Button>
@@ -152,7 +144,7 @@ export default function HeroSection({
                   to={ctaSecondary.to}
                   variant="outline"
                   size="lg"
-                  className="hero-cta"
+                  className="hero-cta !border-black !text-black hover:!bg-black/10 !border-black/60"
                 >
                   {ctaSecondary.label}
                 </Button>
@@ -164,44 +156,14 @@ export default function HeroSection({
 
       {/* Scroll indicator */}
       {!compact && (
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray">
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-black/40">
           <span className="text-xs tracking-widest uppercase">Scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-yellow-primary to-transparent" />
+          <div className="w-px h-12 bg-gradient-to-b from-black/30 to-transparent" />
         </div>
       )}
-    </section>
-  );
-}
 
-// Alternative hero for inner pages
-interface PageHeroProps {
-  headline: string;
-  subhead?: string;
-  eyebrow?: string;
-}
-
-export function PageHero({ headline, subhead, eyebrow }: PageHeroProps) {
-  return (
-    <section className="relative pt-24 pb-16 md:pt-36 md:pb-20 lg:pt-48 lg:pb-32 bg-black overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-elevated/50 to-black" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,221,0,0.08),transparent_50%)]" />
-
-      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
-        {eyebrow && (
-          <span className="inline-block text-yellow-primary text-sm font-semibold tracking-[0.3em] uppercase mb-6">
-            {eyebrow}
-          </span>
-        )}
-        <SlideUpText className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-[1.1] tracking-tight max-w-4xl">
-          {headline}
-        </SlideUpText>
-        {subhead && (
-          <p className="mt-6 md:mt-8 text-base md:text-xl text-gray max-w-2xl leading-relaxed">
-            {subhead}
-          </p>
-        )}
-      </div>
+      {/* Bottom fade into cream */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-cream to-transparent pointer-events-none z-20" />
     </section>
   );
 }

@@ -84,7 +84,7 @@ export function Button({
 
   // Corporate innovation style - sharp corners with subtle chamfer
   const baseStyles =
-    'relative inline-flex items-center justify-center font-semibold uppercase tracking-wider transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black overflow-hidden group';
+    'relative inline-flex items-center justify-center font-semibold uppercase tracking-wider transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-primary focus-visible:ring-offset-2 focus-visible:ring-offset-cream overflow-hidden group';
 
   const variantStyles = {
     primary:
@@ -92,7 +92,7 @@ export function Button({
     secondary:
       'bg-transparent text-white border-2 border-dark-border hover:border-yellow-primary hover:text-yellow-primary',
     outline:
-      'bg-transparent border-2 border-yellow-primary text-yellow-primary hover:bg-yellow-primary hover:text-black',
+      'bg-transparent border-2 border-yellow-primary text-yellow-text hover:bg-yellow-primary hover:text-black',
     ghost:
       'bg-transparent text-gray hover:text-yellow-primary border-2 border-transparent hover:border-yellow-primary/30',
   };

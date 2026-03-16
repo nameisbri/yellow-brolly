@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 
-const navigation = [
-  { label: 'Home', path: '/' },
+const aboutGroup = [
   { label: 'About Us', path: '/about' },
-  { label: 'The YB Approach', path: '/approach' },
-  { label: 'What We Do', path: '/services' },
+  { label: 'Our Approach', path: '/approach' },
   { label: 'Why YellowBrolly', path: '/why-yellowbrolly' },
-  { label: 'FAQ', path: '/faq' },
-  { label: "Let's Talk", path: '/contact', isCta: true },
 ];
+
+const standaloneItems = [
+  { label: 'Services', path: '/services' },
+  { label: 'Case Studies', path: '/case-studies' },
+  { label: 'Find Your Archetype', path: '/brand-archetype' },
+];
+
+const ctaItem = { label: "Let's Talk", path: '/contact' };
 
 interface Props {
   currentPath: string;
@@ -41,7 +45,7 @@ export default function MobileMenu({ currentPath }: Props) {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden relative w-12 h-12 flex items-center justify-center text-white hover:text-yellow-primary transition-colors duration-300 rounded-lg hover:bg-white/5"
+        className="lg:hidden relative w-12 h-12 flex items-center justify-center text-[color:var(--nav-text,#5C5247)] hover:text-[color:var(--nav-text-hover,#2A2118)] transition-colors duration-300 rounded-lg"
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
         aria-expanded={isOpen}
       >
@@ -58,22 +62,48 @@ export default function MobileMenu({ currentPath }: Props) {
       </button>
 
       {isOpen && (
-        <div className="mobile-menu lg:hidden fixed left-0 right-0 top-20 md:top-24 bottom-0 bg-black backdrop-blur-xl z-50">
+        <div className="mobile-menu lg:hidden fixed left-0 right-0 top-20 md:top-24 bottom-0 bg-cream backdrop-blur-xl z-50">
           <nav className="container mx-auto px-6 py-12 h-full flex flex-col">
-            <div className="flex flex-col gap-2">
-              {navigation.map((item) => (
+            <div className="flex flex-col gap-1">
+              {/* About group */}
+              <p className="mobile-menu-item text-gray/50 text-xs uppercase tracking-widest font-semibold mt-2 mb-1 px-1">About</p>
+              {aboutGroup.map((item) => (
                 <a
                   key={item.path}
                   href={item.path}
-                  className={`mobile-menu-item py-4 min-h-[48px] flex items-center text-2xl sm:text-3xl font-display font-bold transition-colors duration-300 ${
-                    isActive(item.path) ? 'text-yellow-primary' : 'text-white hover:text-yellow-primary'
-                  } ${item.isCta ? 'mt-8' : ''}`}
+                  className={`mobile-menu-item py-3 min-h-[48px] flex items-center text-2xl sm:text-3xl font-display font-bold transition-colors duration-300 ${
+                    isActive(item.path) ? 'text-yellow-text' : 'text-text-primary hover:text-yellow-text'
+                  }`}
                 >
-                  {item.isCta ? (
-                    <span className="inline-block px-8 py-4 bg-yellow-primary text-black rounded-full text-lg">{item.label}</span>
-                  ) : item.label}
+                  {item.label}
                 </a>
               ))}
+
+              {/* Divider */}
+              <div className="mobile-menu-item border-t border-light-border my-4" />
+
+              {/* Standalone items */}
+              {standaloneItems.map((item) => (
+                <a
+                  key={item.path}
+                  href={item.path}
+                  className={`mobile-menu-item py-3 min-h-[48px] flex items-center text-2xl sm:text-3xl font-display font-bold transition-colors duration-300 ${
+                    isActive(item.path) ? 'text-yellow-text' : 'text-text-primary hover:text-yellow-text'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              ))}
+
+              {/* CTA */}
+              <a
+                href={ctaItem.path}
+                className="mobile-menu-item mt-8 py-3 min-h-[48px] flex items-center"
+              >
+                <span className="inline-block px-8 py-4 bg-yellow-primary text-black rounded-full text-lg font-display font-bold">
+                  {ctaItem.label}
+                </span>
+              </a>
             </div>
           </nav>
         </div>

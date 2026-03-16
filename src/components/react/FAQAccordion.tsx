@@ -15,16 +15,16 @@ export default function FAQAccordion({ questions }: Props) {
   return (
     <div className="max-w-3xl mx-auto">
       {questions.map((item, index) => (
-        <div key={index} className="border-b border-dark-border">
+        <div key={index} className="border-b border-light-border">
           <button
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
             className="w-full text-left flex items-center justify-between py-5 group transition-colors"
           >
-            <h3 className="text-lg font-bold text-white group-hover:text-yellow-primary transition-colors duration-300 pr-8">
+            <h3 className="text-lg font-bold text-text-primary group-hover:text-yellow-text transition-colors duration-300 pr-8">
               {item.question}
             </h3>
             <svg
-              className={`flex-shrink-0 text-gray transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}
+              className={`flex-shrink-0 text-text-muted transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}
               width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
             >
               <polyline points="6 9 12 15 18 9" />
@@ -35,7 +35,7 @@ export default function FAQAccordion({ questions }: Props) {
             style={{ gridTemplateRows: openIndex === index ? '1fr' : '0fr' }}
           >
             <div className="overflow-hidden">
-              <div className="text-gray leading-relaxed text-base pb-5">{item.answer}</div>
+              <div className="text-text-muted leading-relaxed text-base pb-5">{item.answer}</div>
             </div>
           </div>
         </div>

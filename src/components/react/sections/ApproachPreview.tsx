@@ -1,13 +1,21 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Section, SectionHeader } from '../Section';
+import { Section } from '../Section';
 import { Button } from '../Button';
 import { ArrowRightIcon } from '../Icons';
 import { siteContent } from '../../../data/content';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const stepImages = [
+  '/images/brand/magnifying-glass.png',
+  '/images/brand/creative-thinker.png',
+  '/images/brand/trophy-winner.png',
+];
+
+const stepAccents = ['#6B9E9E', '#C4956A', '#F7B32B'];
 
 export default function ApproachPreview() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,75 +26,18 @@ export default function ApproachPreview() {
     if (prefersReducedMotion || !containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Animate the progress line
       gsap.fromTo(
-        '.progress-line-fill',
-        { scaleX: 0 },
+        '.preview-stage',
+        { opacity: 0, y: 40 },
         {
-          scaleX: 1,
-          duration: 2,
-          ease: 'power2.inOut',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 70%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-
-      // Animate each stage card
-      const stages = gsap.utils.toArray<HTMLElement>('.process-stage');
-      stages.forEach((stage, index) => {
-        gsap.fromTo(
-          stage,
-          { opacity: 0, y: 60 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            delay: index * 0.15,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: 'top 70%',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      });
-
-      // Animate number badges with stagger
-      gsap.fromTo(
-        '.process-number',
-        { scale: 0, opacity: 0 },
-        {
-          scale: 1,
           opacity: 1,
-          duration: 0.5,
-          stagger: 0.15,
-          delay: 0.3,
-          ease: 'expo.out',
+          y: 0,
+          duration: 0.7,
+          stagger: 0.08,
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: containerRef.current,
-            start: 'top 70%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-
-      // Animate connecting dots
-      gsap.fromTo(
-        '.connecting-dot',
-        { scale: 0 },
-        {
-          scale: 1,
-          duration: 0.3,
-          stagger: 0.1,
-          delay: 0.8,
-          ease: 'expo.out',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 70%',
+            start: 'top 80%',
             toggleActions: 'play none none none',
           },
         }
@@ -97,55 +48,59 @@ export default function ApproachPreview() {
   }, [prefersReducedMotion]);
 
   return (
-    <Section background="dark">
-      <SectionHeader
-        headline={approachPreview.headline}
-        eyebrow="Our Process"
-      />
-
-      <div ref={containerRef} className="relative mt-8">
-        {/* Progress line background */}
-        <div className="hidden lg:block absolute top-[60px] left-[10%] right-[10%] h-[2px] bg-dark-border">
-          <div className="progress-line-fill absolute inset-0 bg-gradient-to-r from-dark-border via-yellow-primary/40 to-dark-border origin-left" />
+    <Section background="sand">
+      <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div>
+          <span className="text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-3 block">Our Approach</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary leading-[1.1]">
+            {approachPreview.headline}
+          </h2>
         </div>
+        <Button to="/approach" variant="outline" size="lg" className="flex-shrink-0">
+          How we work
+          <ArrowRightIcon size={16} className="ml-2" />
+        </Button>
+      </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 relative">
-          {approachPreview.stages.map((stage, index) => (
-            <div
-              key={stage.name}
-              className="process-stage relative"
-            >
-              {/* Card container */}
-              <div className="bg-dark-elevated border border-dark-border p-6 lg:p-8 h-full group hover:border-dark-border/80 transition-colors duration-500 relative">
-                {/* Number badge */}
-                <div className="process-number relative z-10 mb-6">
-                  <div className="w-14 h-14 bg-black border border-dark-border flex items-center justify-center group-hover:border-yellow-primary transition-colors duration-300">
-                    <span className="text-light-gray font-display text-2xl group-hover:text-yellow-primary transition-colors duration-300">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                  </div>
-                  {/* Connecting dot for desktop */}
-                  {index < approachPreview.stages.length - 1 && (
-                    <div className="connecting-dot hidden lg:block absolute top-1/2 -right-[calc(50%+1rem)] w-2 h-2 bg-dark-border rounded-full -translate-y-1/2" />
-                  )}
-                </div>
+      <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {approachPreview.stages.map((stage, index) => (
+          <div
+            key={stage.name}
+            className="preview-stage group relative overflow-hidden rounded-2xl p-6 lg:p-8 transition-all duration-500 min-h-[240px]"
+            style={{
+              backgroundColor: `color-mix(in srgb, ${stepAccents[index]} 8%, #FFFFFF)`,
+            }}
+          >
+            {/* Illustration as large background element on the right */}
+            <img
+              src={stepImages[index]}
+              alt=""
+              className="absolute -right-4 -bottom-4 w-36 h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain opacity-[0.12] group-hover:opacity-[0.2] group-hover:scale-110 transition-all duration-700 pointer-events-none select-none"
+              loading="lazy"
+              aria-hidden="true"
+            />
 
-                <h3 className="text-lg md:text-xl lg:text-2xl font-display text-white mb-3">
-                  {stage.name}
-                </h3>
-                <p className="text-gray text-xs sm:text-sm lg:text-base leading-relaxed">{stage.description}</p>
-              </div>
+            {/* Content - stays above the illustration */}
+            <div className="relative z-10">
+              <span
+                className="inline-block text-xs font-bold uppercase tracking-widest mb-3 text-yellow-text"
+              >
+                Step {index + 1}
+              </span>
+
+              <h3 className="text-xl md:text-2xl font-display font-bold text-text-primary mb-2">
+                {stage.name}
+              </h3>
+              <p className="text-text-muted text-sm leading-relaxed max-w-[85%]">{stage.description}</p>
             </div>
-          ))}
-        </div>
 
-        {/* CTA */}
-        <div className="mt-12 lg:mt-16 text-center">
-          <Button to="/approach" variant="outline" size="lg">
-            Explore Our Approach
-            <ArrowRightIcon size={16} className="ml-2" />
-          </Button>
-        </div>
+            {/* Bottom accent line */}
+            <div
+              className="absolute bottom-0 left-0 right-0 h-[3px] opacity-40 group-hover:opacity-100 transition-opacity duration-500"
+              style={{ backgroundColor: stepAccents[index] }}
+            />
+          </div>
+        ))}
       </div>
     </Section>
   );

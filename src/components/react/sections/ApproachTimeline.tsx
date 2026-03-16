@@ -2,173 +2,204 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Section } from '../Section';
-import { CheckIcon } from '../Icons';
 import { siteContent } from '../../../data/content';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const stepImages = [
+  '/images/brand/magnifying-glass.png',
+  '/images/brand/creative-thinker.png',
+  '/images/brand/trophy-winner.png',
+];
+
+const stepColors = [
+  { bg: 'rgba(107, 158, 158, 0.12)', border: 'rgba(107, 158, 158, 0.3)', text: '#6B9E9E' },
+  { bg: 'rgba(196, 149, 106, 0.12)', border: 'rgba(196, 149, 106, 0.3)', text: '#C4956A' },
+  { bg: 'rgba(247, 179, 43, 0.12)', border: 'rgba(247, 179, 43, 0.3)', text: '#F7B32B' },
+];
+
 export default function ApproachTimeline() {
-  const timelineRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
-  const { stages } = siteContent.approach;
+  const { stages, closing } = siteContent.approach;
 
   useEffect(() => {
-    if (prefersReducedMotion || !timelineRef.current) return;
+    if (prefersReducedMotion || !containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      const stageCards = gsap.utils.toArray<HTMLElement>('.timeline-stage');
+      // Animate the connecting line drawing in
+      gsap.fromTo(
+        '.approach-line',
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 1.5,
+          ease: 'power2.inOut',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top 65%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
 
-      stageCards.forEach((card, index) => {
+      // Stagger the step blocks
+      const steps = gsap.utils.toArray<HTMLElement>('.approach-step');
+      steps.forEach((step, index) => {
         gsap.fromTo(
-          card,
-          { opacity: 0, x: index % 2 === 0 ? -80 : 80, scale: 0.9 },
+          step,
+          { opacity: 0, y: 80 },
           {
             opacity: 1,
-            x: 0,
-            scale: 1,
-            duration: 0.9,
-            ease: 'power3.out',
+            y: 0,
+            duration: 1,
+            delay: index * 0.25,
+            ease: 'power4.out',
             scrollTrigger: {
-              trigger: card,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
+              trigger: containerRef.current,
+              start: 'top 65%',
+              toggleActions: 'play none none none',
             },
           }
         );
-
-        const connector = card.querySelector('.timeline-connector');
-        if (connector) {
-          gsap.fromTo(
-            connector,
-            { scaleY: 0 },
-            {
-              scaleY: 1,
-              duration: 0.7,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: card,
-                start: 'top 70%',
-                toggleActions: 'play none none reverse',
-              },
-            }
-          );
-        }
-
-        // Animate the number badge
-        const badge = card.querySelector('.timeline-number');
-        if (badge) {
-          gsap.fromTo(
-            badge,
-            { scale: 0, rotation: -180 },
-            {
-              scale: 1,
-              rotation: 0,
-              duration: 0.6,
-              delay: 0.2,
-              ease: 'expo.out',
-              scrollTrigger: {
-                trigger: card,
-                start: 'top 80%',
-                toggleActions: 'play none none reverse',
-              },
-            }
-          );
-        }
       });
-    }, timelineRef);
+
+      // Float the illustrations with a gentle parallax
+      const illustrations = gsap.utils.toArray<HTMLElement>('.approach-illustration');
+      illustrations.forEach((img) => {
+        gsap.fromTo(
+          img,
+          { y: 30, opacity: 0, scale: 0.85 },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: img,
+              start: 'top 80%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+
+      // Animate the loop-back indicator
+      gsap.fromTo(
+        '.loop-indicator',
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '.loop-indicator',
+            start: 'top 90%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
+
+      // Rotating loop icon
+      gsap.to('.loop-spin', {
+        rotation: 360,
+        duration: 8,
+        ease: 'none',
+        repeat: -1,
+      });
+    }, containerRef);
 
     return () => ctx.revert();
   }, [prefersReducedMotion]);
 
   return (
-    <Section background="black">
-      <div ref={timelineRef} className="relative max-w-5xl mx-auto">
-        {/* Timeline center line */}
-        <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2">
-          <div className="absolute inset-0 bg-gradient-to-b from-dark-border via-dark-border/50 to-transparent" />
+    <Section background="sand">
+      <div ref={containerRef} className="max-w-6xl mx-auto">
+        {/* Section header */}
+        <div className="mb-20 max-w-2xl">
+          <span className="text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">How We Work</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-text-primary leading-[1.1]">
+            Three steps.<br />One continuous cycle.
+          </h2>
         </div>
 
-        <div className="space-y-8 md:space-y-10 lg:space-y-0">
+        {/* Connecting line (desktop only) */}
+        <div className="hidden lg:block relative">
+          <div className="approach-line absolute top-[140px] left-[16%] right-[16%] h-[3px] origin-left" style={{ background: 'linear-gradient(90deg, #6B9E9E, #C4956A, #F7B32B)' }} />
+        </div>
+
+        {/* Steps */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 relative">
           {stages.map((stage, index) => (
-            <div
-              key={stage.name}
-              className={`timeline-stage relative lg:grid lg:grid-cols-2 lg:gap-12 ${
-                index % 2 === 0 ? '' : 'lg:flex-row-reverse'
-              }`}
-            >
-              <div
-                className={`lg:mb-24 ${
-                  index % 2 === 0 ? 'lg:text-right lg:pr-12' : 'lg:col-start-2 lg:pl-12'
-                }`}
-              >
-                {/* Timeline number badge */}
-                <div className="timeline-number hidden lg:flex absolute left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-yellow-primary text-black font-display font-bold items-center justify-center text-xl z-10">
-                  {index + 1}
-                </div>
-
-                {index < stages.length - 1 && (
-                  <div className="timeline-connector hidden lg:block absolute left-1/2 -translate-x-1/2 top-14 w-px h-full bg-gradient-to-b from-dark-border to-transparent origin-top" />
-                )}
-
-                <div className="bg-dark-elevated rounded-2xl p-8 border border-dark-border transition-all duration-500">
-                  {/* Mobile number badge */}
-                  <div className="lg:hidden flex w-12 h-12 rounded-full bg-yellow-primary text-black font-display font-bold items-center justify-center text-lg mb-5">
+            <div key={stage.name} className="approach-step relative">
+              {/* Illustration floating above */}
+              <div className="approach-illustration flex justify-center mb-6">
+                <div className="relative">
+                  <img
+                    src={stepImages[index]}
+                    alt=""
+                    className="w-28 h-28 md:w-36 md:h-36 object-contain"
+                    loading="lazy"
+                    aria-hidden="true"
+                  />
+                  {/* Step number overlaid */}
+                  <div
+                    className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold font-display"
+                    style={{ backgroundColor: stepColors[index].text, color: '#131110' }}
+                  >
                     {index + 1}
-                  </div>
-
-                  <h3 className="text-2xl font-display font-bold text-white mb-2">
-                    {stage.name}
-                  </h3>
-                  <p className="text-light-gray font-medium mb-3">
-                    {stage.tagline}
-                  </p>
-
-                  {stage.whoThisIsFor && (
-                    <p className="text-sm text-gray mb-5 italic border-l-2 border-dark-border pl-3">
-                      {stage.whoThisIsFor}
-                    </p>
-                  )}
-
-                  <ul className="space-y-3 mb-6">
-                    {stage.activities.map((activity) => (
-                      <li
-                        key={activity}
-                        className="flex items-start gap-3 text-gray"
-                      >
-                        <CheckIcon
-                          size={18}
-                          className="text-light-gray flex-shrink-0 mt-0.5"
-                        />
-                        <span>{activity}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="space-y-3 pt-5 border-t border-dark-border">
-                    <p className="text-sm font-medium text-light-gray">
-                      <span className="text-light-gray font-semibold">Outcome:</span>{' '}
-                      {stage.outcome}
-                    </p>
-                    {stage.timeline && (
-                      <p className="text-xs text-gray">
-                        <span className="text-light-gray font-semibold">Timeline:</span>{' '}
-                        {stage.timeline}
-                      </p>
-                    )}
-                    {stage.communication && (
-                      <p className="text-xs text-gray">
-                        <span className="text-light-gray font-semibold">Communication:</span>{' '}
-                        {stage.communication}
-                      </p>
-                    )}
                   </div>
                 </div>
               </div>
 
-              {index % 2 === 0 && <div className="hidden lg:block" />}
+              {/* Content */}
+              <div
+                className="rounded-2xl p-8 transition-all duration-500 h-full"
+                style={{
+                  backgroundColor: stepColors[index].bg,
+                  borderLeft: `3px solid ${stepColors[index].border}`,
+                }}
+              >
+                <h3
+                  className="text-2xl md:text-3xl font-display font-bold mb-2 text-text-primary"
+                >
+                  {stage.name}
+                </h3>
+                <p className="text-text-secondary font-medium text-sm mb-4">
+                  {stage.tagline}
+                </p>
+                <p className="text-text-muted leading-relaxed">
+                  {stage.description}
+                </p>
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* Loop indicator */}
+        <div className="loop-indicator mt-16 flex flex-col items-center gap-4">
+          <div className="loop-spin">
+            <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12 text-yellow-primary">
+              <path d="M36 8L42 14L36 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M6 24V18C6 11.37 11.37 6 18 6H42" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M12 40L6 34L12 28" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M42 24V30C42 36.63 36.63 42 30 42H6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+          <p className="text-text-secondary text-sm text-center max-w-xs">
+            A continuous cycle. Each round builds on the last, compounding clarity and momentum.
+          </p>
+        </div>
+
+        {/* Closing statement */}
+        <div className="mt-20 text-center max-w-3xl mx-auto">
+          <p className="text-2xl md:text-3xl lg:text-4xl text-text-primary font-display leading-[1.3]">
+            {closing}
+          </p>
         </div>
       </div>
     </Section>

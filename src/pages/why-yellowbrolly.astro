@@ -3,101 +3,53 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/astro/PageHero.astro';
 import Section from '../components/astro/Section.astro';
 import CTASection from '../components/react/sections/CTASection.tsx';
-import { siteContent } from '../data/content';
-
-const { whyYellowBrolly } = siteContent;
-
-const positioningItems = [
-  whyYellowBrolly.positioning.vsTraditionalConsultancies,
-  whyYellowBrolly.positioning.vsFreelanceDevelopers,
-  whyYellowBrolly.positioning.vsDIYTools,
-  whyYellowBrolly.positioning.vsAITechHype,
-];
 ---
 
 <Base
-  title="Why YellowBrolly — How We Compare | YellowBrollyCo"
-  description="When to hire us vs. traditional consultancies, freelancers, DIY tools, or AI hype firms. See if we're a good fit for your team."
+  title="Why YellowBrolly: One Partner, Real Progress | YellowBrollyCo"
+  description="YellowBrolly brings together strategy, culture, digital readiness, brand, and implementation in one integrated model. Less fragmentation, stronger alignment."
 >
   <PageHero
-    headline={whyYellowBrolly.hero.headline}
-    subhead={whyYellowBrolly.hero.subhead}
-    eyebrow="Why Choose Us"
+    headline="One partner. Real progress."
+    subhead="Most organizations do not need more advice in isolation. They need a partner who can connect the dots."
+    eyebrow="Why YellowBrolly"
   />
 
-  <!-- Positioning comparisons -->
-  <Section background="dark">
-    <div class="max-w-5xl">
-      <h2 class="scroll-fade-up text-3xl md:text-5xl font-display font-bold text-white mb-16">
-        How We Compare
-      </h2>
-
-      <div class="space-y-0">
-        {positioningItems.map((item, index) => (
-          <div
-            class:list={[
-              'scroll-fade-up flex gap-6 md:gap-10 py-10 md:py-14',
-              index < positioningItems.length - 1 ? 'border-b border-dark-border' : '',
-            ]}
-          >
-            <span class="text-5xl md:text-7xl font-display font-bold text-dark-border leading-none flex-shrink-0 w-10 md:w-16 select-none" aria-hidden="true">
-              vs
-            </span>
-            <div>
-              <h3 class="text-xl md:text-2xl font-display font-bold text-yellow-primary mb-3">
-                {item.title}
-              </h3>
-              <p class="text-base md:text-lg text-gray leading-relaxed max-w-2xl">
-                {item.advantage}
-              </p>
-            </div>
-          </div>
-        ))}
+  <Section background="sand">
+    <div class="max-w-3xl mx-auto">
+      <div class="scroll-fade-up space-y-6">
+        <p class="text-lg md:text-xl text-text-secondary leading-relaxed">
+          YellowBrolly brings together strategy, culture, digital readiness, brand, and implementation in one integrated model. That means less fragmentation, stronger alignment, and a clearer path from vision to execution.
+        </p>
+        <p class="text-lg md:text-xl text-text-secondary leading-relaxed">
+          We help clients do the hard but necessary work of growth: making decisions, strengthening systems, aligning people, adopting tools, and building the confidence to move forward.
+        </p>
+        <p class="text-xl md:text-2xl font-display text-text-primary leading-relaxed mt-8">
+          Because the goal is not just change. The goal is lasting capability.
+        </p>
       </div>
     </div>
   </Section>
 
-  <!-- Good fit / Not good fit -->
-  <Section background="black">
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 max-w-5xl">
-      <!-- Good fit -->
-      <div class="scroll-fade-up md:col-span-3">
-        <h2 class="text-2xl md:text-3xl font-display font-bold text-white mb-8">
-          {whyYellowBrolly.goodFit.headline}
-        </h2>
-        <ul class="space-y-5">
-          {whyYellowBrolly.goodFit.criteria.map((criterion) => (
-            <li class="flex items-start gap-4">
-              <svg class="text-yellow-primary flex-shrink-0 mt-0.5" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              <span class="text-light-gray text-base md:text-lg leading-relaxed">{criterion}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Not good fit -->
-      <div class="scroll-fade-up md:col-span-2 md:pt-2">
-        <h2 class="text-xl md:text-2xl font-display font-bold text-gray mb-6">
-          {whyYellowBrolly.notGoodFit.headline}
-        </h2>
-        <ul class="space-y-4">
-          {whyYellowBrolly.notGoodFit.criteria.map((criterion) => (
-            <li class="flex items-start gap-3 text-gray">
-              <span class="text-dark-border flex-shrink-0 mt-0.5 text-lg">&times;</span>
-              <span class="text-sm leading-relaxed">{criterion}</span>
-            </li>
-          ))}
-        </ul>
+  <!-- Brand positioning nudge -->
+  <Section background="cream">
+    <div class="scroll-fade-up flex flex-col sm:flex-row items-center gap-6 max-w-3xl mx-auto">
+      <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true" class="w-16 h-16 object-contain flex-shrink-0" loading="lazy" />
+      <div>
+        <p class="text-text-secondary leading-relaxed">
+          Part of connecting the dots is understanding who your brand really is.
+          <a href="/brand-archetype" class="text-yellow-text hover:text-yellow-hover font-medium inline-flex items-center gap-1 ml-1 transition-colors duration-300">
+            Discover your brand archetype
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+          </a>
+        </p>
       </div>
     </div>
   </Section>
 
   <CTASection client:visible
-    headline="Ready to see if we're a good fit?"
-    subhead="Let's have an honest conversation about your needs."
-    primaryCta={{ label: 'Book a Discovery Call', to: '/contact' }}
-    secondaryCta={{ label: 'Learn More About Our Approach', to: '/approach' }}
+    headline="Let's build the clarity, systems, and momentum your organization needs to grow well."
+    primaryCta={{ label: 'Talk to YellowBrolly', to: '/contact' }}
+    secondaryCta={{ label: 'Explore Our Approach', to: '/approach' }}
   />
 </Base>

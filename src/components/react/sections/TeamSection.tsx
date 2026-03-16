@@ -69,71 +69,70 @@ export default function TeamSection() {
   }, [prefersReducedMotion]);
 
   return (
-    <Section background="black">
+    <Section background="cream">
       <div ref={sectionRef}>
-        <div className="team-heading">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+        <div className="team-heading mb-12">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-text-primary mb-4">
             {team.headline}
           </h2>
-
-          {team.combinedExperience && (
-            <p className="text-gray text-sm mb-12">
-              {team.combinedExperience}
-            </p>
-          )}
         </div>
 
-        <div className="space-y-0">
-          {team.members.map((member, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {team.members.map((member) => (
             <div
               key={member.name}
-              className={`team-member flex flex-col md:flex-row gap-6 md:gap-8${
-                index < team.members.length - 1
-                  ? ' border-b border-dark-border pb-8 mb-8'
-                  : ''
-              }`}
+              className="team-member bg-white border border-light-border rounded-2xl overflow-hidden hover:border-yellow-primary/30 transition-all duration-300 group"
             >
-              <div className="w-28 md:w-32 flex-shrink-0 overflow-hidden rounded-lg bg-dark-elevated" style={{ aspectRatio: '4/7' }}>
-                {member.image ? (
+              {/* Large portrait photo */}
+              <div className="aspect-[4/3] w-full overflow-hidden relative">
+                {'image' in member && member.image ? (
                   <img
-                    src={member.image}
+                    src={member.image as string}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                     loading="lazy"
                   />
                 ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-yellow-primary to-yellow-hover flex items-center justify-center">
-                    <span className="text-2xl font-bold text-black">
+                  <div className="w-full h-full bg-gradient-to-br from-yellow-primary/20 to-white flex items-center justify-center">
+                    <span className="text-6xl font-bold text-yellow-primary/40 font-display">
                       {member.name.split(' ').map(n => n[0]).join('')}
                     </span>
                   </div>
                 )}
+                {/* Subtle gradient overlay at bottom for text readability */}
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" />
               </div>
 
-              <div>
-                <div className="flex items-center gap-3">
-                  <h3 className="text-xl font-bold text-white">{member.name}</h3>
+              {/* Info section */}
+              <div className="p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-1">
+                  <h3 className="text-xl font-bold text-text-primary">{member.name}</h3>
                   {member.linkedin && (
                     <a
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray hover:text-light-gray transition-colors duration-200"
+                      className="text-text-muted hover:text-yellow-primary transition-colors duration-200"
                       aria-label={`${member.name} on LinkedIn`}
                     >
                       <LinkedInIcon size={16} />
                     </a>
                   )}
                 </div>
-                <p className="text-yellow-primary text-sm font-medium">{member.role}</p>
-                {member.tagline && (
-                  <p className="italic text-sm text-gray">{member.tagline}</p>
-                )}
-                <p className="text-gray text-sm leading-relaxed mt-2">{member.bio}</p>
+                <p className="text-yellow-text text-sm font-medium mb-4">{member.role}</p>
+                <p className="text-text-muted text-sm leading-relaxed">{member.bio}</p>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Key Collaborators */}
+        {'collaborators' in team && (
+          <div className="team-member mt-8 p-6 bg-white/50 border border-light-border rounded-xl text-center">
+            <h3 className="text-lg font-display font-bold text-text-primary mb-2">Key Collaborators & Partners</h3>
+            <p className="text-text-muted text-sm">{(team as { collaborators: string }).collaborators}</p>
+          </div>
+        )}
       </div>
     </Section>
   );

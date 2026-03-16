@@ -2,14 +2,17 @@
 const navItems = [
   { label: 'Home', path: '/' },
   { label: 'About Us', path: '/about' },
-  { label: 'The YB Approach', path: '/approach' },
+  { label: 'Our Approach', path: '/approach' },
   { label: 'What We Do', path: '/services' },
+  { label: 'Why YellowBrolly', path: '/why-yellowbrolly' },
+  { label: "Let's Talk", path: '/contact' },
 ];
 
 const moreItems = [
-  { label: 'Why YellowBrolly', path: '/why-yellowbrolly' },
   { label: 'FAQ', path: '/faq' },
-  { label: "Let's Talk", path: '/contact' },
+  { label: 'Brand Archetypes', path: '/brand-archetype' },
+  { label: 'Blog', path: '/blog' },
+  { label: 'Case Studies', path: '/case-studies' },
 ];
 
 const footerLinks = [
@@ -18,10 +21,10 @@ const footerLinks = [
 ];
 
 const currentYear = new Date().getFullYear();
-const marqueeText = 'DIGITAL STRATEGY \u00B7 HUMAN-FIRST \u00B7 CYBERSECURITY \u00B7 BRAND & CULTURE \u00B7 AI INTEGRATION \u00B7 ';
+const marqueeText = 'STRATEGY \u00B7 CULTURE \u00B7 DIGITAL \u00B7 BRAND \u00B7 IMPLEMENTATION \u00B7 ';
 ---
 
-<footer class="bg-dark border-t border-dark-border">
+<footer class="bg-dark-warm border-t border-dark-border text-white">
   <div class="py-6 border-b border-dark-border overflow-hidden">
     <div class="marquee-track">
       <div class="marquee-content text-xl md:text-2xl lg:text-3xl xl:text-4xl font-display text-dark-border select-none tracking-wider">
@@ -41,7 +44,7 @@ const marqueeText = 'DIGITAL STRATEGY \u00B7 HUMAN-FIRST \u00B7 CYBERSECURITY \u
           <span class="font-display font-bold text-2xl text-white">Yellow Brolly Co</span>
         </a>
         <p class="text-gray max-w-md text-lg leading-relaxed">
-          Technology-forward strategy. Human-first results.
+          When growth gets complex, we help you move forward.
         </p>
       </div>
 
@@ -69,10 +72,10 @@ const marqueeText = 'DIGITAL STRATEGY \u00B7 HUMAN-FIRST \u00B7 CYBERSECURITY \u
     </div>
 
     <div class="border-t border-dark-border mt-12 md:mt-16 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="text-gray/60 text-sm">&copy; {currentYear} Yellow Brolly Co. All rights reserved.</p>
+      <p class="text-gray/80 text-sm">&copy; {currentYear} Yellow Brolly Co. All rights reserved.</p>
       <div class="flex gap-6 sm:gap-8">
         {footerLinks.map((link) => (
-          <a href={link.path} class="text-gray/60 hover:text-yellow-primary text-sm transition-colors duration-300 py-2 min-h-[48px] inline-flex items-center">
+          <a href={link.path} class="text-gray/80 hover:text-yellow-primary text-sm transition-colors duration-300 py-2 min-h-[48px] inline-flex items-center">
             {link.label}
           </a>
         ))}

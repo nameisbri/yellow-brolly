@@ -76,7 +76,7 @@ export default function SocialProof() {
   }, [prefersReducedMotion]);
 
   return (
-    <Section background="dark">
+    <Section background="cream">
       <div ref={sectionRef} className="max-w-4xl">
         {/* Large decorative quotation mark */}
         <div className="quote-mark text-yellow-primary text-6xl md:text-8xl font-display leading-none opacity-30">
@@ -85,15 +85,15 @@ export default function SocialProof() {
 
         {/* Featured first testimonial as large pull quote */}
         <blockquote className="featured-quote mb-8">
-          <p className="text-2xl md:text-3xl lg:text-4xl font-light italic text-light-gray leading-relaxed">
+          <p className="text-2xl md:text-3xl lg:text-4xl font-light italic text-text-secondary leading-relaxed">
             {firstTestimonial.quote}
           </p>
           <footer className="mt-6">
-            <span className="text-base text-light-gray font-medium">
+            <span className="text-base text-text-secondary font-medium">
               {firstTestimonial.author}
             </span>
             {firstTestimonial.role && (
-              <span className="text-base text-gray ml-2">
+              <span className="text-base text-text-muted ml-2">
                 &mdash; {firstTestimonial.role}
               </span>
             )}
@@ -102,16 +102,16 @@ export default function SocialProof() {
 
         {/* Remaining testimonials, smaller with dividers */}
         {restTestimonials.map((testimonial, index) => (
-          <blockquote key={index} className="rest-quote border-t border-gray/20 py-8">
-            <p className="text-lg font-light italic text-light-gray">
+          <blockquote key={index} className="rest-quote border-t border-light-border py-8">
+            <p className="text-lg font-light italic text-text-secondary">
               {testimonial.quote}
             </p>
             <footer className="mt-4">
-              <span className="text-sm text-light-gray font-medium">
+              <span className="text-sm text-text-secondary font-medium">
                 {testimonial.author}
               </span>
               {testimonial.role && (
-                <span className="text-sm text-gray ml-2">
+                <span className="text-sm text-text-muted ml-2">
                   &mdash; {testimonial.role}
                 </span>
               )}
@@ -121,7 +121,7 @@ export default function SocialProof() {
 
         {/* Client count */}
         {socialProof.clientCount && (
-          <p className="text-sm text-gray mt-4">
+          <p className="text-sm text-text-muted mt-4">
             {socialProof.clientCount}
           </p>
         )}

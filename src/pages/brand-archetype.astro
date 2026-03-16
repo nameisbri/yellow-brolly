@@ -1,0 +1,290 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Discover Your Brand Archetype | YellowBrollyCo"
+  description="A strong brand is more than a logo. Discover the personality, energy, and role your business plays using brand archetypes. Take our assessment."
+>
+  <!-- ===================== HERO ===================== -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden bg-yellow-primary">
+    <!-- Subtle dot pattern -->
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, #000 1px, transparent 0); background-size: 24px 24px;"></div>
+
+    <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Left: Typography -->
+        <div class="lg:col-span-7 pt-32 pb-16 md:pt-40 md:pb-24">
+          <span class="inline-block text-black/70 text-sm font-semibold tracking-[0.25em] uppercase mb-8 scroll-fade-up">Brand Strategy</span>
+          <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-black leading-[0.95] mb-8 scroll-fade-up" style="animation-delay: 0.1s;">
+            Discover the<br />
+            identity behind<br />
+            your brand
+          </h1>
+          <p class="text-lg md:text-xl text-black/75 leading-relaxed max-w-xl scroll-fade-up" style="animation-delay: 0.2s;">
+            A strong brand is more than a logo or colour palette. It's the personality, energy, and role your business plays in the lives of your customers.
+          </p>
+        </div>
+
+        <!-- Right: Floating illustration -->
+        <div class="lg:col-span-5 relative hidden lg:flex items-center justify-center">
+          <div class="relative scroll-fade-up" style="animation-delay: 0.35s;">
+            <!-- Subtle circle backdrop -->
+            <div class="absolute inset-0 m-auto w-72 h-72 rounded-full bg-black/[0.04] blur-2xl"></div>
+            <img
+              src="/images/brand/creative-designer.png"
+              alt="Creative designer with laptop and lightbulb - representing brand strategy"
+              class="relative z-10 w-full max-w-md drop-shadow-2xl"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom fade into next section -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cream-warm to-transparent pointer-events-none"></div>
+  </section>
+
+  <!-- ===================== WHAT ARE ARCHETYPES ===================== -->
+  <section class="py-20 md:py-32 bg-cream-warm relative overflow-hidden">
+    <!-- Decorative illustration: coffee person tucked into the corner -->
+    <div class="absolute -bottom-8 -left-4 opacity-[0.08] w-64 pointer-events-none">
+      <img src="/images/brand/coffee-person.png" alt="" aria-hidden="true" class="w-full" loading="lazy" />
+    </div>
+
+    <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        <!-- Left column: intro text -->
+        <div class="lg:col-span-5 scroll-fade-up">
+          <span class="text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">The Framework</span>
+          <h2 class="text-3xl md:text-5xl font-display font-bold text-text-primary leading-[1.05] mb-6">
+            Characters that<br />shape culture
+          </h2>
+          <div class="w-16 h-0.5 bg-yellow-primary/40 mb-8"></div>
+        </div>
+
+        <!-- Right column: explanation -->
+        <div class="lg:col-span-7 scroll-fade-up" style="animation-delay: 0.15s;">
+          <p class="text-lg md:text-xl text-text-muted leading-relaxed mb-6">
+            Brand archetypes are a strategic framework based on universal character patterns first explored by psychologist Carl Jung. These patterns appear across cultures and stories because they reflect how people naturally understand identity and meaning.
+          </p>
+          <p class="text-lg md:text-xl text-text-muted leading-relaxed">
+            When applied to branding, archetypes help define how your brand should show up in the world: its voice, personality, values, and the emotional connection it builds with its audience.
+          </p>
+          <p class="text-base text-text-muted mt-8 italic">
+            That's why we use brand archetypes as part of our branding process.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ARCHETYPE GRID ===================== -->
+  <section class="py-20 md:py-32 bg-sand relative overflow-hidden">
+    <!-- Decorative: creative thinker floating top-right -->
+    <div class="absolute -top-6 right-8 md:right-16 w-40 md:w-56 opacity-20 pointer-events-none">
+      <img src="/images/brand/creative-thinker.png" alt="" aria-hidden="true" class="w-full" loading="lazy" />
+    </div>
+    <!-- Decorative: thumbs-up floating bottom-left -->
+    <div class="absolute -bottom-4 left-8 md:left-20 w-36 md:w-48 opacity-15 pointer-events-none">
+      <img src="/images/brand/thumbs-up.png" alt="" aria-hidden="true" class="w-full" loading="lazy" />
+    </div>
+
+    <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
+      <!-- Section header -->
+      <div class="max-w-2xl mb-16 scroll-fade-up">
+        <span class="text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">12 Universal Patterns</span>
+        <h2 class="text-3xl md:text-5xl font-display font-bold text-text-primary leading-[1.05]">
+          Meet the archetypes
+        </h2>
+      </div>
+
+      <!-- 6-card grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        <!-- Hero -->
+        <div class="group relative bg-white border border-light-border p-8 transition-all duration-500 hover:border-yellow-primary/30 hover:shadow-lg scroll-fade-up" style="animation-delay: 0.05s;">
+          <div class="flex items-start justify-between mb-5">
+            <span class="text-3xl">&#9876;</span>
+            <span class="text-xs text-text-muted font-semibold tracking-widest uppercase">Mastery</span>
+          </div>
+          <h3 class="text-xl font-display font-bold text-text-primary mb-2">The Hero</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Proves worth through courage and determination. Driven to make a difference.</p>
+        </div>
+
+        <!-- Explorer -->
+        <div class="group relative bg-white border border-light-border p-8 transition-all duration-500 hover:border-yellow-primary/30 hover:shadow-lg scroll-fade-up" style="animation-delay: 0.1s;">
+          <div class="flex items-start justify-between mb-5">
+            <span class="text-3xl">&#9978;</span>
+            <span class="text-xs text-text-muted font-semibold tracking-widest uppercase">Freedom</span>
+          </div>
+          <h3 class="text-xl font-display font-bold text-text-primary mb-2">The Explorer</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Seeks new experiences and authenticity. Refuses to be boxed in.</p>
+        </div>
+
+        <!-- Sage -->
+        <div class="group relative bg-white border border-light-border p-8 transition-all duration-500 hover:border-yellow-primary/30 hover:shadow-lg scroll-fade-up" style="animation-delay: 0.15s;">
+          <div class="flex items-start justify-between mb-5">
+            <span class="text-3xl">&#128218;</span>
+            <span class="text-xs text-text-muted font-semibold tracking-widest uppercase">Knowledge</span>
+          </div>
+          <h3 class="text-xl font-display font-bold text-text-primary mb-2">The Sage</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Uses intelligence and analysis to understand the world and share wisdom.</p>
+        </div>
+
+        <!-- Caregiver -->
+        <div class="group relative bg-white border border-light-border p-8 transition-all duration-500 hover:border-yellow-primary/30 hover:shadow-lg scroll-fade-up" style="animation-delay: 0.2s;">
+          <div class="flex items-start justify-between mb-5">
+            <span class="text-3xl">&#10084;</span>
+            <span class="text-xs text-text-muted font-semibold tracking-widest uppercase">Service</span>
+          </div>
+          <h3 class="text-xl font-display font-bold text-text-primary mb-2">The Caregiver</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Protects and nurtures others. Driven by compassion and generosity.</p>
+        </div>
+
+        <!-- Creator -->
+        <div class="group relative bg-white border border-light-border p-8 transition-all duration-500 hover:border-yellow-primary/30 hover:shadow-lg scroll-fade-up" style="animation-delay: 0.25s;">
+          <div class="flex items-start justify-between mb-5">
+            <span class="text-3xl">&#127912;</span>
+            <span class="text-xs text-text-muted font-semibold tracking-widest uppercase">Innovation</span>
+          </div>
+          <h3 class="text-xl font-display font-bold text-text-primary mb-2">The Creator</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Brings vision to life through imagination. Craves self-expression.</p>
+        </div>
+
+        <!-- Ruler -->
+        <div class="group relative bg-white border border-light-border p-8 transition-all duration-500 hover:border-yellow-primary/30 hover:shadow-lg scroll-fade-up" style="animation-delay: 0.3s;">
+          <div class="flex items-start justify-between mb-5">
+            <span class="text-3xl">&#128081;</span>
+            <span class="text-xs text-text-muted font-semibold tracking-widest uppercase">Control</span>
+          </div>
+          <h3 class="text-xl font-display font-bold text-text-primary mb-2">The Ruler</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Creates order and structure. Leads with authority and responsibility.</p>
+        </div>
+      </div>
+
+      <p class="text-sm text-text-muted mt-10 text-center scroll-fade-up" style="animation-delay: 0.35s;">These are six of the twelve Jungian archetypes. Your brand's archetype is revealed through our assessment.</p>
+    </div>
+  </section>
+
+  <!-- ===================== WHY IT MATTERS ===================== -->
+  <section class="py-20 md:py-32 bg-sand relative overflow-hidden">
+    <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <!-- Left: editorial pull-quotes -->
+        <div class="lg:col-span-7 order-2 lg:order-1">
+          <div class="scroll-fade-up mb-12">
+            <span class="text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">Why It Matters</span>
+            <h2 class="text-3xl md:text-5xl font-display font-bold text-text-primary leading-[1.05] mb-4">
+              A clear brand archetype<br />helps your business
+            </h2>
+            <div class="w-16 h-0.5 bg-yellow-primary/40"></div>
+          </div>
+
+          <!-- Five editorial callouts -->
+          <div class="space-y-0">
+            <!-- Point 1 -->
+            <div class="group relative border-l-2 border-light-border/60 pl-8 py-6 transition-all duration-300 hover:border-yellow-primary/50 scroll-fade-up" style="animation-delay: 0.05s;">
+              <span class="text-xs text-yellow-text font-semibold tracking-widest uppercase mb-2 block">Identity</span>
+              <p class="text-lg md:text-xl text-text-primary font-display leading-snug">Clarify its identity and positioning</p>
+              <p class="text-sm text-text-muted mt-2 leading-relaxed">Know exactly who your brand is, what it stands for, and where it fits in the market.</p>
+            </div>
+
+            <!-- Point 2 -->
+            <div class="group relative border-l-2 border-light-border/60 pl-8 py-6 transition-all duration-300 hover:border-yellow-primary/50 scroll-fade-up" style="animation-delay: 0.1s;">
+              <span class="text-xs text-yellow-text font-semibold tracking-widest uppercase mb-2 block">Voice</span>
+              <p class="text-lg md:text-xl text-text-primary font-display leading-snug">Create consistent messaging and tone of voice</p>
+              <p class="text-sm text-text-muted mt-2 leading-relaxed">Every word, from your website to social posts, carries the same unmistakable personality.</p>
+            </div>
+
+            <!-- Point 3 -->
+            <div class="group relative border-l-2 border-light-border/60 pl-8 py-6 transition-all duration-300 hover:border-yellow-primary/50 scroll-fade-up" style="animation-delay: 0.15s;">
+              <span class="text-xs text-yellow-text font-semibold tracking-widest uppercase mb-2 block">Design</span>
+              <p class="text-lg md:text-xl text-text-primary font-display leading-snug">Guide visual and design decisions</p>
+              <p class="text-sm text-text-muted mt-2 leading-relaxed">Colours, typography, imagery, and layout all flow from one strategic foundation.</p>
+            </div>
+
+            <!-- Point 4 -->
+            <div class="group relative border-l-2 border-light-border/60 pl-8 py-6 transition-all duration-300 hover:border-yellow-primary/50 scroll-fade-up" style="animation-delay: 0.2s;">
+              <span class="text-xs text-yellow-text font-semibold tracking-widest uppercase mb-2 block">Connection</span>
+              <p class="text-lg md:text-xl text-text-primary font-display leading-snug">Build stronger emotional connection with customers</p>
+              <p class="text-sm text-text-muted mt-2 leading-relaxed">People don't just buy products. They align with brands that mirror their own values.</p>
+            </div>
+
+            <!-- Point 5 -->
+            <div class="group relative border-l-2 border-light-border/60 pl-8 py-6 transition-all duration-300 hover:border-yellow-primary/50 scroll-fade-up" style="animation-delay: 0.25s;">
+              <span class="text-xs text-yellow-text font-semibold tracking-widest uppercase mb-2 block">Differentiation</span>
+              <p class="text-lg md:text-xl text-text-primary font-display leading-snug">Stand out in competitive markets</p>
+              <p class="text-sm text-text-muted mt-2 leading-relaxed">When competitors all sound the same, an archetype gives you a distinct voice that cuts through.</p>
+            </div>
+          </div>
+
+          <p class="text-base text-text-muted mt-10 leading-relaxed pl-8 scroll-fade-up" style="animation-delay: 0.3s;">
+            Instead of guessing how your brand should communicate, archetypes provide a clear foundation for everything that follows.
+          </p>
+        </div>
+
+        <!-- Right: magnifying glass illustration -->
+        <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
+          <div class="relative scroll-fade-up" style="animation-delay: 0.15s;">
+            <div class="absolute inset-0 m-auto w-64 h-64 rounded-full bg-yellow-primary/[0.05] blur-3xl"></div>
+            <img
+              src="/images/brand/magnifying-glass.png"
+              alt="Magnifying glass illustration - examining your brand identity"
+              class="relative z-10 w-64 md:w-80 lg:w-96 drop-shadow-2xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== QUIZ CTA ===================== -->
+  <section class="relative py-24 md:py-36 overflow-hidden bg-yellow-primary">
+    <!-- Dot pattern -->
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, #000 1px, transparent 0); background-size: 24px 24px;"></div>
+
+    <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <!-- Left: trophy illustration -->
+        <div class="lg:col-span-4 flex justify-center lg:justify-start">
+          <div class="relative scroll-fade-up">
+            <div class="absolute inset-0 m-auto w-56 h-56 rounded-full bg-yellow-primary/[0.06] blur-2xl"></div>
+            <img
+              src="/images/brand/trophy-winner.png"
+              alt="Person celebrating with trophy - discover your brand archetype"
+              class="relative z-10 w-56 md:w-72 drop-shadow-2xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Right: CTA content -->
+        <div class="lg:col-span-8 lg:pl-8">
+          <div class="scroll-fade-up" style="animation-delay: 0.1s;">
+            <span class="text-black/70 text-sm font-semibold tracking-[0.25em] uppercase mb-6 block">Ready to find out?</span>
+            <h2 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-black leading-[0.95] mb-8">
+              Take the Brand<br />
+              Archetype Quiz
+            </h2>
+            <p class="text-lg md:text-xl text-black/75 leading-relaxed max-w-xl mb-12">
+              Our Brand Archetype assessment helps uncover the deeper personality of your brand and provides insight into how your business should communicate, connect, and grow.
+            </p>
+
+            <!-- TODO: Quiz destination needs to be confirmed with the client. Currently links to contact page as placeholder. -->
+            <a
+              href="/contact"
+              class="relative inline-flex items-center justify-center font-semibold uppercase tracking-wider transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 overflow-hidden group bg-black text-yellow-primary hover:bg-black/80 px-12 py-5 text-base"
+            >
+              <span class="relative z-10 flex items-center gap-3">
+                Start the Quiz
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

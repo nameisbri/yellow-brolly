@@ -1,3 +1,4 @@
+# TODO: Update sitemap URL when migrating to Webflow Cloud domain
 User-agent: *
 Allow: /
 
