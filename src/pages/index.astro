@@ -43,19 +43,25 @@ const jsonLd = [
   description="Technology consulting that fits your culture. We help nonprofits and agencies adopt AI, improve cybersecurity, and build tech stacks that actually work. Book a discovery call."
   jsonLd={jsonLd}
 >
+  {/*
+    Hero headline options from client doc:
+    Option 1: "Build with confidence. Grow with strength."
+    Option 2: "When growth gets complex, we help you move forward." (selected)
+    Option 3: "More than a plan. A partner in transformation."
+  */}
   <HeroSection client:load
-    headline="Technology-forward strategy. Human-first results."
-    highlightedWord="Human-first"
-    subhead="We help teams adopt digital tools, AI, and cybersecurity practices without losing sight of their culture, brand, or what actually matters."
+    headline="When growth gets complex, we help you move forward."
+    highlightedWord="move forward"
+    subhead="YellowBrolly helps organizations strengthen leadership, modernize operations, and implement change that lasts."
     ctaPrimary={{ label: 'Book a Discovery Call', to: '/contact' }}
-    ctaSecondary={{ label: 'Explore What We Have to Offer', to: '/services' }}
+    ctaSecondary={{ label: 'Explore What We Do', to: '/services' }}
     showBackground={true}
     eyebrow="Yellow Brolly Co"
   />
   <PMCWaySection />
   <WhatSetsUsApart />
   <BigTextCTA client:visible
-    text="Technology-forward strategy. Human-first results. Technology-forward strategy. Human-first results."
+    text="Strategy. Culture. Digital. Brand. Implementation. Strategy. Culture. Digital. Brand. Implementation."
     ctaLabel="See What We Do"
     ctaTo="/services"
   />
@@ -63,9 +69,8 @@ const jsonLd = [
   <ServicesPreview />
   <SocialProof client:visible />
   <CTASection client:visible
-    headline="Ready to make digital make sense?"
-    subhead="Let's talk about what your organization actually needs."
+    headline="Let's build the clarity, systems, and momentum your organization needs to grow well."
     primaryCta={{ label: 'Book a Discovery Call', to: '/contact' }}
-    secondaryCta={{ label: 'Learn About Our Approach', to: '/approach' }}
+    secondaryCta={{ label: 'Explore Our Approach', to: '/approach' }}
   />
 </Base>

@@ -1,7 +1,7 @@
 export const siteContent = {
   brand: {
     name: 'Yellow Brolly Co',
-    tagline: 'Technology-forward strategy. Human-first results.',
+    tagline: 'When growth gets complex, we help you move forward.',
   },
 
   navigation: [
@@ -16,11 +16,11 @@ export const siteContent = {
 
   home: {
     hero: {
-      headline: 'Technology-forward strategy. Human-first results.',
+      headline: 'When growth gets complex, we help you move forward.',
       subhead:
-        'We help teams adopt digital tools, AI, and cybersecurity practices without losing sight of their culture, brand, or what actually matters.',
+        'YellowBrolly helps organizations strengthen leadership, modernize operations, and implement change that lasts.',
       ctaPrimary: 'Book a Discovery Call',
-      ctaSecondary: 'Explore What We Have to Offer',
+      ctaSecondary: 'Explore What We Do',
     },
     pmcSection: {
       headline: 'The PMC Way',
