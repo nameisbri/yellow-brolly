@@ -618,8 +618,8 @@ export const siteContent = {
   },
 
   footer: {
-    tagline: 'Technology-forward strategy. Human-first results.',
-    copyright: '© 2024 Yellow Brolly Co. All rights reserved.',
+    tagline: 'When growth gets complex, we help you move forward.',
+    copyright: '© 2025 Yellow Brolly Co. All rights reserved.',
     links: [
       { label: 'Privacy Policy', path: '/privacy' },
       { label: 'Terms of Service', path: '/terms' },

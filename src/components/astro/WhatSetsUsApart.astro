@@ -6,13 +6,15 @@ const { whatSetsUsApart } = siteContent.home;
 const [featured, ...rest] = whatSetsUsApart.differentiators;
 ---
 
-<Section background="dark">
+<Section background="warm">
   <div>
     <h2 class="scroll-fade-up text-3xl md:text-4xl font-display font-bold text-white mb-10">
       What Sets Us Apart
     </h2>
 
-    <div class="scroll-fade-up border-l-4 border-yellow-primary pl-6 mb-12">
+    <!-- TODO: BRAND ILLUSTRATION: Playful brand graphic highlighting the human-centred approach -->
+
+    <div class="scroll-fade-up border-l-4 border-yellow-primary pl-6 mb-12 bg-dark-elevated/30 py-4 pr-4 rounded-r-xl">
       <h3 class="text-2xl font-display font-bold text-white mb-3">
         {featured.title}
       </h3>
@@ -23,9 +25,9 @@ const [featured, ...rest] = whatSetsUsApart.differentiators;
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {rest.map((item) => (
-        <div class="scroll-fade-up">
+        <div class="scroll-fade-up group">
           <h3 class="text-lg font-bold text-white mb-2">
-            <span class="inline-block w-2 h-2 rounded-full bg-yellow-primary mr-2 align-middle"></span>
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-yellow-primary mr-2 align-middle group-hover:scale-125 transition-transform duration-300"></span>
             {item.title}
           </h3>
           <p class="text-sm text-gray leading-relaxed">

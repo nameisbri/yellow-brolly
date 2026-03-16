@@ -19,6 +19,8 @@
   --color-black: #0C0A08;
   --color-dark: #141210;
   --color-dark-elevated: #1E1B17;
+  --color-dark-warm: #1a1815;
+  --color-dark-warmer: #231f1a;
   --color-dark-border: #3D3830;
   --color-gray: #A89F94;
   --color-light-gray: #C8BFB4;
@@ -149,6 +151,12 @@ hr {
   border: none;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--color-dark-border) 20%, var(--color-dark-border) 80%, transparent);
+}
+
+hr.accent {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-yellow-primary) 30%, var(--color-yellow-primary) 70%, transparent);
+  opacity: 0.3;
 }
 
 /* Float in animation */

@@ -11,8 +11,8 @@ const { story, pmcWay, cta } = siteContent.about;
 ---
 
 <Base
-  title="About Us — Our Story & Team | YellowBrollyCo"
-  description="Meet the YellowBrolly team. 30+ years combined in brand strategy, cybersecurity, and nonprofit technology consulting."
+  title="About Us: Our Story & Team | YellowBrollyCo"
+  description="Meet the YellowBrolly team. We bring together strategy, culture, digital readiness, brand, and implementation to help organizations grow."
 >
   <PageHero headline="Tech with soul. Strategy with impact." subhead="Helping people-first organizations do well in a digital world, without compromising on security, strategy, or staying power." eyebrow="About Us" />
 
@@ -21,6 +21,11 @@ const { story, pmcWay, cta } = siteContent.about;
       <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6">{story.headline}</h2>
       <p class="text-lg text-gray leading-relaxed">{story.content}</p>
     </div>
+
+    <!-- TODO: PHOTO: Team working together / culture shot - collaborative workspace or team meeting -->
+    <div class="mt-12 max-w-4xl aspect-[16/7] rounded-2xl border border-dark-border bg-dark-elevated/50 flex items-center justify-center">
+      <span class="text-gray/40 text-sm">Team photo placeholder</span>
+    </div>
   </Section>
 
   <ValuesGrid />
@@ -28,7 +33,7 @@ const { story, pmcWay, cta } = siteContent.about;
   <Section background="black">
     <div class="scroll-fade-up max-w-3xl">
       {pmcWay.subhead && (
-        <span class="inline-block px-2 py-1 text-sm font-medium bg-dark-border text-light-gray mb-4 tracking-wider uppercase">{pmcWay.subhead}</span>
+        <span class="inline-block px-3 py-1 text-sm font-medium bg-yellow-primary/10 text-yellow-primary mb-4 tracking-wider uppercase rounded-full">{pmcWay.subhead}</span>
       )}
       <h2 class="text-2xl md:text-3xl font-display font-bold text-white mb-5">{pmcWay.headline}</h2>
       <p class="text-lg text-gray leading-relaxed border-l-4 border-yellow-primary pl-4">{pmcWay.description}</p>
@@ -36,6 +41,8 @@ const { story, pmcWay, cta } = siteContent.about;
   </Section>
 
   <TeamSection client:visible />
+
+  <!-- TODO: BRAND ILLUSTRATION: Playful brand graphic showing team collaboration or company culture -->
 
   <CTASection client:visible headline={cta} primaryCta={{ label: "Let's Connect", to: '/contact' }} />
 </Base>
