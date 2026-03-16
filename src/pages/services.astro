@@ -7,10 +7,20 @@ import { siteContent } from '../data/content';
 ---
 
 <Base
-  title="What We Do — Tech Strategy & Security | YellowBrollyCo"
-  description="Digital readiness, cybersecurity, AI integration, and brand-aligned tech stacks for nonprofits and agencies."
+  title="What We Do: Strategy, Digital, Brand, Funding & Implementation | YellowBrollyCo"
+  description="We help organizations grow with clarity, confidence, and the systems to scale. Strategy, digital readiness, brand, funding, and implementation support under one roof."
 >
-  <PageHero headline="Smart tech. Strong culture. Real outcomes." subhead="What we do for teams trying to get technology right." eyebrow="What We Do" />
+  <PageHero headline="What We Do" subhead={siteContent.services.hero.subhead} eyebrow="Our Services" />
+
+  <!-- Intro section -->
+  <section class="py-16 md:py-20 bg-dark">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-lg md:text-xl text-light-gray leading-relaxed">
+        {siteContent.services.intro}
+      </p>
+    </div>
+  </section>
+
   <ServicePillars client:visible />
   <CTASection client:visible headline={siteContent.services.cta} primaryCta={{ label: "Let's Build Together", to: '/contact' }} />
 </Base>
