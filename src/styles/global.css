@@ -1,14 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
-
-/* Coolvetica font */
-@font-face {
-  font-family: 'Coolvetica';
-  src: url('https://fonts.cdnfonts.com/s/13277/coolvetica.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 
 @theme {
   /* Brand Colors - Updated Yellow */
@@ -45,7 +36,7 @@
   --color-text-muted: #8A7F72;
 
   /* Typography */
-  --font-display: 'Coolvetica', 'Bebas Neue', 'Impact', system-ui, sans-serif;
+  --font-display: 'Poppins', system-ui, sans-serif;
   --font-body: 'Poppins', system-ui, sans-serif;
   --text-xs: 0.8125rem;
   --text-xs--line-height: 1.25rem;
@@ -57,6 +48,7 @@
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
 }
 
 /* Base Styles */
@@ -92,12 +84,27 @@ body {
   /* contain: paint breaks position:fixed children like the header */
 }
 
-/* Display Font for Headlines - Elegant & Professional */
+/* Headline typography — Poppins with tight tracking for display presence */
 h1, h2, h3, .font-display {
   font-family: var(--font-display);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+h1 {
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+h2 {
+  letter-spacing: -0.025em;
+}
+
+h3 {
   font-weight: var(--font-weight-bold);
-  letter-spacing: 0.02em;
-  text-transform: none;
+  letter-spacing: -0.015em;
 }
 
 /* Selection styling */

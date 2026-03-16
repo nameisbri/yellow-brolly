@@ -1,41 +1,38 @@
 ---
 import Base from '../layouts/Base.astro';
-import PageHero from '../components/astro/PageHero.astro';
 import CaseStudyWalkthrough from '../components/astro/CaseStudyWalkthrough.astro';
 import CTASection from '../components/react/sections/CTASection.tsx';
 import { siteContent } from '../data/content';
 
 const { studies } = siteContent.caseStudies;
 
-// Map each case study to its visual assets and layout config
 const caseStudyConfigs = [
   {
     image: 'https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=800&q=80',
     imageAlt: 'Nonprofit team collaborating around a table',
-    illustration: '/images/brand/creative-designer.png',
-    illustrationAlt: 'Brand illustration of a person at a laptop',
-    reversed: false,
-    background: 'cream' as const,
+    accent: 'teal' as const,
+    number: '01',
+    id: 'nonprofit',
+    heroMetric: '38% time savings',
   },
   {
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
     imageAlt: 'Creative agency team in a meeting',
-    illustration: '/images/brand/thumbs-up.png',
-    illustrationAlt: 'Brand illustration of a person with thumbs up',
-    reversed: true,
-    background: 'sand' as const,
+    accent: 'amber' as const,
+    number: '02',
+    id: 'creative-agency',
+    heroMetric: '100% remote security',
   },
   {
     image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80',
     imageAlt: 'Startup team working in a modern workspace',
-    illustration: '/images/brand/trophy-winner.png',
-    illustrationAlt: 'Brand illustration of a person holding a trophy',
-    reversed: false,
-    background: 'warm' as const,
+    accent: 'sage' as const,
+    number: '03',
+    id: 'startup',
+    heroMetric: '50% less noise',
   },
 ];
 
-// We show only the first 3 case studies in the walkthrough format
 const walkthroughStudies = studies.slice(0, 3);
 ---
 
@@ -43,20 +40,70 @@ const walkthroughStudies = studies.slice(0, 3);
   title="Case Studies: Real Results | YellowBrollyCo"
   description="Real results from nonprofits, agencies, and startups. See how we help organizations grow with clarity and confidence."
 >
-  <PageHero headline="Real Results. Real Organizations." eyebrow="Case Studies" />
+  <!-- Hero — compact, sets expectation of "three projects" -->
+  <section class="relative pt-32 pb-14 md:pt-44 md:pb-18 bg-yellow-primary overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, #000 1px, transparent 0); background-size: 24px 24px;"></div>
 
-  <!-- Intro text -->
-  <section class="bg-cream py-12 md:py-16">
-    <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
-      <p class="scroll-fade-up text-lg md:text-xl text-text-muted max-w-3xl leading-relaxed">
+    <div class="absolute -right-16 md:-right-8 top-1/2 -translate-y-1/2 opacity-[0.06] pointer-events-none select-none">
+      <svg width="400" height="400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" class="w-64 h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] text-black">
+        <path d="M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7" />
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
+      <div class="scroll-fade-up mb-6 md:mb-8">
+        <span class="inline-block text-black/60 text-sm font-semibold tracking-[0.3em] uppercase">Case Studies</span>
+        <div class="mt-3 w-12 h-[2px] bg-black/20"></div>
+      </div>
+      <h1 class="scroll-fade-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-black leading-[1.05] tracking-tight max-w-4xl">
+        Three Projects.<br class="hidden sm:block" /> Real Transformations.
+      </h1>
+      <p class="scroll-fade-up mt-6 text-lg md:text-xl text-black/60 max-w-2xl leading-relaxed">
         Every engagement starts with listening. Here are three stories of organizations that needed clarity, security, and systems that actually work for their people.
       </p>
     </div>
+
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-cream-warm to-transparent pointer-events-none"></div>
   </section>
+
+  <!-- Project Index — magazine-style table of contents -->
+  <nav aria-label="Case study navigation" class="bg-cream-warm">
+    <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+      {walkthroughStudies.map((study, i) => {
+        const config = caseStudyConfigs[i];
+        return (
+          <a
+            href={`#${config.id}`}
+            class="group flex items-center gap-5 md:gap-10 py-6 md:py-7 border-b border-light-border last:border-b-0 transition-colors"
+          >
+            <span class="text-5xl md:text-7xl font-display font-bold text-light-border group-hover:text-yellow-primary transition-colors duration-300 leading-none w-14 md:w-24 flex-shrink-0 text-right">
+              {config.number}
+            </span>
+            <div class="flex-1 min-w-0">
+              <h2 class="text-lg md:text-2xl lg:text-3xl font-display font-bold text-text-primary group-hover:text-yellow-text transition-colors leading-tight">
+                {study.title}
+              </h2>
+              <div class="flex items-center gap-3 mt-1">
+                <span class="text-xs md:text-sm text-text-muted">{study.clientType}</span>
+                <span class="w-1 h-1 rounded-full bg-text-muted/40 flex-shrink-0"></span>
+                <span class="text-xs md:text-sm font-semibold text-yellow-text">{config.heroMetric}</span>
+              </div>
+            </div>
+            <svg class="w-5 h-5 text-text-muted/30 group-hover:text-yellow-text group-hover:translate-y-1 transition-all flex-shrink-0 hidden md:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </a>
+        );
+      })}
+    </div>
+  </nav>
 
   <!-- Case study walkthroughs -->
   {walkthroughStudies.map((study, index) => {
     const config = caseStudyConfigs[index];
+    const nextConfig = index < 2 ? caseStudyConfigs[index + 1] : undefined;
+    const nextStudy = index < 2 ? walkthroughStudies[index + 1] : undefined;
     return (
       <CaseStudyWalkthrough
         title={study.title}
@@ -73,10 +120,10 @@ const walkthroughStudies = studies.slice(0, 3);
         quoteRole={study.quoteRole}
         image={config.image}
         imageAlt={config.imageAlt}
-        illustration={config.illustration}
-        illustrationAlt={config.illustrationAlt}
-        reversed={config.reversed}
-        background={config.background}
+        number={config.number}
+        sectionId={config.id}
+        accent={config.accent}
+        nextProject={nextStudy && nextConfig ? { title: nextStudy.title, id: nextConfig.id, number: nextConfig.number } : undefined}
       />
     );
   })}
