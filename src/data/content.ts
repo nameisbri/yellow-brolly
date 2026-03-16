@@ -7,10 +7,9 @@ export const siteContent = {
   navigation: [
     { label: 'Home', path: '/' },
     { label: 'About Us', path: '/about' },
-    { label: 'The YB Approach', path: '/approach' },
+    { label: 'Our Approach', path: '/approach' },
     { label: 'What We Do', path: '/services' },
     { label: 'Why YellowBrolly', path: '/why-yellowbrolly' },
-    { label: 'FAQ', path: '/faq' },
     { label: "Let's Talk", path: '/contact', isCta: true },
   ],
 
