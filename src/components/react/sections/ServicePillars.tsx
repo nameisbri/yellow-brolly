@@ -85,7 +85,7 @@ export default function ServicePillars() {
                         {pillar.title}
                       </h3>
                     </div>
-                    <p className="text-yellow-primary/80 font-medium text-sm ml-11">
+                    <p className="text-yellow-text font-medium text-sm ml-11">
                       {pillar.tagline}
                     </p>
                   </div>
@@ -136,7 +136,7 @@ export default function ServicePillars() {
                     {pillar.outcome && (
                       <div className="p-4 rounded-xl border border-yellow-primary/20 bg-yellow-primary/5">
                         <p className="text-sm font-medium text-text-primary">
-                          <span className="text-yellow-primary font-semibold mr-2">Outcome:</span>
+                          <span className="text-yellow-text font-semibold mr-2">Outcome:</span>
                           {pillar.outcome}
                         </p>
                       </div>

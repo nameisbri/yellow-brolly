@@ -16,6 +16,7 @@ const aboutDropdown = [
 const mainNav = [
   { label: 'Services', path: '/services' },
   { label: 'Case Studies', path: '/case-studies' },
+  { label: 'Find Your Archetype', path: '/brand-archetype' },
 ];
 
 const ctaItem = { label: "Let's Talk", path: '/contact' };
@@ -31,6 +32,7 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
 <header
   id="main-header"
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent"
+  data-hero="light"
 >
   <nav class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
     <div class="flex items-center justify-between h-20 md:h-24">
@@ -39,7 +41,7 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
         class="flex items-center gap-3 text-[var(--nav-text)] hover:text-yellow-primary transition-colors duration-300 group"
       >
         <div class="relative">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-primary group-hover:scale-110 transition-transform duration-300">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon text-yellow-primary group-hover:scale-110 transition-transform duration-300">
             <path d="M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7" />
           </svg>
           <div class="absolute inset-0 bg-yellow-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -53,7 +55,7 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
           <button
             type="button"
             class={`relative font-medium text-sm tracking-wide transition-colors duration-300 flex items-center gap-1 ${
-              aboutIsActive ? 'text-yellow-primary' : 'text-[var(--nav-text)] hover:text-[var(--nav-text-hover)]'
+              aboutIsActive ? 'text-[color:var(--nav-active)]' : 'text-[var(--nav-text)] hover:text-[var(--nav-text-hover)]'
             }`}
           >
             About
@@ -61,7 +63,7 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
               <polyline points="6 9 12 15 18 9" />
             </svg>
             <span
-              class={`absolute -bottom-1 left-0 h-0.5 bg-yellow-primary transition-all duration-300 ${
+              class={`absolute -bottom-1 left-0 h-0.5 nav-active-line bg-yellow-primary transition-all duration-300 ${
                 aboutIsActive ? 'w-full' : 'w-0'
               }`}
             />
@@ -88,12 +90,12 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
           <a
             href={item.path}
             class={`relative font-medium text-sm tracking-wide transition-colors duration-300 ${
-              isActive(item.path) ? 'text-yellow-primary' : 'text-[var(--nav-text)] hover:text-[var(--nav-text-hover)]'
+              isActive(item.path) ? 'text-[color:var(--nav-active)]' : 'text-[var(--nav-text)] hover:text-[var(--nav-text-hover)]'
             }`}
           >
             {item.label}
             <span
-              class={`absolute -bottom-1 left-0 h-0.5 bg-yellow-primary transition-all duration-300 ${
+              class={`absolute -bottom-1 left-0 h-0.5 nav-active-line bg-yellow-primary transition-all duration-300 ${
                 isActive(item.path) ? 'w-full' : 'w-0'
               }`}
             />
@@ -102,7 +104,7 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
 
         <a
           href={ctaItem.path}
-          class="relative inline-flex items-center justify-center font-semibold uppercase tracking-wider transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black overflow-hidden group bg-yellow-primary text-black hover:bg-yellow-hover border-2 border-yellow-primary hover:border-yellow-hover px-5 py-2 text-xs"
+          class="nav-cta relative inline-flex items-center justify-center font-semibold uppercase tracking-wider transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-primary focus-visible:ring-offset-2 overflow-hidden group bg-yellow-primary text-black border-2 border-yellow-primary px-5 py-2 text-xs"
         >
           <span class="relative z-10 flex items-center gap-2">{ctaItem.label}</span>
           <span class="absolute inset-0 bg-yellow-hover translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
@@ -137,19 +139,35 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
     transform: rotate(180deg);
   }
 
-  /* Scrolled state: cream background, dark text */
-  #main-header.scrolled a:not([class*="bg-yellow"]) {
+  /* ---- Scrolled: cream bg, dark text, yellow accents ---- */
+  #main-header.scrolled {
     --nav-text: var(--color-text-secondary);
     --nav-text-hover: var(--color-text-primary);
+    --nav-active: var(--color-yellow-text);
   }
   #main-header.scrolled .font-display {
     color: var(--color-text-primary);
   }
 
-  /* Not scrolled: over dark hero, light text */
-  #main-header:not(.scrolled) a:not([class*="bg-yellow"]) {
-    --nav-text: var(--color-light-gray);
-    --nav-text-hover: var(--color-white);
+  /* ---- Not scrolled: on yellow hero, dark text ---- */
+  #main-header:not(.scrolled) {
+    --nav-text: var(--color-text-secondary);
+    --nav-text-hover: var(--color-text-primary);
+    --nav-active: var(--color-text-primary);
+  }
+  #main-header:not(.scrolled) .font-display {
+    color: var(--color-text-primary);
+  }
+  #main-header:not(.scrolled) .logo-icon {
+    color: var(--color-black);
+  }
+  #main-header:not(.scrolled) .nav-cta {
+    background: var(--color-black);
+    color: var(--color-yellow-primary);
+    border-color: var(--color-black);
+  }
+  #main-header:not(.scrolled) .nav-active-line {
+    background: var(--color-black);
   }
 </style>
 

@@ -9,42 +9,81 @@ import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const serviceOptions = [
-  'Strategy & Org Development',
-  'Digital Readiness & Enablement',
-  'Brand/Culture/Communication',
-  'Funding/Grants/Government Readiness',
-  'Implementation Support',
-  'Not Sure Yet',
+const industryOptions = [
+  'Nonprofit / Charity',
+  'Creative Agency / Studio',
+  'Professional Services (Legal, Accounting, Consulting)',
+  'Healthcare / Wellness',
+  'Education / Training',
+  'Technology / SaaS',
+  'Retail / E-commerce',
+  'Construction / Trades',
+  'Faith-Based / Ministry',
+  'Government / Public Sector',
+  'Other',
 ];
 
-const budgetOptions = [
-  'Under $5K',
-  '$5K\u2013$15K',
-  '$15K\u2013$50K',
-  '$50K+',
-  'Not Sure Yet',
+const orgTypeOptions = [
+  'Nonprofit',
+  'For-Profit Business',
+  'Social Enterprise',
+  'Public Sector / Government',
+  'Startup / Early Stage',
+  'Other',
+];
+
+const teamSizeOptions = [
+  'Just me',
+  '2-10',
+  '11-50',
+  '51-200',
+  '200+',
+];
+
+const serviceOptions = [
+  'Strategy & Organizational Development',
+  'Digital Readiness & Enablement',
+  'Brand, Culture & Communication',
+  'Funding, Grants & Government Readiness',
+  'Implementation Support',
+  'Not sure yet, I need help figuring that out',
+];
+
+const referralOptions = [
+  'Referral',
+  'Google Search',
+  'LinkedIn',
+  'Instagram',
+  'Event / Conference',
+  'Brand Archetype Quiz',
+  'Other',
 ];
 
 interface FormData {
   name: string;
-  companyName: string;
-  industry: string;
-  serviceInterest: string;
   email: string;
   phone: string;
+  companyName: string;
+  industry: string;
+  orgType: string;
+  teamSize: string;
+  serviceInterest: string;
   budget: string;
+  referralSource: string;
   additionalInfo: string;
 }
 
 const initialFormData: FormData = {
   name: '',
-  companyName: '',
-  industry: '',
-  serviceInterest: '',
   email: '',
   phone: '',
+  companyName: '',
+  industry: '',
+  orgType: '',
+  teamSize: '',
+  serviceInterest: '',
   budget: '',
+  referralSource: '',
   additionalInfo: '',
 };
 
@@ -112,11 +151,14 @@ export default function ContactForm() {
           from_name: formData.name,
           name: formData.name,
           email: formData.email,
+          phone: formData.phone,
           company_name: formData.companyName,
           industry: formData.industry,
+          organization_type: formData.orgType,
+          team_size: formData.teamSize,
           service_interest: formData.serviceInterest,
-          phone: formData.phone,
           estimated_budget: formData.budget,
+          referral_source: formData.referralSource,
           additional_info: formData.additionalInfo,
         }),
       });
@@ -183,11 +225,11 @@ export default function ContactForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Row 1: Name + Company */}
+                {/* Row 1: Name + Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-2">
-                      Name <span className="text-yellow-primary">*</span>
+                      Name <span className="text-yellow-text">*</span>
                     </label>
                     <input
                       type="text"
@@ -197,66 +239,12 @@ export default function ContactForm() {
                       onChange={handleChange}
                       required
                       className={inputClasses}
-                      placeholder="Your name"
+                      placeholder="Your full name"
                     />
                   </div>
-                  <div>
-                    <label htmlFor="companyName" className="block text-sm font-medium text-text-secondary mb-2">
-                      Company Name <span className="text-yellow-primary">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="companyName"
-                      name="companyName"
-                      value={formData.companyName}
-                      onChange={handleChange}
-                      required
-                      className={inputClasses}
-                      placeholder="Your company"
-                    />
-                  </div>
-                </div>
-
-                {/* Row 2: Industry + Service */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="industry" className="block text-sm font-medium text-text-secondary mb-2">
-                      Industry
-                    </label>
-                    <input
-                      type="text"
-                      id="industry"
-                      name="industry"
-                      value={formData.industry}
-                      onChange={handleChange}
-                      className={inputClasses}
-                      placeholder="e.g. Nonprofit, Tech, Healthcare"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="serviceInterest" className="block text-sm font-medium text-text-secondary mb-2">
-                      Service Looking For
-                    </label>
-                    <select
-                      id="serviceInterest"
-                      name="serviceInterest"
-                      value={formData.serviceInterest}
-                      onChange={handleChange}
-                      className={inputClasses}
-                    >
-                      <option value="">Select a service</option>
-                      {serviceOptions.map((option) => (
-                        <option key={option} value={option}>{option}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {/* Row 3: Email + Phone */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-2">
-                      Email <span className="text-yellow-primary">*</span>
+                      Email <span className="text-yellow-text">*</span>
                     </label>
                     <input
                       type="email"
@@ -269,6 +257,10 @@ export default function ContactForm() {
                       placeholder="you@company.com"
                     />
                   </div>
+                </div>
+
+                {/* Row 2: Phone + Company */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-text-secondary mb-2">
                       Phone Number
@@ -283,6 +275,101 @@ export default function ContactForm() {
                       placeholder="Optional"
                     />
                   </div>
+                  <div>
+                    <label htmlFor="companyName" className="block text-sm font-medium text-text-secondary mb-2">
+                      Company / Organization Name <span className="text-yellow-text">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="companyName"
+                      name="companyName"
+                      value={formData.companyName}
+                      onChange={handleChange}
+                      required
+                      className={inputClasses}
+                      placeholder="Your company or organization"
+                    />
+                  </div>
+                </div>
+
+                {/* Row 3: Industry + Org Type */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label htmlFor="industry" className="block text-sm font-medium text-text-secondary mb-2">
+                      Industry <span className="text-yellow-text">*</span>
+                    </label>
+                    <select
+                      id="industry"
+                      name="industry"
+                      value={formData.industry}
+                      onChange={handleChange}
+                      required
+                      className={inputClasses}
+                    >
+                      <option value="">Select your industry</option>
+                      {industryOptions.map((option) => (
+                        <option key={option} value={option}>{option}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="orgType" className="block text-sm font-medium text-text-secondary mb-2">
+                      Organization Type <span className="text-yellow-text">*</span>
+                    </label>
+                    <select
+                      id="orgType"
+                      name="orgType"
+                      value={formData.orgType}
+                      onChange={handleChange}
+                      required
+                      className={inputClasses}
+                    >
+                      <option value="">Select type</option>
+                      {orgTypeOptions.map((option) => (
+                        <option key={option} value={option}>{option}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Row 4: Team Size + Service */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label htmlFor="teamSize" className="block text-sm font-medium text-text-secondary mb-2">
+                      Team Size <span className="text-yellow-text">*</span>
+                    </label>
+                    <select
+                      id="teamSize"
+                      name="teamSize"
+                      value={formData.teamSize}
+                      onChange={handleChange}
+                      required
+                      className={inputClasses}
+                    >
+                      <option value="">Select team size</option>
+                      {teamSizeOptions.map((option) => (
+                        <option key={option} value={option}>{option}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="serviceInterest" className="block text-sm font-medium text-text-secondary mb-2">
+                      Service Looking For <span className="text-yellow-text">*</span>
+                    </label>
+                    <select
+                      id="serviceInterest"
+                      name="serviceInterest"
+                      value={formData.serviceInterest}
+                      onChange={handleChange}
+                      required
+                      className={inputClasses}
+                    >
+                      <option value="">Select a service</option>
+                      {serviceOptions.map((option) => (
+                        <option key={option} value={option}>{option}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 {/* Budget */}
@@ -290,15 +377,32 @@ export default function ContactForm() {
                   <label htmlFor="budget" className="block text-sm font-medium text-text-secondary mb-2">
                     Estimated Budget
                   </label>
-                  <select
+                  <input
+                    type="text"
                     id="budget"
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
                     className={inputClasses}
+                    placeholder="What's your estimated budget for this project?"
+                  />
+                  <p className="text-xs text-text-muted mt-1.5">No pressure here. A rough range helps us tailor the conversation.</p>
+                </div>
+
+                {/* Referral Source */}
+                <div>
+                  <label htmlFor="referralSource" className="block text-sm font-medium text-text-secondary mb-2">
+                    How Did You Hear About Us?
+                  </label>
+                  <select
+                    id="referralSource"
+                    name="referralSource"
+                    value={formData.referralSource}
+                    onChange={handleChange}
+                    className={inputClasses}
                   >
-                    <option value="">Select a range</option>
-                    {budgetOptions.map((option) => (
+                    <option value="">Select an option</option>
+                    {referralOptions.map((option) => (
                       <option key={option} value={option}>{option}</option>
                     ))}
                   </select>
@@ -307,7 +411,7 @@ export default function ContactForm() {
                 {/* Additional Info */}
                 <div>
                   <label htmlFor="additionalInfo" className="block text-sm font-medium text-text-secondary mb-2">
-                    Any other information you would like to share with us
+                    Anything else you'd like to share?
                   </label>
                   <textarea
                     id="additionalInfo"
@@ -315,13 +419,14 @@ export default function ContactForm() {
                     value={formData.additionalInfo}
                     onChange={handleChange}
                     rows={4}
+                    maxLength={1000}
                     className={`${inputClasses} resize-none`}
-                    placeholder="Tell us about your goals, challenges, or timeline..."
+                    placeholder="Tell us a bit about what you're working on, what's not working, or what you're hoping to achieve."
                   />
                 </div>
 
                 {submitError && (
-                  <p className="text-sm text-red-400 text-center">{submitError}</p>
+                  <p className="text-sm text-red-700 text-center">{submitError}</p>
                 )}
 
                 <Button
@@ -381,7 +486,7 @@ export default function ContactForm() {
               <div className="mt-8 pt-6 border-t border-light-border relative">
                 <p className="text-sm text-text-muted">
                   Prefer email? Reach us at{' '}
-                  <a href="mailto:hello@yellowbrolly.co" className="text-yellow-primary hover:underline">
+                  <a href="mailto:hello@yellowbrolly.co" className="text-yellow-text hover:underline">
                     hello@yellowbrolly.co
                   </a>
                 </p>

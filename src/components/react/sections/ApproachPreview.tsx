@@ -26,26 +26,22 @@ export default function ApproachPreview() {
     if (prefersReducedMotion || !containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      const stages = gsap.utils.toArray<HTMLElement>('.preview-stage');
-      stages.forEach((stage, index) => {
-        gsap.fromTo(
-          stage,
-          { opacity: 0, x: index % 2 === 0 ? -40 : 40, y: 30 },
-          {
-            opacity: 1,
-            x: 0,
-            y: 0,
-            duration: 0.9,
-            delay: index * 0.15,
-            ease: 'power4.out',
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: 'top 70%',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      });
+      gsap.fromTo(
+        '.preview-stage',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.08,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
     }, containerRef);
 
     return () => ctx.revert();
@@ -55,7 +51,7 @@ export default function ApproachPreview() {
     <Section background="sand">
       <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div>
-          <span className="text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-3 block">Our Approach</span>
+          <span className="text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-3 block">Our Approach</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary leading-[1.1]">
             {approachPreview.headline}
           </h2>
@@ -70,32 +66,33 @@ export default function ApproachPreview() {
         {approachPreview.stages.map((stage, index) => (
           <div
             key={stage.name}
-            className="preview-stage group relative overflow-hidden rounded-2xl p-6 lg:p-8 transition-all duration-500"
+            className="preview-stage group relative overflow-hidden rounded-2xl p-6 lg:p-8 transition-all duration-500 min-h-[240px]"
             style={{
               backgroundColor: `color-mix(in srgb, ${stepAccents[index]} 8%, #FFFFFF)`,
             }}
           >
-            {/* Illustration */}
+            {/* Illustration as large background element on the right */}
             <img
               src={stepImages[index]}
               alt=""
-              className="w-20 h-20 object-contain mb-5 group-hover:scale-110 transition-transform duration-500"
+              className="absolute -right-4 -bottom-4 w-36 h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain opacity-[0.12] group-hover:opacity-[0.2] group-hover:scale-110 transition-all duration-700 pointer-events-none select-none"
               loading="lazy"
               aria-hidden="true"
             />
 
-            {/* Number */}
-            <span
-              className="inline-block text-xs font-bold uppercase tracking-widest mb-3"
-              style={{ color: stepAccents[index] }}
-            >
-              Step {index + 1}
-            </span>
+            {/* Content - stays above the illustration */}
+            <div className="relative z-10">
+              <span
+                className="inline-block text-xs font-bold uppercase tracking-widest mb-3 text-yellow-text"
+              >
+                Step {index + 1}
+              </span>
 
-            <h3 className="text-xl md:text-2xl font-display font-bold text-text-primary mb-2">
-              {stage.name}
-            </h3>
-            <p className="text-text-muted text-sm leading-relaxed">{stage.description}</p>
+              <h3 className="text-xl md:text-2xl font-display font-bold text-text-primary mb-2">
+                {stage.name}
+              </h3>
+              <p className="text-text-muted text-sm leading-relaxed max-w-[85%]">{stage.description}</p>
+            </div>
 
             {/* Bottom accent line */}
             <div

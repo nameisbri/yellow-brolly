@@ -64,15 +64,15 @@ export function SectionHeader({
   const content = (
     <div className={`mb-16 md:mb-20 ${centered ? 'text-center' : ''} ${className}`}>
       {eyebrow && (
-        <span className="inline-block text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+        <span className="inline-block text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4">
           {eyebrow}
         </span>
       )}
-      <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
+      <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-text-primary mb-6 leading-[1.1] tracking-tight">
         {headline}
       </h2>
       {subhead && (
-        <p className="text-lg md:text-xl text-gray max-w-3xl leading-relaxed mx-auto">
+        <p className="text-lg md:text-xl text-text-muted max-w-3xl leading-relaxed mx-auto">
           {subhead}
         </p>
       )}

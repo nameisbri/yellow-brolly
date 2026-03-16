@@ -119,7 +119,7 @@ export default function TeamSection() {
                     </a>
                   )}
                 </div>
-                <p className="text-yellow-primary text-sm font-medium mb-4">{member.role}</p>
+                <p className="text-yellow-text text-sm font-medium mb-4">{member.role}</p>
                 <p className="text-text-muted text-sm leading-relaxed">{member.bio}</p>
               </div>
             </div>

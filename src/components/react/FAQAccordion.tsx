@@ -20,7 +20,7 @@ export default function FAQAccordion({ questions }: Props) {
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
             className="w-full text-left flex items-center justify-between py-5 group transition-colors"
           >
-            <h3 className="text-lg font-bold text-text-primary group-hover:text-yellow-primary transition-colors duration-300 pr-8">
+            <h3 className="text-lg font-bold text-text-primary group-hover:text-yellow-text transition-colors duration-300 pr-8">
               {item.question}
             </h3>
             <svg

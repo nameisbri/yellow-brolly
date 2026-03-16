@@ -31,6 +31,22 @@ import CTASection from '../components/react/sections/CTASection.tsx';
     </div>
   </Section>
 
+  <!-- Brand positioning nudge -->
+  <Section background="cream">
+    <div class="scroll-fade-up flex flex-col sm:flex-row items-center gap-6 max-w-3xl mx-auto">
+      <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true" class="w-16 h-16 object-contain flex-shrink-0" loading="lazy" />
+      <div>
+        <p class="text-text-secondary leading-relaxed">
+          Part of connecting the dots is understanding who your brand really is.
+          <a href="/brand-archetype" class="text-yellow-text hover:text-yellow-hover font-medium inline-flex items-center gap-1 ml-1 transition-colors duration-300">
+            Discover your brand archetype
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+          </a>
+        </p>
+      </div>
+    </div>
+  </Section>
+
   <CTASection client:visible
     headline="Let's build the clarity, systems, and momentum your organization needs to grow well."
     primaryCta={{ label: 'Talk to YellowBrolly', to: '/contact' }}

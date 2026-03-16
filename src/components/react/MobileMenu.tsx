@@ -10,6 +10,7 @@ const aboutGroup = [
 const standaloneItems = [
   { label: 'Services', path: '/services' },
   { label: 'Case Studies', path: '/case-studies' },
+  { label: 'Find Your Archetype', path: '/brand-archetype' },
 ];
 
 const ctaItem = { label: "Let's Talk", path: '/contact' };
@@ -44,7 +45,7 @@ export default function MobileMenu({ currentPath }: Props) {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden relative w-12 h-12 flex items-center justify-center text-white hover:text-yellow-primary transition-colors duration-300 rounded-lg hover:bg-white/5"
+        className="lg:hidden relative w-12 h-12 flex items-center justify-center text-[color:var(--nav-text,#5C5247)] hover:text-[color:var(--nav-text-hover,#2A2118)] transition-colors duration-300 rounded-lg"
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
         aria-expanded={isOpen}
       >
@@ -71,7 +72,7 @@ export default function MobileMenu({ currentPath }: Props) {
                   key={item.path}
                   href={item.path}
                   className={`mobile-menu-item py-3 min-h-[48px] flex items-center text-2xl sm:text-3xl font-display font-bold transition-colors duration-300 ${
-                    isActive(item.path) ? 'text-yellow-primary' : 'text-text-primary hover:text-yellow-primary'
+                    isActive(item.path) ? 'text-yellow-text' : 'text-text-primary hover:text-yellow-text'
                   }`}
                 >
                   {item.label}
@@ -87,7 +88,7 @@ export default function MobileMenu({ currentPath }: Props) {
                   key={item.path}
                   href={item.path}
                   className={`mobile-menu-item py-3 min-h-[48px] flex items-center text-2xl sm:text-3xl font-display font-bold transition-colors duration-300 ${
-                    isActive(item.path) ? 'text-yellow-primary' : 'text-text-primary hover:text-yellow-primary'
+                    isActive(item.path) ? 'text-yellow-text' : 'text-text-primary hover:text-yellow-text'
                   }`}
                 >
                   {item.label}

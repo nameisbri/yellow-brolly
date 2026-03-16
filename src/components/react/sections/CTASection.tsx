@@ -62,7 +62,7 @@ export default function CTASection({
             {headline}
           </h2>
           {subhead && (
-            <p className="text-lg md:text-xl lg:text-2xl text-black/60 max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-black/75 max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
               {subhead}
             </p>
           )}
@@ -93,7 +93,7 @@ interface BigTextCTAProps {
 
 export function BigTextCTA({ text, ctaLabel, ctaTo }: BigTextCTAProps) {
   return (
-    <section className="py-20 md:py-28 bg-sand-dark overflow-hidden">
+    <section className="py-20 md:py-28 bg-cream overflow-hidden">
       <ScrubText
         direction="left"
         className="text-[10vw] sm:text-[8vw] md:text-[6vw] font-display text-light-border whitespace-nowrap leading-none select-none tracking-wider"

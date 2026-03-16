@@ -12,10 +12,11 @@
 
 @theme {
   /* Brand Colors - Updated Yellow */
-  --color-yellow-primary: #F7B32B;
-  --color-yellow-hover: #FFCA4D;
+  --color-yellow-primary: #F2BD4E;
+  --color-yellow-hover: #F5CC73;
   --color-yellow-glow: rgba(247, 179, 43, 0.4);
   --color-yellow-dim: rgba(247, 179, 43, 0.15);
+  --color-yellow-text: #8F6C00;
   --color-black: #131110;
   --color-dark: #1c1917;
   --color-dark-elevated: #262220;

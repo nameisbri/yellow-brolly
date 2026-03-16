@@ -121,7 +121,7 @@ export default function ApproachTimeline() {
       <div ref={containerRef} className="max-w-6xl mx-auto">
         {/* Section header */}
         <div className="mb-20 max-w-2xl">
-          <span className="text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">How We Work</span>
+          <span className="text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">How We Work</span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-text-primary leading-[1.1]">
             Three steps.<br />One continuous cycle.
           </h2>
@@ -165,8 +165,7 @@ export default function ApproachTimeline() {
                 }}
               >
                 <h3
-                  className="text-2xl md:text-3xl font-display font-bold mb-2"
-                  style={{ color: stepColors[index].text }}
+                  className="text-2xl md:text-3xl font-display font-bold mb-2 text-text-primary"
                 >
                   {stage.name}
                 </h3>
