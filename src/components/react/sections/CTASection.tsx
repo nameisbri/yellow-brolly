@@ -51,28 +51,28 @@ export default function CTASection({
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 md:py-32 lg:py-40 bg-dark overflow-hidden"
+      className="relative py-20 md:py-32 lg:py-40 bg-yellow-primary overflow-hidden"
     >
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,221,0,0.1),transparent_50%)]" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-primary/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-primary/30 to-transparent" />
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #000 1px, transparent 0)', backgroundSize: '24px 24px' }} />
 
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
         <div className="cta-content text-center max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white mb-4 sm:mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-black mb-4 sm:mb-6 leading-tight">
             {headline}
           </h2>
-          <p className="text-lg md:text-xl lg:text-2xl text-gray max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
-            {subhead}
-          </p>
+          {subhead && (
+            <p className="text-lg md:text-xl lg:text-2xl text-black/60 max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
+              {subhead}
+            </p>
+          )}
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button to={primaryCta.to} variant="primary" size="lg">
+            <Button to={primaryCta.to} variant="primary" size="lg" className="!bg-black !text-yellow-primary !border-black hover:!bg-black/80">
               <CalendarIcon size={20} className="mr-2" />
               {primaryCta.label}
             </Button>
             {secondaryCta && (
-              <Button to={secondaryCta.to} variant="outline" size="lg">
+              <Button to={secondaryCta.to} variant="outline" size="lg" className="!border-black !text-black hover:!bg-black/10">
                 {secondaryCta.label}
                 <ArrowRightIcon size={18} className="ml-2" />
               </Button>
@@ -93,10 +93,10 @@ interface BigTextCTAProps {
 
 export function BigTextCTA({ text, ctaLabel, ctaTo }: BigTextCTAProps) {
   return (
-    <section className="py-20 md:py-28 bg-black overflow-hidden">
+    <section className="py-20 md:py-28 bg-sand-dark overflow-hidden">
       <ScrubText
         direction="left"
-        className="text-[10vw] sm:text-[8vw] md:text-[6vw] font-display text-dark-border whitespace-nowrap leading-none select-none tracking-wider"
+        className="text-[10vw] sm:text-[8vw] md:text-[6vw] font-display text-light-border whitespace-nowrap leading-none select-none tracking-wider"
       >
         {text}
       </ScrubText>

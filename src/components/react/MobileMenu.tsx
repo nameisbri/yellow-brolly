@@ -61,7 +61,7 @@ export default function MobileMenu({ currentPath }: Props) {
       </button>
 
       {isOpen && (
-        <div className="mobile-menu lg:hidden fixed left-0 right-0 top-20 md:top-24 bottom-0 bg-black backdrop-blur-xl z-50">
+        <div className="mobile-menu lg:hidden fixed left-0 right-0 top-20 md:top-24 bottom-0 bg-cream backdrop-blur-xl z-50">
           <nav className="container mx-auto px-6 py-12 h-full flex flex-col">
             <div className="flex flex-col gap-1">
               {/* About group */}
@@ -71,7 +71,7 @@ export default function MobileMenu({ currentPath }: Props) {
                   key={item.path}
                   href={item.path}
                   className={`mobile-menu-item py-3 min-h-[48px] flex items-center text-2xl sm:text-3xl font-display font-bold transition-colors duration-300 ${
-                    isActive(item.path) ? 'text-yellow-primary' : 'text-white hover:text-yellow-primary'
+                    isActive(item.path) ? 'text-yellow-primary' : 'text-text-primary hover:text-yellow-primary'
                   }`}
                 >
                   {item.label}
@@ -79,7 +79,7 @@ export default function MobileMenu({ currentPath }: Props) {
               ))}
 
               {/* Divider */}
-              <div className="mobile-menu-item border-t border-dark-border my-4" />
+              <div className="mobile-menu-item border-t border-light-border my-4" />
 
               {/* Standalone items */}
               {standaloneItems.map((item) => (
@@ -87,7 +87,7 @@ export default function MobileMenu({ currentPath }: Props) {
                   key={item.path}
                   href={item.path}
                   className={`mobile-menu-item py-3 min-h-[48px] flex items-center text-2xl sm:text-3xl font-display font-bold transition-colors duration-300 ${
-                    isActive(item.path) ? 'text-yellow-primary' : 'text-white hover:text-yellow-primary'
+                    isActive(item.path) ? 'text-yellow-primary' : 'text-text-primary hover:text-yellow-primary'
                   }`}
                 >
                   {item.label}
