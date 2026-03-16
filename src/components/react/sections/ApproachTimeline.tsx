@@ -116,7 +116,7 @@ export default function ApproachTimeline() {
   ];
 
   return (
-    <Section background="black">
+    <Section background="warm">
       <div ref={containerRef} className="max-w-6xl mx-auto">
         {/* 3-step horizontal layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-0 relative">

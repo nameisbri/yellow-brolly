@@ -50,7 +50,7 @@ export default function ServicePillars() {
   }, [prefersReducedMotion]);
 
   return (
-    <Section background="dark">
+    <Section background="warmer">
       <div ref={gridRef} className="space-y-6">
         {pillars.map((pillar, index) => {
           const isExpanded = expandedIndex === index;

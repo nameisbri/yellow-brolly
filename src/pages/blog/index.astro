@@ -12,7 +12,7 @@ const posts = (await getCollection('blog')).sort(
 <Base title="Insights & Ideas | YellowBrollyCo" description="Thoughts on technology, culture, and people-first strategy from the YellowBrolly team.">
   <PageHero headline="Insights & Ideas" subhead="Thoughts on technology, culture, and people-first strategy." eyebrow="Blog" />
 
-  <Section background="dark">
+  <Section background="warmer">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {posts.map((post) => (
         <a href={`/blog/${post.id}`} class="group block bg-dark-elevated border border-dark-border rounded-2xl overflow-hidden hover:border-yellow-primary/30 transition-all duration-300">

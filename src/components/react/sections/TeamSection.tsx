@@ -69,7 +69,7 @@ export default function TeamSection() {
   }, [prefersReducedMotion]);
 
   return (
-    <Section background="black">
+    <Section background="warm">
       <div ref={sectionRef}>
         <div className="team-heading mb-12">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">

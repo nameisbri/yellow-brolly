@@ -40,7 +40,7 @@ export default function ProcessTransparency() {
   if (!processTransparency) return null;
 
   return (
-    <Section background="dark">
+    <Section background="warmer">
       <div ref={sectionRef}>
         <h2 className="transparency-item text-3xl md:text-4xl font-display font-bold text-white mb-10">
           {processTransparency.headline}

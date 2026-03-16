@@ -76,7 +76,7 @@ export default function SocialProof() {
   }, [prefersReducedMotion]);
 
   return (
-    <Section background="dark">
+    <Section background="light">
       <div ref={sectionRef} className="max-w-4xl">
         {/* Large decorative quotation mark */}
         <div className="quote-mark text-yellow-primary text-6xl md:text-8xl font-display leading-none opacity-30">

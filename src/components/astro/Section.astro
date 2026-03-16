@@ -1,6 +1,6 @@
 ---
 interface Props {
-  background?: 'black' | 'dark' | 'elevated' | 'warm' | 'warmer';
+  background?: 'black' | 'dark' | 'elevated' | 'warm' | 'warmer' | 'light';
   id?: string;
   class?: string;
   fullWidth?: boolean;
@@ -21,6 +21,7 @@ const bgMap: Record<string, string> = {
   elevated: 'bg-dark-elevated',
   warm: 'bg-dark-warm',
   warmer: 'bg-dark-warmer',
+  light: 'bg-dark-light',
 };
 ---
 

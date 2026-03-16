@@ -81,7 +81,7 @@ export default function ApproachPreview() {
   }, [prefersReducedMotion]);
 
   return (
-    <Section background="dark">
+    <Section background="warmer">
       <SectionHeader
         headline={approachPreview.headline}
         eyebrow="Our Approach"

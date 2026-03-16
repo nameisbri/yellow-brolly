@@ -148,7 +148,7 @@ export default function ContactForm() {
   const inputClasses = 'w-full px-5 py-4 rounded-xl bg-dark-elevated border border-dark-border text-white placeholder-gray/50 focus:border-yellow-primary focus:outline-none focus:ring-2 focus:ring-yellow-primary/20 transition-all';
 
   return (
-    <Section background="dark">
+    <Section background="warmer">
       <div ref={containerRef} className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
