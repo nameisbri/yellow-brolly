@@ -17,55 +17,72 @@ export default function SocialProof() {
     if (prefersReducedMotion || !sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Quotation mark fades in first
+      // Accent bar draws in
       gsap.fromTo(
-        '.quote-mark',
-        { opacity: 0, y: 20 },
+        '.accent-bar',
+        { scaleY: 0 },
         {
-          opacity: 0.3,
-          y: 0,
-          duration: 0.6,
-          ease: 'power3.out',
+          scaleY: 1,
+          duration: 0.8,
+          ease: 'power4.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
+            start: 'top 75%',
             toggleActions: 'play none none none',
           },
         }
       );
 
-      // Featured quote slides up
+      // Featured quote slides up with stagger per line
       gsap.fromTo(
         '.featured-quote',
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 60 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          delay: 0.15,
-          ease: 'power3.out',
+          duration: 1,
+          delay: 0.2,
+          ease: 'power4.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
+            start: 'top 75%',
             toggleActions: 'play none none none',
           },
         }
       );
 
-      // Remaining quotes stagger in
+      // Stat counter
       gsap.fromTo(
-        '.rest-quote',
-        { opacity: 0, y: 30 },
+        '.stat-number',
+        { opacity: 0, y: 20 },
         {
           opacity: 1,
           y: 0,
           duration: 0.6,
-          stagger: 0.12,
-          delay: 0.4,
+          delay: 0.5,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 75%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
+
+      // Secondary quotes stagger in
+      gsap.fromTo(
+        '.secondary-quote',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.15,
+          delay: 0.6,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.secondary-quotes-grid',
+            start: 'top 85%',
             toggleActions: 'play none none none',
           },
         }
@@ -77,54 +94,82 @@ export default function SocialProof() {
 
   return (
     <Section background="cream">
-      <div ref={sectionRef} className="max-w-4xl">
-        {/* Large decorative quotation mark */}
-        <div className="quote-mark text-yellow-primary text-6xl md:text-8xl font-display leading-none opacity-30">
-          &ldquo;
+      <div ref={sectionRef}>
+        {/* Featured testimonial — editorial pull quote */}
+        <div className="mb-16 md:mb-24">
+          <div className="flex gap-6 md:gap-10 items-stretch">
+            {/* Thick accent bar */}
+            <div className="accent-bar w-1.5 md:w-2 bg-yellow-primary rounded-full origin-top flex-shrink-0" />
+
+            <div className="flex-1">
+              {/* The quote — massive editorial typography */}
+              <blockquote className="featured-quote">
+                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary leading-[1.2] tracking-tight">
+                  {firstTestimonial.quote}
+                </p>
+                <footer className="mt-8 md:mt-10 flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-yellow-primary flex items-center justify-center flex-shrink-0">
+                    <span className="text-black font-bold font-display text-lg">
+                      {firstTestimonial.author.charAt(0)}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="block text-text-primary font-semibold">
+                      {firstTestimonial.author}
+                    </span>
+                    {firstTestimonial.role && (
+                      <span className="block text-sm text-text-muted">
+                        {firstTestimonial.role}
+                      </span>
+                    )}
+                  </div>
+                </footer>
+              </blockquote>
+            </div>
+          </div>
         </div>
 
-        {/* Featured first testimonial as large pull quote */}
-        <blockquote className="featured-quote mb-8">
-          <p className="text-2xl md:text-3xl lg:text-4xl font-light italic text-text-secondary leading-relaxed">
-            {firstTestimonial.quote}
-          </p>
-          <footer className="mt-6">
-            <span className="text-base text-text-secondary font-medium">
-              {firstTestimonial.author}
+        {/* Stat + secondary quotes */}
+        <div className="secondary-quotes-grid grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {/* Client count as bold stat */}
+          <div className="secondary-quote flex flex-col justify-center p-6 md:p-8 rounded-2xl bg-sand">
+            <span className="stat-number text-5xl md:text-6xl font-display font-bold text-text-primary leading-none mb-3">
+              45+
             </span>
-            {firstTestimonial.role && (
-              <span className="text-base text-text-muted ml-2">
-                &mdash; {firstTestimonial.role}
-              </span>
-            )}
-          </footer>
-        </blockquote>
+            <span className="text-sm text-text-muted leading-relaxed">
+              organizations across nonprofit, agency, and tech sectors
+            </span>
+          </div>
 
-        {/* Remaining testimonials, smaller with dividers */}
-        {restTestimonials.map((testimonial, index) => (
-          <blockquote key={index} className="rest-quote border-t border-light-border py-8">
-            <p className="text-lg font-light italic text-text-secondary">
-              {testimonial.quote}
-            </p>
-            <footer className="mt-4">
-              <span className="text-sm text-text-secondary font-medium">
-                {testimonial.author}
-              </span>
-              {testimonial.role && (
-                <span className="text-sm text-text-muted ml-2">
-                  &mdash; {testimonial.role}
-                </span>
-              )}
-            </footer>
-          </blockquote>
-        ))}
-
-        {/* Client count */}
-        {socialProof.clientCount && (
-          <p className="text-sm text-text-muted mt-4">
-            {socialProof.clientCount}
-          </p>
-        )}
+          {/* Secondary testimonials */}
+          {restTestimonials.map((testimonial, index) => (
+            <blockquote
+              key={index}
+              className="secondary-quote flex flex-col justify-between p-6 md:p-8 rounded-2xl border border-light-border"
+            >
+              <p className="text-base md:text-lg text-text-secondary leading-relaxed mb-6">
+                {testimonial.quote}
+              </p>
+              <footer className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-yellow-primary/15 flex items-center justify-center flex-shrink-0">
+                  <span className="text-yellow-text font-bold text-xs">
+                    {testimonial.author.charAt(0)}
+                  </span>
+                </div>
+                <div>
+                  <span className="block text-sm text-text-primary font-medium">
+                    {testimonial.author}
+                  </span>
+                  {testimonial.role && (
+                    <span className="block text-xs text-text-muted">
+                      {testimonial.role}
+                    </span>
+                  )}
+                </div>
+              </footer>
+            </blockquote>
+          ))}
+        </div>
       </div>
     </Section>
   );
