@@ -81,42 +81,47 @@ export default function TeamSection() {
           {team.members.map((member) => (
             <div
               key={member.name}
-              className="team-member bg-dark-elevated border border-dark-border rounded-2xl p-6 md:p-8 hover:border-yellow-primary/30 transition-all duration-300 group"
+              className="team-member bg-dark-elevated border border-dark-border rounded-2xl overflow-hidden hover:border-yellow-primary/30 transition-all duration-300 group"
             >
-              {/* Team photo or initials fallback */}
-              <div className="w-20 h-20 rounded-full overflow-hidden mb-5 group-hover:scale-105 transition-transform duration-300">
+              {/* Large portrait photo */}
+              <div className="aspect-[3/4] w-full overflow-hidden relative">
                 {'image' in member && member.image ? (
                   <img
                     src={member.image as string}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                     loading="lazy"
                   />
                 ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-yellow-primary to-yellow-hover flex items-center justify-center">
-                    <span className="text-2xl font-bold text-black font-display">
+                  <div className="w-full h-full bg-gradient-to-br from-yellow-primary/20 to-dark-elevated flex items-center justify-center">
+                    <span className="text-6xl font-bold text-yellow-primary/40 font-display">
                       {member.name.split(' ').map(n => n[0]).join('')}
                     </span>
                   </div>
                 )}
+                {/* Subtle gradient overlay at bottom for text readability */}
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-dark-elevated to-transparent" />
               </div>
 
-              <div className="flex items-center gap-3 mb-1">
-                <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                {member.linkedin && (
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray hover:text-yellow-primary transition-colors duration-200"
-                    aria-label={`${member.name} on LinkedIn`}
-                  >
-                    <LinkedInIcon size={16} />
-                  </a>
-                )}
+              {/* Info section */}
+              <div className="p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-1">
+                  <h3 className="text-xl font-bold text-white">{member.name}</h3>
+                  {member.linkedin && (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray hover:text-yellow-primary transition-colors duration-200"
+                      aria-label={`${member.name} on LinkedIn`}
+                    >
+                      <LinkedInIcon size={16} />
+                    </a>
+                  )}
+                </div>
+                <p className="text-yellow-primary text-sm font-medium mb-4">{member.role}</p>
+                <p className="text-gray text-sm leading-relaxed">{member.bio}</p>
               </div>
-              <p className="text-yellow-primary text-sm font-medium mb-4">{member.role}</p>
-              <p className="text-gray text-sm leading-relaxed">{member.bio}</p>
             </div>
           ))}
         </div>
