@@ -83,12 +83,22 @@ export default function TeamSection() {
               key={member.name}
               className="team-member bg-dark-elevated border border-dark-border rounded-2xl p-6 md:p-8 hover:border-yellow-primary/30 transition-all duration-300 group"
             >
-              {/* Avatar with initials */}
-              {/* TODO: PHOTO: Replace initials with team member headshot */}
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-primary to-yellow-hover flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
-                <span className="text-2xl font-bold text-black font-display">
-                  {member.name.split(' ').map(n => n[0]).join('')}
-                </span>
+              {/* Team photo or initials fallback */}
+              <div className="w-20 h-20 rounded-full overflow-hidden mb-5 group-hover:scale-105 transition-transform duration-300">
+                {'image' in member && member.image ? (
+                  <img
+                    src={member.image as string}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-yellow-primary to-yellow-hover flex items-center justify-center">
+                    <span className="text-2xl font-bold text-black font-display">
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  </div>
+                )}
               </div>
 
               <div className="flex items-center gap-3 mb-1">
