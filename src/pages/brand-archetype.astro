@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/astro/Section.astro';
+---
+
+<Base
+  title="Discover Your Brand Archetype | YellowBrollyCo"
+  description="A strong brand is more than a logo. Discover the personality, energy, and role your business plays using brand archetypes. Take our assessment."
+>
+  <!-- Editorial hero with generous whitespace -->
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-dark overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute top-20 right-[10%] w-64 h-64 rounded-full bg-yellow-primary/5 blur-3xl"></div>
+    <div class="absolute bottom-10 left-[5%] w-48 h-48 rounded-full bg-yellow-primary/3 blur-2xl"></div>
+
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <span class="inline-block text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-6">Brand Strategy</span>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-8 leading-[1.1]">
+        Discover the identity behind your brand
+      </h1>
+      <p class="text-xl md:text-2xl text-light-gray leading-relaxed max-w-2xl mx-auto">
+        A strong brand is more than a logo or colour palette. It's the personality, energy, and role your business plays in the lives of your customers. That's why we use brand archetypes as part of our branding process.
+      </p>
+    </div>
+  </section>
+
+  <!-- Archetype explanation -->
+  <Section background="black">
+    <div class="max-w-3xl mx-auto">
+      <div class="scroll-fade-up">
+        <p class="text-lg md:text-xl text-gray leading-relaxed">
+          Brand archetypes are a strategic framework based on universal character patterns first explored by psychologist Carl Jung. These patterns, like the Hero, the Explorer, the Sage, or the Caregiver, appear across cultures and stories because they reflect how people naturally understand identity and meaning.
+        </p>
+        <p class="text-lg md:text-xl text-gray leading-relaxed mt-6">
+          When applied to branding, archetypes help define how your brand should show up in the world: its voice, personality, values, and the emotional connection it builds with its audience.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Why archetypes matter -->
+  <Section background="dark">
+    <div class="max-w-3xl mx-auto">
+      <div class="scroll-fade-up">
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-8">
+          Why archetypes matter
+        </h2>
+        <p class="text-lg text-gray mb-8">
+          A clear brand archetype helps your business:
+        </p>
+        <ul class="space-y-5">
+          {[
+            'Clarify its identity and positioning',
+            'Create consistent messaging and tone of voice',
+            'Guide visual and design decisions',
+            'Build stronger emotional connection with customers',
+            'Stand out in competitive markets',
+          ].map((item) => (
+            <li class="flex items-start gap-4">
+              <span class="w-8 h-8 rounded-full bg-yellow-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-yellow-primary" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z" />
+                </svg>
+              </span>
+              <span class="text-lg text-light-gray leading-relaxed">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="text-lg text-gray mt-8 leading-relaxed">
+          Instead of guessing how your brand should communicate, archetypes provide a clear foundation for everything that follows.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Quiz CTA -->
+  <Section background="black">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="scroll-fade-up">
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6">
+          Start with the archetype quiz
+        </h2>
+        <p class="text-lg text-gray mb-10 max-w-xl mx-auto leading-relaxed">
+          Our Brand Archetype assessment helps uncover the deeper personality of your brand and provides insight into how your business should communicate, connect, and grow.
+        </p>
+        <!-- TODO: Quiz destination needs to be confirmed with the client. Currently links to contact page as placeholder. -->
+        <a
+          href="/contact"
+          class="relative inline-flex items-center justify-center font-semibold uppercase tracking-wider transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black overflow-hidden group bg-yellow-primary text-black hover:bg-yellow-hover px-10 py-4 text-sm"
+        >
+          <span class="relative z-10 flex items-center gap-2">
+            Start the Brand Archetype Quiz
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </Section>
+</Base>
