@@ -84,7 +84,7 @@ export default function TeamSection() {
               className="team-member bg-dark-elevated border border-dark-border rounded-2xl overflow-hidden hover:border-yellow-primary/30 transition-all duration-300 group"
             >
               {/* Large portrait photo */}
-              <div className="aspect-[3/4] w-full overflow-hidden relative">
+              <div className="aspect-[4/3] w-full overflow-hidden relative">
                 {'image' in member && member.image ? (
                   <img
                     src={member.image as string}
