@@ -1,10 +1,42 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/astro/PageHero.astro';
-import Section from '../components/astro/Section.astro';
-import CaseStudiesGrid from '../components/react/sections/CaseStudiesGrid.tsx';
+import CaseStudyWalkthrough from '../components/astro/CaseStudyWalkthrough.astro';
 import CTASection from '../components/react/sections/CTASection.tsx';
 import { siteContent } from '../data/content';
+
+const { studies } = siteContent.caseStudies;
+
+// Map each case study to its visual assets and layout config
+const caseStudyConfigs = [
+  {
+    image: 'https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=800&q=80',
+    imageAlt: 'Nonprofit team collaborating around a table',
+    illustration: '/images/brand/creative-designer.png',
+    illustrationAlt: 'Brand illustration of a person at a laptop',
+    reversed: false,
+    background: 'warm' as const,
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
+    imageAlt: 'Creative agency team in a meeting',
+    illustration: '/images/brand/thumbs-up.png',
+    illustrationAlt: 'Brand illustration of a person with thumbs up',
+    reversed: true,
+    background: 'warmer' as const,
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80',
+    imageAlt: 'Startup team working in a modern workspace',
+    illustration: '/images/brand/trophy-winner.png',
+    illustrationAlt: 'Brand illustration of a person holding a trophy',
+    reversed: false,
+    background: 'dark' as const,
+  },
+];
+
+// We show only the first 3 case studies in the walkthrough format
+const walkthroughStudies = studies.slice(0, 3);
 ---
 
 <Base
@@ -13,18 +45,41 @@ import { siteContent } from '../data/content';
 >
   <PageHero headline="Real Results. Real Organizations." eyebrow="Case Studies" />
 
-  <!-- Coming soon banner -->
-  <Section background="light">
-    <div class="text-center py-4">
-      <div class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-yellow-primary/10 border border-yellow-primary/20">
-        <svg class="w-5 h-5 text-yellow-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" />
-        </svg>
-        <span class="text-yellow-primary font-medium text-sm">Full case studies coming soon. The examples below represent the types of work we do.</span>
-      </div>
+  <!-- Intro text -->
+  <section class="bg-dark-warm py-12 md:py-16">
+    <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+      <p class="scroll-fade-up text-lg md:text-xl text-gray max-w-3xl leading-relaxed">
+        Every engagement starts with listening. Here are three stories of organizations that needed clarity, security, and systems that actually work for their people.
+      </p>
     </div>
-  </Section>
+  </section>
 
-  <CaseStudiesGrid client:visible />
+  <!-- Case study walkthroughs -->
+  {walkthroughStudies.map((study, index) => {
+    const config = caseStudyConfigs[index];
+    return (
+      <CaseStudyWalkthrough
+        title={study.title}
+        clientType={study.clientType}
+        sectorPainPoint={study.sectorPainPoint}
+        challenge={study.challenge}
+        solution={study.solution}
+        outcome={study.outcome}
+        before={study.before}
+        after={study.after}
+        metrics={study.metrics}
+        quote={study.quote}
+        quoteAuthor={study.quoteAuthor}
+        quoteRole={study.quoteRole}
+        image={config.image}
+        imageAlt={config.imageAlt}
+        illustration={config.illustration}
+        illustrationAlt={config.illustrationAlt}
+        reversed={config.reversed}
+        background={config.background}
+      />
+    );
+  })}
+
   <CTASection client:visible headline={siteContent.caseStudies.cta} primaryCta={{ label: "Let's Talk About Your Challenges", to: '/contact' }} />
 </Base>

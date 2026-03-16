@@ -7,34 +7,56 @@ const [featured, ...rest] = whatSetsUsApart.differentiators;
 ---
 
 <Section background="warm">
-  <div>
-    <h2 class="scroll-fade-up text-3xl md:text-4xl font-display font-bold text-white mb-10">
-      What Sets Us Apart
-    </h2>
+  <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+    <!-- Left: content -->
+    <div class="lg:col-span-3">
+      <h2 class="scroll-fade-up text-3xl md:text-4xl font-display font-bold text-white mb-10">
+        What Sets Us Apart
+      </h2>
 
-    <!-- TODO: BRAND ILLUSTRATION: Playful brand graphic highlighting the human-centred approach -->
+      <div class="scroll-fade-up border-l-4 border-yellow-primary pl-6 mb-12 bg-dark-elevated/30 py-4 pr-4 rounded-r-xl">
+        <h3 class="text-2xl font-display font-bold text-white mb-3">
+          {featured.title}
+        </h3>
+        <p class="text-lg text-gray leading-relaxed">
+          {featured.description}
+        </p>
+      </div>
 
-    <div class="scroll-fade-up border-l-4 border-yellow-primary pl-6 mb-12 bg-dark-elevated/30 py-4 pr-4 rounded-r-xl">
-      <h3 class="text-2xl font-display font-bold text-white mb-3">
-        {featured.title}
-      </h3>
-      <p class="text-lg text-gray leading-relaxed">
-        {featured.description}
-      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {rest.map((item) => (
+          <div class="scroll-fade-up group">
+            <h3 class="text-lg font-bold text-white mb-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-yellow-primary mr-2 align-middle group-hover:scale-125 transition-transform duration-300"></span>
+              {item.title}
+            </h3>
+            <p class="text-sm text-gray leading-relaxed">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {rest.map((item) => (
-        <div class="scroll-fade-up group">
-          <h3 class="text-lg font-bold text-white mb-2">
-            <span class="inline-block w-2.5 h-2.5 rounded-full bg-yellow-primary mr-2 align-middle group-hover:scale-125 transition-transform duration-300"></span>
-            {item.title}
-          </h3>
-          <p class="text-sm text-gray leading-relaxed">
-            {item.description}
-          </p>
-        </div>
-      ))}
+    <!-- Right: brand illustration + stock photo stack -->
+    <div class="lg:col-span-2 scroll-fade-up hidden lg:block">
+      <div class="relative">
+        <!-- Stock photo of people collaborating -->
+        <img
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
+          alt="Team collaborating around a table"
+          class="w-full rounded-2xl aspect-[4/3] object-cover"
+          loading="lazy"
+        />
+        <!-- Brand illustration overlapping bottom-right -->
+        <img
+          src="/images/brand/coffee-person.png"
+          alt=""
+          aria-hidden="true"
+          class="absolute -bottom-8 -right-6 w-32 h-32 object-contain"
+          loading="lazy"
+        />
+      </div>
     </div>
   </div>
 </Section>

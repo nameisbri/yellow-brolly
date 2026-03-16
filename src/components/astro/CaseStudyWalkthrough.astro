@@ -1,0 +1,323 @@
+---
+interface BeforeData {
+  tools?: string;
+  timeLost?: string;
+  adoption?: string;
+  security?: string;
+  chaos?: string;
+  processes?: string;
+  onboarding?: string;
+  training?: string;
+  systems?: string;
+}
+
+interface AfterData {
+  tools?: string;
+  timeSaved?: string;
+  adoption?: string;
+  security?: string;
+  roadmap?: string;
+  chaos?: string;
+  processes?: string;
+  onboarding?: string;
+  training?: string;
+  systems?: string;
+}
+
+interface Props {
+  title: string;
+  clientType: string;
+  sectorPainPoint?: string;
+  challenge: string;
+  solution: string;
+  outcome: string;
+  before?: BeforeData;
+  after?: AfterData;
+  metrics?: string[];
+  quote?: string;
+  quoteAuthor?: string;
+  quoteRole?: string;
+  image: string;
+  imageAlt: string;
+  illustration: string;
+  illustrationAlt: string;
+  reversed?: boolean;
+  background: 'warm' | 'warmer' | 'elevated' | 'dark';
+}
+
+const {
+  title,
+  clientType,
+  sectorPainPoint,
+  challenge,
+  solution,
+  outcome,
+  before,
+  after,
+  metrics,
+  quote,
+  quoteAuthor,
+  quoteRole,
+  image,
+  imageAlt,
+  illustration,
+  illustrationAlt,
+  reversed = false,
+  background = 'warm',
+} = Astro.props;
+
+const bgMap: Record<string, string> = {
+  dark: 'bg-dark',
+  elevated: 'bg-dark-elevated',
+  warm: 'bg-dark-warm',
+  warmer: 'bg-dark-warmer',
+};
+
+const bgClass = bgMap[background] || 'bg-dark-warm';
+
+// Extract before/after entries as arrays of [label, value]
+function extractEntries(obj: Record<string, string | undefined> | undefined): [string, string][] {
+  if (!obj) return [];
+  return Object.entries(obj)
+    .filter(([, v]) => v !== undefined)
+    .map(([k, v]) => {
+      // Format key into readable label
+      const label = k
+        .replace(/([A-Z])/g, ' $1')
+        .replace(/^./, (s) => s.toUpperCase())
+        .trim();
+      return [label, v as string];
+    });
+}
+
+const beforeEntries = extractEntries(before as Record<string, string | undefined>);
+const afterEntries = extractEntries(after as Record<string, string | undefined>);
+
+// Parse metrics into number + label for big stat display
+function parseMetric(metric: string): { number: string; label: string } {
+  // Try to extract a leading number/percentage
+  const match = metric.match(/^([\d]+%?)/);
+  if (match) {
+    return { number: match[1], label: metric.replace(match[1], '').trim() };
+  }
+  // Try patterns like "Zero audit flags"
+  const wordNumMatch = metric.match(/^(Zero|Full|100%|One|Two|Three)/i);
+  if (wordNumMatch) {
+    return { number: wordNumMatch[1], label: metric.replace(wordNumMatch[1], '').trim() };
+  }
+  return { number: '', label: metric };
+}
+---
+
+<section class:list={['relative overflow-hidden', bgClass]}>
+  <!-- Subtle top divider -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-primary/15 to-transparent"></div>
+
+  <!-- ==================== VISUAL HEADER BAND ==================== -->
+  <div class="relative py-16 md:py-24 lg:py-28">
+    <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+      <div class:list={[
+        'scroll-fade-up grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center',
+        reversed ? 'lg:grid-flow-dense' : ''
+      ]}>
+        <!-- Text side -->
+        <div class:list={[reversed ? 'lg:col-start-2' : '']}>
+          <span class="inline-block px-4 py-1.5 text-sm font-semibold bg-yellow-primary text-black rounded-full mb-6 tracking-wide">
+            {clientType}
+          </span>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-[1.15] tracking-tight mb-6">
+            {title}
+          </h2>
+          <p class="text-lg text-gray leading-relaxed max-w-xl">
+            {challenge}. <span class="text-light-gray">{solution}.</span>
+          </p>
+        </div>
+
+        <!-- Image side -->
+        <div class:list={[
+          'relative rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-[16/11]',
+          reversed ? 'lg:col-start-1' : ''
+        ]}>
+          <img
+            src={image}
+            alt={imageAlt}
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+          <!-- Brand illustration accent -->
+          <img
+            src={illustration}
+            alt={illustrationAlt}
+            class:list={[
+              'absolute w-24 md:w-32 opacity-90 drop-shadow-2xl pointer-events-none',
+              reversed ? '-bottom-2 -left-2 md:bottom-0 md:left-0' : '-bottom-2 -right-2 md:bottom-0 md:right-0'
+            ]}
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== THE CHALLENGE ==================== -->
+  {sectorPainPoint && (
+    <div class="py-12 md:py-16">
+      <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+        <div class="scroll-fade-up max-w-4xl mx-auto">
+          <h3 class="text-sm font-semibold text-yellow-primary uppercase tracking-[0.2em] mb-6">The Challenge</h3>
+          <blockquote class="relative pl-6 md:pl-8 border-l-4 border-yellow-primary">
+            <p class="text-xl md:text-2xl lg:text-3xl text-light-gray leading-relaxed font-light italic">
+              {sectorPainPoint}
+            </p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  )}
+
+  <!-- ==================== BEFORE / AFTER ==================== -->
+  {before && after && (
+    <div class="py-12 md:py-16">
+      <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+        <div class="scroll-fade-up max-w-5xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-0 relative">
+            <!-- Visual divider for desktop -->
+            <div class="hidden md:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px">
+              <div class="w-full h-full bg-gradient-to-b from-transparent via-yellow-primary/40 to-transparent"></div>
+              <!-- Arrow indicator -->
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-yellow-primary flex items-center justify-center shadow-lg shadow-yellow-primary/20">
+                <svg class="w-5 h-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Before column -->
+            <div class="pr-0 md:pr-10 lg:pr-14 pb-8 md:pb-0">
+              <div class="flex items-center gap-3 mb-6">
+                <span class="w-3 h-3 rounded-full bg-red-400/80"></span>
+                <h4 class="text-lg font-bold text-red-400 uppercase tracking-wider">Before</h4>
+              </div>
+              <ul class="space-y-4">
+                {beforeEntries.map(([label, value]) => (
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400/60"></span>
+                    <div>
+                      <span class="text-gray text-sm block">{label}</span>
+                      <span class="text-light-gray text-base">{value}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Mobile divider -->
+            <div class="md:hidden flex items-center gap-4 py-4 mb-4">
+              <div class="flex-1 h-px bg-gradient-to-r from-transparent to-yellow-primary/30"></div>
+              <div class="w-8 h-8 rounded-full bg-yellow-primary flex items-center justify-center">
+                <svg class="w-4 h-4 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="flex-1 h-px bg-gradient-to-l from-transparent to-yellow-primary/30"></div>
+            </div>
+
+            <!-- After column -->
+            <div class="pl-0 md:pl-10 lg:pl-14">
+              <div class="flex items-center gap-3 mb-6">
+                <span class="w-3 h-3 rounded-full bg-yellow-primary"></span>
+                <h4 class="text-lg font-bold text-yellow-primary uppercase tracking-wider">After</h4>
+              </div>
+              <ul class="space-y-4">
+                {afterEntries.map(([label, value]) => (
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-yellow-primary"></span>
+                    <div>
+                      <span class="text-gray text-sm block">{label}</span>
+                      <span class="text-white text-base font-medium">{value}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )}
+
+  <!-- ==================== KEY METRICS ==================== -->
+  {metrics && metrics.length > 0 && (
+    <div class="py-12 md:py-16">
+      <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+        <div class="scroll-fade-up max-w-5xl mx-auto">
+          <h3 class="text-sm font-semibold text-yellow-primary uppercase tracking-[0.2em] mb-8 text-center">Key Results</h3>
+          <div class:list={[
+            'grid gap-6 md:gap-8',
+            metrics.length === 3 ? 'grid-cols-1 sm:grid-cols-3' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+          ]}>
+            {metrics.map((metric) => {
+              const parsed = parseMetric(metric);
+              return (
+                <div class="text-center p-6 md:p-8 rounded-2xl bg-dark-elevated/50 border border-dark-border/50">
+                  {parsed.number ? (
+                    <Fragment>
+                      <div class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-yellow-primary mb-2 leading-none">
+                        {parsed.number}
+                      </div>
+                      <div class="text-base md:text-lg text-light-gray">
+                        {parsed.label}
+                      </div>
+                    </Fragment>
+                  ) : (
+                    <div class="text-xl md:text-2xl font-bold text-yellow-primary">
+                      {parsed.label}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  )}
+
+  <!-- ==================== CLIENT QUOTE ==================== -->
+  {quote && (
+    <div class="py-12 md:py-20">
+      <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+        <div class="scroll-fade-up max-w-4xl mx-auto text-center">
+          <div class="relative">
+            <!-- Large decorative quote mark -->
+            <span class="block text-[6rem] md:text-[8rem] leading-none text-yellow-primary/10 font-display select-none -mb-12 md:-mb-16">"</span>
+            <blockquote class="relative z-10">
+              <p class="text-xl md:text-2xl lg:text-3xl text-light-gray leading-relaxed font-light italic">
+                {quote}
+              </p>
+              {quoteAuthor && (
+                <footer class="mt-8 flex items-center justify-center gap-4">
+                  <div class="w-12 h-12 rounded-full bg-yellow-primary flex items-center justify-center text-black font-bold text-lg flex-shrink-0">
+                    {quoteAuthor.charAt(0)}
+                  </div>
+                  <div class="text-left">
+                    <cite class="not-italic font-semibold text-white block text-lg">
+                      {quoteAuthor}
+                    </cite>
+                    {quoteRole && (
+                      <p class="text-sm text-gray">{quoteRole}</p>
+                    )}
+                  </div>
+                </footer>
+              )}
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  )}
+
+  <!-- Bottom divider -->
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-dark-border/50 to-transparent"></div>
+</section>

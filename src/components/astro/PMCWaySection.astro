@@ -6,15 +6,35 @@ const { pmcSection } = siteContent.home;
 ---
 
 <Section background="warm" class="py-12 md:py-16 lg:py-20">
-  <div class="scroll-fade-up max-w-3xl">
-    <span class="inline-block px-3 py-1 text-xs sm:text-sm font-medium bg-yellow-primary/10 text-yellow-primary mb-5 tracking-wider uppercase rounded-full">
-      {pmcSection.subhead}
-    </span>
-    <h2 class="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-6">
-      {pmcSection.headline}
-    </h2>
-    <p class="text-base md:text-lg lg:text-xl text-gray leading-relaxed border-l-4 border-yellow-primary pl-4">
-      {pmcSection.description}
-    </p>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <div class="scroll-fade-up">
+      <span class="inline-block px-3 py-1 text-xs sm:text-sm font-medium bg-yellow-primary/10 text-yellow-primary mb-5 tracking-wider uppercase rounded-full">
+        {pmcSection.subhead}
+      </span>
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-6">
+        {pmcSection.headline}
+      </h2>
+      <p class="text-base md:text-lg lg:text-xl text-gray leading-relaxed border-l-4 border-yellow-primary pl-4">
+        {pmcSection.description}
+      </p>
+    </div>
+
+    <!-- People-forward imagery -->
+    <div class="scroll-fade-up relative hidden lg:block">
+      <img
+        src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80"
+        alt="Diverse team having a collaborative discussion"
+        class="w-full rounded-2xl aspect-[4/3] object-cover"
+        loading="lazy"
+      />
+      <!-- Brand illustration accent -->
+      <img
+        src="/images/brand/winged-pencil.png"
+        alt=""
+        aria-hidden="true"
+        class="absolute -top-6 -left-6 w-24 h-24 object-contain"
+        loading="lazy"
+      />
+    </div>
   </div>
 </Section>

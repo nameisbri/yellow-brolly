@@ -5,6 +5,7 @@ import PMCWaySection from '../components/astro/PMCWaySection.astro';
 import WhatSetsUsApart from '../components/astro/WhatSetsUsApart.astro';
 import ApproachPreview from '../components/react/sections/ApproachPreview.tsx';
 import ServicesPreview from '../components/astro/ServicesPreview.astro';
+import WorkPreview from '../components/astro/WorkPreview.astro';
 import SocialProof from '../components/react/sections/SocialProof.tsx';
 import CTASection from '../components/react/sections/CTASection.tsx';
 import { BigTextCTA } from '../components/react/sections/CTASection.tsx';
@@ -67,6 +68,7 @@ const jsonLd = [
   />
   <ApproachPreview client:visible />
   <ServicesPreview />
+  <WorkPreview />
   <SocialProof client:visible />
   <CTASection client:visible
     headline="Let's build the clarity, systems, and momentum your organization needs to grow well."

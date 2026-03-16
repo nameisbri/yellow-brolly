@@ -7,12 +7,15 @@ interface Props {
 
 const { currentPath } = Astro.props;
 
-const navigation = [
-  { label: 'Home', path: '/' },
+const aboutDropdown = [
   { label: 'About Us', path: '/about' },
   { label: 'Our Approach', path: '/approach' },
-  { label: 'What We Do', path: '/services' },
   { label: 'Why YellowBrolly', path: '/why-yellowbrolly' },
+];
+
+const mainNav = [
+  { label: 'Services', path: '/services' },
+  { label: 'Case Studies', path: '/case-studies' },
 ];
 
 const ctaItem = { label: "Let's Talk", path: '/contact' };
@@ -21,6 +24,8 @@ function isActive(path: string): boolean {
   if (path === '/') return currentPath === '/' || currentPath === '';
   return currentPath.startsWith(path);
 }
+
+const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
 ---
 
 <header
@@ -43,7 +48,43 @@ function isActive(path: string): boolean {
       </a>
 
       <div class="hidden lg:flex items-center gap-10">
-        {navigation.map((item) => (
+        <!-- About dropdown -->
+        <div class="nav-dropdown relative">
+          <button
+            type="button"
+            class={`relative font-medium text-sm tracking-wide transition-colors duration-300 flex items-center gap-1 ${
+              aboutIsActive ? 'text-yellow-primary' : 'text-gray hover:text-white'
+            }`}
+          >
+            About
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="nav-dropdown-chevron transition-transform duration-200">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+            <span
+              class={`absolute -bottom-1 left-0 h-0.5 bg-yellow-primary transition-all duration-300 ${
+                aboutIsActive ? 'w-full' : 'w-0'
+              }`}
+            />
+          </button>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 min-w-[200px]">
+            <div class="bg-dark-warm border border-dark-border rounded-lg shadow-2xl py-2 overflow-hidden">
+              {aboutDropdown.map((item) => (
+                <a
+                  href={item.path}
+                  class={`block px-5 py-2.5 text-sm transition-colors duration-200 ${
+                    isActive(item.path)
+                      ? 'text-yellow-primary bg-white/5'
+                      : 'text-gray hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {mainNav.map((item) => (
           <a
             href={item.path}
             class={`relative font-medium text-sm tracking-wide transition-colors duration-300 ${
@@ -58,6 +99,7 @@ function isActive(path: string): boolean {
             />
           </a>
         ))}
+
         <a
           href={ctaItem.path}
           class="relative inline-flex items-center justify-center font-semibold uppercase tracking-wider transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black overflow-hidden group bg-yellow-primary text-black hover:bg-yellow-hover border-2 border-yellow-primary hover:border-yellow-hover px-5 py-2 text-xs"
@@ -72,15 +114,39 @@ function isActive(path: string): boolean {
   </nav>
 </header>
 
+<style>
+  /* Pure CSS dropdown */
+  .nav-dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-4px);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-chevron,
+  .nav-dropdown:focus-within .nav-dropdown-chevron {
+    transform: rotate(180deg);
+  }
+</style>
+
 <script>
   const header = document.getElementById('main-header');
   if (header) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
-        header.classList.add('bg-black/90', 'backdrop-blur-xl', 'border-b', 'border-dark-border');
+        header.classList.add('bg-dark/95', 'backdrop-blur-xl', 'border-b', 'border-dark-border');
         header.classList.remove('bg-transparent');
       } else {
-        header.classList.remove('bg-black/90', 'backdrop-blur-xl', 'border-b', 'border-dark-border');
+        header.classList.remove('bg-dark/95', 'backdrop-blur-xl', 'border-b', 'border-dark-border');
         header.classList.add('bg-transparent');
       }
     }, { passive: true });

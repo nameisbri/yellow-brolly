@@ -16,33 +16,62 @@ const { story, pmcWay, cta } = siteContent.about;
 >
   <PageHero headline="Tech with soul. Strategy with impact." subhead="Helping people-first organizations do well in a digital world, without compromising on security, strategy, or staying power." eyebrow="About Us" />
 
+  <!-- Story with full-width photo -->
   <Section background="warmer">
-    <div class="scroll-fade-up max-w-3xl">
-      <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6">{story.headline}</h2>
-      <p class="text-lg text-gray leading-relaxed">{story.content}</p>
-    </div>
-
-    <!-- TODO: PHOTO: Team working together / culture shot - collaborative workspace or team meeting -->
-    <div class="mt-12 max-w-4xl aspect-[16/7] rounded-2xl border border-dark-border bg-dark-elevated/50 flex items-center justify-center">
-      <span class="text-gray/40 text-sm">Team photo placeholder</span>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="scroll-fade-up">
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6">{story.headline}</h2>
+        <p class="text-lg text-gray leading-relaxed">{story.content}</p>
+      </div>
+      <div class="scroll-fade-up relative">
+        <img
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80"
+          alt="Team collaborating on strategy in a bright workspace"
+          class="w-full rounded-2xl aspect-[4/3] object-cover"
+          loading="lazy"
+        />
+        <img
+          src="/images/brand/creative-designer.png"
+          alt=""
+          aria-hidden="true"
+          class="absolute -bottom-6 -left-6 w-28 h-28 object-contain hidden lg:block"
+          loading="lazy"
+        />
+      </div>
     </div>
   </Section>
 
   <ValuesGrid />
 
+  <!-- PMC Way with culture photo -->
   <Section background="dark">
-    <div class="scroll-fade-up max-w-3xl">
-      {pmcWay.subhead && (
-        <span class="inline-block px-3 py-1 text-sm font-medium bg-yellow-primary/10 text-yellow-primary mb-4 tracking-wider uppercase rounded-full">{pmcWay.subhead}</span>
-      )}
-      <h2 class="text-2xl md:text-3xl font-display font-bold text-white mb-5">{pmcWay.headline}</h2>
-      <p class="text-lg text-gray leading-relaxed border-l-4 border-yellow-primary pl-4">{pmcWay.description}</p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="scroll-fade-up order-2 lg:order-1 relative">
+        <img
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80"
+          alt="Diverse team gathered around whiteboard planning together"
+          class="w-full rounded-2xl aspect-[4/3] object-cover"
+          loading="lazy"
+        />
+        <img
+          src="/images/brand/thumbs-up.png"
+          alt=""
+          aria-hidden="true"
+          class="absolute -top-6 -right-6 w-24 h-24 object-contain hidden lg:block"
+          loading="lazy"
+        />
+      </div>
+      <div class="scroll-fade-up order-1 lg:order-2">
+        {pmcWay.subhead && (
+          <span class="inline-block px-3 py-1 text-sm font-medium bg-yellow-primary/10 text-yellow-primary mb-4 tracking-wider uppercase rounded-full">{pmcWay.subhead}</span>
+        )}
+        <h2 class="text-2xl md:text-3xl font-display font-bold text-white mb-5">{pmcWay.headline}</h2>
+        <p class="text-lg text-gray leading-relaxed border-l-4 border-yellow-primary pl-4">{pmcWay.description}</p>
+      </div>
     </div>
   </Section>
 
   <TeamSection client:visible />
-
-  <!-- TODO: BRAND ILLUSTRATION: Playful brand graphic showing team collaboration or company culture -->
 
   <CTASection client:visible headline={cta} primaryCta={{ label: "Let's Connect", to: '/contact' }} />
 </Base>

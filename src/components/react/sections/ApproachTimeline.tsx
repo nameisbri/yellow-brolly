@@ -7,6 +7,18 @@ import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const stepImages = [
+  '/images/brand/magnifying-glass.png',
+  '/images/brand/creative-thinker.png',
+  '/images/brand/trophy-winner.png',
+];
+
+const stepColors = [
+  { bg: 'rgba(107, 158, 158, 0.12)', border: 'rgba(107, 158, 158, 0.3)', text: '#6B9E9E' },
+  { bg: 'rgba(196, 149, 106, 0.12)', border: 'rgba(196, 149, 106, 0.3)', text: '#C4956A' },
+  { bg: 'rgba(247, 179, 43, 0.12)', border: 'rgba(247, 179, 43, 0.3)', text: '#F7B32B' },
+];
+
 export default function ApproachTimeline() {
   const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -16,68 +28,68 @@ export default function ApproachTimeline() {
     if (prefersReducedMotion || !containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Animate the loop arrows
+      // Animate the connecting line drawing in
       gsap.fromTo(
-        '.loop-arrow',
-        { opacity: 0, scale: 0.5 },
+        '.approach-line',
+        { scaleX: 0 },
         {
-          opacity: 1,
-          scale: 1,
-          duration: 0.6,
-          stagger: 0.2,
-          delay: 0.5,
-          ease: 'expo.out',
+          scaleX: 1,
+          duration: 1.5,
+          ease: 'power2.inOut',
           scrollTrigger: {
             trigger: containerRef.current,
-            start: 'top 70%',
+            start: 'top 65%',
             toggleActions: 'play none none none',
           },
         }
       );
 
-      // Animate each step card
+      // Stagger the step blocks
       const steps = gsap.utils.toArray<HTMLElement>('.approach-step');
       steps.forEach((step, index) => {
         gsap.fromTo(
           step,
-          { opacity: 0, y: 50 },
+          { opacity: 0, y: 80 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
-            delay: index * 0.2,
-            ease: 'power3.out',
+            duration: 1,
+            delay: index * 0.25,
+            ease: 'power4.out',
             scrollTrigger: {
               trigger: containerRef.current,
-              start: 'top 70%',
+              start: 'top 65%',
               toggleActions: 'play none none none',
             },
           }
         );
       });
 
-      // Animate the loop-back arrow
-      gsap.fromTo(
-        '.loop-back',
-        { opacity: 0, scaleX: 0 },
-        {
-          opacity: 1,
-          scaleX: 1,
-          duration: 1,
-          delay: 0.8,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 60%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
+      // Float the illustrations with a gentle parallax
+      const illustrations = gsap.utils.toArray<HTMLElement>('.approach-illustration');
+      illustrations.forEach((img) => {
+        gsap.fromTo(
+          img,
+          { y: 30, opacity: 0, scale: 0.85 },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: img,
+              start: 'top 80%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
 
-      // Animate closing text
+      // Animate the loop-back indicator
       gsap.fromTo(
-        '.approach-closing',
-        { opacity: 0, y: 30 },
+        '.loop-indicator',
+        { opacity: 0, y: 20 },
         {
           opacity: 1,
           y: 0,
@@ -85,78 +97,83 @@ export default function ApproachTimeline() {
           delay: 1,
           ease: 'power2.out',
           scrollTrigger: {
-            trigger: '.approach-closing',
-            start: 'top 85%',
+            trigger: '.loop-indicator',
+            start: 'top 90%',
             toggleActions: 'play none none none',
           },
         }
       );
+
+      // Rotating loop icon
+      gsap.to('.loop-spin', {
+        rotation: 360,
+        duration: 8,
+        ease: 'none',
+        repeat: -1,
+      });
     }, containerRef);
 
     return () => ctx.revert();
   }, [prefersReducedMotion]);
 
-  const stepIcons = [
-    // Magnifying glass for Assess
-    <svg key="assess" viewBox="0 0 32 32" fill="none" className="w-8 h-8">
-      <circle cx="14" cy="14" r="9" stroke="currentColor" strokeWidth="2" />
-      <path d="M21 21L28 28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    </svg>,
-    // Compass for Align
-    <svg key="align" viewBox="0 0 32 32" fill="none" className="w-8 h-8">
-      <circle cx="16" cy="16" r="12" stroke="currentColor" strokeWidth="2" />
-      <polygon points="16,6 19,14 16,16 13,14" fill="currentColor" opacity="0.6" />
-      <polygon points="16,26 13,18 16,16 19,18" fill="currentColor" />
-    </svg>,
-    // Rocket for Activate
-    <svg key="activate" viewBox="0 0 32 32" fill="none" className="w-8 h-8">
-      <path d="M16 4C16 4 8 12 8 20L12 24L16 20L20 24L24 20C24 12 16 4 16 4Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-      <circle cx="16" cy="14" r="2" fill="currentColor" />
-    </svg>,
-  ];
-
   return (
     <Section background="warm">
       <div ref={containerRef} className="max-w-6xl mx-auto">
-        {/* 3-step horizontal layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-0 relative">
+        {/* Section header */}
+        <div className="mb-20 max-w-2xl">
+          <span className="text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">How We Work</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-[1.1]">
+            Three steps.<br />One continuous cycle.
+          </h2>
+        </div>
+
+        {/* Connecting line (desktop only) */}
+        <div className="hidden lg:block relative">
+          <div className="approach-line absolute top-[140px] left-[16%] right-[16%] h-[3px] origin-left" style={{ background: 'linear-gradient(90deg, #6B9E9E, #C4956A, #F7B32B)' }} />
+        </div>
+
+        {/* Steps */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 relative">
           {stages.map((stage, index) => (
-            <div key={stage.name} className="approach-step relative flex flex-col items-center">
-              {/* Arrow between steps (desktop) */}
-              {index < stages.length - 1 && (
-                <div className="loop-arrow hidden lg:flex absolute top-[52px] -right-3 z-10 text-yellow-primary">
-                  <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
-                    <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+            <div key={stage.name} className="approach-step relative">
+              {/* Illustration floating above */}
+              <div className="approach-illustration flex justify-center mb-6">
+                <div className="relative">
+                  <img
+                    src={stepImages[index]}
+                    alt=""
+                    className="w-28 h-28 md:w-36 md:h-36 object-contain"
+                    loading="lazy"
+                    aria-hidden="true"
+                  />
+                  {/* Step number overlaid */}
+                  <div
+                    className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold font-display"
+                    style={{ backgroundColor: stepColors[index].text, color: '#131110' }}
+                  >
+                    {index + 1}
+                  </div>
                 </div>
-              )}
-              {/* Arrow between steps (mobile) */}
-              {index < stages.length - 1 && (
-                <div className="loop-arrow lg:hidden flex justify-center py-2 text-yellow-primary">
-                  <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 rotate-90">
-                    <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              )}
+              </div>
 
-              {/* Step card */}
-              <div className="bg-dark-elevated border border-dark-border rounded-2xl p-8 lg:p-10 w-full h-full flex flex-col items-center text-center hover:border-yellow-primary/40 transition-colors duration-500 group">
-                {/* Step number + icon */}
-                <div className="w-[104px] h-[104px] rounded-full bg-black border-2 border-dark-border flex items-center justify-center mb-6 group-hover:border-yellow-primary transition-colors duration-300 text-yellow-primary">
-                  {stepIcons[index]}
-                </div>
-
-                <div className="inline-block px-3 py-1 rounded-full bg-yellow-primary/10 text-yellow-primary text-xs font-semibold uppercase tracking-wider mb-4">
-                  Step {index + 1}
-                </div>
-
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">
+              {/* Content */}
+              <div
+                className="rounded-2xl p-8 transition-all duration-500 h-full"
+                style={{
+                  backgroundColor: stepColors[index].bg,
+                  borderLeft: `3px solid ${stepColors[index].border}`,
+                }}
+              >
+                <h3
+                  className="text-2xl md:text-3xl font-display font-bold mb-2"
+                  style={{ color: stepColors[index].text }}
+                >
                   {stage.name}
                 </h3>
-                <p className="text-yellow-primary/80 font-medium text-sm mb-4">
+                <p className="text-light-gray font-medium text-sm mb-4">
                   {stage.tagline}
                 </p>
-                <p className="text-gray leading-relaxed text-sm md:text-base">
+                <p className="text-gray leading-relaxed">
                   {stage.description}
                 </p>
               </div>
@@ -164,22 +181,24 @@ export default function ApproachTimeline() {
           ))}
         </div>
 
-        {/* Loop-back arrow: visual indicator that this is a continuous cycle */}
-        <div className="loop-back mt-8 flex justify-center">
-          <div className="flex items-center gap-3 px-6 py-3 rounded-full border border-dark-border bg-dark-elevated/50">
-            <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-yellow-primary">
-              <path d="M17 1L21 5L17 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M3 11V9C3 6.79 4.79 5 7 5H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M7 23L3 19L7 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M21 13V15C21 17.21 19.21 19 17 19H3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        {/* Loop indicator */}
+        <div className="loop-indicator mt-16 flex flex-col items-center gap-4">
+          <div className="loop-spin">
+            <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12 text-yellow-primary">
+              <path d="M36 8L42 14L36 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M6 24V18C6 11.37 11.37 6 18 6H42" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M12 40L6 34L12 28" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M42 24V30C42 36.63 36.63 42 30 42H6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span className="text-sm text-light-gray">Continuous cycle of improvement</span>
           </div>
+          <p className="text-light-gray text-sm text-center max-w-xs">
+            A continuous cycle. Each round builds on the last, compounding clarity and momentum.
+          </p>
         </div>
 
         {/* Closing statement */}
-        <div className="approach-closing mt-16 text-center max-w-2xl mx-auto">
-          <p className="text-xl md:text-2xl text-white font-display leading-relaxed">
+        <div className="mt-20 text-center max-w-3xl mx-auto">
+          <p className="text-2xl md:text-3xl lg:text-4xl text-white font-display leading-[1.3]">
             {closing}
           </p>
         </div>
