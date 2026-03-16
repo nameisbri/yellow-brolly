@@ -71,69 +71,53 @@ export default function TeamSection() {
   return (
     <Section background="black">
       <div ref={sectionRef}>
-        <div className="team-heading">
+        <div className="team-heading mb-12">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
             {team.headline}
           </h2>
-
-          {team.combinedExperience && (
-            <p className="text-gray text-sm mb-12">
-              {team.combinedExperience}
-            </p>
-          )}
         </div>
 
-        <div className="space-y-0">
-          {team.members.map((member, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {team.members.map((member) => (
             <div
               key={member.name}
-              className={`team-member flex flex-col md:flex-row gap-6 md:gap-8${
-                index < team.members.length - 1
-                  ? ' border-b border-dark-border pb-8 mb-8'
-                  : ''
-              }`}
+              className="team-member bg-dark-elevated border border-dark-border rounded-2xl p-6 md:p-8 hover:border-yellow-primary/30 transition-all duration-300 group"
             >
-              <div className="w-28 md:w-32 flex-shrink-0 overflow-hidden rounded-lg bg-dark-elevated" style={{ aspectRatio: '4/7' }}>
-                {member.image ? (
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-yellow-primary to-yellow-hover flex items-center justify-center">
-                    <span className="text-2xl font-bold text-black">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </span>
-                  </div>
-                )}
+              {/* Avatar with initials */}
+              {/* TODO: PHOTO: Replace initials with team member headshot */}
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-primary to-yellow-hover flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
+                <span className="text-2xl font-bold text-black font-display">
+                  {member.name.split(' ').map(n => n[0]).join('')}
+                </span>
               </div>
 
-              <div>
-                <div className="flex items-center gap-3">
-                  <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                  {member.linkedin && (
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray hover:text-light-gray transition-colors duration-200"
-                      aria-label={`${member.name} on LinkedIn`}
-                    >
-                      <LinkedInIcon size={16} />
-                    </a>
-                  )}
-                </div>
-                <p className="text-yellow-primary text-sm font-medium">{member.role}</p>
-                {member.tagline && (
-                  <p className="italic text-sm text-gray">{member.tagline}</p>
+              <div className="flex items-center gap-3 mb-1">
+                <h3 className="text-xl font-bold text-white">{member.name}</h3>
+                {member.linkedin && (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray hover:text-yellow-primary transition-colors duration-200"
+                    aria-label={`${member.name} on LinkedIn`}
+                  >
+                    <LinkedInIcon size={16} />
+                  </a>
                 )}
-                <p className="text-gray text-sm leading-relaxed mt-2">{member.bio}</p>
               </div>
+              <p className="text-yellow-primary text-sm font-medium mb-4">{member.role}</p>
+              <p className="text-gray text-sm leading-relaxed">{member.bio}</p>
             </div>
           ))}
         </div>
+
+        {/* Key Collaborators */}
+        {'collaborators' in team && (
+          <div className="team-member mt-8 p-6 bg-dark-elevated/50 border border-dark-border rounded-xl text-center">
+            <h3 className="text-lg font-display font-bold text-white mb-2">Key Collaborators & Partners</h3>
+            <p className="text-gray text-sm">{(team as { collaborators: string }).collaborators}</p>
+          </div>
+        )}
       </div>
     </Section>
   );
