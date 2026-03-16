@@ -16,31 +16,31 @@ const jsonLd = [
     "name": "Yellow Brolly Co",
     "url": "https://yellow-brolly.vercel.app",
     "logo": "https://yellow-brolly.vercel.app/umbrella.svg",
-    "description": "Technology consulting that fits your culture. We help nonprofits and agencies adopt AI, improve cybersecurity, and build tech stacks that work.",
+    "description": "We help organizations grow with clarity, confidence, and the systems to scale. Strategy, digital readiness, brand, funding, and implementation support.",
     "email": "hello@yellowbrolly.co",
     "founders": [
-      { "@type": "Person", "name": "Aimee Slater" },
-      { "@type": "Person", "name": "Abbey Ferreira" },
-      { "@type": "Person", "name": "Jon Ferreira" }
+      { "@type": "Person", "name": "Jon Ferreira", "jobTitle": "Chief Executive Officer" },
+      { "@type": "Person", "name": "Aimee Slater", "jobTitle": "Chief Growth Officer" },
+      { "@type": "Person", "name": "Abbey Ferreira", "jobTitle": "Chief Marketing Officer" }
     ],
     "sameAs": [
       "https://www.linkedin.com/in/aimeelslater/",
-      "https://www.linkedin.com/in/abbey-ferreira-92b1291b2/",
-      "https://www.linkedin.com/in/kevinjburgess1/"
+      "https://www.linkedin.com/in/abbey-ferreira-92b1291b2/"
     ]
   },
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Yellow Brolly Co",
+    /* TODO: Update URL when migrating to Webflow Cloud domain */
     "url": "https://yellow-brolly.vercel.app"
   }
 ];
 ---
 
 <Base
-  title="Technology Consulting for Nonprofits & Agencies | YellowBrollyCo"
-  description="Technology consulting that fits your culture. We help nonprofits and agencies adopt AI, improve cybersecurity, and build tech stacks that actually work. Book a discovery call."
+  title="Strategy, Digital & Implementation Consulting | YellowBrollyCo"
+  description="We help organizations grow with clarity, confidence, and the systems to scale. Strategy, digital readiness, brand, culture, funding, and implementation support."
   jsonLd={jsonLd}
 >
   {/*

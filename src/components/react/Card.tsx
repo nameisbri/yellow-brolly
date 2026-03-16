@@ -351,7 +351,7 @@ export function CaseStudyCard({
           </blockquote>
           {quoteAuthor && (
             <footer className="text-sm text-gray">
-              — {quoteAuthor}{quoteRole && `, ${quoteRole}`}
+              {quoteAuthor}{quoteRole && `, ${quoteRole}`}
             </footer>
           )}
         </div>
