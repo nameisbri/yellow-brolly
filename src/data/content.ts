@@ -54,12 +54,11 @@ export const siteContent = {
       ],
     },
     approachPreview: {
-      headline: 'How we turn messy tech into something your team can use.',
+      headline: 'A clear, repeatable approach to lasting change.',
       stages: [
-        { name: 'Assess', description: 'Uncover real challenges' },
-        { name: 'Align', description: 'Map strategy to operations' },
-        { name: 'Activate', description: 'Deploy tools and support' },
-        { name: 'Amplify', description: 'Optimize and scale' },
+        { name: 'Assess', description: 'Understand where you are now' },
+        { name: 'Align', description: 'Turn insight into direction' },
+        { name: 'Activate', description: 'Move into action' },
       ],
     },
     servicesPreview: [
@@ -189,70 +188,27 @@ export const siteContent = {
 
   approach: {
     hero: {
-      headline: 'The YB Approach: from messy to manageable',
-      subhead: "We align tools to your strategy, culture, and people.",
+      headline: 'Assess. Align. Activate.',
+      subhead: 'Our work is grounded in a clear, repeatable approach that helps organizations move through change with focus and momentum.',
     },
     stages: [
       {
         name: 'Assess',
-        tagline: 'Uncover real challenges',
-        whoThisIsFor: 'Start here if you\'re overwhelmed by tool sprawl',
-        activities: [
-          'Discovery calls',
-          'Pain point identification',
-          'Tech audits',
-          'Cybersecurity assessment',
-          'Stakeholder interviews',
-          'Culture mapping',
-        ],
-        outcome: 'Full-scope snapshot of current state and blockers',
-        timeline: '2-4 weeks',
-        communication: 'Weekly check-ins, Slack access, executive summary delivered',
+        tagline: 'Understand where you are now',
+        description: 'We begin by understanding where you are now: your goals, challenges, systems, culture, team dynamics, risks, and opportunities. We listen deeply, examine what is working, uncover what is getting in the way, and build a clear picture of your current reality.',
       },
       {
         name: 'Align',
-        tagline: 'Map strategy to operations',
-        whoThisIsFor: 'Start here if teams resist new systems',
-        activities: [
-          'Executive summary',
-          'Strategic goals',
-          'Brand check-in',
-          'Team capacity review',
-          'Tech + culture roadmap',
-        ],
-        outcome: 'Everyone pulling in the same direction',
-        timeline: '3-6 weeks',
-        communication: 'Bi-weekly updates, collaborative roadmap sessions',
+        tagline: 'Turn insight into direction',
+        description: 'Next, we work with you to turn insight into direction. Together, we identify priorities, clarify outcomes, align stakeholders, and create a focused path forward that your team can actually get behind.',
       },
       {
         name: 'Activate',
-        tagline: 'Deploy tools and support',
-        whoThisIsFor: 'Start here if you know what you need but need implementation support',
-        activities: [
-          'Implementation',
-          'Staff training',
-          'Process optimization',
-          'Cyber policy integration',
-        ],
-        outcome: 'Working systems, confident people, measurable results',
-        timeline: '4-12 weeks',
-        communication: 'Daily standups during implementation, training sessions, documentation',
-      },
-      {
-        name: 'Amplify',
-        tagline: 'Optimize and scale',
-        whoThisIsFor: 'Start here if you\'re ready to scale what\'s working',
-        activities: [
-          'Usage audits',
-          'Process improvement',
-          'New integrations',
-          'Strategic reporting',
-        ],
-        outcome: 'Sustainable foundation for long-term growth',
-        timeline: 'Ongoing',
-        communication: 'Monthly reviews, quarterly strategic sessions',
+        tagline: 'Move into action',
+        description: 'Then we move into action. We help implement the plan, strengthen capability, support adoption, and build the systems, behaviours, and momentum needed for lasting progress.',
       },
     ],
+    closing: 'This is not transformation in theory. It is transformation in practice.',
     processTransparency: {
       headline: 'Working with Us',
       details: [
