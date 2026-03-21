@@ -4,7 +4,6 @@ import { gsap } from 'gsap';
 const aboutGroup = [
   { label: 'About Us', path: '/about' },
   { label: 'Our Approach', path: '/approach' },
-  { label: 'Why YellowBrolly', path: '/why-yellowbrolly' },
 ];
 
 const standaloneItems = [

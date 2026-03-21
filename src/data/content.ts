@@ -9,7 +9,6 @@ export const siteContent = {
     { label: 'About Us', path: '/about' },
     { label: 'Our Approach', path: '/approach' },
     { label: 'What We Do', path: '/services' },
-    { label: 'Why YellowBrolly', path: '/why-yellowbrolly' },
     { label: "Let's Talk", path: '/contact', isCta: true },
   ],
 
