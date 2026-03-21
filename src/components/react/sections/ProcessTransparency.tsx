@@ -23,7 +23,7 @@ export default function ProcessTransparency() {
           opacity: 1,
           y: 0,
           duration: 0.6,
-          stagger: 0.1,
+          stagger: 0.12,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -41,25 +41,23 @@ export default function ProcessTransparency() {
 
   return (
     <Section background="warm">
-      <div ref={sectionRef}>
-        <h2 className="transparency-item text-3xl md:text-4xl font-display font-bold text-text-primary mb-10">
+      <div ref={sectionRef} className="max-w-5xl">
+        <span className="transparency-item text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
+          Practicalities
+        </span>
+        <h2 className="transparency-item text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary mb-16 md:mb-20">
           {processTransparency.headline}
         </h2>
 
-        <div className="max-w-3xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 md:gap-y-14">
           {processTransparency.details.map((detail, index) => (
-            <div
-              key={index}
-              className={`transparency-item ${
-                index < processTransparency.details.length - 1
-                  ? 'border-b border-light-border pb-6 mb-6'
-                  : ''
-              }`}
-            >
-              <h3 className="text-lg font-bold text-text-primary mb-2">
+            <div key={index} className="transparency-item">
+              <h3 className="text-xl font-bold text-text-primary mb-3">
                 {detail.title}
               </h3>
-              <p className="text-text-muted leading-relaxed">{detail.description}</p>
+              <p className="text-text-muted leading-relaxed">
+                {detail.description}
+              </p>
             </div>
           ))}
         </div>

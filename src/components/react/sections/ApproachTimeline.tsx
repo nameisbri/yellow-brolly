@@ -13,11 +13,7 @@ const stepImages = [
   '/images/brand/trophy-winner.png',
 ];
 
-const stepColors = [
-  { bg: 'rgba(107, 158, 158, 0.12)', border: 'rgba(107, 158, 158, 0.3)', text: '#6B9E9E' },
-  { bg: 'rgba(196, 149, 106, 0.12)', border: 'rgba(196, 149, 106, 0.3)', text: '#C4956A' },
-  { bg: 'rgba(247, 179, 43, 0.12)', border: 'rgba(247, 179, 43, 0.3)', text: '#F7B32B' },
-];
+const stepAccents = ['#6B9E9E', '#C4956A', '#F7B32B'];
 
 export default function ApproachTimeline() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,89 +24,42 @@ export default function ApproachTimeline() {
     if (prefersReducedMotion || !containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Animate the connecting line drawing in
-      gsap.fromTo(
-        '.approach-line',
-        { scaleX: 0 },
-        {
-          scaleX: 1,
-          duration: 1.5,
-          ease: 'power2.inOut',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 65%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-
-      // Stagger the step blocks
+      // Each step animates independently as it enters viewport
       const steps = gsap.utils.toArray<HTMLElement>('.approach-step');
-      steps.forEach((step, index) => {
+      steps.forEach((step) => {
         gsap.fromTo(
           step,
-          { opacity: 0, y: 80 },
+          { opacity: 0, y: 60 },
           {
             opacity: 1,
             y: 0,
             duration: 1,
-            delay: index * 0.25,
             ease: 'power4.out',
             scrollTrigger: {
-              trigger: containerRef.current,
-              start: 'top 65%',
+              trigger: step,
+              start: 'top 78%',
               toggleActions: 'play none none none',
             },
           }
         );
       });
 
-      // Float the illustrations with a gentle parallax
-      const illustrations = gsap.utils.toArray<HTMLElement>('.approach-illustration');
-      illustrations.forEach((img) => {
-        gsap.fromTo(
-          img,
-          { y: 30, opacity: 0, scale: 0.85 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 1.2,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: img,
-              start: 'top 80%',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      });
-
-      // Animate the loop-back indicator
+      // Closing statement enters with weight
       gsap.fromTo(
-        '.loop-indicator',
-        { opacity: 0, y: 20 },
+        '.closing-statement',
+        { opacity: 0, y: 40 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          delay: 1,
-          ease: 'power2.out',
+          duration: 1.2,
+          ease: 'power3.out',
           scrollTrigger: {
-            trigger: '.loop-indicator',
-            start: 'top 90%',
+            trigger: '.closing-statement',
+            start: 'top 80%',
             toggleActions: 'play none none none',
           },
         }
       );
-
-      // Rotating loop icon
-      gsap.to('.loop-spin', {
-        rotation: 360,
-        duration: 8,
-        ease: 'none',
-        repeat: -1,
-      });
     }, containerRef);
 
     return () => ctx.revert();
@@ -119,85 +68,71 @@ export default function ApproachTimeline() {
   return (
     <Section background="sand">
       <div ref={containerRef} className="max-w-6xl mx-auto">
-        {/* Section header */}
-        <div className="mb-20 max-w-2xl">
-          <span className="text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">How We Work</span>
+        {/* Section header — left-aligned, not centered */}
+        <div className="mb-24 md:mb-32 max-w-2xl">
+          <span className="text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
+            How We Work
+          </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-text-primary leading-[1.1]">
             Three steps.<br />One continuous cycle.
           </h2>
         </div>
 
-        {/* Connecting line (desktop only) */}
-        <div className="hidden lg:block relative">
-          <div className="approach-line absolute top-[140px] left-[16%] right-[16%] h-[3px] origin-left" style={{ background: 'linear-gradient(90deg, #6B9E9E, #C4956A, #F7B32B)' }} />
-        </div>
+        {/* Steps — editorial alternating layout, no cards */}
+        <div className="space-y-24 md:space-y-40">
+          {stages.map((stage, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <div
+                key={stage.name}
+                className="approach-step grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center"
+              >
+                {/* Text side */}
+                <div className={`md:col-span-7 ${!isEven ? 'md:order-2' : ''}`}>
+                  <span
+                    className="text-[5.5rem] md:text-[7rem] lg:text-[8.5rem] font-display font-extrabold leading-none block opacity-15 pointer-events-none select-none"
+                    style={{ color: stepAccents[index] }}
+                    aria-hidden="true"
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary -mt-5 md:-mt-8 mb-3">
+                    {stage.name}
+                  </h3>
+                  <p
+                    className="text-sm font-semibold tracking-[0.15em] uppercase mb-5"
+                    style={{ color: stepAccents[index] }}
+                  >
+                    {stage.tagline}
+                  </p>
+                  <p className="text-text-secondary leading-relaxed text-lg max-w-xl">
+                    {stage.description}
+                  </p>
+                </div>
 
-        {/* Steps */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 relative">
-          {stages.map((stage, index) => (
-            <div key={stage.name} className="approach-step relative">
-              {/* Illustration floating above */}
-              <div className="approach-illustration flex justify-center mb-6">
-                <div className="relative">
+                {/* Illustration side */}
+                <div
+                  className={`md:col-span-5 ${!isEven ? 'md:order-1' : ''} flex ${
+                    isEven ? 'md:justify-end' : 'md:justify-start'
+                  }`}
+                >
                   <img
                     src={stepImages[index]}
                     alt=""
-                    className="w-28 h-28 md:w-36 md:h-36 object-contain"
+                    className="w-44 h-44 md:w-56 md:h-56 lg:w-72 lg:h-72 object-contain"
                     loading="lazy"
                     aria-hidden="true"
                   />
-                  {/* Step number overlaid */}
-                  <div
-                    className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold font-display"
-                    style={{ backgroundColor: stepColors[index].text, color: '#131110' }}
-                  >
-                    {index + 1}
-                  </div>
                 </div>
               </div>
-
-              {/* Content */}
-              <div
-                className="rounded-2xl p-8 transition-all duration-500 h-full"
-                style={{
-                  backgroundColor: stepColors[index].bg,
-                  borderLeft: `3px solid ${stepColors[index].border}`,
-                }}
-              >
-                <h3
-                  className="text-2xl md:text-3xl font-display font-bold mb-2 text-text-primary"
-                >
-                  {stage.name}
-                </h3>
-                <p className="text-text-secondary font-medium text-sm mb-4">
-                  {stage.tagline}
-                </p>
-                <p className="text-text-muted leading-relaxed">
-                  {stage.description}
-                </p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Loop indicator */}
-        <div className="loop-indicator mt-16 flex flex-col items-center gap-4">
-          <div className="loop-spin">
-            <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12 text-yellow-primary">
-              <path d="M36 8L42 14L36 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M6 24V18C6 11.37 11.37 6 18 6H42" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M12 40L6 34L12 28" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M42 24V30C42 36.63 36.63 42 30 42H6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-          <p className="text-text-secondary text-sm text-center max-w-xs">
-            A continuous cycle. Each round builds on the last, compounding clarity and momentum.
-          </p>
-        </div>
-
-        {/* Closing statement */}
-        <div className="mt-20 text-center max-w-3xl mx-auto">
-          <p className="text-2xl md:text-3xl lg:text-4xl text-text-primary font-display leading-[1.3]">
+        {/* Closing statement — the dominant visual moment */}
+        <div className="closing-statement mt-32 md:mt-44 pt-12 md:pt-16">
+          <div className="w-16 h-1 bg-yellow-primary mb-8" />
+          <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-text-primary font-display font-bold leading-[1.15] max-w-4xl">
             {closing}
           </p>
         </div>

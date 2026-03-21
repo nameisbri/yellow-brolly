@@ -219,7 +219,7 @@ export const siteContent = {
         },
         {
           title: 'Pricing Approach',
-          description: 'We offer project-based pricing tailored to your scope and stage. Typical investments start at $X,XXX for assessments, with full implementations ranging based on complexity and team size.',
+          description: 'We offer project-based pricing tailored to your scope and stage. Every engagement starts with a scoping conversation so we can understand your needs before proposing a fee.',
         },
       ],
     },
