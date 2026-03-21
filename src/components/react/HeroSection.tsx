@@ -132,9 +132,9 @@ export default function HeroSection({
               {ctaPrimary && (
                 <Button
                   to={ctaPrimary.to}
-                  variant="primary"
+                  variant="dark"
                   size="lg"
-                  className="hero-cta !bg-black !text-yellow-primary !border-black hover:!bg-black/80"
+                  className="hero-cta"
                 >
                   {ctaPrimary.label}
                 </Button>
@@ -142,9 +142,9 @@ export default function HeroSection({
               {ctaSecondary && (
                 <Button
                   to={ctaSecondary.to}
-                  variant="outline"
+                  variant="dark-outline"
                   size="lg"
-                  className="hero-cta !border-black !text-black hover:!bg-black/10 !border-black/60"
+                  className="hero-cta"
                 >
                   {ctaSecondary.label}
                 </Button>

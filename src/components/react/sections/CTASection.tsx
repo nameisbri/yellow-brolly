@@ -67,12 +67,12 @@ export default function CTASection({
             </p>
           )}
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button to={primaryCta.to} variant="primary" size="lg" className="!bg-black !text-yellow-primary !border-black hover:!bg-black/80">
+            <Button to={primaryCta.to} variant="dark" size="lg">
               <CalendarIcon size={20} className="mr-2" />
               {primaryCta.label}
             </Button>
             {secondaryCta && (
-              <Button to={secondaryCta.to} variant="outline" size="lg" className="!border-black !text-black hover:!bg-black/10">
+              <Button to={secondaryCta.to} variant="dark-outline" size="lg">
                 {secondaryCta.label}
                 <ArrowRightIcon size={18} className="ml-2" />
               </Button>

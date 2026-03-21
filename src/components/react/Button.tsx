@@ -4,7 +4,7 @@ import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'dark' | 'dark-outline';
   size?: 'sm' | 'md' | 'lg';
   to?: string;
   href?: string;
@@ -95,6 +95,10 @@ export function Button({
       'bg-transparent border-2 border-yellow-primary text-yellow-text hover:bg-yellow-primary hover:text-black',
     ghost:
       'bg-transparent text-gray hover:text-yellow-primary border-2 border-transparent hover:border-yellow-primary/30',
+    dark:
+      'bg-black text-yellow-primary border-2 border-black hover:border-dark-elevated',
+    'dark-outline':
+      'bg-transparent border-2 border-black/60 text-black hover:bg-black hover:text-yellow-primary hover:border-black',
   };
 
   const sizeStyles = {
@@ -117,6 +121,12 @@ export function Button({
       )}
       {variant === 'outline' && (
         <span className="absolute inset-0 bg-yellow-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+      )}
+      {variant === 'dark' && (
+        <span className="absolute inset-0 bg-dark-elevated translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+      )}
+      {variant === 'dark-outline' && (
+        <span className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
       )}
       {/* Corner accents for corporate feel */}
       <span className="absolute top-0 left-0 w-2 h-2 border-l-2 border-t-2 border-current opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

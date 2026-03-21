@@ -100,7 +100,7 @@ export default function MobileMenu({ currentPath }: Props) {
                 href={ctaItem.path}
                 className="mobile-menu-item mt-8 py-3 min-h-[48px] flex items-center"
               >
-                <span className="inline-block px-8 py-4 bg-yellow-primary text-black rounded-full text-lg font-display font-bold">
+                <span className="inline-block px-8 py-4 bg-yellow-primary text-black rounded-full text-lg font-display font-bold hover:bg-yellow-hover transition-colors duration-300">
                   {ctaItem.label}
                 </span>
               </a>
