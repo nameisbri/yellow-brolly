@@ -22,8 +22,7 @@ export default function HeroA_ParallaxLayers() {
       .fromTo('.ha-word', { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.06 }, 0.1)
       .fromTo('.ha-subhead', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6 }, 0.5)
       .fromTo('.ha-cta', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, 0.7)
-      .fromTo('.ha-umbrella', { scale: 0.6, opacity: 0, rotation: -20 }, { scale: 1, opacity: 0.12, rotation: 0, duration: 1.2, ease: 'power3.out' }, 0.2)
-      .fromTo('.ha-line', { scaleX: 0 }, { scaleX: 1, duration: 1, ease: 'power2.inOut' }, 0.4);
+      .fromTo('.ha-umbrella', { scale: 0.6, opacity: 0, rotation: -20 }, { scale: 1, opacity: 0.12, rotation: 0, duration: 1.2, ease: 'power3.out' }, 0.2);
 
     // Mouse parallax
     const handleMouseMove = (e: MouseEvent) => {
@@ -33,7 +32,6 @@ export default function HeroA_ParallaxLayers() {
 
       gsap.to('.ha-umbrella', { x: x * 60, y: y * 40, duration: 1.2, ease: 'power2.out' });
       gsap.to('.ha-text-block', { x: x * -15, y: y * -10, duration: 1.2, ease: 'power2.out' });
-      gsap.to('.ha-line', { x: x * 25, duration: 1.2, ease: 'power2.out' });
     };
 
     section.addEventListener('mousemove', handleMouseMove);
@@ -52,10 +50,6 @@ export default function HeroA_ParallaxLayers() {
           className="w-64 md:w-80 lg:w-[420px] object-contain"
         />
       </div>
-
-      {/* Diagonal accent lines — parallax mid-layer */}
-      <div className="ha-line absolute top-[30%] left-0 w-[70%] h-px bg-black/10 origin-left will-change-transform" />
-      <div className="ha-line absolute top-[60%] right-0 w-[50%] h-px bg-black/10 origin-right will-change-transform" />
 
       {/* Text — parallax layer (closest, moves opposite) */}
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">

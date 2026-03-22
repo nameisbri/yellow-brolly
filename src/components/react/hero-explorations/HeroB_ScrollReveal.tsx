@@ -22,9 +22,9 @@ export default function HeroB_ScrollReveal() {
     const ctx = gsap.context(() => {
       // Umbrella slow rotation + scale on scroll
       gsap.fromTo('.hb-umbrella',
-        { rotation: -15, scale: 0.8, opacity: 0.05 },
+        { rotation: -15, scale: 0.8, opacity: 0.1 },
         {
-          rotation: 10, scale: 1, opacity: 0.15,
+          rotation: 10, scale: 1, opacity: 0.2,
           ease: 'none',
           scrollTrigger: {
             trigger: sectionRef.current,

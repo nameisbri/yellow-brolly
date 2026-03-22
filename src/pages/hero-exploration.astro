@@ -3,22 +3,20 @@ import Base from '../layouts/Base.astro';
 import HeroA from '../components/react/hero-explorations/HeroA_ParallaxLayers.tsx';
 import HeroB from '../components/react/hero-explorations/HeroB_ScrollReveal.tsx';
 import HeroC from '../components/react/hero-explorations/HeroC_MagneticUmbrella.tsx';
-import HeroD1 from '../components/react/hero-explorations/HeroD1_ConcentricArcs.tsx';
-import HeroD2 from '../components/react/hero-explorations/HeroD2_DotGrid.tsx';
 import HeroD3 from '../components/react/hero-explorations/HeroD3_IllustrationCollage.tsx';
-import HeroD4 from '../components/react/hero-explorations/HeroD4_DiagonalStripes.tsx';
-import HeroD5 from '../components/react/hero-explorations/HeroD5_UmbrellaWallpaper.tsx';
-import HeroE from '../components/react/hero-explorations/HeroE_TypewriterCascade.tsx';
+import HeroF from '../components/react/hero-explorations/HeroF_SingleIllustration.tsx';
+import HeroG from '../components/react/hero-explorations/HeroG_IllustrationStack.tsx';
+import HeroH from '../components/react/hero-explorations/HeroH_IllustrationMarquee.tsx';
 ---
 
 <Base
   title="Hero Exploration | YellowBrollyCo"
-  description="Hero section design exploration — interactive options"
+  description="Hero section design exploration"
 >
   <div class="pt-28 pb-8 bg-cream">
     <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
       <h1 class="text-2xl font-display font-bold text-text-primary mb-2">Hero Exploration</h1>
-      <p class="text-text-muted">A — mouse parallax, B — scroll reveal, C — umbrella field, D1-D5 — pattern variations, E — typewriter cascade</p>
+      <p class="text-text-muted">7 options — A, C, D3 (refined), F, G, H use illustrations. B uses scroll.</p>
     </div>
   </div>
 
@@ -26,8 +24,8 @@ import HeroE from '../components/react/hero-explorations/HeroE_TypewriterCascade
   <div class="border-t-4 border-yellow-primary">
     <div class="bg-sand py-4 px-6 md:px-8">
       <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">Option A</span>
-        <span class="text-sm text-text-muted ml-3">Mouse-driven parallax layers — move your cursor</span>
+        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">A</span>
+        <span class="text-sm text-text-muted ml-3">Mouse parallax — umbrella and text shift at different rates</span>
       </div>
     </div>
     <HeroA client:visible />
@@ -37,91 +35,69 @@ import HeroE from '../components/react/hero-explorations/HeroE_TypewriterCascade
   <div class="border-t-4 border-yellow-primary mt-4">
     <div class="bg-sand py-4 px-6 md:px-8">
       <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">Option C</span>
+        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">C</span>
         <span class="text-sm text-text-muted ml-3">Umbrella field — tessellated pattern, push them with your cursor</span>
       </div>
     </div>
     <HeroC client:visible />
   </div>
 
-  <!-- D1: Concentric arcs -->
+  <!-- D3: Illustration collage (refined) -->
   <div class="border-t-4 border-yellow-primary mt-4">
     <div class="bg-sand py-4 px-6 md:px-8">
       <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">Option D1</span>
-        <span class="text-sm text-text-muted ml-3">Concentric arcs — scalloped umbrella curves in accent colors, slowly rotating</span>
-      </div>
-    </div>
-    <HeroD1 client:visible />
-  </div>
-
-  <!-- D2: Dot grid with color pools -->
-  <div class="border-t-4 border-yellow-primary mt-4">
-    <div class="bg-sand py-4 px-6 md:px-8">
-      <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">Option D2</span>
-        <span class="text-sm text-text-muted ml-3">Dot grid — orderly dots with pulsing accent color pools behind them</span>
-      </div>
-    </div>
-    <HeroD2 client:visible />
-  </div>
-
-  <!-- D3: Brand illustration collage -->
-  <div class="border-t-4 border-yellow-primary mt-4">
-    <div class="bg-sand py-4 px-6 md:px-8">
-      <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">Option D3</span>
-        <span class="text-sm text-text-muted ml-3">Illustration collage — brand illustrations floating with mouse parallax</span>
+        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">D3</span>
+        <span class="text-sm text-text-muted ml-3">Illustration collage — balanced layout with mouse parallax on the layer</span>
       </div>
     </div>
     <HeroD3 client:visible />
   </div>
 
-  <!-- D4: Diagonal stripes -->
+  <!-- F: Single hero illustration -->
   <div class="border-t-4 border-yellow-primary mt-4">
     <div class="bg-sand py-4 px-6 md:px-8">
       <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">Option D4</span>
-        <span class="text-sm text-text-muted ml-3">Diagonal stripes — bold stripes in cream/yellow with accent color pin-stripes, slide in on load</span>
+        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">F</span>
+        <span class="text-sm text-text-muted ml-3">Single illustration — winged pencil at massive scale, breathing animation</span>
       </div>
     </div>
-    <HeroD4 client:visible />
+    <HeroF client:visible />
   </div>
 
-  <!-- D5: Umbrella wallpaper -->
+  <!-- G: Illustration stack -->
   <div class="border-t-4 border-yellow-primary mt-4">
     <div class="bg-sand py-4 px-6 md:px-8">
       <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">Option D5</span>
-        <span class="text-sm text-text-muted ml-3">Umbrella wallpaper — structured grid of umbrellas at varying scales, breathing animation</span>
+        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">G</span>
+        <span class="text-sm text-text-muted ml-3">Illustration stack — 3 illustrations in offset frames, slide in + mouse parallax</span>
       </div>
     </div>
-    <HeroD5 client:visible />
+    <HeroG client:visible />
   </div>
 
-  <!-- B: Scroll reveal -->
+  <!-- H: Illustration marquee -->
   <div class="border-t-4 border-yellow-primary mt-4">
     <div class="bg-sand py-4 px-6 md:px-8">
       <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">Option B</span>
-        <span class="text-sm text-text-muted ml-3">Scroll-driven word reveal — scroll slowly through this section</span>
+        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">H</span>
+        <span class="text-sm text-text-muted ml-3">Illustration marquee — continuous scrolling band of brand illustrations behind text</span>
+      </div>
+    </div>
+    <HeroH client:visible />
+  </div>
+
+  <!-- B: Scroll reveal (at bottom so it doesn't disrupt browsing) -->
+  <div class="border-t-4 border-yellow-primary mt-4">
+    <div class="bg-sand py-4 px-6 md:px-8">
+      <div class="container mx-auto max-w-7xl">
+        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">B</span>
+        <span class="text-sm text-text-muted ml-3">Scroll reveal — sticky hero, words fade in as you scroll, umbrella rotates</span>
       </div>
     </div>
     <HeroB client:visible />
   </div>
 
-  <!-- E: Typewriter cascade -->
-  <div class="border-t-4 border-yellow-primary mt-4">
-    <div class="bg-sand py-4 px-6 md:px-8">
-      <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">Option E</span>
-        <span class="text-sm text-text-muted ml-3">Typewriter cascade — lines from alternating sides, umbrella clip-path reveal</span>
-      </div>
-    </div>
-    <HeroE client:visible />
-  </div>
-
   <div class="py-20 bg-cream text-center">
-    <p class="text-text-muted">End of hero exploration. Pick one or mix elements from several.</p>
+    <p class="text-text-muted">End of hero exploration.</p>
   </div>
 </Base>

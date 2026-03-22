@@ -64,15 +64,21 @@ export default function HeroD3_IllustrationCollage() {
 
   const words = 'When growth gets complex, we help you move forward.'.split(' ');
 
+  // Intentional layout: large hero illustration top-right, medium pieces around it,
+  // small accent in bottom-right. Balanced diagonal from top-right to bottom-left.
   const illustrations = [
-    { src: '/images/brand/winged-pencil.png', top: '8%', left: '65%', size: 'w-32 md:w-44', opacity: 0.1, rotation: -8 },
-    { src: '/images/brand/coffee-person.png', top: '55%', left: '72%', size: 'w-28 md:w-36', opacity: 0.09, rotation: 5 },
-    { src: '/images/brand/trophy-winner.png', top: '18%', left: '85%', size: 'w-24 md:w-32', opacity: 0.08, rotation: -3 },
-    { src: '/images/brand/magnifying-glass.png', top: '70%', left: '58%', size: 'w-20 md:w-28', opacity: 0.1, rotation: 10 },
-    { src: '/images/brand/creative-thinker.png', top: '40%', left: '78%', size: 'w-26 md:w-36', opacity: 0.07, rotation: -5 },
-    { src: '/images/brand/Brolly_Icon_Black.png', top: '75%', left: '88%', size: 'w-16 md:w-24', opacity: 0.12, rotation: 12 },
-    { src: '/images/brand/thumbs-up.png', top: '5%', left: '80%', size: 'w-18 md:w-24', opacity: 0.08, rotation: -15 },
-    { src: '/images/brand/creative-artist.png', top: '45%', left: '60%', size: 'w-20 md:w-28', opacity: 0.06, rotation: 7 },
+    // Hero piece — large winged pencil, top-right
+    { src: '/images/brand/winged-pencil.png', top: '10%', left: '68%', size: 'w-40 md:w-56', opacity: 0.12, rotation: -5 },
+    // Medium — coffee person, center-right, balances the pencil
+    { src: '/images/brand/coffee-person.png', top: '50%', left: '75%', size: 'w-32 md:w-40', opacity: 0.1, rotation: 3 },
+    // Medium — creative thinker, bottom-left of text area
+    { src: '/images/brand/creative-thinker.png', top: '72%', left: '15%', size: 'w-28 md:w-36', opacity: 0.08, rotation: -4 },
+    // Small accent — trophy, upper-right corner
+    { src: '/images/brand/trophy-winner.png', top: '5%', left: '88%', size: 'w-20 md:w-24', opacity: 0.07, rotation: 8 },
+    // Small accent — magnifying glass, mid-left
+    { src: '/images/brand/magnifying-glass.png', top: '35%', left: '55%', size: 'w-16 md:w-22', opacity: 0.07, rotation: -10 },
+    // Small — umbrella, bottom-right anchor
+    { src: '/images/brand/Brolly_Icon_Black.png', top: '80%', left: '82%', size: 'w-20 md:w-28', opacity: 0.1, rotation: 6 },
   ];
 
   return (
