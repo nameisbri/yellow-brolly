@@ -2,8 +2,6 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Section } from '../Section';
-import { Button } from '../Button';
-import { ArrowRightIcon } from '../Icons';
 import { siteContent } from '../../../data/content';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
@@ -50,25 +48,23 @@ export default function ApproachPreview() {
   return (
     <Section background="sand">
       <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-        <div>
-          <span className="text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-3 block">Our Approach</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary leading-[1.1]">
-            {approachPreview.headline}
-          </h2>
-        </div>
-        <Button to="/approach" variant="outline" size="lg" className="flex-shrink-0">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary leading-[1.1]">
+          {approachPreview.headline}
+        </h2>
+        <a href="/approach" className="text-yellow-text hover:text-yellow-hover transition-colors duration-300 font-medium text-sm inline-flex items-center gap-2 flex-shrink-0">
           How we work
-          <ArrowRightIcon size={16} className="ml-2" />
-        </Button>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+        </a>
       </div>
 
       <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {approachPreview.stages.map((stage, index) => (
           <div
             key={stage.name}
-            className="preview-stage group relative overflow-hidden rounded-2xl p-6 lg:p-8 transition-all duration-500 min-h-[240px]"
+            className="preview-stage group relative overflow-hidden rounded-xl p-6 lg:p-8 transition-all duration-500 min-h-[240px]"
             style={{
               backgroundColor: `color-mix(in srgb, ${stepAccents[index]} 8%, #FFFFFF)`,
+              transform: `translateY(${index * 24}px)`,
             }}
           >
             {/* Illustration as large background element on the right */}
