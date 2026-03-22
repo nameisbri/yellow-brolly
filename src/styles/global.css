@@ -142,11 +142,6 @@ h3 {
   background: var(--color-yellow-primary);
 }
 
-/* Glow Effect */
-.glow {
-  text-shadow: 0 0 20px var(--color-yellow-glow);
-}
-
 /* Line reveal animation base */
 .line-reveal {
   overflow: hidden;
@@ -159,17 +154,6 @@ h3 {
 /* Magnetic button effect base */
 .magnetic {
   transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-/* Noise texture overlay */
-.noise::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 1;
 }
 
 /* Horizontal rule styling */

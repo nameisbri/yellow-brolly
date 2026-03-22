@@ -53,9 +53,6 @@ export default function CTASection({
       ref={sectionRef}
       className="relative py-20 md:py-32 lg:py-40 bg-yellow-primary overflow-hidden"
     >
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #000 1px, transparent 0)', backgroundSize: '24px 24px' }} />
-
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
         <div className="cta-content text-center max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-black mb-4 sm:mb-6 leading-tight">
