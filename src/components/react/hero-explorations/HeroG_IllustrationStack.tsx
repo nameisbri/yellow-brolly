@@ -56,12 +56,12 @@ export default function HeroG_IllustrationStack() {
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Text — left, editorial line breaks */}
-          <div className="lg:col-span-7 hg-text will-change-transform">
+          <div className="lg:col-span-8 hg-text will-change-transform">
             <span className="hg-line inline-block text-black/50 text-sm font-semibold tracking-[0.3em] uppercase mb-8">
               Yellow Brolly Co
             </span>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.05] tracking-tight text-black mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4.25rem] xl:text-[5.25rem] font-display font-bold leading-[1.05] tracking-tight text-black mb-8">
               {'When growth gets complex, we help you move forward.'.split(' ').map((word, i) => (
                 <span key={i} className="hg-line inline-block mr-[0.22em] last:mr-0">{word}</span>
               ))}
@@ -87,7 +87,7 @@ export default function HeroG_IllustrationStack() {
 
           {/* Illustration stack — right, desktop only */}
           {/* No boxes — illustrations float freely with drop shadows for separation */}
-          <div className="lg:col-span-5 hg-stack relative hidden lg:block will-change-transform" style={{ height: '580px' }}>
+          <div className="lg:col-span-4 hg-stack relative hidden lg:block will-change-transform" style={{ height: '580px' }}>
             {/* Pencil — top, offset right */}
             <div className="hg-frame-1 absolute top-0 right-0 will-change-transform"
               style={{ transform: 'rotate(3deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
