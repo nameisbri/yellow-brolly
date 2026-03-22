@@ -54,18 +54,17 @@ export default function HeroG_IllustrationStack() {
   return (
     <section ref={sectionRef} className="relative overflow-hidden bg-yellow-primary min-h-screen flex items-center cursor-default">
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Text — left, editorial line breaks */}
-          <div className="lg:col-span-6 hg-text will-change-transform">
+          <div className="lg:col-span-7 hg-text will-change-transform">
             <span className="hg-line inline-block text-black/50 text-sm font-semibold tracking-[0.3em] uppercase mb-8">
               Yellow Brolly Co
             </span>
 
             <h1 className="font-display font-bold tracking-tight text-black mb-8">
-              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">When growth</span>
-              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">gets complex,</span>
-              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] mt-2">we help you</span>
-              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">move forward.</span>
+              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">When growth gets</span>
+              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">complex, we help</span>
+              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">you move forward.</span>
             </h1>
 
             {/* Mobile illustration — single representative, visible below lg */}
@@ -88,7 +87,7 @@ export default function HeroG_IllustrationStack() {
 
           {/* Illustration stack — right, desktop only */}
           {/* No boxes — illustrations float freely with drop shadows for separation */}
-          <div className="lg:col-span-6 hg-stack relative hidden lg:block will-change-transform" style={{ height: '580px' }}>
+          <div className="lg:col-span-5 hg-stack relative hidden lg:block will-change-transform" style={{ height: '580px' }}>
             {/* Pencil — top, offset right */}
             <div className="hg-frame-1 absolute top-0 right-0 will-change-transform"
               style={{ transform: 'rotate(3deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
