@@ -4,9 +4,9 @@ import { Button } from '../Button';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 /**
- * F: Single hero illustration — the winged pencil at massive scale
- * dominates the right half. Text on the left. The pencil has a slow
- * breathing scale + subtle rotation. Simple, confident, branded.
+ * F: Overlapping illustration — the winged pencil breaks out of the text,
+ * overlapping the headline at massive scale. Text wraps around it visually.
+ * The illustration breathes and tilts subtly with the cursor.
  */
 export default function HeroF_SingleIllustration() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -14,65 +14,90 @@ export default function HeroF_SingleIllustration() {
 
   useEffect(() => {
     if (prefersReducedMotion || !sectionRef.current) return;
+    const section = sectionRef.current;
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-      // Illustration sweeps in from right with rotation
-      tl.fromTo('.hf-illust', { x: 200, opacity: 0, rotation: 15 }, { x: 0, opacity: 1, rotation: 0, duration: 1.4, ease: 'power3.out' });
+      // Illustration drops in from above, slightly rotated, overlapping the text
+      tl.fromTo('.hf-illust',
+        { y: -200, rotation: 25, opacity: 0, scale: 0.6 },
+        { y: 0, rotation: -6, opacity: 1, scale: 1, duration: 1.4, ease: 'power3.out' }
+      );
 
-      // Text
-      tl.fromTo('.hf-eyebrow', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5 }, 0.3)
-        .fromTo('.hf-word', { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.05 }, 0.4)
-        .fromTo('.hf-sub', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.9)
+      // Headline lines stagger in
+      tl.fromTo('.hf-line', { x: -80, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, stagger: 0.12 }, 0.3);
+
+      // Subhead + CTA
+      tl.fromTo('.hf-sub', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, 0.9)
         .fromTo('.hf-cta', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, 1.1);
 
-      // Continuous breathing on illustration
+      // Breathing
       gsap.to('.hf-illust', {
-        scale: 1.04,
-        rotation: 2,
-        duration: 6,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
+        scale: 1.03, rotation: -3,
+        duration: 5, repeat: -1, yoyo: true, ease: 'sine.inOut',
       });
     }, sectionRef);
 
-    return () => ctx.revert();
+    // Cursor tilt on illustration
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = section.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      gsap.to('.hf-illust', {
+        rotationY: x * 10,
+        rotationX: y * -8,
+        duration: 1, ease: 'power2.out',
+      });
+    };
+
+    section.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      ctx.revert();
+      section.removeEventListener('mousemove', handleMouseMove);
+    };
   }, [prefersReducedMotion]);
 
-  const words = 'When growth gets complex, we help you move forward.'.split(' ');
-
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-yellow-primary min-h-screen flex items-center">
-      {/* Single large illustration — right half */}
-      <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:flex items-center justify-center pointer-events-none select-none">
+    <section ref={sectionRef} className="relative overflow-hidden bg-yellow-primary min-h-screen flex items-center cursor-default" style={{ perspective: '800px' }}>
+      {/* Illustration — overlapping the text area, positioned to break the grid */}
+      <div className="absolute top-[12%] right-[8%] md:right-[15%] lg:right-[20%] pointer-events-none select-none z-20"
+        style={{ transformStyle: 'preserve-3d' }}>
         <img src="/images/brand/winged-pencil.png" alt="" aria-hidden="true"
-          className="hf-illust w-[80%] max-w-[500px] object-contain opacity-[0.18] will-change-transform" />
-      </div>
-
-      {/* Mobile: smaller illustration */}
-      <div className="absolute right-4 bottom-8 lg:hidden pointer-events-none select-none">
-        <img src="/images/brand/winged-pencil.png" alt="" aria-hidden="true"
-          className="hf-illust w-32 object-contain opacity-[0.12]" />
+          className="hf-illust w-48 md:w-64 lg:w-80 xl:w-96 object-contain will-change-transform opacity-[0.2]" />
       </div>
 
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
-        <div className="max-w-xl lg:max-w-2xl">
-          <span className="hf-eyebrow inline-block text-black/50 text-sm font-semibold tracking-[0.3em] uppercase mb-8">
+        <div className="max-w-6xl">
+          {/* Eyebrow tucked into top-left */}
+          <span className="hf-line inline-block text-black/50 text-sm font-semibold tracking-[0.3em] uppercase mb-10">
             Yellow Brolly Co
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.05] tracking-tight mb-8">
-            {words.map((word, i) => (
-              <span key={i} className="hf-word inline-block mr-[0.25em] last:mr-0 text-black/85">{word}</span>
-            ))}
+
+          {/* Headline — large, broken across lines to leave space for the illustration to overlap */}
+          <h1 className="font-display font-bold tracking-tight text-black mb-10">
+            <span className="hf-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">
+              When growth
+            </span>
+            <span className="hf-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">
+              gets complex,
+            </span>
+            <span className="hf-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] mt-2">
+              we help you
+            </span>
+            <span className="hf-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">
+              move forward.
+            </span>
           </h1>
-          <p className="hf-sub text-lg md:text-xl text-black/60 max-w-xl mb-10 leading-relaxed">
-            We help organizations strengthen leadership, modernize operations, and implement change that lasts.
-          </p>
-          <Button to="/contact" variant="dark" size="lg" className="hf-cta">
-            Book a Discovery Call
-          </Button>
+
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 max-w-4xl">
+            <p className="hf-sub text-lg md:text-xl text-black/55 max-w-md leading-relaxed">
+              We help organizations strengthen leadership, modernize operations, and implement change that lasts.
+            </p>
+            <Button to="/contact" variant="dark" size="lg" className="hf-cta flex-shrink-0">
+              Book a Discovery Call
+            </Button>
+          </div>
         </div>
       </div>
 

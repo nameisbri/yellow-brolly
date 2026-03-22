@@ -72,26 +72,26 @@ export default function HeroG_IllustrationStack() {
           </div>
 
           {/* Illustration stack — right */}
-          <div className="lg:col-span-6 hg-stack relative hidden lg:block will-change-transform" style={{ height: '500px' }}>
+          <div className="lg:col-span-6 hg-stack relative hidden lg:block will-change-transform" style={{ height: '580px' }}>
             {/* Frame 1 — top, offset right */}
-            <div className="hg-frame-1 absolute top-0 right-0 bg-white/40 backdrop-blur-sm rounded-xl p-4 shadow-lg will-change-transform"
+            <div className="hg-frame-1 absolute top-0 right-0 bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg will-change-transform"
               style={{ transform: 'rotate(3deg)' }}>
               <img src="/images/brand/winged-pencil.png" alt="" aria-hidden="true"
-                className="w-36 h-36 object-contain" />
+                className="w-52 h-52 object-contain" />
             </div>
 
             {/* Frame 2 — middle, offset left */}
-            <div className="hg-frame-2 absolute top-[35%] right-[25%] bg-white/40 backdrop-blur-sm rounded-xl p-5 shadow-lg will-change-transform"
+            <div className="hg-frame-2 absolute top-[32%] right-[20%] bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg will-change-transform"
               style={{ transform: 'rotate(-2deg)' }}>
               <img src="/images/brand/coffee-person.png" alt="" aria-hidden="true"
-                className="w-44 h-44 object-contain" />
+                className="w-60 h-60 object-contain" />
             </div>
 
             {/* Frame 3 — bottom, offset right */}
-            <div className="hg-frame-3 absolute bottom-0 right-[8%] bg-white/40 backdrop-blur-sm rounded-xl p-4 shadow-lg will-change-transform"
+            <div className="hg-frame-3 absolute bottom-0 right-[5%] bg-white/40 backdrop-blur-sm rounded-xl p-5 shadow-lg will-change-transform"
               style={{ transform: 'rotate(1deg)' }}>
               <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
-                className="w-32 h-32 object-contain" />
+                className="w-44 h-44 object-contain" />
             </div>
           </div>
         </div>

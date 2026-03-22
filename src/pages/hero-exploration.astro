@@ -1,12 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroA from '../components/react/hero-explorations/HeroA_ParallaxLayers.tsx';
-import HeroB from '../components/react/hero-explorations/HeroB_ScrollReveal.tsx';
-import HeroC from '../components/react/hero-explorations/HeroC_MagneticUmbrella.tsx';
-import HeroD3 from '../components/react/hero-explorations/HeroD3_IllustrationCollage.tsx';
 import HeroF from '../components/react/hero-explorations/HeroF_SingleIllustration.tsx';
 import HeroG from '../components/react/hero-explorations/HeroG_IllustrationStack.tsx';
-import HeroH from '../components/react/hero-explorations/HeroH_IllustrationMarquee.tsx';
 ---
 
 <Base
@@ -15,8 +11,8 @@ import HeroH from '../components/react/hero-explorations/HeroH_IllustrationMarqu
 >
   <div class="pt-28 pb-8 bg-cream">
     <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
-      <h1 class="text-2xl font-display font-bold text-text-primary mb-2">Hero Exploration</h1>
-      <p class="text-text-muted">7 options — A, C, D3 (refined), F, G, H use illustrations. B uses scroll.</p>
+      <h1 class="text-2xl font-display font-bold text-text-primary mb-2">Hero Exploration — Final 3</h1>
+      <p class="text-text-muted">A, F, G — pick one or mix elements.</p>
     </div>
   </div>
 
@@ -31,34 +27,12 @@ import HeroH from '../components/react/hero-explorations/HeroH_IllustrationMarqu
     <HeroA client:visible />
   </div>
 
-  <!-- C: Umbrella field -->
-  <div class="border-t-4 border-yellow-primary mt-4">
-    <div class="bg-sand py-4 px-6 md:px-8">
-      <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">C</span>
-        <span class="text-sm text-text-muted ml-3">Umbrella field — tessellated pattern, push them with your cursor</span>
-      </div>
-    </div>
-    <HeroC client:visible />
-  </div>
-
-  <!-- D3: Illustration collage (refined) -->
-  <div class="border-t-4 border-yellow-primary mt-4">
-    <div class="bg-sand py-4 px-6 md:px-8">
-      <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">D3</span>
-        <span class="text-sm text-text-muted ml-3">Illustration collage — balanced layout with mouse parallax on the layer</span>
-      </div>
-    </div>
-    <HeroD3 client:visible />
-  </div>
-
-  <!-- F: Single hero illustration -->
+  <!-- F: Overlapping illustration -->
   <div class="border-t-4 border-yellow-primary mt-4">
     <div class="bg-sand py-4 px-6 md:px-8">
       <div class="container mx-auto max-w-7xl">
         <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">F</span>
-        <span class="text-sm text-text-muted ml-3">Single illustration — winged pencil at massive scale, breathing animation</span>
+        <span class="text-sm text-text-muted ml-3">Overlapping illustration — winged pencil breaks into the headline, 3D tilt on cursor</span>
       </div>
     </div>
     <HeroF client:visible />
@@ -69,32 +43,10 @@ import HeroH from '../components/react/hero-explorations/HeroH_IllustrationMarqu
     <div class="bg-sand py-4 px-6 md:px-8">
       <div class="container mx-auto max-w-7xl">
         <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">G</span>
-        <span class="text-sm text-text-muted ml-3">Illustration stack — 3 illustrations in offset frames, slide in + mouse parallax</span>
+        <span class="text-sm text-text-muted ml-3">Illustration stack — 3 illustrations in frosted frames, slide in + mouse parallax</span>
       </div>
     </div>
     <HeroG client:visible />
-  </div>
-
-  <!-- H: Illustration marquee -->
-  <div class="border-t-4 border-yellow-primary mt-4">
-    <div class="bg-sand py-4 px-6 md:px-8">
-      <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">H</span>
-        <span class="text-sm text-text-muted ml-3">Illustration marquee — continuous scrolling band of brand illustrations behind text</span>
-      </div>
-    </div>
-    <HeroH client:visible />
-  </div>
-
-  <!-- B: Scroll reveal (at bottom so it doesn't disrupt browsing) -->
-  <div class="border-t-4 border-yellow-primary mt-4">
-    <div class="bg-sand py-4 px-6 md:px-8">
-      <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">B</span>
-        <span class="text-sm text-text-muted ml-3">Scroll reveal — sticky hero, words fade in as you scroll, umbrella rotates</span>
-      </div>
-    </div>
-    <HeroB client:visible />
   </div>
 
   <div class="py-20 bg-cream text-center">
