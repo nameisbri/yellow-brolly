@@ -62,7 +62,7 @@ export default function ApproachPreview() {
         <img
           src="/images/photos/work-preview.jpg"
           alt="Woman presenting at a whiteboard while colleagues listen intently"
-          className="w-full h-48 md:h-64 lg:h-72 object-cover"
+          className="w-full h-48 md:h-64 lg:h-72 object-cover object-[center_20%]"
           loading="lazy"
         />
       </div>

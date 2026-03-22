@@ -1,0 +1,253 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Hero Exploration | YellowBrollyCo"
+  description="Hero section design exploration"
+>
+  <div class="pt-28 pb-8 bg-cream">
+    <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+      <h1 class="text-2xl font-display font-bold text-text-primary mb-2">Hero Exploration</h1>
+      <p class="text-text-muted">5 different hero concepts. Pick one or mix elements.</p>
+    </div>
+  </div>
+
+  <!-- ========== OPTION A: Split — text left, umbrella right ========== -->
+  <div class="border-t-4 border-yellow-primary">
+    <div class="bg-sand py-4 px-6 md:px-8">
+      <div class="container mx-auto max-w-7xl">
+        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">Option A</span>
+        <span class="text-sm text-text-muted ml-3">Split layout — text left, umbrella illustration right</span>
+      </div>
+    </div>
+    <section class="relative overflow-hidden bg-yellow-primary min-h-screen flex items-center">
+      <!-- Subtle horizontal rules -->
+      <div class="absolute inset-0 z-0 opacity-[0.06]" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(0,0,0,0.3) 79px, rgba(0,0,0,0.3) 80px); background-size: 100% 80px;"></div>
+
+      <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+          <!-- Text — left 7 cols -->
+          <div class="lg:col-span-7">
+            <span class="inline-block text-black/50 text-sm font-semibold tracking-[0.3em] uppercase mb-8">Yellow Brolly Co</span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.05] tracking-tight mb-8 text-black">
+              When growth gets complex, we help you <span class="text-black">move forward.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-black/65 max-w-xl mb-10 leading-relaxed">
+              YellowBrolly helps organizations strengthen leadership, modernize operations, and implement change that lasts.
+            </p>
+            <a href="/contact" class="relative inline-flex items-center justify-center font-semibold uppercase tracking-wider transition-all duration-300 overflow-hidden group bg-black text-yellow-primary border-2 border-black px-10 py-4 text-sm">
+              <span class="relative z-10">Book a Discovery Call</span>
+              <span class="absolute inset-0 bg-dark-elevated translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+            </a>
+          </div>
+          <!-- Umbrella — right 5 cols -->
+          <div class="lg:col-span-5 flex justify-center lg:justify-end">
+            <img
+              src="/images/brand/Brolly_Icon_Black.png"
+              alt=""
+              aria-hidden="true"
+              class="w-64 md:w-80 lg:w-[400px] object-contain opacity-[0.15] select-none"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom fade -->
+      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-cream to-transparent pointer-events-none z-20"></div>
+    </section>
+  </div>
+
+  <!-- ========== OPTION B: Centered text, umbrella as massive watermark ========== -->
+  <div class="border-t-4 border-yellow-primary mt-16">
+    <div class="bg-sand py-4 px-6 md:px-8">
+      <div class="container mx-auto max-w-7xl">
+        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">Option B</span>
+        <span class="text-sm text-text-muted ml-3">Centered text, massive umbrella watermark behind</span>
+      </div>
+    </div>
+    <section class="relative overflow-hidden bg-yellow-primary min-h-screen flex items-center">
+      <!-- Giant umbrella watermark — centered, cropped -->
+      <div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none select-none">
+        <img
+          src="/images/brand/Brolly_Icon_Black.png"
+          alt=""
+          aria-hidden="true"
+          class="w-[600px] md:w-[800px] lg:w-[1000px] object-contain opacity-[0.06]"
+          style="transform: translateY(-8%)"
+        />
+      </div>
+
+      <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <span class="inline-block text-black/50 text-sm font-semibold tracking-[0.3em] uppercase mb-8">Yellow Brolly Co</span>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.02] tracking-tight mb-8 text-black">
+            When growth gets complex, we help you move forward.
+          </h1>
+          <p class="text-lg md:text-xl text-black/65 max-w-2xl mx-auto mb-12 leading-relaxed">
+            YellowBrolly helps organizations strengthen leadership, modernize operations, and implement change that lasts.
+          </p>
+          <a href="/contact" class="relative inline-flex items-center justify-center font-semibold uppercase tracking-wider transition-all duration-300 overflow-hidden group bg-black text-yellow-primary border-2 border-black px-10 py-4 text-sm">
+            <span class="relative z-10">Book a Discovery Call</span>
+            <span class="absolute inset-0 bg-dark-elevated translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-cream to-transparent pointer-events-none z-20"></div>
+    </section>
+  </div>
+
+  <!-- ========== OPTION C: Dark hero with yellow umbrella accent ========== -->
+  <div class="border-t-4 border-yellow-primary mt-16">
+    <div class="bg-sand py-4 px-6 md:px-8">
+      <div class="container mx-auto max-w-7xl">
+        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">Option C</span>
+        <span class="text-sm text-text-muted ml-3">Dark background with yellow umbrella — inverted, bold</span>
+      </div>
+    </div>
+    <section class="relative overflow-hidden bg-black min-h-screen flex items-center">
+      <!-- Umbrella in bottom-right, partially visible, in yellow -->
+      <div class="absolute -bottom-20 -right-20 md:-bottom-16 md:-right-16 pointer-events-none select-none">
+        <img
+          src="/images/brand/Brolly_Icon_Black.png"
+          alt=""
+          aria-hidden="true"
+          class="w-72 md:w-96 lg:w-[500px] object-contain opacity-20"
+          style="filter: brightness(0) saturate(100%) invert(75%) sepia(70%) saturate(500%) hue-rotate(5deg) brightness(105%)"
+        />
+      </div>
+
+      <!-- Thin horizontal accent -->
+      <div class="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-primary/20 to-transparent"></div>
+
+      <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
+        <div class="max-w-5xl">
+          <div class="flex items-center gap-4 mb-10">
+            <img src="/images/brand/Brolly_Icon_Black.png" alt="" aria-hidden="true" class="w-10 h-10 object-contain" style="filter: brightness(0) saturate(100%) invert(75%) sepia(70%) saturate(500%) hue-rotate(5deg) brightness(105%)" />
+            <span class="text-yellow-primary/60 text-sm font-semibold tracking-[0.3em] uppercase">Yellow Brolly Co</span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.05] tracking-tight mb-8 text-white">
+            When growth gets complex, we help you <span class="text-yellow-primary">move forward.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray max-w-2xl mb-12 leading-relaxed">
+            YellowBrolly helps organizations strengthen leadership, modernize operations, and implement change that lasts.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/contact" class="relative inline-flex items-center justify-center font-semibold uppercase tracking-wider transition-all duration-300 overflow-hidden group bg-yellow-primary text-black border-2 border-yellow-primary px-10 py-4 text-sm">
+              <span class="relative z-10">Book a Discovery Call</span>
+              <span class="absolute inset-0 bg-yellow-hover translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-cream to-transparent pointer-events-none z-20"></div>
+    </section>
+  </div>
+
+  <!-- ========== OPTION D: Asymmetric — text offset with photo strip ========== -->
+  <div class="border-t-4 border-yellow-primary mt-16">
+    <div class="bg-sand py-4 px-6 md:px-8">
+      <div class="container mx-auto max-w-7xl">
+        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">Option D</span>
+        <span class="text-sm text-text-muted ml-3">Asymmetric layout with people photo strip</span>
+      </div>
+    </div>
+    <section class="relative overflow-hidden bg-yellow-primary min-h-screen flex items-center">
+      <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <!-- Text — left -->
+          <div class="lg:col-span-6">
+            <span class="inline-block text-black/50 text-sm font-semibold tracking-[0.3em] uppercase mb-8">Yellow Brolly Co</span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-display font-bold leading-[1.05] tracking-tight mb-6 text-black">
+              When growth gets complex, we help you move forward.
+            </h1>
+            <p class="text-base md:text-lg text-black/65 max-w-lg mb-10 leading-relaxed">
+              YellowBrolly helps organizations strengthen leadership, modernize operations, and implement change that lasts.
+            </p>
+            <a href="/contact" class="relative inline-flex items-center justify-center font-semibold uppercase tracking-wider transition-all duration-300 overflow-hidden group bg-black text-yellow-primary border-2 border-black px-10 py-4 text-sm">
+              <span class="relative z-10">Book a Discovery Call</span>
+              <span class="absolute inset-0 bg-dark-elevated translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+            </a>
+          </div>
+          <!-- Photo + umbrella — right -->
+          <div class="lg:col-span-6 relative">
+            <div class="rounded-xl overflow-hidden">
+              <img
+                src="/images/photos/homepage-pmc.jpg"
+                alt="Team collaborating around a table"
+                class="w-full aspect-[4/3] object-cover"
+              />
+            </div>
+            <!-- Umbrella accent overlapping corner -->
+            <img
+              src="/images/brand/Brolly_Icon_Black.png"
+              alt=""
+              aria-hidden="true"
+              class="absolute -top-10 -left-10 w-32 md:w-40 object-contain opacity-[0.12] select-none"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-cream to-transparent pointer-events-none z-20"></div>
+    </section>
+  </div>
+
+  <!-- ========== OPTION E: Editorial — headline enormous, umbrella as section divider ========== -->
+  <div class="border-t-4 border-yellow-primary mt-16">
+    <div class="bg-sand py-4 px-6 md:px-8">
+      <div class="container mx-auto max-w-7xl">
+        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">Option E</span>
+        <span class="text-sm text-text-muted ml-3">Editorial — enormous headline, umbrella as separator</span>
+      </div>
+    </div>
+    <section class="relative overflow-hidden bg-yellow-primary min-h-screen flex items-center">
+      <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
+        <div class="max-w-6xl">
+          <!-- Tiny umbrella icon as section marker -->
+          <div class="mb-10">
+            <img src="/images/brand/Brolly_Icon_Black.png" alt="" aria-hidden="true" class="w-12 h-12 object-contain opacity-30" />
+          </div>
+
+          <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[9rem] font-display font-bold leading-[0.95] tracking-tight mb-0 text-black">
+            When growth
+          </h1>
+          <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[9rem] font-display font-bold leading-[0.95] tracking-tight mb-0 text-black/40">
+            gets complex,
+          </h1>
+          <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[9rem] font-display font-bold leading-[0.95] tracking-tight text-black">
+            we help you
+          </h1>
+          <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[9rem] font-display font-bold leading-[0.95] tracking-tight mb-12 text-black/40">
+            move forward.
+          </h1>
+
+          <!-- Horizontal rule with umbrella -->
+          <div class="flex items-center gap-6 mb-10">
+            <div class="flex-1 h-px bg-black/15"></div>
+            <img src="/images/brand/Brolly_Icon_Black.png" alt="" aria-hidden="true" class="w-8 h-8 object-contain opacity-25" />
+            <div class="flex-1 h-px bg-black/15"></div>
+          </div>
+
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+            <p class="text-lg md:text-xl text-black/60 max-w-lg leading-relaxed">
+              YellowBrolly helps organizations strengthen leadership, modernize operations, and implement change that lasts.
+            </p>
+            <a href="/contact" class="relative inline-flex items-center justify-center font-semibold uppercase tracking-wider transition-all duration-300 overflow-hidden group bg-black text-yellow-primary border-2 border-black px-10 py-4 text-sm flex-shrink-0">
+              <span class="relative z-10">Book a Discovery Call</span>
+              <span class="absolute inset-0 bg-dark-elevated translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-cream to-transparent pointer-events-none z-20"></div>
+    </section>
+  </div>
+
+  <div class="py-20 bg-cream text-center">
+    <p class="text-text-muted">End of hero exploration.</p>
+  </div>
+</Base>
