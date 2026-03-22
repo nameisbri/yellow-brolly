@@ -75,6 +75,7 @@ html {
 
 body {
   font-family: var(--font-body);
+  font-weight: 300;
   font-size: 17px;
   color: var(--color-text-primary);
   background-color: var(--color-cream);
@@ -94,7 +95,7 @@ h1, h2, h3, .font-display {
 
 h1 {
   font-weight: var(--font-weight-extrabold);
-  letter-spacing: -0.035em;
+  letter-spacing: -0.04em;
   line-height: 1.05;
 }
 
