@@ -71,17 +71,16 @@ const [featured, ...rest] = projects;
 
     <!-- Smaller case studies stacked -->
     {rest.map((project) => (
-      <a href="/case-studies" class="scroll-fade-up group block rounded-lg overflow-hidden bg-white transition-all duration-500 hover:-translate-y-1">
-        <div class="grid grid-cols-1 sm:grid-cols-5">
-          <div class="sm:col-span-2 relative aspect-[16/10] sm:aspect-auto overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.imageAlt}
-              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              loading="lazy"
-            />
-          </div>
-          <div class="sm:col-span-3 p-5 sm:p-6 flex flex-col justify-center">
+      <a href="/case-studies" class="scroll-fade-up group rounded-lg overflow-hidden bg-white transition-all duration-500 hover:-translate-y-1 block sm:flex">
+        <div class="aspect-[16/10] sm:aspect-auto sm:w-2/5 sm:flex-shrink-0 overflow-hidden relative">
+          <img
+            src={project.image}
+            alt={project.imageAlt}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 sm:absolute sm:inset-0"
+            loading="lazy"
+          />
+        </div>
+        <div class="p-5 sm:p-6 flex flex-col justify-center flex-1">
             <span class="inline-block px-2.5 py-0.5 text-xs font-medium bg-yellow-primary/10 text-yellow-text rounded-full mb-2 self-start">{project.tag}</span>
             <h3 class="text-lg font-bold text-text-primary mb-2 group-hover:text-yellow-text transition-colors duration-300">{project.title}</h3>
             <p class="text-sm text-text-muted leading-relaxed mb-3">{project.description}</p>
@@ -90,7 +89,6 @@ const [featured, ...rest] = projects;
               <span class="text-text-muted text-xs ml-1.5">{project.metricLabel}</span>
             </div>
           </div>
-        </div>
       </a>
     ))}
   </div>
