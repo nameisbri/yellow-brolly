@@ -18,6 +18,7 @@ const projects = [
     metricLabel: 'security compliance',
     image: '/images/photos/creativeagency-casestudy.jpg',
     imageAlt: 'Creative team reviewing work on a large mood wall in a studio',
+    imagePosition: 'center 40%',
     description: 'Unified file systems, security protocols, and streamlined client onboarding for a remote team.',
   },
   {
@@ -27,6 +28,7 @@ const projects = [
     metricLabel: 'less operational noise',
     image: '/images/photos/startup-casestudy.jpg',
     imageAlt: 'Busy startup office with team members collaborating across desks',
+    imagePosition: '60% 60%',
     description: 'Workflow mapping, ownership clarity, and security foundations for a fast-growing team.',
   },
 ];
@@ -77,6 +79,7 @@ const [featured, ...rest] = projects;
             src={project.image}
             alt={project.imageAlt}
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 sm:absolute sm:inset-0"
+            style={project.imagePosition ? `object-position: ${project.imagePosition}` : undefined}
             loading="lazy"
           />
         </div>
