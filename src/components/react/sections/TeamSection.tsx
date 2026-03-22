@@ -81,7 +81,7 @@ export default function TeamSection() {
           {team.members.map((member) => (
             <div
               key={member.name}
-              className="team-member bg-white border border-light-border rounded-2xl overflow-hidden hover:border-yellow-primary/30 transition-all duration-300 group"
+              className="team-member bg-white border border-light-border rounded-xl overflow-hidden hover:border-yellow-primary/30 transition-all duration-300 group"
             >
               {/* Large portrait photo */}
               <div className="aspect-[4/3] w-full overflow-hidden relative">
