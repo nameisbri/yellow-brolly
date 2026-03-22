@@ -103,8 +103,8 @@ export default function HeroG_IllustrationStack() {
             </div>
 
             {/* Trophy — bottom-right, overlaps coffee person */}
-            <div className="hg-frame-3 absolute -bottom-[15%] right-0 will-change-transform"
-              style={{ transform: 'rotate(2deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
+            <div className="hg-frame-3 absolute -bottom-[15%] -right-[5%] will-change-transform"
+              style={{ transform: 'rotate(2deg) scale(1.05)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
               <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
                 className="w-64 h-64 object-contain" />
             </div>
