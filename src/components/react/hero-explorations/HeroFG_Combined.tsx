@@ -63,25 +63,24 @@ export default function HeroFG_Combined() {
     <section ref={sectionRef} className="relative overflow-hidden bg-yellow-primary min-h-screen flex items-center cursor-default">
 
       {/*
-        Illustration placement strategy:
-        - Pencil: anchored to the right margin, vertically centered with "gets complex" line.
-          Largest piece, sets the visual weight on the right.
-        - Coffee person: below and left of the pencil, aligned with "move forward" line.
-          Creates a diagonal from pencil down-left.
-        - Trophy: bottom-right corner, smallest, completes the diagonal and anchors the composition.
+        Illustration placement: stacked vertically along the right margin,
+        each aligned beside a different headline line. Clear separation.
+        - Trophy (top): beside "When growth" — small, high
+        - Pencil (middle): beside "we help you" — largest, hero piece
+        - Coffee person (bottom): below the headline, near the CTA row
       */}
 
-      {/* Pencil — right margin, vertically centered */}
-      <img src="/images/brand/winged-pencil.png" alt="" aria-hidden="true"
-        className="hfg-ill-1 absolute top-1/2 -translate-y-[60%] right-[6%] lg:right-[10%] w-48 md:w-64 lg:w-72 object-contain opacity-[0.16] pointer-events-none select-none will-change-transform" />
-
-      {/* Coffee person — below pencil, further left, overlaps lower headline area */}
-      <img src="/images/brand/coffee-person.png" alt="" aria-hidden="true"
-        className="hfg-ill-2 absolute bottom-[22%] right-[20%] lg:right-[28%] w-36 md:w-48 lg:w-56 object-contain opacity-[0.12] pointer-events-none select-none will-change-transform" />
-
-      {/* Trophy — bottom-right corner, smallest, visual anchor */}
+      {/* Trophy — top-right, beside first headline line */}
       <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
-        className="hfg-ill-3 absolute bottom-[8%] right-[4%] lg:right-[8%] w-28 md:w-32 lg:w-36 object-contain opacity-[0.1] pointer-events-none select-none will-change-transform" />
+        className="hfg-ill-3 absolute top-[15%] right-[6%] lg:right-[10%] w-28 md:w-36 lg:w-40 object-contain opacity-[0.12] pointer-events-none select-none will-change-transform" />
+
+      {/* Pencil — mid-right, beside third headline line, largest */}
+      <img src="/images/brand/winged-pencil.png" alt="" aria-hidden="true"
+        className="hfg-ill-1 absolute top-[40%] right-[4%] lg:right-[6%] w-44 md:w-56 lg:w-64 object-contain opacity-[0.16] pointer-events-none select-none will-change-transform" />
+
+      {/* Coffee person — lower-right, below the headline block */}
+      <img src="/images/brand/coffee-person.png" alt="" aria-hidden="true"
+        className="hfg-ill-2 absolute bottom-[10%] right-[14%] lg:right-[20%] w-32 md:w-40 lg:w-44 object-contain opacity-[0.11] pointer-events-none select-none will-change-transform" />
 
       {/* Text */}
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
