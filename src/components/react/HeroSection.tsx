@@ -3,180 +3,115 @@ import { gsap } from 'gsap';
 import { Button } from './Button';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
-interface HeroSectionProps {
-  headline: string;
-  highlightedWord?: string;
-  subhead?: string;
-  ctaPrimary?: { label: string; to: string };
-  ctaSecondary?: { label: string; to: string };
-  showBackground?: boolean;
-  centered?: boolean;
-  compact?: boolean;
-  eyebrow?: string;
-}
-
-export default function HeroSection({
-  headline,
-  highlightedWord,
-  subhead,
-  ctaPrimary,
-  ctaSecondary,
-  showBackground = true,
-  centered = true,
-  compact = false,
-  eyebrow,
-}: HeroSectionProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
+/**
+ * G: Illustration stack — 3 illustrations in offset frames on the right,
+ * sliding in from right with staggered timing. Editorial line-broken headline.
+ * Solid warm frames (no glassmorphism). Mobile-friendly single illustration fallback.
+ */
+export default function HeroSection() {
+  const sectionRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
-    useEffect(() => {
-    if (prefersReducedMotion || !containerRef.current) return;
+  useEffect(() => {
+    if (prefersReducedMotion || !sectionRef.current) return;
+    const section = sectionRef.current;
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        '.hero-eyebrow',
-        { opacity: 0 },
-        { opacity: 1, duration: 0.4, ease: 'power2.out' }
-      );
+      const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-      gsap.fromTo(
-        '.hero-word',
-        { y: 30, opacity: 0.8 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.04,
-          delay: 0.1,
-          ease: 'power2.out',
-        }
-      );
+      // Illustration frames slide in from right, staggered and offset
+      tl.fromTo('.hg-frame-1', { x: 300, rotation: 8, opacity: 0 }, { x: 0, rotation: 3, opacity: 1, duration: 1 })
+        .fromTo('.hg-frame-2', { x: 350, rotation: -5, opacity: 0 }, { x: 0, rotation: -2, opacity: 1, duration: 1 }, 0.15)
+        .fromTo('.hg-frame-3', { x: 280, rotation: 6, opacity: 0 }, { x: 0, rotation: 1, opacity: 1, duration: 1 }, 0.3);
 
-      gsap.fromTo(
-        '.hero-subhead',
-        { opacity: 0 },
-        { opacity: 1, duration: 0.5, delay: 0.3, ease: 'power2.out' }
-      );
+      // Mobile illustration
+      tl.fromTo('.hg-mobile-illust', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, 0.5);
 
-      gsap.fromTo(
-        '.hero-cta',
-        { opacity: 0, y: 20, scale: 0.95 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.5,
-          delay: 0.4,
-          stagger: 0.08,
-          ease: 'power2.out',
-        }
-      );
+      // Headline lines stagger in
+      tl.fromTo('.hg-line', { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, stagger: 0.1 }, 0.3);
 
-      gsap.fromTo(
-        '.hero-decoration',
-        { scale: 0.8, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.6, delay: 0.2, ease: 'power2.out' }
-      );
-    }, containerRef);
+      // Bottom content
+      tl.fromTo('.hg-sub', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.9)
+        .fromTo('.hg-cta', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, 1.1);
+    }, sectionRef);
 
-    return () => ctx.revert();
+    // Mouse parallax — stack shifts slightly
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = section.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      gsap.to('.hg-stack', { x: x * 25, y: y * 15, duration: 1.2, ease: 'power2.out' });
+      gsap.to('.hg-text', { x: x * -8, y: y * -5, duration: 1.2, ease: 'power2.out' });
+    };
+
+    section.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      ctx.revert();
+      section.removeEventListener('mousemove', handleMouseMove);
+    };
   }, [prefersReducedMotion]);
 
-  const words = headline.split(' ');
-  const highlightWords = highlightedWord
-    ? highlightedWord.toLowerCase().split(' ')
-    : [];
-
   return (
-    <section
-      ref={containerRef}
-      className={`relative overflow-hidden bg-yellow-primary ${compact ? 'min-h-[60vh] py-24 md:py-32 lg:py-40' : 'min-h-screen py-24 md:py-32 lg:py-40 xl:py-48'} flex items-center`}
-    >
-      {showBackground && (
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          {/* Diagonal crosshatch grid */}
-          <div
-            className="absolute inset-0 opacity-[0.07]"
-            style={{
-              backgroundImage: `
-                linear-gradient(45deg, transparent 48%, rgba(0,0,0,0.4) 48%, rgba(0,0,0,0.4) 52%, transparent 52%),
-                linear-gradient(-45deg, transparent 48%, rgba(0,0,0,0.4) 48%, rgba(0,0,0,0.4) 52%, transparent 52%)
-              `,
-              backgroundSize: '40px 40px',
-            }}
-          />
-          {/* Radial fade to soften edges */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_50%,transparent_30%,rgba(242,189,78,0.6))]" />
-          {/* Large umbrella watermark — right side, like PageHero */}
-          <div className="absolute -right-12 md:-right-4 top-1/2 -translate-y-1/2 opacity-[0.05] pointer-events-none select-none">
-            <svg width="400" height="400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" className="w-56 h-56 md:w-72 md:h-72 lg:w-[360px] lg:h-[360px] text-black">
-              <path d="M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7" />
-            </svg>
-          </div>
-        </div>
-      )}
-
+    <section ref={sectionRef} className="relative overflow-hidden bg-yellow-primary min-h-screen flex items-center cursor-default">
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
-        <div className={`max-w-5xl ${centered ? 'mx-auto text-center' : ''}`}>
-          {eyebrow && (
-            <span className="hero-eyebrow inline-block text-black/60 text-sm font-semibold tracking-[0.3em] uppercase mb-8">
-              {eyebrow}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          {/* Text — left, editorial line breaks */}
+          <div className="lg:col-span-8 hg-text will-change-transform">
+            <span className="hg-line inline-block text-black/50 text-sm font-semibold tracking-[0.3em] uppercase mb-8">
+              Yellow Brolly Co
             </span>
-          )}
 
-          <h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.05] tracking-tight mb-8"
-          >
-            {words.map((word, index) => {
-              const cleanWord = word.replace(/[.,!?;:]/g, '').toLowerCase();
-              const isHighlighted = highlightWords.includes(cleanWord);
-              return (
-                <span
-                  key={index}
-                  className="hero-word inline-block mr-[0.25em] last:mr-0"
-                >
-                  <span className={isHighlighted ? 'text-black' : 'text-black/80'}>
-                    {word}
-                  </span>
-                </span>
-              );
-            })}
-          </h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4.25rem] xl:text-[5.25rem] font-display font-bold leading-[1.05] tracking-tight text-black mb-8">
+              {'When growth gets complex, we help you move forward.'.split(' ').map((word, i) => (
+                <span key={i} className="hg-line inline-block mr-[0.22em] last:mr-0">{word}</span>
+              ))}
+            </h1>
 
-          {subhead && (
-            <p className="hero-subhead text-base md:text-lg lg:text-xl xl:text-2xl text-black/70 max-w-3xl mx-auto mb-12 leading-relaxed">
-              {subhead}
-            </p>
-          )}
-
-          {(ctaPrimary || ctaSecondary) && (
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
-              {ctaPrimary && (
-                <Button
-                  to={ctaPrimary.to}
-                  variant="dark"
-                  size="lg"
-                  className="hero-cta"
-                >
-                  {ctaPrimary.label}
-                </Button>
-              )}
-              {ctaSecondary && (
-                <Button
-                  to={ctaSecondary.to}
-                  variant="dark-outline"
-                  size="lg"
-                  className="hero-cta"
-                >
-                  {ctaSecondary.label}
-                </Button>
-              )}
+            {/* Mobile illustration — single representative, visible below lg */}
+            <div className="hg-mobile-illust flex gap-4 items-center mb-8 lg:hidden">
+              <img src="/images/brand/creative-designer.png" alt="" aria-hidden="true"
+                className="w-20 h-20 object-contain opacity-[0.25]" />
+              <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
+                className="w-16 h-16 object-contain opacity-[0.2]" />
+              <img src="/images/brand/thumbs-up.png" alt="" aria-hidden="true"
+                className="w-14 h-14 object-contain opacity-[0.18]" />
             </div>
-          )}
+
+            <p className="hg-sub text-lg md:text-xl text-black/60 max-w-lg mb-10 leading-relaxed">
+              We help organizations strengthen leadership, modernize operations, and implement change that lasts.
+            </p>
+            <Button to="/contact" variant="dark" size="lg" className="hg-cta">
+              Book a Discovery Call
+            </Button>
+          </div>
+
+          {/* Illustration stack — right, desktop only */}
+          {/* No boxes — illustrations float freely with drop shadows for separation */}
+          <div className="lg:col-span-4 hg-stack relative hidden lg:block will-change-transform" style={{ height: '580px' }}>
+            {/* Pencil — top, pushed left so it overlaps with coffee person */}
+            <div className="hg-frame-1 absolute -top-4 -right-4 will-change-transform"
+              style={{ transform: 'rotate(5deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
+              <img src="/images/brand/creative-designer.png" alt="" aria-hidden="true"
+                className="w-[16.5rem] h-[16.5rem] object-contain" />
+            </div>
+
+            {/* Trophy — middle, offset left */}
+            <div className="hg-frame-2 absolute top-[28%] -left-8 will-change-transform"
+              style={{ transform: 'rotate(-3deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
+              <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
+                className="w-64 h-64 object-contain" />
+            </div>
+
+            {/* Thumbs up — bottom-right */}
+            <div className="hg-frame-3 absolute -bottom-[5%] -right-[5%] will-change-transform"
+              style={{ transform: 'rotate(2deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
+              <img src="/images/brand/thumbs-up.png" alt="" aria-hidden="true"
+                className="w-[16.5rem] h-[16.5rem] object-contain" />
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Bottom fade into cream */}
       <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-cream to-transparent pointer-events-none z-20" />
     </section>
   );

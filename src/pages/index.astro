@@ -42,20 +42,7 @@ const jsonLd = [
   description="We help organizations grow with clarity, confidence, and the systems to scale. Strategy, digital readiness, brand, culture, funding, and implementation support."
   jsonLd={jsonLd}
 >
-  {/*
-    Hero headline options from client doc:
-    Option 1: "Build with confidence. Grow with strength."
-    Option 2: "When growth gets complex, we help you move forward." (selected)
-    Option 3: "More than a plan. A partner in transformation."
-  */}
-  <HeroSection client:load
-    headline="When growth gets complex, we help you move forward."
-    highlightedWord="move forward"
-    subhead="YellowBrolly helps organizations strengthen leadership, modernize operations, and implement change that lasts."
-    ctaPrimary={{ label: 'Book a Discovery Call', to: '/contact' }}
-    showBackground={true}
-    eyebrow="Yellow Brolly Co"
-  />
+  <HeroSection client:load />
   <WhoWeAre />
   <ApproachPreview client:visible />
   <ServicesPreview />
