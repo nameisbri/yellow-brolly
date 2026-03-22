@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import HeroA from '../components/react/hero-explorations/HeroA_ParallaxLayers.tsx';
 import HeroF from '../components/react/hero-explorations/HeroF_SingleIllustration.tsx';
+import HeroF2 from '../components/react/hero-explorations/HeroF2_ColumnIllustration.tsx';
+import HeroFG from '../components/react/hero-explorations/HeroFG_Combined.tsx';
 import HeroG from '../components/react/hero-explorations/HeroG_IllustrationStack.tsx';
 ---
 
@@ -11,31 +12,42 @@ import HeroG from '../components/react/hero-explorations/HeroG_IllustrationStack
 >
   <div class="pt-28 pb-8 bg-cream">
     <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
-      <h1 class="text-2xl font-display font-bold text-text-primary mb-2">Hero Exploration — Final 3</h1>
-      <p class="text-text-muted">A, F, G — pick one or mix elements.</p>
+      <h1 class="text-2xl font-display font-bold text-text-primary mb-2">Hero Exploration — Final Round</h1>
+      <p class="text-text-muted">F, F2, F+G combined, G</p>
     </div>
-  </div>
-
-  <!-- A: Mouse parallax -->
-  <div class="border-t-4 border-yellow-primary">
-    <div class="bg-sand py-4 px-6 md:px-8">
-      <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">A</span>
-        <span class="text-sm text-text-muted ml-3">Mouse parallax — umbrella and text shift at different rates</span>
-      </div>
-    </div>
-    <HeroA client:visible />
   </div>
 
   <!-- F: Overlapping illustration -->
-  <div class="border-t-4 border-yellow-primary mt-4">
+  <div class="border-t-4 border-yellow-primary">
     <div class="bg-sand py-4 px-6 md:px-8">
       <div class="container mx-auto max-w-7xl">
         <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">F</span>
-        <span class="text-sm text-text-muted ml-3">Overlapping illustration — winged pencil breaks into the headline, 3D tilt on cursor</span>
+        <span class="text-sm text-text-muted ml-3">Overlapping — winged pencil breaks into the headline, 3D tilt on cursor</span>
       </div>
     </div>
     <HeroF client:visible />
+  </div>
+
+  <!-- F2: Column divider variation -->
+  <div class="border-t-4 border-yellow-primary mt-4">
+    <div class="bg-sand py-4 px-6 md:px-8">
+      <div class="container mx-auto max-w-7xl">
+        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">F2</span>
+        <span class="text-sm text-text-muted ml-3">Column divider — illustration as structural element between headline and subhead, 3-layer parallax</span>
+      </div>
+    </div>
+    <HeroF2 client:visible />
+  </div>
+
+  <!-- FG: Combined — multiple illustrations overlapping editorial headline -->
+  <div class="border-t-4 border-yellow-primary mt-4">
+    <div class="bg-sand py-4 px-6 md:px-8">
+      <div class="container mx-auto max-w-7xl">
+        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">F+G</span>
+        <span class="text-sm text-text-muted ml-3">Combined — 3 illustrations at different depths overlapping the headline, multi-layer parallax + 3D tilt</span>
+      </div>
+    </div>
+    <HeroFG client:visible />
   </div>
 
   <!-- G: Illustration stack -->
@@ -43,7 +55,7 @@ import HeroG from '../components/react/hero-explorations/HeroG_IllustrationStack
     <div class="bg-sand py-4 px-6 md:px-8">
       <div class="container mx-auto max-w-7xl">
         <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">G</span>
-        <span class="text-sm text-text-muted ml-3">Illustration stack — 3 illustrations in frosted frames, slide in + mouse parallax</span>
+        <span class="text-sm text-text-muted ml-3">Stack — 3 illustrations in frosted frames, slide in + mouse parallax</span>
       </div>
     </div>
     <HeroG client:visible />
