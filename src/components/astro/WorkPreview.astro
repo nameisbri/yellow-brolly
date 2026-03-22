@@ -30,13 +30,14 @@ const projects = [
     description: 'Workflow mapping, ownership clarity, and security foundations for a fast-growing team.',
   },
 ];
+
+const [featured, ...rest] = projects;
 ---
 
-<Section background="sand-dark">
-  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+<Section background="sand-dark" noPadding class="py-14 md:py-20 lg:py-28">
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
     <div>
-      <span class="text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-3 block">Our Work</span>
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary leading-[1.1]">
+      <h2 class="scroll-fade-up text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary leading-[1.1]">
         Real results for real organizations
       </h2>
     </div>
@@ -46,28 +47,49 @@ const projects = [
     </a>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    {projects.map((project) => (
-      <a href="/case-studies" class="scroll-fade-up group block rounded-2xl overflow-hidden bg-white transition-all duration-500 hover:-translate-y-1">
-        <!-- Image -->
-        <div class="aspect-[16/10] overflow-hidden relative">
-          <img
-            src={project.image}
-            alt={project.imageAlt}
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            loading="lazy"
-          />
-          <!-- Metric overlay -->
-          <div class="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm px-3 py-1.5 rounded-lg">
-            <span class="text-yellow-primary font-display font-bold text-lg">{project.metric}</span>
-            <span class="text-white/70 text-xs ml-1">{project.metricLabel}</span>
-          </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <!-- Featured case study — large -->
+    <a href="/case-studies" class="scroll-fade-up group block rounded-xl overflow-hidden bg-white transition-all duration-500 hover:-translate-y-1 lg:row-span-2">
+      <div class="aspect-[16/10] lg:aspect-[4/3] overflow-hidden relative">
+        <img
+          src={featured.image}
+          alt={featured.imageAlt}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          loading="lazy"
+        />
+        <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm px-4 py-2 rounded-lg">
+          <span class="text-yellow-primary font-display font-bold text-2xl">{featured.metric}</span>
+          <span class="text-white/70 text-sm ml-2">{featured.metricLabel}</span>
         </div>
-        <!-- Content -->
-        <div class="p-6">
-          <span class="inline-block px-2.5 py-0.5 text-xs font-medium bg-yellow-primary/10 text-yellow-text rounded-full mb-3">{project.tag}</span>
-          <h3 class="text-lg font-bold text-text-primary mb-2 group-hover:text-yellow-text transition-colors duration-300">{project.title}</h3>
-          <p class="text-sm text-text-muted leading-relaxed">{project.description}</p>
+      </div>
+      <div class="p-6 lg:p-8">
+        <span class="inline-block px-2.5 py-0.5 text-xs font-medium bg-yellow-primary/10 text-yellow-text rounded-full mb-3">{featured.tag}</span>
+        <h3 class="text-xl lg:text-2xl font-bold text-text-primary mb-3 group-hover:text-yellow-text transition-colors duration-300">{featured.title}</h3>
+        <p class="text-text-muted leading-relaxed">{featured.description}</p>
+      </div>
+    </a>
+
+    <!-- Smaller case studies stacked -->
+    {rest.map((project) => (
+      <a href="/case-studies" class="scroll-fade-up group block rounded-lg overflow-hidden bg-white transition-all duration-500 hover:-translate-y-1">
+        <div class="grid grid-cols-1 sm:grid-cols-2">
+          <div class="aspect-[16/10] sm:aspect-auto overflow-hidden relative">
+            <img
+              src={project.image}
+              alt={project.imageAlt}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-5 sm:p-6 flex flex-col justify-center">
+            <span class="inline-block px-2.5 py-0.5 text-xs font-medium bg-yellow-primary/10 text-yellow-text rounded-full mb-2 self-start">{project.tag}</span>
+            <h3 class="text-lg font-bold text-text-primary mb-2 group-hover:text-yellow-text transition-colors duration-300">{project.title}</h3>
+            <p class="text-sm text-text-muted leading-relaxed mb-3">{project.description}</p>
+            <div>
+              <span class="text-yellow-primary font-display font-bold text-xl">{project.metric}</span>
+              <span class="text-text-muted text-xs ml-1.5">{project.metricLabel}</span>
+            </div>
+          </div>
         </div>
       </a>
     ))}
