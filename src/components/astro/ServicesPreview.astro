@@ -11,44 +11,40 @@ const pillarAccentColors: Record<string, string> = {
   funding: 'var(--color-accent-mauve)',
   implementation: 'var(--color-yellow-primary)',
 };
-
-const iconSvgs: Record<string, string> = {
-  strategy: '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />',
-  digital: '<rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />',
-  brand: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />',
-  funding: '<line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />',
-  implementation: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />',
-};
 ---
 
-<Section background="cream">
-  <div class="scroll-fade-up mb-16 md:mb-20 text-center">
-    <span class="inline-block text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4">Services</span>
-    <h2 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-text-primary mb-6 leading-[1.1] tracking-tight">What We Do</h2>
+<Section background="cream" noPadding class="py-12 md:py-16 lg:py-24">
+  <div class="scroll-fade-up mb-10 md:mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary leading-[1.1]">What We Do</h2>
+    <a href="/services" class="text-yellow-text hover:text-yellow-hover transition-colors duration-300 font-medium text-sm inline-flex items-center gap-2 flex-shrink-0">
+      Explore all services
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+    </a>
   </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-    {servicesPreview.map((service) => (
-      <a href="/services" class="scroll-fade-up group relative bg-white border border-light-border rounded-2xl p-6 md:p-8 hover:border-yellow-primary/30 transition-all duration-300 overflow-hidden hover:-translate-y-2 block no-underline">
-        <div class="absolute top-0 left-0 w-full h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={`background: ${pillarAccentColors[service.icon] || 'var(--color-yellow-primary)'}`}></div>
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center" style={`background: ${(pillarAccentColors[service.icon] || 'var(--color-yellow-primary)')}20; color: ${pillarAccentColors[service.icon] || 'var(--color-yellow-primary)'}`}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={iconSvgs[service.icon] || iconSvgs['strategy']} />
-          </div>
-          <h3 class="text-base font-bold text-text-primary leading-tight">{service.title}</h3>
+  <div class="divide-y divide-light-border border-t border-light-border">
+    {servicesPreview.map((service, index) => (
+      <a href="/services" class="scroll-fade-up group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-8 md:py-10 hover:bg-sand/50 -mx-6 px-6 md:-mx-8 md:px-8 transition-colors duration-300 no-underline">
+        <div class="md:col-span-1 flex items-baseline">
+          <span
+            class="text-sm font-bold tabular-nums"
+            style={`color: ${pillarAccentColors[service.icon] || 'var(--color-yellow-primary)'}`}
+          >
+            0{index + 1}
+          </span>
         </div>
-        <p class="text-text-muted text-sm leading-relaxed">{service.description}</p>
+        <div class="md:col-span-4">
+          <h3 class="text-lg md:text-xl font-bold text-text-primary group-hover:text-yellow-text transition-colors duration-300 leading-tight">
+            {service.title}
+          </h3>
+        </div>
+        <div class="md:col-span-6">
+          <p class="text-text-muted text-sm md:text-base leading-relaxed">{service.description}</p>
+        </div>
+        <div class="md:col-span-1 flex items-center justify-end">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-text-muted group-hover:text-yellow-text group-hover:translate-x-1 transition-all duration-300"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+        </div>
       </a>
     ))}
-  </div>
-
-  <div class="mt-16 text-center">
-    <a href="/services" class="relative inline-flex items-center justify-center font-semibold uppercase tracking-wider transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-primary focus-visible:ring-offset-2 focus-visible:ring-offset-cream overflow-hidden group bg-transparent border-2 border-yellow-primary text-yellow-text hover:bg-yellow-primary hover:text-black px-10 py-4 text-sm">
-      <span class="relative z-10 flex items-center gap-2">
-        Explore All Services
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
-      </span>
-      <span class="absolute inset-0 bg-yellow-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
-    </a>
   </div>
 </Section>
