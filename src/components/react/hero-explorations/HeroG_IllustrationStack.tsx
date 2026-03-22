@@ -106,8 +106,7 @@ export default function HeroG_IllustrationStack() {
             <div className="hg-frame-3 absolute bottom-0 right-[5%] will-change-transform"
               style={{ transform: 'rotate(1deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
               <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
-                className="w-44 h-44 object-contain"
-                style={{ filter: 'hue-rotate(-55deg) saturate(0.85)' }} />
+                className="w-44 h-44 object-contain" />
             </div>
           </div>
         </div>
