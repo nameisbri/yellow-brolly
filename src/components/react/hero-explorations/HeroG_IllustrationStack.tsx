@@ -92,7 +92,7 @@ export default function HeroG_IllustrationStack() {
             <div className="hg-frame-1 absolute -top-4 -right-4 will-change-transform"
               style={{ transform: 'rotate(5deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
               <img src="/images/brand/creative-designer.png" alt="" aria-hidden="true"
-                className="w-56 h-56 object-contain" />
+                className="w-[16.5rem] h-[16.5rem] object-contain" />
             </div>
 
             {/* Trophy — middle, offset left */}
@@ -103,10 +103,10 @@ export default function HeroG_IllustrationStack() {
             </div>
 
             {/* Thumbs up — bottom-right */}
-            <div className="hg-frame-3 absolute -bottom-[15%] -right-[5%] will-change-transform"
+            <div className="hg-frame-3 absolute -bottom-[10%] -right-[10%] will-change-transform"
               style={{ transform: 'rotate(2deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
               <img src="/images/brand/thumbs-up.png" alt="" aria-hidden="true"
-                className="w-56 h-56 object-contain" />
+                className="w-[16.5rem] h-[16.5rem] object-contain" />
             </div>
           </div>
         </div>
