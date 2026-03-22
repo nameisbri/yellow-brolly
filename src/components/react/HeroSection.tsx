@@ -33,6 +33,13 @@ export default function HeroSection() {
       // Bottom content
       tl.fromTo('.hg-sub', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.9)
         .fromTo('.hg-cta', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, 1.1);
+
+      // Gentle float — each illustration bobs at its own rhythm after entrance
+      tl.add(() => {
+        gsap.to('.hg-frame-1', { y: -14, duration: 3.2, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+        gsap.to('.hg-frame-2', { y: 12, duration: 4.0, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+        gsap.to('.hg-frame-3', { y: -10, duration: 3.6, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+      });
     }, sectionRef);
 
     // Mouse parallax — stack shifts slightly
@@ -51,6 +58,8 @@ export default function HeroSection() {
     };
   }, [prefersReducedMotion]);
 
+  const hideForAnim = prefersReducedMotion ? '' : 'opacity-0';
+
   return (
     <section ref={sectionRef} className="relative overflow-hidden bg-yellow-primary min-h-screen flex items-center cursor-default">
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
@@ -59,12 +68,12 @@ export default function HeroSection() {
           <div className="lg:col-span-8 hg-text will-change-transform">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4.25rem] xl:text-[5.25rem] font-display font-bold leading-[1.05] tracking-tight text-black mb-8">
               {'When growth gets complex, we help you move forward.'.split(' ').map((word, i) => (
-                <span key={i} className="hg-line inline-block mr-[0.22em] last:mr-0">{word}</span>
+                <span key={i} className={`hg-line inline-block mr-[0.22em] last:mr-0 ${hideForAnim}`}>{word}</span>
               ))}
             </h1>
 
             {/* Mobile illustration — single representative, visible below lg */}
-            <div className="hg-mobile-illust flex gap-4 items-center mb-8 lg:hidden">
+            <div className={`hg-mobile-illust flex gap-4 items-center mb-8 lg:hidden ${hideForAnim}`}>
               <img src="/images/brand/creative-designer.png" alt="" aria-hidden="true"
                 className="w-20 h-20 object-contain opacity-[0.25]" />
               <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
@@ -73,10 +82,10 @@ export default function HeroSection() {
                 className="w-14 h-14 object-contain opacity-[0.18]" />
             </div>
 
-            <p className="hg-sub text-lg md:text-xl text-black/60 max-w-lg mb-10 leading-relaxed">
+            <p className={`hg-sub text-lg md:text-xl text-black/60 max-w-lg mb-10 leading-relaxed ${hideForAnim}`}>
               We help organizations strengthen leadership, modernize operations, and implement change that lasts.
             </p>
-            <Button to="/contact" variant="dark" size="lg" className="hg-cta">
+            <Button to="/contact" variant="dark" size="lg" className={`hg-cta ${hideForAnim}`}>
               Book a Discovery Call
             </Button>
           </div>
@@ -85,21 +94,21 @@ export default function HeroSection() {
           {/* No boxes — illustrations float freely with drop shadows for separation */}
           <div className="lg:col-span-4 hg-stack relative hidden lg:block will-change-transform" style={{ height: '580px' }}>
             {/* Pencil — top, pushed left so it overlaps with coffee person */}
-            <div className="hg-frame-1 absolute -top-4 -right-4 will-change-transform"
+            <div className={`hg-frame-1 absolute -top-4 -right-4 will-change-transform ${hideForAnim}`}
               style={{ transform: 'rotate(5deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
               <img src="/images/brand/creative-designer.png" alt="" aria-hidden="true"
                 className="w-[16.5rem] h-[16.5rem] object-contain" />
             </div>
 
             {/* Trophy — middle, offset left */}
-            <div className="hg-frame-2 absolute top-[28%] -left-8 will-change-transform"
+            <div className={`hg-frame-2 absolute top-[28%] -left-8 will-change-transform ${hideForAnim}`}
               style={{ transform: 'rotate(-3deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
               <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
                 className="w-64 h-64 object-contain" />
             </div>
 
             {/* Thumbs up — bottom-right */}
-            <div className="hg-frame-3 absolute -bottom-[5%] -right-[5%] will-change-transform"
+            <div className={`hg-frame-3 absolute -bottom-[5%] -right-[5%] will-change-transform ${hideForAnim}`}
               style={{ transform: 'rotate(2deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
               <img src="/images/brand/thumbs-up.png" alt="" aria-hidden="true"
                 className="w-[16.5rem] h-[16.5rem] object-contain" />
