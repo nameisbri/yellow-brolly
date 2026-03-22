@@ -62,10 +62,10 @@ export default function HeroG_IllustrationStack() {
             </span>
 
             <h1 className="font-display font-bold tracking-tight text-black mb-8">
-              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[0.98]">When growth</span>
-              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[0.98]">gets complex,</span>
-              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[0.98] mt-1">we help you</span>
-              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[0.98]">move forward.</span>
+              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">When growth</span>
+              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">gets complex,</span>
+              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] mt-2">we help you</span>
+              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">move forward.</span>
             </h1>
 
             {/* Mobile illustration — single representative, visible below lg */}
@@ -78,7 +78,7 @@ export default function HeroG_IllustrationStack() {
                 className="w-14 h-14 object-contain opacity-[0.18]" />
             </div>
 
-            <p className="hg-sub text-base md:text-lg text-black/60 max-w-lg mb-10 leading-relaxed">
+            <p className="hg-sub text-lg md:text-xl text-black/60 max-w-lg mb-10 leading-relaxed">
               We help organizations strengthen leadership, modernize operations, and implement change that lasts.
             </p>
             <Button to="/contact" variant="dark" size="lg" className="hg-cta">
@@ -87,24 +87,25 @@ export default function HeroG_IllustrationStack() {
           </div>
 
           {/* Illustration stack — right, desktop only */}
+          {/* No boxes — illustrations float freely with drop shadows for separation */}
           <div className="lg:col-span-6 hg-stack relative hidden lg:block will-change-transform" style={{ height: '580px' }}>
-            {/* Frame 1 — top, offset right */}
-            <div className="hg-frame-1 absolute top-0 right-0 bg-cream-warm border border-light-border rounded-xl p-6 shadow-sm will-change-transform"
-              style={{ transform: 'rotate(3deg)' }}>
+            {/* Pencil — top, offset right */}
+            <div className="hg-frame-1 absolute top-0 right-0 will-change-transform"
+              style={{ transform: 'rotate(3deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
               <img src="/images/brand/winged-pencil.png" alt="" aria-hidden="true"
                 className="w-52 h-52 object-contain" />
             </div>
 
-            {/* Frame 2 — middle, offset left */}
-            <div className="hg-frame-2 absolute top-[32%] right-[20%] bg-cream-warm border border-light-border rounded-xl p-6 shadow-sm will-change-transform"
-              style={{ transform: 'rotate(-2deg)' }}>
+            {/* Coffee person — middle, offset left */}
+            <div className="hg-frame-2 absolute top-[32%] right-[20%] will-change-transform"
+              style={{ transform: 'rotate(-2deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
               <img src="/images/brand/coffee-person.png" alt="" aria-hidden="true"
                 className="w-60 h-60 object-contain" />
             </div>
 
-            {/* Frame 3 — bottom, offset right */}
-            <div className="hg-frame-3 absolute bottom-0 right-[5%] bg-cream-warm border border-light-border rounded-xl p-5 shadow-sm will-change-transform"
-              style={{ transform: 'rotate(1deg)' }}>
+            {/* Trophy — bottom, offset right */}
+            <div className="hg-frame-3 absolute bottom-0 right-[5%] will-change-transform"
+              style={{ transform: 'rotate(1deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
               <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
                 className="w-44 h-44 object-contain" />
             </div>
