@@ -4,9 +4,9 @@ import { Button } from '../Button';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 /**
- * G: Illustration stack — 3 illustrations stacked vertically on the right
- * in offset "card" frames, each sliding in from the right at different delays.
- * Creates a curated, gallery-like feel. Mouse parallax on the stack.
+ * G: Illustration stack — 3 illustrations in offset frames on the right,
+ * sliding in from right with staggered timing. Editorial line-broken headline.
+ * Solid warm frames (no glassmorphism). Mobile-friendly single illustration fallback.
  */
 export default function HeroG_IllustrationStack() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -24,10 +24,14 @@ export default function HeroG_IllustrationStack() {
         .fromTo('.hg-frame-2', { x: 350, rotation: -5, opacity: 0 }, { x: 0, rotation: -2, opacity: 1, duration: 1 }, 0.15)
         .fromTo('.hg-frame-3', { x: 280, rotation: 6, opacity: 0 }, { x: 0, rotation: 1, opacity: 1, duration: 1 }, 0.3);
 
-      // Text
-      tl.fromTo('.hg-eyebrow', { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.4)
-        .fromTo('.hg-word', { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.04 }, 0.5)
-        .fromTo('.hg-sub', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.9)
+      // Mobile illustration
+      tl.fromTo('.hg-mobile-illust', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, 0.5);
+
+      // Headline lines stagger in
+      tl.fromTo('.hg-line', { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, stagger: 0.1 }, 0.3);
+
+      // Bottom content
+      tl.fromTo('.hg-sub', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.9)
         .fromTo('.hg-cta', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, 1.1);
     }, sectionRef);
 
@@ -47,22 +51,33 @@ export default function HeroG_IllustrationStack() {
     };
   }, [prefersReducedMotion]);
 
-  const words = 'When growth gets complex, we help you move forward.'.split(' ');
-
   return (
     <section ref={sectionRef} className="relative overflow-hidden bg-yellow-primary min-h-screen flex items-center cursor-default">
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-          {/* Text — left */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Text — left, editorial line breaks */}
           <div className="lg:col-span-6 hg-text will-change-transform">
-            <span className="hg-eyebrow inline-block text-black/50 text-sm font-semibold tracking-[0.3em] uppercase mb-8">
+            <span className="hg-line inline-block text-black/50 text-sm font-semibold tracking-[0.3em] uppercase mb-8">
               Yellow Brolly Co
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-display font-bold leading-[1.05] tracking-tight mb-6">
-              {words.map((word, i) => (
-                <span key={i} className="hg-word inline-block mr-[0.25em] last:mr-0 text-black/85">{word}</span>
-              ))}
+
+            <h1 className="font-display font-bold tracking-tight text-black mb-8">
+              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[0.98]">When growth</span>
+              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[0.98]">gets complex,</span>
+              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[0.98] mt-1">we help you</span>
+              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[0.98]">move forward.</span>
             </h1>
+
+            {/* Mobile illustration — single representative, visible below lg */}
+            <div className="hg-mobile-illust flex gap-4 items-center mb-8 lg:hidden">
+              <img src="/images/brand/winged-pencil.png" alt="" aria-hidden="true"
+                className="w-20 h-20 object-contain opacity-[0.25]" />
+              <img src="/images/brand/coffee-person.png" alt="" aria-hidden="true"
+                className="w-16 h-16 object-contain opacity-[0.2]" />
+              <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
+                className="w-14 h-14 object-contain opacity-[0.18]" />
+            </div>
+
             <p className="hg-sub text-base md:text-lg text-black/60 max-w-lg mb-10 leading-relaxed">
               We help organizations strengthen leadership, modernize operations, and implement change that lasts.
             </p>
@@ -71,24 +86,24 @@ export default function HeroG_IllustrationStack() {
             </Button>
           </div>
 
-          {/* Illustration stack — right */}
+          {/* Illustration stack — right, desktop only */}
           <div className="lg:col-span-6 hg-stack relative hidden lg:block will-change-transform" style={{ height: '580px' }}>
             {/* Frame 1 — top, offset right */}
-            <div className="hg-frame-1 absolute top-0 right-0 bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg will-change-transform"
+            <div className="hg-frame-1 absolute top-0 right-0 bg-cream-warm border border-light-border rounded-xl p-6 shadow-sm will-change-transform"
               style={{ transform: 'rotate(3deg)' }}>
               <img src="/images/brand/winged-pencil.png" alt="" aria-hidden="true"
                 className="w-52 h-52 object-contain" />
             </div>
 
             {/* Frame 2 — middle, offset left */}
-            <div className="hg-frame-2 absolute top-[32%] right-[20%] bg-white/40 backdrop-blur-sm rounded-xl p-6 shadow-lg will-change-transform"
+            <div className="hg-frame-2 absolute top-[32%] right-[20%] bg-cream-warm border border-light-border rounded-xl p-6 shadow-sm will-change-transform"
               style={{ transform: 'rotate(-2deg)' }}>
               <img src="/images/brand/coffee-person.png" alt="" aria-hidden="true"
                 className="w-60 h-60 object-contain" />
             </div>
 
             {/* Frame 3 — bottom, offset right */}
-            <div className="hg-frame-3 absolute bottom-0 right-[5%] bg-white/40 backdrop-blur-sm rounded-xl p-5 shadow-lg will-change-transform"
+            <div className="hg-frame-3 absolute bottom-0 right-[5%] bg-cream-warm border border-light-border rounded-xl p-5 shadow-sm will-change-transform"
               style={{ transform: 'rotate(1deg)' }}>
               <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
                 className="w-44 h-44 object-contain" />
