@@ -69,11 +69,11 @@ export default function HeroG_IllustrationStack() {
 
             {/* Mobile illustration — single representative, visible below lg */}
             <div className="hg-mobile-illust flex gap-4 items-center mb-8 lg:hidden">
-              <img src="/images/brand/winged-pencil.png" alt="" aria-hidden="true"
+              <img src="/images/brand/creative-designer.png" alt="" aria-hidden="true"
                 className="w-20 h-20 object-contain opacity-[0.25]" />
-              <img src="/images/brand/creative-thinker.png" alt="" aria-hidden="true"
-                className="w-16 h-16 object-contain opacity-[0.2]" />
               <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
+                className="w-16 h-16 object-contain opacity-[0.2]" />
+              <img src="/images/brand/thumbs-up.png" alt="" aria-hidden="true"
                 className="w-14 h-14 object-contain opacity-[0.18]" />
             </div>
 
@@ -91,21 +91,21 @@ export default function HeroG_IllustrationStack() {
             {/* Pencil — top, pushed left so it overlaps with coffee person */}
             <div className="hg-frame-1 absolute -top-4 -right-4 will-change-transform"
               style={{ transform: 'rotate(5deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
-              <img src="/images/brand/winged-pencil.png" alt="" aria-hidden="true"
+              <img src="/images/brand/creative-designer.png" alt="" aria-hidden="true"
                 className="w-72 h-72 object-contain" />
             </div>
 
-            {/* Coffee person — middle, offset left, overlaps both */}
+            {/* Trophy — middle, offset left */}
             <div className="hg-frame-2 absolute top-[28%] -left-8 will-change-transform"
               style={{ transform: 'rotate(-3deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
-              <img src="/images/brand/creative-thinker.png" alt="" aria-hidden="true"
+              <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
                 className="w-80 h-80 object-contain" />
             </div>
 
-            {/* Trophy — bottom-right, overlaps coffee person */}
+            {/* Thumbs up — bottom-right */}
             <div className="hg-frame-3 absolute -bottom-[15%] -right-[5%] will-change-transform"
               style={{ transform: 'rotate(2deg) scale(1.05)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
-              <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
+              <img src="/images/brand/thumbs-up.png" alt="" aria-hidden="true"
                 className="w-64 h-64 object-contain" />
             </div>
           </div>

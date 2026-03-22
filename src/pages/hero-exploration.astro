@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import HeroG from '../components/react/hero-explorations/HeroG_IllustrationStack.tsx';
-import HeroGAlt from '../components/react/hero-explorations/HeroG_Alt.tsx';
 ---
 
 <Base
@@ -10,29 +9,13 @@ import HeroGAlt from '../components/react/hero-explorations/HeroG_Alt.tsx';
 >
   <div class="pt-28 pb-8 bg-cream">
     <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
-      <h1 class="text-2xl font-display font-bold text-text-primary mb-2">Hero — Middle Illustration Comparison</h1>
-      <p class="text-text-muted">Same layout, different middle illustration. Pick one.</p>
+      <h1 class="text-2xl font-display font-bold text-text-primary mb-2">Hero — Final</h1>
+      <p class="text-text-muted">Creative designer, trophy winner, thumbs up.</p>
     </div>
   </div>
 
   <div class="border-t-4 border-yellow-primary">
-    <div class="bg-sand py-4 px-6 md:px-8">
-      <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">G</span>
-        <span class="text-sm text-text-muted ml-3">With creative-thinker (lightbulb person)</span>
-      </div>
-    </div>
     <HeroG client:load />
-  </div>
-
-  <div class="border-t-4 border-yellow-primary mt-4">
-    <div class="bg-sand py-4 px-6 md:px-8">
-      <div class="container mx-auto max-w-7xl">
-        <span class="text-xs font-bold uppercase tracking-widest text-yellow-text">G alt</span>
-        <span class="text-sm text-text-muted ml-3">With magnifying-glass</span>
-      </div>
-    </div>
-    <HeroGAlt client:load />
   </div>
 
   <div class="py-20 bg-cream text-center">
