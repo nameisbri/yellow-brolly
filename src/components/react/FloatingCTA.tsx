@@ -47,7 +47,7 @@ export default function FloatingCTA() {
         {/* Main CTA card */}
         <a
           href="/contact"
-          className="group relative bg-dark-elevated backdrop-blur-xl border border-yellow-primary/30 rounded-2xl p-4 shadow-2xl shadow-yellow-primary/20 hover:shadow-yellow-primary/40 hover:scale-105 transition-all duration-300 flex items-center gap-4 max-w-[280px] sm:max-w-xs"
+          className="group relative bg-dark-elevated backdrop-blur-xl border border-yellow-primary/30 rounded-xl p-4 shadow-2xl shadow-yellow-primary/20 hover:shadow-yellow-primary/40 hover:scale-105 transition-all duration-300 flex items-center gap-4 max-w-[280px] sm:max-w-xs"
         >
           {/* Umbrella icon with glow */}
           <div className="relative">
