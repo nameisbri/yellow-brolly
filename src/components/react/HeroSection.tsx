@@ -93,9 +93,26 @@ export default function HeroSection({
       className={`relative overflow-hidden bg-yellow-primary ${compact ? 'min-h-[60vh] py-24 md:py-32 lg:py-40' : 'min-h-screen py-24 md:py-32 lg:py-40 xl:py-48'} flex items-center`}
     >
       {showBackground && (
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(0,0,0,0.08),transparent)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_80%_80%,rgba(0,0,0,0.04),transparent)]" />
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          {/* Diagonal crosshatch grid */}
+          <div
+            className="absolute inset-0 opacity-[0.07]"
+            style={{
+              backgroundImage: `
+                linear-gradient(45deg, transparent 48%, rgba(0,0,0,0.4) 48%, rgba(0,0,0,0.4) 52%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(0,0,0,0.4) 48%, rgba(0,0,0,0.4) 52%, transparent 52%)
+              `,
+              backgroundSize: '40px 40px',
+            }}
+          />
+          {/* Radial fade to soften edges */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_50%,transparent_30%,rgba(242,189,78,0.6))]" />
+          {/* Large umbrella watermark — right side, like PageHero */}
+          <div className="absolute -right-12 md:-right-4 top-1/2 -translate-y-1/2 opacity-[0.05] pointer-events-none select-none">
+            <svg width="400" height="400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" className="w-56 h-56 md:w-72 md:h-72 lg:w-[360px] lg:h-[360px] text-black">
+              <path d="M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7" />
+            </svg>
+          </div>
         </div>
       )}
 

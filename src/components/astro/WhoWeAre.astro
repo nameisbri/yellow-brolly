@@ -46,15 +46,25 @@ const [featured, ...rest] = whatSetsUsApart.differentiators;
       </div>
     </div>
 
-    <!-- Right: brand illustration at scale — takes 5 cols -->
-    <div class="lg:col-span-5 scroll-fade-up hidden lg:flex items-start justify-center pt-8">
-      <img
-        src="/images/brand/winged-pencil.png"
-        alt=""
-        aria-hidden="true"
-        class="w-full max-w-md object-contain"
-        loading="lazy"
-      />
+    <!-- Right: people photo + brand illustration accent — takes 5 cols -->
+    <div class="lg:col-span-5 scroll-fade-up hidden lg:block pt-8">
+      <div class="relative">
+        <img
+          src="/images/photos/homepage-pmc.jpg"
+          alt="Group of colleagues gathered around a table sharing a moment"
+          class="w-full rounded-xl aspect-[4/3] object-cover"
+          loading="lazy"
+        />
+        <!-- Brand illustration overlapping bottom-right -->
+        <img
+          src="/images/brand/winged-pencil.png"
+          alt=""
+          aria-hidden="true"
+          class="absolute -bottom-12 -right-10 w-48 h-48 object-contain"
+          style="filter: drop-shadow(0 0 8px rgba(255,252,247,0.95)) drop-shadow(0 0 16px rgba(255,252,247,0.8)) drop-shadow(0 0 28px rgba(255,252,247,0.6))"
+          loading="lazy"
+        />
+      </div>
     </div>
   </div>
 </Section>

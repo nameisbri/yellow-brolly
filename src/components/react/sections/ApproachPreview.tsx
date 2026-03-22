@@ -57,6 +57,16 @@ export default function ApproachPreview() {
         </a>
       </div>
 
+      {/* People photo — editorial context */}
+      <div className="mb-10 rounded-xl overflow-hidden">
+        <img
+          src="/images/photos/work-preview.jpg"
+          alt="Woman presenting at a whiteboard while colleagues listen intently"
+          className="w-full h-48 md:h-64 lg:h-72 object-cover"
+          loading="lazy"
+        />
+      </div>
+
       <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {approachPreview.stages.map((stage, index) => (
           <div
