@@ -8,7 +8,6 @@ import WorkPreview from '../components/astro/WorkPreview.astro';
 import SocialProof from '../components/react/sections/SocialProof.tsx';
 import CTASection from '../components/react/sections/CTASection.tsx';
 
-
 const jsonLd = [
   {
     "@context": "https://schema.org",
@@ -63,8 +62,7 @@ const jsonLd = [
   <WorkPreview />
   <SocialProof client:visible />
   <CTASection client:visible
-    headline="Let's build the clarity, systems, and momentum your organization needs to grow well."
+    headline="Let's build the clarity and momentum your organization needs."
     primaryCta={{ label: 'Book a Discovery Call', to: '/contact' }}
-    secondaryCta={{ label: 'Explore Our Approach', to: '/approach' }}
   />
 </Base>
