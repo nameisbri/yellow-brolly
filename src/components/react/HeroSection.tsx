@@ -57,10 +57,6 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Text — left, editorial line breaks */}
           <div className="lg:col-span-8 hg-text will-change-transform">
-            <span className="hg-line inline-block text-black/50 text-sm font-semibold tracking-[0.3em] uppercase mb-8">
-              Yellow Brolly Co
-            </span>
-
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4.25rem] xl:text-[5.25rem] font-display font-bold leading-[1.05] tracking-tight text-black mb-8">
               {'When growth gets complex, we help you move forward.'.split(' ').map((word, i) => (
                 <span key={i} className="hg-line inline-block mr-[0.22em] last:mr-0">{word}</span>
