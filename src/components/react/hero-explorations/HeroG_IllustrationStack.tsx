@@ -92,21 +92,21 @@ export default function HeroG_IllustrationStack() {
             <div className="hg-frame-1 absolute -top-4 -right-4 will-change-transform"
               style={{ transform: 'rotate(5deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
               <img src="/images/brand/creative-designer.png" alt="" aria-hidden="true"
-                className="w-72 h-72 object-contain" />
+                className="w-56 h-56 object-contain" />
             </div>
 
             {/* Trophy — middle, offset left */}
             <div className="hg-frame-2 absolute top-[28%] -left-8 will-change-transform"
               style={{ transform: 'rotate(-3deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
               <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
-                className="w-80 h-80 object-contain" />
+                className="w-64 h-64 object-contain" />
             </div>
 
             {/* Thumbs up — bottom-right */}
             <div className="hg-frame-3 absolute -bottom-[15%] -right-[5%] will-change-transform"
-              style={{ transform: 'rotate(2deg) scale(1.05)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
+              style={{ transform: 'rotate(2deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
               <img src="/images/brand/thumbs-up.png" alt="" aria-hidden="true"
-                className="w-64 h-64 object-contain" />
+                className="w-56 h-56 object-contain" />
             </div>
           </div>
         </div>
