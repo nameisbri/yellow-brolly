@@ -128,11 +128,6 @@ export function Button({
       {variant === 'dark-outline' && (
         <span className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
       )}
-      {/* Corner accents for corporate feel */}
-      <span className="absolute top-0 left-0 w-2 h-2 border-l-2 border-t-2 border-current opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <span className="absolute top-0 right-0 w-2 h-2 border-r-2 border-t-2 border-current opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <span className="absolute bottom-0 left-0 w-2 h-2 border-l-2 border-b-2 border-current opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <span className="absolute bottom-0 right-0 w-2 h-2 border-r-2 border-b-2 border-current opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </>
   );
 
