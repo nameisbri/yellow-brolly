@@ -103,7 +103,7 @@ export default function HeroG_IllustrationStack() {
             </div>
 
             {/* Thumbs up — bottom-right */}
-            <div className="hg-frame-3 absolute -bottom-[5%] -right-[10%] will-change-transform"
+            <div className="hg-frame-3 absolute -bottom-[5%] -right-[15%] will-change-transform"
               style={{ transform: 'rotate(2deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
               <img src="/images/brand/thumbs-up.png" alt="" aria-hidden="true"
                 className="w-[16.5rem] h-[16.5rem] object-contain" />
