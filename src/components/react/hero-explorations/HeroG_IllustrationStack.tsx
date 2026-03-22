@@ -61,10 +61,10 @@ export default function HeroG_IllustrationStack() {
               Yellow Brolly Co
             </span>
 
-            <h1 className="font-display font-bold tracking-tight text-black mb-8">
-              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">When growth gets</span>
-              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">complex, we help</span>
-              <span className="hg-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95]">you move forward.</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.05] tracking-tight text-black mb-8">
+              {'When growth gets complex, we help you move forward.'.split(' ').map((word, i) => (
+                <span key={i} className="hg-line inline-block mr-[0.22em] last:mr-0">{word}</span>
+              ))}
             </h1>
 
             {/* Mobile illustration — single representative, visible below lg */}
