@@ -4,10 +4,10 @@ import { Button } from '../Button';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 /**
- * FG: Combined — editorial headline broken across lines with multiple
- * illustrations overlapping the text at different depths. Each illustration
- * drops in at different times and positions. 3D tilt on cursor.
- * The illustrations ARE the visual — no frames, no cards, just raw overlap.
+ * FG: Combined — editorial headline with illustrations placed deliberately
+ * to complement the text layout. Positioned to create a diagonal rhythm
+ * from top-right to bottom-left. All share the same gentle drift speed,
+ * no pulsating. Multi-layer parallax on cursor.
  */
 export default function HeroFG_Combined() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -20,13 +20,10 @@ export default function HeroFG_Combined() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-      // Illustrations cascade in from different directions
-      tl.fromTo('.hfg-ill-1', { y: -180, rotation: 20, opacity: 0, scale: 0.5 },
-        { y: 0, rotation: -6, opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out' })
-        .fromTo('.hfg-ill-2', { x: 200, rotation: -15, opacity: 0, scale: 0.6 },
-          { x: 0, rotation: 4, opacity: 1, scale: 1, duration: 1.1, ease: 'power3.out' }, 0.2)
-        .fromTo('.hfg-ill-3', { y: 150, rotation: 10, opacity: 0, scale: 0.5 },
-          { y: 0, rotation: -3, opacity: 1, scale: 1, duration: 1, ease: 'power3.out' }, 0.35);
+      // Illustrations fade in together, gentle entrance
+      tl.fromTo('.hfg-ill-1', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out' })
+        .fromTo('.hfg-ill-2', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, 0.15)
+        .fromTo('.hfg-ill-3', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, 0.3);
 
       // Headline lines
       tl.fromTo('.hfg-line', { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, stagger: 0.1 }, 0.3);
@@ -35,22 +32,24 @@ export default function HeroFG_Combined() {
       tl.fromTo('.hfg-sub', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, 0.9)
         .fromTo('.hfg-cta', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, 1.1);
 
-      // Individual breathing on each illustration
-      gsap.to('.hfg-ill-1', { scale: 1.04, rotation: -3, duration: 5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-      gsap.to('.hfg-ill-2', { scale: 1.03, rotation: 6, duration: 6, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1 });
-      gsap.to('.hfg-ill-3', { scale: 1.05, rotation: -5, duration: 4.5, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2 });
+      // Shared slow drift — same speed and feel for all three, just offset timing
+      const driftConfig = { duration: 7, repeat: -1, yoyo: true, ease: 'sine.inOut' };
+      gsap.to('.hfg-ill-1', { y: '+=10', rotation: '+=2', ...driftConfig });
+      gsap.to('.hfg-ill-2', { y: '+=12', rotation: '-=1.5', ...driftConfig, delay: 2 });
+      gsap.to('.hfg-ill-3', { y: '+=8', rotation: '+=1', ...driftConfig, delay: 4 });
     }, sectionRef);
 
-    // Multi-layer parallax — each illustration at a different rate
+    // Multi-layer parallax
     const handleMouseMove = (e: MouseEvent) => {
       const rect = section.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-      gsap.to('.hfg-ill-1', { x: x * 40, y: y * 25, rotationY: x * 8, rotationX: y * -6, duration: 1.2, ease: 'power2.out' });
-      gsap.to('.hfg-ill-2', { x: x * 60, y: y * 35, rotationY: x * 10, rotationX: y * -8, duration: 1.4, ease: 'power2.out' });
-      gsap.to('.hfg-ill-3', { x: x * 30, y: y * 20, rotationY: x * 6, rotationX: y * -5, duration: 1, ease: 'power2.out' });
-      gsap.to('.hfg-text', { x: x * -10, y: y * -6, duration: 1.2, ease: 'power2.out' });
+      // Near layer (pencil) moves most, far layer (trophy) least
+      gsap.to('.hfg-ill-1', { x: x * 50, y: y * 30, duration: 1.4, ease: 'power2.out' });
+      gsap.to('.hfg-ill-2', { x: x * 35, y: y * 20, duration: 1.2, ease: 'power2.out' });
+      gsap.to('.hfg-ill-3', { x: x * 20, y: y * 12, duration: 1, ease: 'power2.out' });
+      gsap.to('.hfg-text', { x: x * -8, y: y * -5, duration: 1.2, ease: 'power2.out' });
     };
 
     section.addEventListener('mousemove', handleMouseMove);
@@ -61,23 +60,28 @@ export default function HeroFG_Combined() {
   }, [prefersReducedMotion]);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-yellow-primary min-h-screen flex items-center cursor-default"
-      style={{ perspective: '800px' }}>
+    <section ref={sectionRef} className="relative overflow-hidden bg-yellow-primary min-h-screen flex items-center cursor-default">
 
-      {/* Illustration 1 — winged pencil, top-right, largest */}
+      {/*
+        Illustration placement strategy:
+        - Pencil: anchored to the right margin, vertically centered with "gets complex" line.
+          Largest piece, sets the visual weight on the right.
+        - Coffee person: below and left of the pencil, aligned with "move forward" line.
+          Creates a diagonal from pencil down-left.
+        - Trophy: bottom-right corner, smallest, completes the diagonal and anchors the composition.
+      */}
+
+      {/* Pencil — right margin, vertically centered */}
       <img src="/images/brand/winged-pencil.png" alt="" aria-hidden="true"
-        className="hfg-ill-1 absolute top-[8%] right-[12%] w-52 md:w-72 lg:w-80 object-contain opacity-[0.18] pointer-events-none select-none will-change-transform"
-        style={{ transformStyle: 'preserve-3d' }} />
+        className="hfg-ill-1 absolute top-1/2 -translate-y-[60%] right-[6%] lg:right-[10%] w-48 md:w-64 lg:w-72 object-contain opacity-[0.16] pointer-events-none select-none will-change-transform" />
 
-      {/* Illustration 2 — coffee person, mid-right, overlaps headline */}
+      {/* Coffee person — below pencil, further left, overlaps lower headline area */}
       <img src="/images/brand/coffee-person.png" alt="" aria-hidden="true"
-        className="hfg-ill-2 absolute top-[40%] right-[5%] md:right-[18%] w-44 md:w-56 lg:w-64 object-contain opacity-[0.14] pointer-events-none select-none will-change-transform"
-        style={{ transformStyle: 'preserve-3d' }} />
+        className="hfg-ill-2 absolute bottom-[22%] right-[20%] lg:right-[28%] w-36 md:w-48 lg:w-56 object-contain opacity-[0.12] pointer-events-none select-none will-change-transform" />
 
-      {/* Illustration 3 — trophy, bottom-left of text, smallest */}
+      {/* Trophy — bottom-right corner, smallest, visual anchor */}
       <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
-        className="hfg-ill-3 absolute bottom-[12%] left-[8%] md:left-[25%] w-32 md:w-40 lg:w-48 object-contain opacity-[0.12] pointer-events-none select-none will-change-transform"
-        style={{ transformStyle: 'preserve-3d' }} />
+        className="hfg-ill-3 absolute bottom-[8%] right-[4%] lg:right-[8%] w-28 md:w-32 lg:w-36 object-contain opacity-[0.1] pointer-events-none select-none will-change-transform" />
 
       {/* Text */}
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
