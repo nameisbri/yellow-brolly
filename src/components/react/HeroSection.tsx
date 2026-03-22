@@ -1,10 +1,7 @@
-import { useEffect, useRef, lazy } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Button } from './Button';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
-
-// Lazy load Three.js background only when needed
-const HeroBackground = lazy(() => import('./three/HeroBackground').then(m => ({ default: m.HeroBackground })));
 
 interface HeroSectionProps {
   headline: string;
@@ -86,13 +83,21 @@ export default function HeroSection({
   }, [prefersReducedMotion]);
 
   const words = headline.split(' ');
+  const highlightWords = highlightedWord
+    ? highlightedWord.toLowerCase().split(' ')
+    : [];
 
   return (
     <section
       ref={containerRef}
       className={`relative overflow-hidden bg-yellow-primary ${compact ? 'min-h-[60vh] py-24 md:py-32 lg:py-40' : 'min-h-screen py-24 md:py-32 lg:py-40 xl:py-48'} flex items-center`}
     >
-      {showBackground && <HeroBackground />}
+      {showBackground && (
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(0,0,0,0.08),transparent)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_80%_80%,rgba(0,0,0,0.04),transparent)]" />
+        </div>
+      )}
 
       <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
         <div className={`max-w-5xl ${centered ? 'mx-auto text-center' : ''}`}>
@@ -104,21 +109,21 @@ export default function HeroSection({
 
           <h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.05] tracking-tight mb-8"
-            style={{ perspective: '1000px' }}
           >
-            {words.map((word, index) => (
-              <span
-                key={index}
-                className="hero-word inline-block mr-[0.25em] last:mr-0"
-                style={{ transform: 'preserve-3d' }}
-              >
-                {highlightedWord && word.toLowerCase().includes(highlightedWord.toLowerCase()) ? (
-                  <span className="text-black drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)]">{word}</span>
-                ) : (
-                  <span className="text-black/90">{word}</span>
-                )}
-              </span>
-            ))}
+            {words.map((word, index) => {
+              const cleanWord = word.replace(/[.,!?;:]/g, '').toLowerCase();
+              const isHighlighted = highlightWords.includes(cleanWord);
+              return (
+                <span
+                  key={index}
+                  className="hero-word inline-block mr-[0.25em] last:mr-0"
+                >
+                  <span className={isHighlighted ? 'text-black' : 'text-black/80'}>
+                    {word}
+                  </span>
+                </span>
+              );
+            })}
           </h1>
 
           {subhead && (
@@ -153,14 +158,6 @@ export default function HeroSection({
           )}
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      {!compact && (
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-black/40">
-          <span className="text-xs tracking-widest uppercase">Scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-black/30 to-transparent" />
-        </div>
-      )}
 
       {/* Bottom fade into cream */}
       <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-cream to-transparent pointer-events-none z-20" />
