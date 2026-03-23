@@ -30,7 +30,7 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
 
 <header
   id="main-header"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-yellow-primary"
   data-hero="light"
 >
   <nav class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
@@ -178,10 +178,10 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
         header.classList.add('bg-black/95', 'backdrop-blur-xl', 'border-b', 'border-light-border', 'scrolled');
-        header.classList.remove('bg-transparent');
+        header.classList.remove('bg-yellow-primary');
       } else {
         header.classList.remove('bg-black/95', 'backdrop-blur-xl', 'border-b', 'border-light-border', 'scrolled');
-        header.classList.add('bg-transparent');
+        header.classList.add('bg-yellow-primary');
       }
     }, { passive: true });
   }
