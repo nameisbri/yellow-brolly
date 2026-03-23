@@ -15,7 +15,7 @@ const posts = (await getCollection('blog')).sort(
   <Section background="sand">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {posts.map((post) => (
-        <a href={`/blog/${post.id}`} class="group block bg-dark-elevated border border-light-border rounded-xl overflow-hidden hover:border-yellow-primary/30 transition-all duration-300">
+        <a href={`/blog/${post.id}`} class="group block bg-white border border-light-border rounded-xl overflow-hidden hover:border-yellow-primary/30 transition-all duration-300">
           <div class="p-6">
             <span class="text-yellow-text text-xs font-semibold tracking-wider uppercase">{post.data.category}</span>
             <h2 class="text-lg font-bold text-text-primary mt-2 mb-3 group-hover:text-yellow-text transition-colors">{post.data.title}</h2>

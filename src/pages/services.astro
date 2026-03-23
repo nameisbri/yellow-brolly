@@ -25,10 +25,10 @@ import { siteContent } from '../data/content';
   <ServicePillars client:visible />
 
   <!-- Selected Projects / Our Work -->
-  <Section background="sand-dark">
+  <Section background="dark">
     <div class="text-center mb-12">
-      <span class="inline-block text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4">Our Work</span>
-      <h2 class="text-3xl md:text-4xl font-display font-bold text-text-primary">Selected Projects</h2>
+      <span class="inline-block text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4">Our Work</span>
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Selected Projects</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -38,9 +38,9 @@ import { siteContent } from '../data/content';
         { title: 'Creative Agency Digital Overhaul', type: 'Creative Agency', desc: 'Unified file systems, security protocols, and streamlined client onboarding for a remote creative team.' },
         { title: 'Startup Operations & Scale', type: 'Tech Startup', desc: 'Workflow mapping, ownership clarity, and security foundations for a fast-growing team.' },
       ].map((project) => (
-        <div class="scroll-fade-up bg-dark-elevated border border-light-border rounded-xl overflow-hidden group hover:border-yellow-primary/30 transition-all duration-300">
+        <div class="scroll-fade-up bg-white border border-light-border rounded-xl overflow-hidden group hover:border-yellow-primary/30 transition-all duration-300">
           <!-- TODO: PHOTO: Replace with real project screenshot -->
-          <div class="aspect-[16/10] bg-dark-light flex items-center justify-center">
+          <div class="aspect-[16/10] bg-sand flex items-center justify-center">
             <span class="text-text-muted/30 text-sm">Project image</span>
           </div>
           <div class="p-6">
@@ -53,7 +53,7 @@ import { siteContent } from '../data/content';
     </div>
 
     <div class="mt-10 text-center">
-      <a href="/case-studies" class="text-yellow-text hover:text-yellow-hover transition-colors duration-300 font-medium text-sm inline-flex items-center gap-2">
+      <a href="/case-studies" class="text-yellow-primary hover:text-yellow-hover transition-colors duration-300 font-medium text-sm inline-flex items-center gap-2">
         View all case studies
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
       </a>

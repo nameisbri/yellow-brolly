@@ -90,7 +90,7 @@ interface BigTextCTAProps {
 
 export function BigTextCTA({ text, ctaLabel, ctaTo }: BigTextCTAProps) {
   return (
-    <section className="py-20 md:py-28 bg-black overflow-hidden">
+    <section className="py-20 md:py-28 bg-cream overflow-hidden">
       <ScrubText
         direction="left"
         className="text-[10vw] sm:text-[8vw] md:text-[6vw] font-display text-light-border whitespace-nowrap leading-none select-none tracking-wider"

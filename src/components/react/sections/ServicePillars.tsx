@@ -63,7 +63,7 @@ export default function ServicePillars() {
             >
               <button
                 onClick={() => setExpandedIndex(isExpanded ? null : index)}
-                className="w-full text-left bg-dark-elevated border border-light-border rounded-xl p-6 md:p-8 hover:border-yellow-primary/30 transition-all duration-300 overflow-hidden relative"
+                className="w-full text-left bg-white border border-light-border rounded-xl p-6 md:p-8 hover:border-yellow-primary/30 transition-all duration-300 overflow-hidden relative"
                 aria-expanded={isExpanded}
               >
                 {/* Accent top line */}

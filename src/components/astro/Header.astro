@@ -64,14 +64,14 @@ const aboutIsActive = aboutDropdown.some((item) => isActive(item.path));
             />
           </button>
           <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 min-w-[200px]">
-            <div class="bg-black border border-light-border rounded-lg shadow-xl py-2 overflow-hidden">
+            <div class="bg-white border border-light-border rounded-lg shadow-xl py-2 overflow-hidden">
               {aboutDropdown.map((item) => (
                 <a
                   href={item.path}
                   class={`block px-5 py-2.5 text-sm transition-colors duration-200 ${
                     isActive(item.path)
-                      ? 'text-yellow-primary bg-yellow-primary/10'
-                      : 'text-text-secondary hover:text-text-primary hover:bg-dark-elevated'
+                      ? 'text-yellow-text bg-yellow-primary/10'
+                      : 'text-text-secondary hover:text-text-primary hover:bg-sand'
                   }`}
                 >
                   {item.label}

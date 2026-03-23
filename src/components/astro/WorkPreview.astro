@@ -36,14 +36,14 @@ const projects = [
 const [featured, ...rest] = projects;
 ---
 
-<Section background="sand-dark" noPadding class="py-14 md:py-20 lg:py-28">
+<Section background="dark" noPadding class="py-14 md:py-20 lg:py-28">
   <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
     <div>
-      <h2 class="scroll-fade-up text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary leading-[1.1]">
+      <h2 class="scroll-fade-up text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-[1.1]">
         Real results for real organizations
       </h2>
     </div>
-    <a href="/case-studies" class="text-yellow-text hover:text-yellow-hover transition-colors duration-300 font-medium text-sm inline-flex items-center gap-2 flex-shrink-0">
+    <a href="/case-studies" class="text-yellow-primary hover:text-yellow-hover transition-colors duration-300 font-medium text-sm inline-flex items-center gap-2 flex-shrink-0">
       View all case studies
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
     </a>
@@ -51,7 +51,7 @@ const [featured, ...rest] = projects;
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
     <!-- Featured case study — large -->
-    <a href="/case-studies" class="scroll-fade-up group block rounded-xl overflow-hidden bg-dark-elevated transition-all duration-500 hover:-translate-y-1 lg:row-span-2">
+    <a href="/case-studies" class="scroll-fade-up group block rounded-xl overflow-hidden bg-white transition-all duration-500 hover:-translate-y-1 lg:row-span-2">
       <div class="aspect-[16/10] lg:aspect-[4/3] overflow-hidden relative">
         <img
           src={featured.image}
@@ -73,7 +73,7 @@ const [featured, ...rest] = projects;
 
     <!-- Smaller case studies stacked -->
     {rest.map((project) => (
-      <a href="/case-studies" class="scroll-fade-up group rounded-lg overflow-hidden bg-dark-elevated transition-all duration-500 hover:-translate-y-1 block sm:flex">
+      <a href="/case-studies" class="scroll-fade-up group rounded-lg overflow-hidden bg-white transition-all duration-500 hover:-translate-y-1 block sm:flex">
         <div class="aspect-[16/10] sm:aspect-auto sm:w-2/5 sm:flex-shrink-0 overflow-hidden relative">
           <img
             src={project.image}

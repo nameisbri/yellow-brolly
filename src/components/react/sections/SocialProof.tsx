@@ -132,7 +132,7 @@ export default function SocialProof() {
         {/* Stat + secondary quotes */}
         <div className="secondary-quotes-grid grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Client count as bold stat */}
-          <div className="secondary-quote flex flex-col justify-center p-6 md:p-8 rounded-xl bg-dark-elevated">
+          <div className="secondary-quote flex flex-col justify-center p-6 md:p-8 rounded-xl bg-sand">
             <span className="stat-number text-5xl md:text-6xl font-display font-bold text-text-primary leading-none mb-3">
               45+
             </span>

@@ -6,7 +6,7 @@
   --color-yellow-hover: #F5CC73;
   --color-yellow-glow: rgba(247, 179, 43, 0.4);
   --color-yellow-dim: rgba(247, 179, 43, 0.15);
-  --color-yellow-text: #F2BD4E;
+  --color-yellow-text: #8F6C00;
   --color-black: #131110;
   --color-dark: #1c1917;
   --color-dark-elevated: #262220;
@@ -16,7 +16,7 @@
   --color-dark-border: #4a4238;
   --color-gray: #A89F94;
   --color-light-gray: #C8BFB4;
-  --color-white: #262220;
+  --color-white: #FFFFFF;
 
   /* Service pillar accent colors */
   --color-accent-teal: #6B9E9E;
@@ -24,15 +24,15 @@
   --color-accent-sage: #7A9E7A;
   --color-accent-mauve: #9B7EA0;
 
-  /* Light palette - inverted to dark */
-  --color-cream: #131110;
-  --color-cream-warm: #1c1917;
-  --color-sand: #1c1917;
-  --color-sand-dark: #211e1a;
-  --color-light-border: #4a4238;
-  --color-text-primary: #F5F0E8;
-  --color-text-secondary: #C8BFB4;
-  --color-text-muted: #A89F94;
+  /* Light palette - clean white + light grey (no beige) */
+  --color-cream: #FFFFFF;
+  --color-cream-warm: #FAFAFA;
+  --color-sand: #F5F5F5;
+  --color-sand-dark: #EBEBEB;
+  --color-light-border: #E5E5E5;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #4A4A4A;
+  --color-text-muted: #7A7A7A;
 
   /* Typography */
   --font-display: 'Poppins', system-ui, sans-serif;
@@ -130,7 +130,7 @@ h3 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-black);
+  background: var(--color-cream);
 }
 
 ::-webkit-scrollbar-thumb {

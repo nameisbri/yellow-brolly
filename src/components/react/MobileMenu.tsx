@@ -61,7 +61,7 @@ export default function MobileMenu({ currentPath }: Props) {
       </button>
 
       {isOpen && (
-        <div className="mobile-menu lg:hidden fixed left-0 right-0 top-20 md:top-24 bottom-0 bg-black backdrop-blur-xl z-50">
+        <div className="mobile-menu lg:hidden fixed left-0 right-0 top-20 md:top-24 bottom-0 bg-white backdrop-blur-xl z-50">
           <nav className="container mx-auto px-6 py-12 h-full flex flex-col">
             <div className="flex flex-col gap-1">
               {/* About group */}
