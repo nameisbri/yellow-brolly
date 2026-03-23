@@ -6,6 +6,12 @@ import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const stepImages = [
+  '/images/brand/magnifying-glass.webp',
+  '/images/brand/creative-thinker.webp',
+  '/images/brand/trophy-winner.webp',
+];
+
 const stepAccents = ['#6B9E9E', '#C4956A', '#F2BD4E'];
 
 export default function ApproachPreview() {
@@ -126,7 +132,17 @@ export default function ApproachPreview() {
         {/* Three stages */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 lg:gap-12 relative z-10">
           {approachPreview.stages.map((stage, index) => (
-            <div key={stage.name} className="approach-step group">
+            <div key={stage.name} className="approach-step group relative">
+              {/* Illustration — inverted to white, ghosted behind content */}
+              <img
+                src={stepImages[index]}
+                alt=""
+                aria-hidden="true"
+                className="absolute -right-2 -top-4 w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain opacity-[0.07] group-hover:opacity-[0.14] transition-opacity duration-700 pointer-events-none select-none"
+                style={{ filter: 'invert(1) brightness(2)' }}
+                loading="lazy"
+              />
+
               {/* Large numeral */}
               <div className="relative mb-6 md:mb-8">
                 <span
@@ -146,18 +162,18 @@ export default function ApproachPreview() {
               </div>
 
               {/* Step name */}
-              <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-3">
+              <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-3 relative">
                 {stage.name}
               </h3>
 
               {/* Thin accent bar */}
               <div
-                className="w-10 h-[2px] mb-4 transition-all duration-500 group-hover:w-16"
+                className="w-10 h-[2px] mb-4 transition-all duration-500 group-hover:w-16 relative"
                 style={{ backgroundColor: stepAccents[index] }}
               />
 
               {/* Description */}
-              <p className="text-gray text-base leading-relaxed max-w-xs">
+              <p className="text-gray text-base leading-relaxed max-w-xs relative">
                 {stage.description}
               </p>
             </div>
