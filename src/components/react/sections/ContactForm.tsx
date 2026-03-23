@@ -187,7 +187,7 @@ export default function ContactForm() {
     }));
   };
 
-  const inputClasses = 'w-full px-5 py-4 rounded-xl bg-white border border-light-border text-text-primary placeholder-text-muted/50 focus:border-yellow-primary focus:outline-none focus:ring-2 focus:ring-yellow-primary/20 transition-all';
+  const inputClasses = 'w-full px-5 py-4 rounded-xl bg-black border border-light-border text-text-primary placeholder-text-muted/50 focus:border-yellow-primary focus:outline-none focus:ring-2 focus:ring-yellow-primary/20 transition-all';
 
   return (
     <Section background="cream">
@@ -206,7 +206,7 @@ export default function ContactForm() {
           {/* Form (takes 3 cols) */}
           <div className="contact-form-panel lg:col-span-3">
             {isSubmitted ? (
-              <div className="bg-white border border-light-border rounded-xl p-10 text-center">
+              <div className="bg-dark-elevated border border-light-border rounded-xl p-10 text-center">
                 <div className="w-20 h-20 bg-yellow-primary rounded-full flex items-center justify-center mx-auto mb-6">
                   <CheckIcon size={40} className="text-black" />
                 </div>
@@ -444,7 +444,7 @@ export default function ContactForm() {
 
           {/* Calendly sidebar (takes 2 cols) */}
           <div className="contact-info-panel lg:col-span-2">
-            <div className="bg-white rounded-xl p-6 md:p-8 border border-light-border lg:sticky lg:top-28 relative overflow-hidden">
+            <div className="bg-dark-elevated rounded-xl p-6 md:p-8 border border-light-border lg:sticky lg:top-28 relative overflow-hidden">
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-yellow-primary/5 rounded-full blur-3xl" />
 
               <h2 className="text-xl md:text-2xl font-display font-bold text-text-primary mb-4 relative">
@@ -473,7 +473,7 @@ export default function ContactForm() {
                     'No pressure, no obligations',
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3 text-text-muted text-sm">
-                      <span className="w-5 h-5 rounded-full bg-sand flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="w-5 h-5 rounded-full bg-dark-elevated flex items-center justify-center flex-shrink-0 mt-0.5">
                         <CheckIcon size={12} className="text-text-secondary" />
                       </span>
                       <span>{item}</span>

@@ -24,7 +24,7 @@ const bgMap: Record<string, string> = {
   black: 'bg-black',
 };
 
-const textClass = background === 'dark' || background === 'black' ? 'text-white' : 'text-text-primary';
+const textClass = 'text-text-primary';
 ---
 
 <section id={id} class:list={[noPadding ? '' : 'py-16 md:py-24 lg:py-32', bgMap[background], textClass, className]}>

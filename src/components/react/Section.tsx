@@ -26,7 +26,7 @@ export function Section({
     black: 'bg-black',
   };
 
-  const textClass = background === 'dark' || background === 'black' ? 'text-white' : 'text-text-primary';
+  const textClass = 'text-text-primary';
 
   return (
     <section

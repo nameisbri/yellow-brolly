@@ -51,7 +51,7 @@ const [featured, ...rest] = projects;
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
     <!-- Featured case study — large -->
-    <a href="/case-studies" class="scroll-fade-up group block rounded-xl overflow-hidden bg-white transition-all duration-500 hover:-translate-y-1 lg:row-span-2">
+    <a href="/case-studies" class="scroll-fade-up group block rounded-xl overflow-hidden bg-dark-elevated transition-all duration-500 hover:-translate-y-1 lg:row-span-2">
       <div class="aspect-[16/10] lg:aspect-[4/3] overflow-hidden relative">
         <img
           src={featured.image}
@@ -73,7 +73,7 @@ const [featured, ...rest] = projects;
 
     <!-- Smaller case studies stacked -->
     {rest.map((project) => (
-      <a href="/case-studies" class="scroll-fade-up group rounded-lg overflow-hidden bg-white transition-all duration-500 hover:-translate-y-1 block sm:flex">
+      <a href="/case-studies" class="scroll-fade-up group rounded-lg overflow-hidden bg-dark-elevated transition-all duration-500 hover:-translate-y-1 block sm:flex">
         <div class="aspect-[16/10] sm:aspect-auto sm:w-2/5 sm:flex-shrink-0 overflow-hidden relative">
           <img
             src={project.image}

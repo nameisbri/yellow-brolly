@@ -82,7 +82,7 @@ export function Card({
   return (
     <div
       ref={cardRef}
-      className={`bg-white rounded-xl p-8 border border-light-border transition-colors duration-500 ${className}`}
+      className={`bg-dark-elevated rounded-xl p-8 border border-light-border transition-colors duration-500 ${className}`}
     >
       {children}
     </div>

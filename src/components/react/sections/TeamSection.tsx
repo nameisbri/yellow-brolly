@@ -81,7 +81,7 @@ export default function TeamSection() {
           {team.members.map((member) => (
             <div
               key={member.name}
-              className="team-member bg-white border border-light-border rounded-xl overflow-hidden hover:border-yellow-primary/30 transition-all duration-300 group"
+              className="team-member bg-dark-elevated border border-light-border rounded-xl overflow-hidden hover:border-yellow-primary/30 transition-all duration-300 group"
             >
               {/* Large portrait photo */}
               <div className="aspect-[4/3] w-full overflow-hidden relative">
@@ -100,7 +100,7 @@ export default function TeamSection() {
                   </div>
                 )}
                 {/* Subtle gradient overlay at bottom for text readability */}
-                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-dark-elevated to-transparent" />
               </div>
 
               {/* Info section */}
@@ -128,7 +128,7 @@ export default function TeamSection() {
 
         {/* Key Collaborators */}
         {'collaborators' in team && (
-          <div className="team-member mt-8 p-6 bg-white/50 border border-light-border rounded-xl text-center">
+          <div className="team-member mt-8 p-6 bg-dark-elevated/50 border border-light-border rounded-xl text-center">
             <h3 className="text-lg font-display font-bold text-text-primary mb-2">Key Collaborators & Partners</h3>
             <p className="text-text-muted text-sm">{(team as { collaborators: string }).collaborators}</p>
           </div>
