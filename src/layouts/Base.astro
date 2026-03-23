@@ -28,9 +28,12 @@ const currentPath = Astro.url.pathname;
     />
   </head>
   <body>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[9999] focus:bg-yellow-primary focus:text-black focus:px-4 focus:py-2 focus:text-sm focus:font-semibold">
+      Skip to main content
+    </a>
     <div class="min-h-screen flex flex-col bg-cream text-text-primary relative">
       <Header currentPath={currentPath} />
-      <main class="flex-grow">
+      <main id="main-content" class="flex-grow" tabindex="-1">
         <slot />
       </main>
       <Footer />

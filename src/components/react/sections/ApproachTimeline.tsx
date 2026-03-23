@@ -8,9 +8,9 @@ import { useReducedMotion } from '../../../hooks/useReducedMotion';
 gsap.registerPlugin(ScrollTrigger);
 
 const stepImages = [
-  '/images/brand/magnifying-glass.png',
-  '/images/brand/creative-thinker.png',
-  '/images/brand/trophy-winner.png',
+  '/images/brand/magnifying-glass.webp',
+  '/images/brand/creative-thinker.webp',
+  '/images/brand/trophy-winner.webp',
 ];
 
 const stepAccents = ['#6B9E9E', '#C4956A', '#F7B32B'];

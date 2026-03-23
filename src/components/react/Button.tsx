@@ -49,6 +49,7 @@ export function Button({
         y: y * 0.2,
         duration: 0.3,
         ease: 'power2.out',
+        overwrite: true,
       });
     };
 

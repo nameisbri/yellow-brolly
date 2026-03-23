@@ -16,6 +16,9 @@ export default function HeroSection() {
     if (prefersReducedMotion || !sectionRef.current) return;
     const section = sectionRef.current;
 
+    // Track float tweens so we can pause/resume them
+    const floatTweens: gsap.core.Tween[] = [];
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
@@ -36,24 +39,42 @@ export default function HeroSection() {
 
       // Gentle float — each illustration bobs at its own rhythm after entrance
       tl.add(() => {
-        gsap.to('.hg-frame-1', { y: -14, duration: 3.2, ease: 'sine.inOut', yoyo: true, repeat: -1 });
-        gsap.to('.hg-frame-2', { y: 12, duration: 4.0, ease: 'sine.inOut', yoyo: true, repeat: -1 });
-        gsap.to('.hg-frame-3', { y: -10, duration: 3.6, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+        floatTweens.push(
+          gsap.to('.hg-frame-1', { y: -14, duration: 3.2, ease: 'sine.inOut', yoyo: true, repeat: -1 }),
+          gsap.to('.hg-frame-2', { y: 12, duration: 4.0, ease: 'sine.inOut', yoyo: true, repeat: -1 }),
+          gsap.to('.hg-frame-3', { y: -10, duration: 3.6, ease: 'sine.inOut', yoyo: true, repeat: -1 }),
+        );
       });
     }, sectionRef);
 
-    // Mouse parallax — stack shifts slightly
+    // Pause float animations when hero scrolls off-screen
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        floatTweens.forEach(tw => entry.isIntersecting ? tw.resume() : tw.pause());
+      },
+      { threshold: 0 }
+    );
+    observer.observe(section);
+
+    // Mouse parallax — throttled via rAF to avoid excess GSAP calls
+    let rafId = 0;
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = section.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      gsap.to('.hg-stack', { x: x * 25, y: y * 15, duration: 1.2, ease: 'power2.out' });
-      gsap.to('.hg-text', { x: x * -8, y: y * -5, duration: 1.2, ease: 'power2.out' });
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = 0;
+        const rect = section.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        gsap.to('.hg-stack', { x: x * 25, y: y * 15, duration: 1.2, ease: 'power2.out', overwrite: true });
+        gsap.to('.hg-text', { x: x * -8, y: y * -5, duration: 1.2, ease: 'power2.out', overwrite: true });
+      });
     };
 
-    section.addEventListener('mousemove', handleMouseMove);
+    section.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => {
       ctx.revert();
+      observer.disconnect();
+      cancelAnimationFrame(rafId);
       section.removeEventListener('mousemove', handleMouseMove);
     };
   }, [prefersReducedMotion]);
@@ -74,11 +95,11 @@ export default function HeroSection() {
 
             {/* Mobile illustration — single representative, visible below lg */}
             <div className={`hg-mobile-illust flex gap-4 items-center mb-8 lg:hidden ${hideForAnim}`}>
-              <img src="/images/brand/creative-designer.png" alt="" aria-hidden="true"
+              <img src="/images/brand/creative-designer.webp" alt="" aria-hidden="true"
                 className="w-20 h-20 object-contain opacity-[0.25]" />
-              <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
+              <img src="/images/brand/trophy-winner.webp" alt="" aria-hidden="true"
                 className="w-16 h-16 object-contain opacity-[0.2]" />
-              <img src="/images/brand/thumbs-up.png" alt="" aria-hidden="true"
+              <img src="/images/brand/thumbs-up.webp" alt="" aria-hidden="true"
                 className="w-14 h-14 object-contain opacity-[0.18]" />
             </div>
 
@@ -94,23 +115,23 @@ export default function HeroSection() {
           {/* No boxes — illustrations float freely with drop shadows for separation */}
           <div className="lg:col-span-4 hg-stack relative hidden lg:block will-change-transform" style={{ height: '580px' }}>
             {/* Pencil — top, pushed left so it overlaps with coffee person */}
-            <div className={`hg-frame-1 absolute -top-4 -right-4 will-change-transform ${hideForAnim}`}
+            <div className={`hg-frame-1 absolute -top-4 -right-4 ${hideForAnim}`}
               style={{ transform: 'rotate(5deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
-              <img src="/images/brand/creative-designer.png" alt="" aria-hidden="true"
+              <img src="/images/brand/creative-designer.webp" alt="" aria-hidden="true"
                 className="w-[16.5rem] h-[16.5rem] object-contain" />
             </div>
 
             {/* Trophy — middle, offset left */}
-            <div className={`hg-frame-2 absolute top-[28%] -left-8 will-change-transform ${hideForAnim}`}
+            <div className={`hg-frame-2 absolute top-[28%] -left-8 ${hideForAnim}`}
               style={{ transform: 'rotate(-3deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
-              <img src="/images/brand/trophy-winner.png" alt="" aria-hidden="true"
+              <img src="/images/brand/trophy-winner.webp" alt="" aria-hidden="true"
                 className="w-64 h-64 object-contain" />
             </div>
 
             {/* Thumbs up — bottom-right */}
-            <div className={`hg-frame-3 absolute -bottom-[5%] -right-[5%] will-change-transform ${hideForAnim}`}
+            <div className={`hg-frame-3 absolute -bottom-[5%] -right-[5%] ${hideForAnim}`}
               style={{ transform: 'rotate(2deg)', filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}>
-              <img src="/images/brand/thumbs-up.png" alt="" aria-hidden="true"
+              <img src="/images/brand/thumbs-up.webp" alt="" aria-hidden="true"
                 className="w-[16.5rem] h-[16.5rem] object-contain" />
             </div>
           </div>

@@ -161,7 +161,7 @@ export function PurposeIcon({ className = '', size = 24 }: IconProps) {
 export function UmbrellaIcon({ className = '', size = 24 }: IconProps) {
   return (
     <img
-      src="/images/brand/Brolly_Icon_Black.png"
+      src="/images/brand/Brolly_Icon_Black.webp"
       alt=""
       aria-hidden="true"
       width={size}

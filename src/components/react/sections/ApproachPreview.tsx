@@ -8,9 +8,9 @@ import { useReducedMotion } from '../../../hooks/useReducedMotion';
 gsap.registerPlugin(ScrollTrigger);
 
 const stepImages = [
-  '/images/brand/magnifying-glass.png',
-  '/images/brand/creative-thinker.png',
-  '/images/brand/trophy-winner.png',
+  '/images/brand/magnifying-glass.webp',
+  '/images/brand/creative-thinker.webp',
+  '/images/brand/trophy-winner.webp',
 ];
 
 const stepAccents = ['#6B9E9E', '#C4956A', '#F7B32B'];
@@ -60,7 +60,7 @@ export default function ApproachPreview() {
       {/* People photo — editorial context */}
       <div className="mb-10 rounded-xl overflow-hidden">
         <img
-          src="/images/photos/work-preview.jpg"
+          src="/images/photos/work-preview.webp"
           alt="Woman presenting at a whiteboard while colleagues listen intently"
           className="w-full h-48 md:h-64 lg:h-72 object-cover object-[center_20%]"
           loading="lazy"
