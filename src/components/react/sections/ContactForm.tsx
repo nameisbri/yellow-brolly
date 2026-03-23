@@ -3,8 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Section } from '../Section';
 import { Button } from '../Button';
-import { CalendarIcon, CheckIcon } from '../Icons';
-import { siteContent } from '../../../data/content';
+import { CheckIcon } from '../Icons';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -169,7 +168,7 @@ export default function ContactForm() {
         setIsSubmitted(true);
         setFormData(initialFormData);
       } else {
-        setSubmitError('Something went wrong. Please try again or email us directly at hello@yellowbrolly.co');
+        setSubmitError('Something went wrong. Please try again or email us directly at team@yellowbrollyco.com');
       }
     } catch {
       setSubmitError('Could not send your message. Please check your connection and try again.');
@@ -442,52 +441,55 @@ export default function ContactForm() {
             )}
           </div>
 
-          {/* Calendly sidebar (takes 2 cols) */}
+          {/* What to Expect sidebar (takes 2 cols) */}
           <div className="contact-info-panel lg:col-span-2">
             <div className="bg-white rounded-xl p-6 md:p-8 border border-light-border lg:sticky lg:top-28 relative overflow-hidden">
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-yellow-primary/5 rounded-full blur-3xl" />
 
-              <h2 className="text-xl md:text-2xl font-display font-bold text-text-primary mb-4 relative">
-                {siteContent.contact.calendly.headline}
+              <h2 className="text-xl md:text-2xl font-display font-bold text-text-primary mb-6 relative">
+                What to Expect
               </h2>
-              <p className="text-sm md:text-base text-text-muted mb-8 relative">
-                Schedule a free 30-minute discovery call to discuss your needs.
-              </p>
-              <Button
-                href={siteContent.contact.calendly.url}
-                variant="primary"
-                size="lg"
-                className="w-full relative"
-              >
-                <CalendarIcon size={20} className="mr-2" />
-                Schedule a Call
-              </Button>
 
-              <div className="mt-10 pt-8 border-t border-light-border relative">
-                <h3 className="font-display font-bold text-text-primary mb-5">What to Expect</h3>
-                <ul className="space-y-4">
-                  {[
-                    '30-minute introductory conversation',
-                    'Understanding of your challenges and goals',
-                    'Initial recommendations and next steps',
-                    'No pressure, no obligations',
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-text-muted text-sm">
-                      <span className="w-5 h-5 rounded-full bg-sand flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <CheckIcon size={12} className="text-text-secondary" />
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <ol className="space-y-6 relative">
+                {[
+                  {
+                    step: '1',
+                    title: 'Fill out the form',
+                    description: 'Tell us a bit about your organization, your goals, and what you need help with.',
+                  },
+                  {
+                    step: '2',
+                    title: 'We review your submission',
+                    description: 'Our team will take a look at your details and prepare for a meaningful conversation.',
+                  },
+                  {
+                    step: '3',
+                    title: 'We schedule a discovery call',
+                    description: "We'll reach out to book a time that works for you — no pressure, just a conversation.",
+                  },
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-4">
+                    <span className="w-8 h-8 rounded-full bg-yellow-primary flex items-center justify-center flex-shrink-0 text-black font-bold text-sm font-display">
+                      {item.step}
+                    </span>
+                    <div>
+                      <h3 className="font-display font-bold text-text-primary text-sm mb-1">
+                        {item.title}
+                      </h3>
+                      <p className="text-text-muted text-sm leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
 
               {/* Async contact */}
               <div className="mt-8 pt-6 border-t border-light-border relative">
                 <p className="text-sm text-text-muted">
                   Prefer email? Reach us at{' '}
-                  <a href="mailto:hello@yellowbrolly.co" className="text-yellow-text hover:underline">
-                    hello@yellowbrolly.co
+                  <a href="mailto:team@yellowbrollyco.com" className="text-yellow-text hover:underline">
+                    team@yellowbrollyco.com
                   </a>
                 </p>
               </div>

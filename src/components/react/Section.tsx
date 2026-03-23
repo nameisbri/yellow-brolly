@@ -27,16 +27,18 @@ export function Section({
   };
 
   const textClass = background === 'dark' || background === 'black' ? 'text-white' : 'text-text-primary';
+  const isDark = background === 'dark' || background === 'black';
 
   return (
     <section
       id={id}
-      className={`${noPadding ? '' : 'py-16 md:py-24 lg:py-32'} ${bgStyles[background]} ${textClass} ${className}`}
+      className={`${noPadding ? '' : 'py-16 md:py-24 lg:py-32'} ${bgStyles[background]} ${textClass} relative ${className}`}
     >
+      {isDark && <div className="grain-overlay" />}
       {fullWidth ? (
         children
       ) : (
-        <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+        <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl relative z-[1]">
           {children}
         </div>
       )}

@@ -41,7 +41,7 @@ const walkthroughStudies = studies.slice(0, 3);
   description="Real results from nonprofits, agencies, and startups. See how we help organizations grow with clarity and confidence."
 >
   <!-- Hero — compact, sets expectation of "three projects" -->
-  <section class="relative pt-32 pb-14 md:pt-44 md:pb-18 bg-yellow-primary overflow-hidden">
+  <section class="relative pt-28 pb-10 md:pt-36 md:pb-14 bg-yellow-primary overflow-hidden">
     <div class="absolute -right-16 md:-right-8 top-1/2 -translate-y-1/2 opacity-[0.06] pointer-events-none select-none">
       <img src="/images/brand/Brolly_Icon_Black.webp" alt="" aria-hidden="true" class="w-64 h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] object-contain" />
     </div>
@@ -59,11 +59,11 @@ const walkthroughStudies = studies.slice(0, 3);
       </p>
     </div>
 
-    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-cream-warm to-transparent pointer-events-none"></div>
   </section>
+  <div class="relative z-10 -mt-1 h-12 md:h-16 bg-gradient-to-b from-yellow-primary to-transparent pointer-events-none"></div>
 
   <!-- Project Index — magazine-style table of contents -->
-  <nav aria-label="Case study navigation" class="bg-cream-warm">
+  <nav aria-label="Case study navigation" class="bg-cream">
     <div class="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
       {walkthroughStudies.map((study, i) => {
         const config = caseStudyConfigs[i];

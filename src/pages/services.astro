@@ -14,7 +14,7 @@ import { siteContent } from '../data/content';
   <PageHero headline="What We Do" subhead={siteContent.services.hero.subhead} eyebrow="Our Services" />
 
   <!-- Intro section -->
-  <section class="py-16 md:py-20 bg-cream-warm">
+  <section class="py-16 md:py-20 bg-cream">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <p class="text-lg md:text-xl text-text-secondary leading-relaxed">
         {siteContent.services.intro}
@@ -25,10 +25,10 @@ import { siteContent } from '../data/content';
   <ServicePillars client:visible />
 
   <!-- Selected Projects / Our Work -->
-  <Section background="sand-dark">
+  <Section background="dark">
     <div class="text-center mb-12">
-      <span class="inline-block text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4">Our Work</span>
-      <h2 class="text-3xl md:text-4xl font-display font-bold text-text-primary">Selected Projects</h2>
+      <span class="inline-block text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4">Our Work</span>
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Selected Projects</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -53,7 +53,7 @@ import { siteContent } from '../data/content';
     </div>
 
     <div class="mt-10 text-center">
-      <a href="/case-studies" class="text-yellow-text hover:text-yellow-hover transition-colors duration-300 font-medium text-sm inline-flex items-center gap-2">
+      <a href="/case-studies" class="text-yellow-primary hover:text-yellow-hover transition-colors duration-300 font-medium text-sm inline-flex items-center gap-2">
         View all case studies
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
       </a>

@@ -124,7 +124,7 @@ export function Button({
         <span className="absolute inset-0 bg-yellow-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
       )}
       {variant === 'dark' && (
-        <span className="absolute inset-0 bg-dark-elevated translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+        <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
       )}
       {variant === 'dark-outline' && (
         <span className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />

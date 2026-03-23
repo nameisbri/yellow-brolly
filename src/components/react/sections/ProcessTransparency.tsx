@@ -40,22 +40,22 @@ export default function ProcessTransparency() {
   if (!processTransparency) return null;
 
   return (
-    <Section background="warm">
+    <Section background="dark">
       <div ref={sectionRef} className="max-w-5xl">
-        <span className="transparency-item text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
+        <span className="transparency-item text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
           Practicalities
         </span>
-        <h2 className="transparency-item text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary mb-16 md:mb-20">
+        <h2 className="transparency-item text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-16 md:mb-20">
           {processTransparency.headline}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 md:gap-y-14">
           {processTransparency.details.map((detail, index) => (
             <div key={index} className="transparency-item">
-              <h3 className="text-xl font-bold text-text-primary mb-3">
+              <h3 className="text-xl font-bold text-white mb-3">
                 {detail.title}
               </h3>
-              <p className="text-text-muted leading-relaxed">
+              <p className="text-gray leading-relaxed">
                 {detail.description}
               </p>
             </div>

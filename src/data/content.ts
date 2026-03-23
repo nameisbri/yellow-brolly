@@ -487,8 +487,8 @@ export const siteContent = {
     },
     alternativeContact: {
       headline: 'Prefer async?',
-      description: 'Email us at hello@yellowbrolly.co',
-      email: 'hello@yellowbrolly.co',
+      description: 'Email us at team@yellowbrollyco.com',
+      email: 'team@yellowbrollyco.com',
     },
     introCall: {
       headline: 'Questions first?',
