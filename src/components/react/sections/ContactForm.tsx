@@ -168,7 +168,7 @@ export default function ContactForm() {
         setIsSubmitted(true);
         setFormData(initialFormData);
       } else {
-        setSubmitError('Something went wrong. Please try again or email us directly at hello@yellowbrolly.co');
+        setSubmitError('Something went wrong. Please try again or email us directly at team@yellowbrollyco.com');
       }
     } catch {
       setSubmitError('Could not send your message. Please check your connection and try again.');
@@ -488,8 +488,8 @@ export default function ContactForm() {
               <div className="mt-8 pt-6 border-t border-light-border relative">
                 <p className="text-sm text-text-muted">
                   Prefer email? Reach us at{' '}
-                  <a href="mailto:hello@yellowbrolly.co" className="text-yellow-text hover:underline">
-                    hello@yellowbrolly.co
+                  <a href="mailto:team@yellowbrollyco.com" className="text-yellow-text hover:underline">
+                    team@yellowbrollyco.com
                   </a>
                 </p>
               </div>
