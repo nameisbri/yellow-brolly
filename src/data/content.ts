@@ -428,43 +428,6 @@ export const siteContent = {
     cta: "You're not starting from scratch. Let's build on what's working and fix what's not.",
   },
 
-  blog: {
-    hero: {
-      headline: 'Insights & Ideas',
-      subhead: 'Thoughts on technology, culture, and people-first strategy.',
-    },
-    posts: [
-      {
-        id: '1',
-        title: 'Why People-First Tech Matters More Than Ever',
-        excerpt:
-          'Automation is accelerating. The organizations doing well are the ones keeping humans in the loop.',
-        date: '2024-01-15',
-        category: 'Culture',
-        image: '/blog/people-first.jpg',
-      },
-      {
-        id: '2',
-        title: '5 Signs Your Tech Stack Needs an Audit',
-        excerpt:
-          'Five signs your tools are slowing your team down instead of helping them.',
-        date: '2024-01-08',
-        category: 'Technology',
-        image: '/blog/tech-audit.jpg',
-      },
-      {
-        id: '3',
-        title: 'Building a Culture of Digital Confidence',
-        excerpt:
-          'What we\'ve learned about getting reluctant teams comfortable with new tools.',
-        date: '2024-01-02',
-        category: 'Strategy',
-        image: '/blog/digital-confidence.jpg',
-      },
-    ],
-    categories: ['All', 'Culture', 'Technology', 'Strategy', 'Security'],
-  },
-
   contact: {
     hero: {
       headline: "Let's Talk",
@@ -494,79 +457,6 @@ export const siteContent = {
       headline: 'Questions first?',
       description: 'Book a 15-min intro call (no pressure)',
     },
-  },
-  faq: {
-    hero: {
-      headline: 'Frequently Asked Questions',
-      subhead: 'Common questions about working with us.',
-    },
-    questions: [
-      {
-        question: 'How much does technology consulting cost?',
-        answer:
-          'We offer project-based pricing tailored to your scope and stage. Typical investments start at $X,XXX for assessments and digital readiness audits, with full implementations ranging based on complexity, team size, and timeline. We\'ll provide a detailed proposal after understanding your specific needs.',
-      },
-      {
-        question: 'What\'s a digital readiness assessment?',
-        answer:
-          'We look at your current tech stack, team capacity, and how ready your organization is for change. That means reviewing tools, processes, security, and adoption rates to figure out where you are and what needs attention. Usually takes 2-4 weeks.',
-      },
-      {
-        question: 'How long does a tech stack audit take?',
-        answer:
-          'Usually 2-4 weeks. We do stakeholder interviews, inventory your tools, analyze usage, review security, and document everything. You get a report with prioritized recommendations and an implementation roadmap.',
-      },
-      {
-        question: 'Do we need to be technical to work with you?',
-        answer:
-          'No. Most of our clients aren\'t technical. We translate the jargon into clear, actionable plans your team can follow.',
-      },
-      {
-        question: 'What\'s the difference between a CTO and a technology consultant?',
-        answer:
-          'A CTO is full-time and owns long-term tech strategy and team management. We provide strategic guidance and implementation support on a project basis, then hand it off. A lot of organizations work with us to build their tech foundation before hiring a CTO.',
-      },
-      {
-        question: 'Can you help us if we\'re just starting out?',
-        answer:
-          'Yes. Early-stage work usually means picking the right foundational tools and setting up good practices from the start. That saves real time and money down the road.',
-      },
-      {
-        question: 'What if we already have tools in place?',
-        answer:
-          'Most of our clients already have tools in place. We audit what you have, find gaps and redundancies, and make a plan to fix your stack. Sometimes the answer is better adoption of what you already own, not new purchases.',
-      },
-      {
-        question: 'Do you only work with nonprofits?',
-        answer:
-          'We know nonprofits and mission-driven organizations well, but we also work with creative agencies, tech startups, and other people-first teams. What our clients have in common is that they care about culture and values, not just profit.',
-      },
-      {
-        question: 'How do you handle cybersecurity?',
-        answer:
-          'Security is part of everything we do, not bolted on at the end. We run security audits, develop policies, train staff, and help with compliance (GDPR, HIPAA, etc.). We keep it practical, not overwhelming.',
-      },
-      {
-        question: 'What happens after a project ends?',
-        answer:
-          'You get full documentation and training so your team can maintain what we\'ve built. Many clients stick around for ongoing support, new integrations, or strategic check-ins. We also offer quarterly reviews for organizations that want to keep improving.',
-      },
-      {
-        question: 'Can you help with AI adoption?',
-        answer:
-          'Yes, but we\'re honest about it. We help you figure out if AI actually solves your problem (sometimes a spreadsheet is better). When it does make sense, we integrate it, train your team, and measure real impact.',
-      },
-      {
-        question: 'What makes YellowBrolly different from other consultants?',
-        answer:
-          'We care about how technology and culture fit together. We don\'t just recommend tools; we make sure they work with how your team operates. Our PMC approach means your values matter as much as your efficiency. And we\'re built for teams of 10-100, not 10,000.',
-      },
-      {
-        question: 'How do we get started?',
-        answer:
-          'Book a discovery call. We\'ll talk through your challenges, goals, and where things stand. If there\'s a fit, we\'ll propose a scope of work. No hard sell.',
-      },
-    ],
   },
   whyYellowBrolly: {
     hero: {
