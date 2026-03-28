@@ -94,7 +94,9 @@ const { story, pmcWay, cta } = siteContent.about;
     </div>
   </Section>
 
-  <TeamSection client:visible />
+  <TeamSection client:visible
+    teamHeadline={cms(c, 'about_team_headline', 'Meet the Team')}
+  />
 
   <CTASection client:visible headline={cms(c, 'about_cta', "Let's figure out what your team actually needs.")} primaryCta={{ label: cms(c, 'about_cta_button', "Let's Connect"), to: '/contact' }} />
 </Base>

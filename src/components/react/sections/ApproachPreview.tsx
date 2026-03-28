@@ -14,7 +14,11 @@ const stepImages = [
 
 const stepAccents = ['#6B9E9E', '#C4956A', '#F2BD4E'];
 
-export default function ApproachPreview() {
+interface ApproachPreviewProps {
+  headline?: string;
+}
+
+export default function ApproachPreview({ headline }: ApproachPreviewProps = {}) {
   const sectionRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const { approachPreview } = siteContent.home;
@@ -89,7 +93,7 @@ export default function ApproachPreview() {
         {/* Header row */}
         <div className="approach-headline flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-20 md:mb-28 lg:mb-32">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-[1.05] max-w-3xl">
-            {approachPreview.headline}
+            {headline || approachPreview.headline}
           </h2>
           <a
             href="/approach"

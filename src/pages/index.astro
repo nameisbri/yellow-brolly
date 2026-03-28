@@ -55,7 +55,9 @@ const jsonLd = [
     pmcSubheading={c['pmc_subheading']}
     pmcDescription={c['pmc_description']}
   />
-  <ApproachPreview client:visible />
+  <ApproachPreview client:visible
+    headline={cms(c, 'home_approach_headline', 'A clear, repeatable approach to lasting change.')}
+  />
   <ServicesPreview />
 
   <!-- Brand Archetype callout — compact inline -->

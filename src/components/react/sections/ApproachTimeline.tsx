@@ -15,7 +15,12 @@ const stepImages = [
 
 const stepAccents = ['#6B9E9E', '#C4956A', '#F7B32B'];
 
-export default function ApproachTimeline() {
+interface ApproachTimelineProps {
+  sectionHeading?: string;
+  closingStatement?: string;
+}
+
+export default function ApproachTimeline({ sectionHeading, closingStatement }: ApproachTimelineProps = {}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const { stages, closing } = siteContent.approach;
@@ -74,7 +79,7 @@ export default function ApproachTimeline() {
             How We Work
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-text-primary leading-[1.1]">
-            Three steps.<br />One continuous cycle.
+            {sectionHeading || 'Three steps. One continuous cycle.'}
           </h2>
         </div>
 
@@ -133,7 +138,7 @@ export default function ApproachTimeline() {
         <div className="closing-statement mt-32 md:mt-44 pt-12 md:pt-16">
           <div className="w-16 h-1 bg-yellow-primary mb-8" />
           <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-text-primary font-display font-bold leading-[1.15] max-w-4xl">
-            {closing}
+            {closingStatement || closing}
           </p>
         </div>
       </div>

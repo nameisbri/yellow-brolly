@@ -89,9 +89,12 @@ const initialFormData: FormData = {
 interface ContactFormProps {
   headline?: string;
   subheading?: string;
+  submitLabel?: string;
+  successHeadline?: string;
+  successMessage?: string;
 }
 
-export default function ContactForm({ headline, subheading }: ContactFormProps = {}) {
+export default function ContactForm({ headline, subheading, submitLabel, successHeadline, successMessage }: ContactFormProps = {}) {
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -215,10 +218,10 @@ export default function ContactForm({ headline, subheading }: ContactFormProps =
                   <CheckIcon size={40} className="text-black" />
                 </div>
                 <h3 className="text-2xl font-display font-bold text-text-primary mb-3">
-                  Thank you!
+                  {successHeadline || 'Thank you!'}
                 </h3>
                 <p className="text-text-muted mb-6">
-                  We've received your inquiry and will be in touch shortly.
+                  {successMessage || "We've received your inquiry and will be in touch shortly."}
                 </p>
                 <Button
                   onClick={() => setIsSubmitted(false)}
@@ -440,7 +443,7 @@ export default function ContactForm({ headline, subheading }: ContactFormProps =
                   disabled={isSubmitting}
                   className="w-full"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Inquiry'}
+                  {isSubmitting ? 'Sending...' : (submitLabel || 'Send Inquiry')}
                 </Button>
               </form>
             )}

@@ -30,7 +30,7 @@ const c = await getCMSContent();
   <!-- Selected Projects / Our Work -->
   <Section background="dark">
     <div class="text-center mb-12">
-      <span class="inline-block text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4">Our Work</span>
+      <span class="inline-block text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4">{cms(c, 'services_work_eyebrow', 'Our Work')}</span>
       <h2 class="text-3xl md:text-4xl font-display font-bold text-white">{cms(c, 'services_work_heading', 'Selected Projects')}</h2>
     </div>
 
@@ -57,7 +57,7 @@ const c = await getCMSContent();
 
     <div class="mt-10 text-center">
       <a href="/case-studies" class="text-yellow-primary hover:text-yellow-hover transition-colors duration-300 font-medium text-sm inline-flex items-center gap-2">
-        View all case studies
+        {cms(c, 'services_work_link', 'View all case studies')}
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
       </a>
     </div>

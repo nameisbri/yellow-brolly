@@ -14,7 +14,13 @@ const c = await getCMSContent();
   description="A clear, repeatable 3-step approach that helps organizations move through change with focus and momentum."
 >
   <PageHero headline={cms(c, 'approach_headline', 'Assess. Align. Activate.')} subhead={cms(c, 'approach_subhead', 'Our work is grounded in a clear, repeatable approach that helps organizations move through change with focus and momentum.')} eyebrow="Our Approach" />
-  <ApproachTimeline client:visible />
-  <ProcessTransparency client:visible />
+  <ApproachTimeline client:visible
+    sectionHeading={cms(c, 'approach_timeline_heading', 'Three steps. One continuous cycle.')}
+    closingStatement={cms(c, 'approach_closing', 'This is not transformation in theory. It is transformation in practice.')}
+  />
+  <ProcessTransparency client:visible
+    headline={cms(c, 'approach_transparency_headline', 'Working with Us')}
+    eyebrow={cms(c, 'approach_transparency_eyebrow', 'Practicalities')}
+  />
   <CTASection client:visible headline={cms(c, 'approach_cta', 'We will start where you are and build from there.')} primaryCta={{ label: cms(c, 'approach_cta_button', "Let's Talk"), to: '/contact' }} />
 </Base>

@@ -47,7 +47,7 @@ const [featured, ...rest] = projects;
       </h2>
     </div>
     <a href="/case-studies" class="text-yellow-primary hover:text-yellow-hover transition-colors duration-300 font-medium text-sm inline-flex items-center gap-2 flex-shrink-0">
-      View all case studies
+      {cms(c, 'home_work_link', 'View all case studies')}
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
     </a>
   </div>

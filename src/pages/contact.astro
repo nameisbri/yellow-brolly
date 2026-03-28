@@ -13,5 +13,8 @@ const c = await getCMSContent();
   <ContactForm client:load
     headline={cms(c, 'contact_headline', "Let's talk about your tech and strategy goals")}
     subheading={cms(c, 'contact_subheading', "Whether you're exploring a digital overhaul, need help with AI or cybersecurity, or want to align your tools with your team, we're ready to chat.")}
+    submitLabel={cms(c, 'contact_submit_label', 'Send Inquiry')}
+    successHeadline={cms(c, 'contact_success_headline', 'Thank you!')}
+    successMessage={cms(c, 'contact_success_message', "We've received your inquiry and will be in touch shortly.")}
   />
 </Base>

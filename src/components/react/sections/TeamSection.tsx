@@ -21,7 +21,11 @@ function LinkedInIcon({ size = 16 }: { size?: number }) {
   );
 }
 
-export default function TeamSection() {
+interface TeamSectionProps {
+  teamHeadline?: string;
+}
+
+export default function TeamSection({ teamHeadline }: TeamSectionProps = {}) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const { team } = siteContent.about;
@@ -73,7 +77,7 @@ export default function TeamSection() {
       <div ref={sectionRef}>
         <div className="team-heading mb-12">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-text-primary mb-4">
-            {team.headline}
+            {teamHeadline || team.headline}
           </h2>
         </div>
 

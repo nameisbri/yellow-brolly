@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T23:21:24.407Z",
+  "generatedAt": "2026-03-28T23:41:57.235Z",
   "fields": [
     {
       "key": "about_cta",
@@ -65,6 +65,13 @@
       "group": "About / Content"
     },
     {
+      "key": "about_team_headline",
+      "fallback": "Meet the Team",
+      "file": "src/pages/about.astro",
+      "type": "text",
+      "group": "About / Content"
+    },
+    {
       "key": "about_why_closing",
       "fallback": "Because the goal is not just change. The goal is lasting capability.",
       "file": "src/pages/about.astro",
@@ -107,6 +114,13 @@
       "group": "About / Content"
     },
     {
+      "key": "approach_closing",
+      "fallback": "This is not transformation in theory. It is transformation in practice.",
+      "file": "src/pages/approach.astro",
+      "type": "text",
+      "group": "Approach / Content"
+    },
+    {
       "key": "approach_cta",
       "fallback": "We will start where you are and build from there.",
       "file": "src/pages/approach.astro",
@@ -132,6 +146,27 @@
       "fallback": "Our work is grounded in a clear, repeatable approach that helps organizations move through change with focus and momentum.",
       "file": "src/pages/approach.astro",
       "type": "textarea",
+      "group": "Approach / Content"
+    },
+    {
+      "key": "approach_timeline_heading",
+      "fallback": "Three steps. One continuous cycle.",
+      "file": "src/pages/approach.astro",
+      "type": "text",
+      "group": "Approach / Content"
+    },
+    {
+      "key": "approach_transparency_eyebrow",
+      "fallback": "Practicalities",
+      "file": "src/pages/approach.astro",
+      "type": "text",
+      "group": "Approach / Content"
+    },
+    {
+      "key": "approach_transparency_headline",
+      "fallback": "Working with Us",
+      "file": "src/pages/approach.astro",
+      "type": "text",
       "group": "Approach / Content"
     },
     {
@@ -233,6 +268,27 @@
       "group": "Contact / Content"
     },
     {
+      "key": "contact_submit_label",
+      "fallback": "Send Inquiry",
+      "file": "src/pages/contact.astro",
+      "type": "text",
+      "group": "Contact / Content"
+    },
+    {
+      "key": "contact_success_headline",
+      "fallback": "Thank you!",
+      "file": "src/pages/contact.astro",
+      "type": "text",
+      "group": "Contact / Content"
+    },
+    {
+      "key": "contact_success_message",
+      "fallback": "We've received your inquiry and will be in touch shortly.",
+      "file": "src/pages/contact.astro",
+      "type": "text",
+      "group": "Contact / Content"
+    },
+    {
       "key": "archetype_callout_cta",
       "fallback": "Find Your Archetype",
       "file": "src/pages/index.astro",
@@ -289,8 +345,22 @@
       "group": "Homepage / Content"
     },
     {
+      "key": "home_approach_headline",
+      "fallback": "A clear, repeatable approach to lasting change.",
+      "file": "src/pages/index.astro",
+      "type": "text",
+      "group": "Homepage / Content"
+    },
+    {
       "key": "home_services_heading",
       "fallback": "What We Do",
+      "file": "src/components/astro/ServicesPreview.astro",
+      "type": "text",
+      "group": "Homepage / Services Preview"
+    },
+    {
+      "key": "home_services_link",
+      "fallback": "Explore all services",
       "file": "src/components/astro/ServicesPreview.astro",
       "type": "text",
       "group": "Homepage / Services Preview"
@@ -305,6 +375,13 @@
     {
       "key": "home_work_heading",
       "fallback": "Real results for real organizations",
+      "file": "src/components/astro/WorkPreview.astro",
+      "type": "text",
+      "group": "Homepage / Work Preview"
+    },
+    {
+      "key": "home_work_link",
+      "fallback": "View all case studies",
       "file": "src/components/astro/WorkPreview.astro",
       "type": "text",
       "group": "Homepage / Work Preview"
@@ -366,8 +443,22 @@
       "group": "Services / Content"
     },
     {
+      "key": "services_work_eyebrow",
+      "fallback": "Our Work",
+      "file": "src/pages/services.astro",
+      "type": "text",
+      "group": "Services / Content"
+    },
+    {
       "key": "services_work_heading",
       "fallback": "Selected Projects",
+      "file": "src/pages/services.astro",
+      "type": "text",
+      "group": "Services / Content"
+    },
+    {
+      "key": "services_work_link",
+      "fallback": "View all case studies",
       "file": "src/pages/services.astro",
       "type": "text",
       "group": "Services / Content"

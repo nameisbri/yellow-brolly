@@ -7,7 +7,12 @@ import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ProcessTransparency() {
+interface ProcessTransparencyProps {
+  headline?: string;
+  eyebrow?: string;
+}
+
+export default function ProcessTransparency({ headline: headlineProp, eyebrow }: ProcessTransparencyProps = {}) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const { processTransparency } = siteContent.approach;
@@ -43,10 +48,10 @@ export default function ProcessTransparency() {
     <Section background="dark">
       <div ref={sectionRef} className="max-w-5xl">
         <span className="transparency-item text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
-          Practicalities
+          {eyebrow || 'Practicalities'}
         </span>
         <h2 className="transparency-item text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-16 md:mb-20">
-          {processTransparency.headline}
+          {headlineProp || processTransparency.headline}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 md:gap-y-14">
