@@ -7,7 +7,12 @@ import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function SocialProof() {
+interface SocialProofProps {
+  headline?: string;
+  clientCount?: string;
+}
+
+export default function SocialProof({ headline, clientCount }: SocialProofProps = {}) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const { socialProof } = siteContent.home;
@@ -134,10 +139,10 @@ export default function SocialProof() {
           {/* Client count as bold stat */}
           <div className="secondary-quote flex flex-col justify-center p-6 md:p-8 rounded-xl bg-sand">
             <span className="stat-number text-5xl md:text-6xl font-display font-bold text-text-primary leading-none mb-3">
-              45+
+              {(clientCount || socialProof.clientCount).split(' ')[0]}
             </span>
             <span className="text-sm text-text-muted leading-relaxed">
-              organizations across nonprofit, agency, and tech sectors
+              {(clientCount || socialProof.clientCount).split(' ').slice(1).join(' ')}
             </span>
           </div>
 

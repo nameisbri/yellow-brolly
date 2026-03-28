@@ -86,7 +86,12 @@ const initialFormData: FormData = {
   additionalInfo: '',
 };
 
-export default function ContactForm() {
+interface ContactFormProps {
+  headline?: string;
+  subheading?: string;
+}
+
+export default function ContactForm({ headline, subheading }: ContactFormProps = {}) {
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -194,10 +199,10 @@ export default function ContactForm() {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary mb-4">
-            Let's talk about your tech and strategy goals
+            {headline || "Let's talk about your tech and strategy goals"}
           </h2>
           <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            Whether you're exploring a digital overhaul, need help with AI or cybersecurity, or want to align your tools with your team, we're ready to chat.
+            {subheading || "Whether you're exploring a digital overhaul, need help with AI or cybersecurity, or want to align your tools with your team, we're ready to chat."}
           </p>
         </div>
 

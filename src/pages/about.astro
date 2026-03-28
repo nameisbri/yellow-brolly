@@ -6,7 +6,9 @@ import ValuesGrid from '../components/astro/ValuesGrid.astro';
 import TeamSection from '../components/react/sections/TeamSection.tsx';
 import CTASection from '../components/react/sections/CTASection.tsx';
 import { siteContent } from '../data/content';
+import { getCMSContent, cms } from '../lib/cms';
 
+const c = await getCMSContent();
 const { story, pmcWay, cta } = siteContent.about;
 ---
 
@@ -14,7 +16,7 @@ const { story, pmcWay, cta } = siteContent.about;
   title="About Us: Our Story & Team | YellowBrollyCo"
   description="Meet the YellowBrolly team. We bring together strategy, culture, digital readiness, brand, and implementation to help organizations grow."
 >
-  <PageHero headline="Tech with soul. Strategy with impact." subhead="Helping people-first organizations do well in a digital world, without compromising on security, strategy, or staying power." eyebrow="About Us" />
+  <PageHero headline={cms(c, 'about_headline', 'Tech with soul. Strategy with impact.')} subhead={cms(c, 'about_mission', 'Helping people-first organizations do well in a digital world, without compromising on security, strategy, or staying power.')} eyebrow="About Us" />
 
   <!-- Story with full-width photo -->
   <Section background="cream">
@@ -94,5 +96,5 @@ const { story, pmcWay, cta } = siteContent.about;
 
   <TeamSection client:visible />
 
-  <CTASection client:visible headline={cta} primaryCta={{ label: "Let's Connect", to: '/contact' }} />
+  <CTASection client:visible headline={cms(c, 'cta_headline', cta)} primaryCta={{ label: cms(c, 'cta_button', "Let's Connect"), to: '/contact' }} />
 </Base>

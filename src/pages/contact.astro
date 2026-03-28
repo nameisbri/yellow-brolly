@@ -1,11 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
 import ContactForm from '../components/react/sections/ContactForm.tsx';
+import { getCMSContent, cms } from '../lib/cms';
+
+const c = await getCMSContent();
 ---
 
 <Base
   title="Let's Talk: Book a Discovery Call | YellowBrollyCo"
   description="Tell us about your tech and strategy goals. Whether you need help with digital transformation, AI, cybersecurity, or brand alignment, we are ready to chat."
 >
-  <ContactForm client:load />
+  <ContactForm client:load
+    headline={c['contact_headline']}
+    subheading={c['contact_subheading']}
+  />
 </Base>

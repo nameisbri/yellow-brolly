@@ -7,6 +7,9 @@ import ServicesPreview from '../components/astro/ServicesPreview.astro';
 import WorkPreview from '../components/astro/WorkPreview.astro';
 import SocialProof from '../components/react/sections/SocialProof.tsx';
 import CTASection from '../components/react/sections/CTASection.tsx';
+import { getCMSContent, cms } from '../lib/cms';
+
+const c = await getCMSContent();
 
 const jsonLd = [
   {
@@ -42,8 +45,16 @@ const jsonLd = [
   description="We help organizations grow with clarity, confidence, and the systems to scale. Strategy, digital readiness, brand, culture, funding, and implementation support."
   jsonLd={jsonLd}
 >
-  <HeroSection client:visible />
-  <WhoWeAre />
+  <HeroSection client:visible
+    headline={cms(c, 'hero_headline', 'When growth gets complex, we help you move forward.')}
+    subheading={cms(c, 'hero_subheading', 'We help organizations strengthen leadership, modernize operations, and implement change that lasts.')}
+    ctaText={cms(c, 'hero_cta', 'Book a Discovery Call')}
+  />
+  <WhoWeAre
+    pmcHeadline={c['pmc_headline']}
+    pmcSubheading={c['pmc_subheading']}
+    pmcDescription={c['pmc_description']}
+  />
   <ApproachPreview client:visible />
   <ServicesPreview />
 
@@ -67,9 +78,12 @@ const jsonLd = [
   </section>
 
   <WorkPreview />
-  <SocialProof client:visible />
+  <SocialProof client:visible
+    headline={c['social_proof_headline']}
+    clientCount={c['client_count']}
+  />
   <CTASection client:visible
-    headline="Let's build the clarity and momentum your organization needs."
-    primaryCta={{ label: 'Book a Discovery Call', to: '/contact' }}
+    headline={cms(c, 'cta_headline', "Let's build the clarity and momentum your organization needs.")}
+    primaryCta={{ label: cms(c, 'cta_button', 'Book a Discovery Call'), to: '/contact' }}
   />
 </Base>

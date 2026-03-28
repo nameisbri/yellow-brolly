@@ -3,12 +3,22 @@ import { gsap } from 'gsap';
 import { Button } from './Button';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
+interface HeroSectionProps {
+  headline?: string;
+  subheading?: string;
+  ctaText?: string;
+}
+
 /**
  * G: Illustration stack — 3 illustrations in offset frames on the right,
  * sliding in from right with staggered timing. Editorial line-broken headline.
  * Solid warm frames (no glassmorphism). Mobile-friendly single illustration fallback.
  */
-export default function HeroSection() {
+export default function HeroSection({
+  headline = 'When growth gets complex, we help you move forward.',
+  subheading = 'We help organizations strengthen leadership, modernize operations, and implement change that lasts.',
+  ctaText = 'Book a Discovery Call',
+}: HeroSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
@@ -88,7 +98,7 @@ export default function HeroSection() {
           {/* Text — left, editorial line breaks */}
           <div className="lg:col-span-8 hg-text will-change-transform">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4.25rem] xl:text-[5.25rem] font-display font-bold leading-[1.05] tracking-tight text-black mb-8">
-              {'When growth gets complex, we help you move forward.'.split(' ').map((word, i) => (
+              {headline.split(' ').map((word, i) => (
                 <span key={i} className={`hg-line inline-block mr-[0.22em] last:mr-0 ${hideForAnim}`}>{word}</span>
               ))}
             </h1>
@@ -104,10 +114,10 @@ export default function HeroSection() {
             </div>
 
             <p className={`hg-sub text-lg md:text-xl text-black/60 max-w-lg mb-10 leading-relaxed ${hideForAnim}`}>
-              We help organizations strengthen leadership, modernize operations, and implement change that lasts.
+              {subheading}
             </p>
             <Button to="/contact" variant="dark" size="lg" className={`hg-cta ${hideForAnim}`}>
-              Book a Discovery Call
+              {ctaText}
             </Button>
           </div>
 
