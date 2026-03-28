@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-03-28T22:55:11.221Z",
+  "fields": [
+    {
+      "key": "about_headline",
+      "fallback": "Tech with soul. Strategy with impact.",
+      "file": "src/pages/about.astro",
+      "type": "text"
+    },
+    {
+      "key": "about_mission",
+      "fallback": "Helping people-first organizations do well in a digital world, without compromising on security, strategy, or staying power.",
+      "file": "src/pages/about.astro",
+      "type": "textarea"
+    },
+    {
+      "key": "cta_button",
+      "fallback": "Book a Discovery Call",
+      "file": "src/pages/index.astro",
+      "type": "text"
+    },
+    {
+      "key": "hero_cta",
+      "fallback": "Book a Discovery Call",
+      "file": "src/pages/index.astro",
+      "type": "text"
+    },
+    {
+      "key": "hero_headline",
+      "fallback": "When growth gets complex, we help you move forward.",
+      "file": "src/pages/index.astro",
+      "type": "text"
+    },
+    {
+      "key": "hero_subheading",
+      "fallback": "We help organizations strengthen leadership, modernize operations, and implement change that lasts.",
+      "file": "src/pages/index.astro",
+      "type": "text"
+    }
+  ]
+}
