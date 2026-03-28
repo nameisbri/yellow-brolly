@@ -4,14 +4,17 @@ import PageHero from '../components/astro/PageHero.astro';
 import ApproachTimeline from '../components/react/sections/ApproachTimeline.tsx';
 import ProcessTransparency from '../components/react/sections/ProcessTransparency.tsx';
 import CTASection from '../components/react/sections/CTASection.tsx';
+import { getCMSContent, cms } from '../lib/cms';
+
+const c = await getCMSContent();
 ---
 
 <Base
   title="Our Approach: Assess. Align. Activate. | YellowBrollyCo"
   description="A clear, repeatable 3-step approach that helps organizations move through change with focus and momentum."
 >
-  <PageHero headline="Assess. Align. Activate." subhead="Our work is grounded in a clear, repeatable approach that helps organizations move through change with focus and momentum." eyebrow="Our Approach" />
+  <PageHero headline={cms(c, 'approach_headline', 'Assess. Align. Activate.')} subhead={cms(c, 'approach_subhead', 'Our work is grounded in a clear, repeatable approach that helps organizations move through change with focus and momentum.')} eyebrow="Our Approach" />
   <ApproachTimeline client:visible />
   <ProcessTransparency client:visible />
-  <CTASection client:visible headline="We will start where you are and build from there." primaryCta={{ label: "Let's Talk", to: '/contact' }} />
+  <CTASection client:visible headline={cms(c, 'approach_cta', 'We will start where you are and build from there.')} primaryCta={{ label: cms(c, 'approach_cta_button', "Let's Talk"), to: '/contact' }} />
 </Base>

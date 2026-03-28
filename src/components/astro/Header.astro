@@ -1,5 +1,8 @@
 ---
 import MobileMenu from '../react/MobileMenu.tsx';
+import { getCMSContent, cms } from '../../lib/cms';
+
+const cmsContent = await getCMSContent();
 
 interface Props {
   currentPath: string;
@@ -18,7 +21,7 @@ const mainNav = [
   { label: 'Find Your Archetype', path: '/brand-archetype' },
 ];
 
-const ctaItem = { label: "Let's Talk", path: '/contact' };
+const ctaItem = { label: cms(cmsContent, 'nav_cta_text', "Let's Talk"), path: '/contact' };
 
 function isActive(path: string): boolean {
   if (path === '/') return currentPath === '/' || currentPath === '';

@@ -65,12 +65,12 @@ const jsonLd = [
         <div class="flex items-center gap-4">
           <img src="/images/brand/magnifying-glass.webp" alt="" aria-hidden="true" class="w-12 h-12 object-contain flex-shrink-0" loading="lazy" />
           <div>
-            <h3 class="text-base font-display font-bold text-text-primary">Curious what drives your brand?</h3>
-            <p class="text-sm text-text-muted">Take our Brand Archetype assessment.</p>
+            <h3 class="text-base font-display font-bold text-text-primary">{cms(c, 'archetype_callout_heading', 'Curious what drives your brand?')}</h3>
+            <p class="text-sm text-text-muted">{cms(c, 'archetype_callout_subhead', 'Take our Brand Archetype assessment.')}</p>
           </div>
         </div>
         <a href="/brand-archetype" class="flex-shrink-0 text-yellow-text hover:text-yellow-hover font-medium text-sm inline-flex items-center gap-2 transition-colors duration-300">
-          Find Your Archetype
+          {cms(c, 'archetype_callout_cta', 'Find Your Archetype')}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
         </a>
       </div>

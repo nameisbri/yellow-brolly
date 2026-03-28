@@ -22,8 +22,8 @@ const { story, pmcWay, cta } = siteContent.about;
   <Section background="cream">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       <div class="scroll-fade-up">
-        <h2 class="text-3xl md:text-4xl font-display font-bold text-text-primary mb-6">{story.headline}</h2>
-        <p class="text-lg text-text-muted leading-relaxed">{story.content}</p>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-text-primary mb-6">{cms(c, 'about_story_headline', 'Our Story')}</h2>
+        <p class="text-lg text-text-muted leading-relaxed">{cms(c, 'about_story_content', "YellowBrollyCo started because we kept seeing the same problem: teams adopting powerful digital tools and losing their identity in the process. We spent years in consulting and branding, watching organizations struggle with technology that didn't match their values. So we built YellowBrolly to close that gap, combining strategic rigor with creative empathy, grounded in People Matter Culture.")}</p>
       </div>
       <div class="scroll-fade-up relative flex items-center justify-center">
         <img
@@ -60,10 +60,10 @@ const { story, pmcWay, cta } = siteContent.about;
       </div>
       <div class="scroll-fade-up order-1 lg:order-2">
         {pmcWay.subhead && (
-          <span class="inline-block px-3 py-1 text-sm font-medium bg-yellow-primary/20 text-yellow-primary mb-4 tracking-wider uppercase rounded-full">{pmcWay.subhead}</span>
+          <span class="inline-block px-3 py-1 text-sm font-medium bg-yellow-primary/20 text-yellow-primary mb-4 tracking-wider uppercase rounded-full">{cms(c, 'about_pmc_subhead', 'People Matter Culture')}</span>
         )}
-        <h2 class="text-2xl md:text-3xl font-display font-bold text-white mb-5">{pmcWay.headline}</h2>
-        <p class="text-lg text-gray leading-relaxed border-l-4 border-yellow-primary pl-4">{pmcWay.description}</p>
+        <h2 class="text-2xl md:text-3xl font-display font-bold text-white mb-5">{cms(c, 'about_pmc_headline', 'The PMC Way')}</h2>
+        <p class="text-lg text-gray leading-relaxed border-l-4 border-yellow-primary pl-4">{cms(c, 'about_pmc_description', "People Matter Culture is how we run this company. PMC shapes how we work with clients, build systems, and measure success. It means integrity in our recommendations, practical creativity in our solutions, thought diversity in our approach, and Kingdom values at the foundation. Every system we touch has PMC built in.")}</p>
       </div>
     </div>
   </Section>
@@ -71,23 +71,23 @@ const { story, pmcWay, cta } = siteContent.about;
   <!-- Why YellowBrolly -->
   <Section background="sand" id="why-yellowbrolly">
     <div class="max-w-5xl">
-      <span class="scroll-fade-up text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">Why YellowBrolly</span>
-      <h2 class="scroll-fade-up text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary mb-8 leading-[1.1]">One partner. Real progress.</h2>
+      <span class="scroll-fade-up text-yellow-text text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">{cms(c, 'about_why_eyebrow', 'Why YellowBrolly')}</span>
+      <h2 class="scroll-fade-up text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary mb-8 leading-[1.1]">{cms(c, 'about_why_headline', 'One partner. Real progress.')}</h2>
       <div class="scroll-fade-up grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
         <div class="space-y-6">
           <p class="text-lg text-text-secondary leading-relaxed">
-            Most organizations do not need more advice in isolation. They need a partner who can connect the dots.
+            {cms(c, 'about_why_p1', 'Most organizations do not need more advice in isolation. They need a partner who can connect the dots.')}
           </p>
           <p class="text-lg text-text-secondary leading-relaxed">
-            YellowBrolly brings together strategy, culture, digital readiness, brand, and implementation in one integrated model. That means less fragmentation, stronger alignment, and a clearer path from vision to execution.
+            {cms(c, 'about_why_p2', 'YellowBrolly brings together strategy, culture, digital readiness, brand, and implementation in one integrated model. That means less fragmentation, stronger alignment, and a clearer path from vision to execution.')}
           </p>
         </div>
         <div class="space-y-6">
           <p class="text-lg text-text-secondary leading-relaxed">
-            We help clients do the hard but necessary work of growth: making decisions, strengthening systems, aligning people, adopting tools, and building the confidence to move forward.
+            {cms(c, 'about_why_p3', 'We help clients do the hard but necessary work of growth: making decisions, strengthening systems, aligning people, adopting tools, and building the confidence to move forward.')}
           </p>
           <p class="text-xl md:text-2xl font-display font-bold text-text-primary leading-snug mt-4">
-            Because the goal is not just change. The goal is lasting capability.
+            {cms(c, 'about_why_closing', 'Because the goal is not just change. The goal is lasting capability.')}
           </p>
         </div>
       </div>
@@ -96,5 +96,5 @@ const { story, pmcWay, cta } = siteContent.about;
 
   <TeamSection client:visible />
 
-  <CTASection client:visible headline={cms(c, 'cta_headline', cta)} primaryCta={{ label: cms(c, 'cta_button', "Let's Connect"), to: '/contact' }} />
+  <CTASection client:visible headline={cms(c, 'about_cta', "Let's figure out what your team actually needs.")} primaryCta={{ label: cms(c, 'about_cta_button', "Let's Connect"), to: '/contact' }} />
 </Base>

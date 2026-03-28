@@ -5,19 +5,22 @@ import Section from '../components/astro/Section.astro';
 import ServicePillars from '../components/react/sections/ServicePillars.tsx';
 import CTASection from '../components/react/sections/CTASection.tsx';
 import { siteContent } from '../data/content';
+import { getCMSContent, cms } from '../lib/cms';
+
+const c = await getCMSContent();
 ---
 
 <Base
   title="What We Do: Strategy, Digital, Brand, Funding & Implementation | YellowBrollyCo"
   description="We help organizations grow with clarity, confidence, and the systems to scale. Strategy, digital readiness, brand, funding, and implementation support under one roof."
 >
-  <PageHero headline="What We Do" subhead={siteContent.services.hero.subhead} eyebrow="Our Services" />
+  <PageHero headline={cms(c, 'services_headline', 'What We Do')} subhead={cms(c, 'services_subhead', "YellowBrolly partners with ambitious businesses, nonprofits, and public-serving organizations that are ready for more, but need the right strategy, structure, and support to get there.")} eyebrow="Our Services" />
 
   <!-- Intro section -->
   <section class="py-16 md:py-20 bg-cream">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <p class="text-lg md:text-xl text-text-secondary leading-relaxed">
-        {siteContent.services.intro}
+        {cms(c, 'services_intro', "We step in when growth feels messy, teams are stretched, systems are disconnected, or leaders know change is needed but need a clear path forward. Our work brings strategy, culture, digital readiness, brand, and implementation together under one roof, so clients do not have to piece together multiple vendors, disconnected advice, or plans that never get put into action.")}
       </p>
     </div>
   </section>
@@ -28,7 +31,7 @@ import { siteContent } from '../data/content';
   <Section background="dark">
     <div class="text-center mb-12">
       <span class="inline-block text-yellow-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4">Our Work</span>
-      <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Selected Projects</h2>
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-white">{cms(c, 'services_work_heading', 'Selected Projects')}</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -64,14 +67,14 @@ import { siteContent } from '../data/content';
   <Section background="cream">
     <div class="max-w-3xl mx-auto text-center scroll-fade-up">
       <img src="/images/brand/creative-designer.webp" alt="" aria-hidden="true" class="w-20 h-20 object-contain mx-auto mb-4" loading="lazy" />
-      <h3 class="text-2xl md:text-3xl font-display font-bold text-text-primary mb-3">Not sure where to start with brand?</h3>
-      <p class="text-text-muted mb-6">Our Brand Archetype assessment helps uncover the deeper personality of your organization and how it should communicate.</p>
+      <h3 class="text-2xl md:text-3xl font-display font-bold text-text-primary mb-3">{cms(c, 'services_brand_nudge_heading', 'Not sure where to start with brand?')}</h3>
+      <p class="text-text-muted mb-6">{cms(c, 'services_brand_nudge_text', 'Our Brand Archetype assessment helps uncover the deeper personality of your organization and how it should communicate.')}</p>
       <a href="/brand-archetype" class="text-yellow-text hover:text-yellow-hover font-medium text-sm inline-flex items-center gap-2 transition-colors duration-300">
-        Take the assessment
+        {cms(c, 'services_brand_nudge_cta', 'Take the assessment')}
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
       </a>
     </div>
   </Section>
 
-  <CTASection client:visible headline={siteContent.services.cta} primaryCta={{ label: "Let's Build Together", to: '/contact' }} />
+  <CTASection client:visible headline={cms(c, 'services_cta', "Let's build something that works for your team.")} primaryCta={{ label: cms(c, 'services_cta_button', "Let's Build Together"), to: '/contact' }} />
 </Base>

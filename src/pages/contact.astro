@@ -11,7 +11,7 @@ const c = await getCMSContent();
   description="Tell us about your tech and strategy goals. Whether you need help with digital transformation, AI, cybersecurity, or brand alignment, we are ready to chat."
 >
   <ContactForm client:load
-    headline={c['contact_headline']}
-    subheading={c['contact_subheading']}
+    headline={cms(c, 'contact_headline', "Let's talk about your tech and strategy goals")}
+    subheading={cms(c, 'contact_subheading', "Whether you're exploring a digital overhaul, need help with AI or cybersecurity, or want to align your tools with your team, we're ready to chat.")}
   />
 </Base>

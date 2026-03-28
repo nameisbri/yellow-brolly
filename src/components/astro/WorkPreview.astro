@@ -1,5 +1,8 @@
 ---
 import Section from './Section.astro';
+import { getCMSContent, cms } from '../../lib/cms';
+
+const c = await getCMSContent();
 
 const projects = [
   {
@@ -40,7 +43,7 @@ const [featured, ...rest] = projects;
   <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
     <div>
       <h2 class="scroll-fade-up text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-[1.1]">
-        Real results for real organizations
+        {cms(c, 'home_work_heading', 'Real results for real organizations')}
       </h2>
     </div>
     <a href="/case-studies" class="text-yellow-primary hover:text-yellow-hover transition-colors duration-300 font-medium text-sm inline-flex items-center gap-2 flex-shrink-0">

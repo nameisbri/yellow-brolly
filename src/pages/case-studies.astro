@@ -3,7 +3,9 @@ import Base from '../layouts/Base.astro';
 import CaseStudyWalkthrough from '../components/astro/CaseStudyWalkthrough.astro';
 import CTASection from '../components/react/sections/CTASection.tsx';
 import { siteContent } from '../data/content';
+import { getCMSContent, cms } from '../lib/cms';
 
+const c = await getCMSContent();
 const { studies } = siteContent.caseStudies;
 
 const caseStudyConfigs = [
@@ -51,11 +53,9 @@ const walkthroughStudies = studies.slice(0, 3);
         <span class="inline-block text-black/60 text-sm font-semibold tracking-[0.3em] uppercase">Case Studies</span>
         <div class="mt-3 w-12 h-[2px] bg-black/20"></div>
       </div>
-      <h1 class="scroll-fade-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-black leading-[1.05] tracking-tight max-w-4xl">
-        Three Projects.<br class="hidden sm:block" /> Real Transformations.
-      </h1>
+      <h1 class="scroll-fade-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-black leading-[1.05] tracking-tight max-w-4xl" set:html={cms(c, 'case_studies_headline', 'Three Projects.<br class="hidden sm:block" /> Real Transformations.')} />
       <p class="scroll-fade-up mt-6 text-lg md:text-xl text-black/60 max-w-2xl leading-relaxed">
-        Every engagement starts with listening. Here are three stories of organizations that needed clarity, security, and systems that actually work for their people.
+        {cms(c, 'case_studies_intro', 'Every engagement starts with listening. Here are three stories of organizations that needed clarity, security, and systems that actually work for their people.')}
       </p>
     </div>
 
@@ -124,5 +124,5 @@ const walkthroughStudies = studies.slice(0, 3);
     );
   })}
 
-  <CTASection client:visible headline={siteContent.caseStudies.cta} primaryCta={{ label: "Let's Talk About Your Challenges", to: '/contact' }} />
+  <CTASection client:visible headline={cms(c, 'case_studies_cta', "You're not starting from scratch. Let's build on what's working and fix what's not.")} primaryCta={{ label: cms(c, 'case_studies_cta_button', "Let's Talk About Your Challenges"), to: '/contact' }} />
 </Base>

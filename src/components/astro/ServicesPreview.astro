@@ -1,7 +1,9 @@
 ---
 import Section from './Section.astro';
 import { siteContent } from '../../data/content';
+import { getCMSContent, cms } from '../../lib/cms';
 
+const c = await getCMSContent();
 const { servicesPreview } = siteContent.home;
 
 const pillarAccentColors: Record<string, string> = {
@@ -15,7 +17,7 @@ const pillarAccentColors: Record<string, string> = {
 
 <Section background="cream" noPadding class="py-12 md:py-16 lg:py-24">
   <div class="scroll-fade-up mb-10 md:mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-    <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary leading-[1.1]">What We Do</h2>
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary leading-[1.1]">{cms(c, 'home_services_heading', 'What We Do')}</h2>
     <a href="/services" class="text-yellow-text hover:text-yellow-hover transition-colors duration-300 font-medium text-sm inline-flex items-center gap-2 flex-shrink-0">
       Explore all services
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>

@@ -1,7 +1,9 @@
 ---
 import Section from './Section.astro';
 import { siteContent } from '../../data/content';
+import { getCMSContent, cms } from '../../lib/cms';
 
+const c = await getCMSContent();
 const { values } = siteContent.about;
 
 const iconSvgs: Record<string, string> = {
@@ -14,7 +16,7 @@ const iconSvgs: Record<string, string> = {
 
 <Section background="sand">
   <h2 class="text-3xl md:text-4xl font-display font-bold text-text-primary mb-12">
-    Our Core Values
+    {cms(c, 'about_values_heading', 'Our Core Values')}
   </h2>
 
   <div class="scroll-fade-up grid grid-cols-1 md:grid-cols-2 gap-x-6 md:gap-x-8 lg:gap-x-12 gap-y-8 md:gap-y-10">
