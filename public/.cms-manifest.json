@@ -1,355 +1,355 @@
 {
-  "generatedAt": "2026-03-28T23:41:57.235Z",
+  "generatedAt": "2026-03-29T00:04:08.659Z",
   "fields": [
-    {
-      "key": "about_cta",
-      "fallback": "Let's figure out what your team actually needs.",
-      "file": "src/pages/about.astro",
-      "type": "text",
-      "group": "About / Content"
-    },
-    {
-      "key": "about_cta_button",
-      "fallback": "Let's Connect",
-      "file": "src/pages/about.astro",
-      "type": "text",
-      "group": "About / Content"
-    },
     {
       "key": "about_headline",
       "fallback": "Tech with soul. Strategy with impact.",
       "file": "src/pages/about.astro",
       "type": "text",
-      "group": "About / Content"
+      "group": "About"
     },
     {
       "key": "about_mission",
       "fallback": "Helping people-first organizations do well in a digital world, without compromising on security, strategy, or staying power.",
       "file": "src/pages/about.astro",
       "type": "textarea",
-      "group": "About / Content"
-    },
-    {
-      "key": "about_pmc_description",
-      "fallback": "People Matter Culture is how we run this company. PMC shapes how we work with clients, build systems, and measure success. It means integrity in our recommendations, practical creativity in our solutions, thought diversity in our approach, and Kingdom values at the foundation. Every system we touch has PMC built in.",
-      "file": "src/pages/about.astro",
-      "type": "textarea",
-      "group": "About / Content"
-    },
-    {
-      "key": "about_pmc_headline",
-      "fallback": "The PMC Way",
-      "file": "src/pages/about.astro",
-      "type": "text",
-      "group": "About / Content"
-    },
-    {
-      "key": "about_pmc_subhead",
-      "fallback": "People Matter Culture",
-      "file": "src/pages/about.astro",
-      "type": "text",
-      "group": "About / Content"
-    },
-    {
-      "key": "about_story_content",
-      "fallback": "YellowBrollyCo started because we kept seeing the same problem: teams adopting powerful digital tools and losing their identity in the process. We spent years in consulting and branding, watching organizations struggle with technology that didn't match their values. So we built YellowBrolly to close that gap, combining strategic rigor with creative empathy, grounded in People Matter Culture.",
-      "file": "src/pages/about.astro",
-      "type": "textarea",
-      "group": "About / Content"
+      "group": "About"
     },
     {
       "key": "about_story_headline",
       "fallback": "Our Story",
       "file": "src/pages/about.astro",
       "type": "text",
-      "group": "About / Content"
+      "group": "About"
     },
     {
-      "key": "about_team_headline",
-      "fallback": "Meet the Team",
+      "key": "about_story_content",
+      "fallback": "YellowBrollyCo started because we kept seeing the same problem: teams adopting powerful digital tools and losing their identity in the process. We spent years in consulting and branding, watching organizations struggle with technology that didn't match their values. So we built YellowBrolly to close that gap, combining strategic rigor with creative empathy, grounded in People Matter Culture.",
       "file": "src/pages/about.astro",
-      "type": "text",
-      "group": "About / Content"
+      "type": "textarea",
+      "group": "About"
     },
     {
-      "key": "about_why_closing",
-      "fallback": "Because the goal is not just change. The goal is lasting capability.",
+      "key": "about_pmc_subhead",
+      "fallback": "People Matter Culture",
       "file": "src/pages/about.astro",
       "type": "text",
-      "group": "About / Content"
+      "group": "About"
+    },
+    {
+      "key": "about_pmc_headline",
+      "fallback": "The PMC Way",
+      "file": "src/pages/about.astro",
+      "type": "text",
+      "group": "About"
+    },
+    {
+      "key": "about_pmc_description",
+      "fallback": "People Matter Culture is how we run this company. PMC shapes how we work with clients, build systems, and measure success. It means integrity in our recommendations, practical creativity in our solutions, thought diversity in our approach, and Kingdom values at the foundation. Every system we touch has PMC built in.",
+      "file": "src/pages/about.astro",
+      "type": "textarea",
+      "group": "About"
     },
     {
       "key": "about_why_eyebrow",
       "fallback": "Why YellowBrolly",
       "file": "src/pages/about.astro",
       "type": "text",
-      "group": "About / Content"
+      "group": "About"
     },
     {
       "key": "about_why_headline",
       "fallback": "One partner. Real progress.",
       "file": "src/pages/about.astro",
       "type": "text",
-      "group": "About / Content"
+      "group": "About"
     },
     {
       "key": "about_why_p1",
       "fallback": "Most organizations do not need more advice in isolation. They need a partner who can connect the dots.",
       "file": "src/pages/about.astro",
       "type": "textarea",
-      "group": "About / Content"
+      "group": "About"
     },
     {
       "key": "about_why_p2",
       "fallback": "YellowBrolly brings together strategy, culture, digital readiness, brand, and implementation in one integrated model. That means less fragmentation, stronger alignment, and a clearer path from vision to execution.",
       "file": "src/pages/about.astro",
       "type": "textarea",
-      "group": "About / Content"
+      "group": "About"
     },
     {
       "key": "about_why_p3",
       "fallback": "We help clients do the hard but necessary work of growth: making decisions, strengthening systems, aligning people, adopting tools, and building the confidence to move forward.",
       "file": "src/pages/about.astro",
       "type": "textarea",
-      "group": "About / Content"
+      "group": "About"
     },
     {
-      "key": "approach_closing",
-      "fallback": "This is not transformation in theory. It is transformation in practice.",
-      "file": "src/pages/approach.astro",
+      "key": "about_why_closing",
+      "fallback": "Because the goal is not just change. The goal is lasting capability.",
+      "file": "src/pages/about.astro",
       "type": "text",
-      "group": "Approach / Content"
+      "group": "About"
     },
     {
-      "key": "approach_cta",
-      "fallback": "We will start where you are and build from there.",
-      "file": "src/pages/approach.astro",
+      "key": "about_team_headline",
+      "fallback": "Meet the Team",
+      "file": "src/pages/about.astro",
       "type": "text",
-      "group": "Approach / Content"
+      "group": "About"
     },
     {
-      "key": "approach_cta_button",
-      "fallback": "Let's Talk",
-      "file": "src/pages/approach.astro",
+      "key": "about_cta",
+      "fallback": "Let's figure out what your team actually needs.",
+      "file": "src/pages/about.astro",
       "type": "text",
-      "group": "Approach / Content"
+      "group": "About"
+    },
+    {
+      "key": "about_cta_button",
+      "fallback": "Let's Connect",
+      "file": "src/pages/about.astro",
+      "type": "text",
+      "group": "About"
     },
     {
       "key": "approach_headline",
       "fallback": "Assess. Align. Activate.",
       "file": "src/pages/approach.astro",
       "type": "text",
-      "group": "Approach / Content"
+      "group": "Approach"
     },
     {
       "key": "approach_subhead",
       "fallback": "Our work is grounded in a clear, repeatable approach that helps organizations move through change with focus and momentum.",
       "file": "src/pages/approach.astro",
       "type": "textarea",
-      "group": "Approach / Content"
+      "group": "Approach"
     },
     {
       "key": "approach_timeline_heading",
       "fallback": "Three steps. One continuous cycle.",
       "file": "src/pages/approach.astro",
       "type": "text",
-      "group": "Approach / Content"
+      "group": "Approach"
     },
     {
-      "key": "approach_transparency_eyebrow",
-      "fallback": "Practicalities",
+      "key": "approach_closing",
+      "fallback": "This is not transformation in theory. It is transformation in practice.",
       "file": "src/pages/approach.astro",
       "type": "text",
-      "group": "Approach / Content"
+      "group": "Approach"
     },
     {
       "key": "approach_transparency_headline",
       "fallback": "Working with Us",
       "file": "src/pages/approach.astro",
       "type": "text",
-      "group": "Approach / Content"
+      "group": "Approach"
     },
     {
-      "key": "archetype_cta",
-      "fallback": "Take the Brand<br />Archetype Quiz",
-      "file": "src/pages/brand-archetype.astro",
+      "key": "approach_transparency_eyebrow",
+      "fallback": "Practicalities",
+      "file": "src/pages/approach.astro",
       "type": "text",
-      "group": "Brand Archetype / Content"
+      "group": "Approach"
     },
     {
-      "key": "archetype_cta_button",
-      "fallback": "Start the Quiz",
-      "file": "src/pages/brand-archetype.astro",
+      "key": "approach_cta",
+      "fallback": "We will start where you are and build from there.",
+      "file": "src/pages/approach.astro",
       "type": "text",
-      "group": "Brand Archetype / Content"
+      "group": "Approach"
     },
     {
-      "key": "archetype_cta_description",
-      "fallback": "Our Brand Archetype assessment helps uncover the deeper personality of your brand and provides insight into how your business should communicate, connect, and grow.",
-      "file": "src/pages/brand-archetype.astro",
-      "type": "textarea",
-      "group": "Brand Archetype / Content"
-    },
-    {
-      "key": "archetype_description",
-      "fallback": "A strong brand is more than a logo or colour palette. It's the personality, energy, and role your business plays in the lives of your customers.",
-      "file": "src/pages/brand-archetype.astro",
-      "type": "textarea",
-      "group": "Brand Archetype / Content"
-    },
-    {
-      "key": "archetype_framework_heading",
-      "fallback": "Characters that<br />shape culture",
-      "file": "src/pages/brand-archetype.astro",
+      "key": "approach_cta_button",
+      "fallback": "Let's Talk",
+      "file": "src/pages/approach.astro",
       "type": "text",
-      "group": "Brand Archetype / Content"
-    },
-    {
-      "key": "archetype_grid_heading",
-      "fallback": "Meet the archetypes",
-      "file": "src/pages/brand-archetype.astro",
-      "type": "text",
-      "group": "Brand Archetype / Content"
+      "group": "Approach"
     },
     {
       "key": "archetype_headline",
       "fallback": "Discover the<br />identity behind<br />your brand",
       "file": "src/pages/brand-archetype.astro",
       "type": "text",
-      "group": "Brand Archetype / Content"
+      "group": "Brand Archetype"
+    },
+    {
+      "key": "archetype_description",
+      "fallback": "A strong brand is more than a logo or colour palette. It's the personality, energy, and role your business plays in the lives of your customers.",
+      "file": "src/pages/brand-archetype.astro",
+      "type": "textarea",
+      "group": "Brand Archetype"
+    },
+    {
+      "key": "archetype_framework_heading",
+      "fallback": "Characters that<br />shape culture",
+      "file": "src/pages/brand-archetype.astro",
+      "type": "text",
+      "group": "Brand Archetype"
+    },
+    {
+      "key": "archetype_grid_heading",
+      "fallback": "Meet the archetypes",
+      "file": "src/pages/brand-archetype.astro",
+      "type": "text",
+      "group": "Brand Archetype"
     },
     {
       "key": "archetype_why_heading",
       "fallback": "A clear brand archetype<br />helps your business",
       "file": "src/pages/brand-archetype.astro",
       "type": "text",
-      "group": "Brand Archetype / Content"
+      "group": "Brand Archetype"
     },
     {
-      "key": "case_studies_cta",
-      "fallback": "You're not starting from scratch. Let's build on what's working and fix what's not.",
-      "file": "src/pages/case-studies.astro",
+      "key": "archetype_cta",
+      "fallback": "Take the Brand<br />Archetype Quiz",
+      "file": "src/pages/brand-archetype.astro",
       "type": "text",
-      "group": "Case Studies / Content"
+      "group": "Brand Archetype"
     },
     {
-      "key": "case_studies_cta_button",
-      "fallback": "Let's Talk About Your Challenges",
-      "file": "src/pages/case-studies.astro",
+      "key": "archetype_cta_description",
+      "fallback": "Our Brand Archetype assessment helps uncover the deeper personality of your brand and provides insight into how your business should communicate, connect, and grow.",
+      "file": "src/pages/brand-archetype.astro",
+      "type": "textarea",
+      "group": "Brand Archetype"
+    },
+    {
+      "key": "archetype_cta_button",
+      "fallback": "Start the Quiz",
+      "file": "src/pages/brand-archetype.astro",
       "type": "text",
-      "group": "Case Studies / Content"
+      "group": "Brand Archetype"
     },
     {
       "key": "case_studies_headline",
       "fallback": "Three Projects.<br class=\"hidden sm:block\" /> Real Transformations.",
       "file": "src/pages/case-studies.astro",
       "type": "text",
-      "group": "Case Studies / Content"
+      "group": "Case Studies"
     },
     {
       "key": "case_studies_intro",
       "fallback": "Every engagement starts with listening. Here are three stories of organizations that needed clarity, security, and systems that actually work for their people.",
       "file": "src/pages/case-studies.astro",
       "type": "textarea",
-      "group": "Case Studies / Content"
+      "group": "Case Studies"
+    },
+    {
+      "key": "case_studies_cta",
+      "fallback": "You're not starting from scratch. Let's build on what's working and fix what's not.",
+      "file": "src/pages/case-studies.astro",
+      "type": "text",
+      "group": "Case Studies"
+    },
+    {
+      "key": "case_studies_cta_button",
+      "fallback": "Let's Talk About Your Challenges",
+      "file": "src/pages/case-studies.astro",
+      "type": "text",
+      "group": "Case Studies"
     },
     {
       "key": "contact_headline",
       "fallback": "Let's talk about your tech and strategy goals",
       "file": "src/pages/contact.astro",
       "type": "text",
-      "group": "Contact / Content"
+      "group": "Contact"
     },
     {
       "key": "contact_subheading",
       "fallback": "Whether you're exploring a digital overhaul, need help with AI or cybersecurity, or want to align your tools with your team, we're ready to chat.",
       "file": "src/pages/contact.astro",
       "type": "textarea",
-      "group": "Contact / Content"
+      "group": "Contact"
     },
     {
       "key": "contact_submit_label",
       "fallback": "Send Inquiry",
       "file": "src/pages/contact.astro",
       "type": "text",
-      "group": "Contact / Content"
+      "group": "Contact"
     },
     {
       "key": "contact_success_headline",
       "fallback": "Thank you!",
       "file": "src/pages/contact.astro",
       "type": "text",
-      "group": "Contact / Content"
+      "group": "Contact"
     },
     {
       "key": "contact_success_message",
       "fallback": "We've received your inquiry and will be in touch shortly.",
       "file": "src/pages/contact.astro",
       "type": "text",
-      "group": "Contact / Content"
-    },
-    {
-      "key": "archetype_callout_cta",
-      "fallback": "Find Your Archetype",
-      "file": "src/pages/index.astro",
-      "type": "text",
-      "group": "Homepage / Content"
-    },
-    {
-      "key": "archetype_callout_heading",
-      "fallback": "Curious what drives your brand?",
-      "file": "src/pages/index.astro",
-      "type": "text",
-      "group": "Homepage / Content"
-    },
-    {
-      "key": "archetype_callout_subhead",
-      "fallback": "Take our Brand Archetype assessment.",
-      "file": "src/pages/index.astro",
-      "type": "text",
-      "group": "Homepage / Content"
-    },
-    {
-      "key": "cta_button",
-      "fallback": "Book a Discovery Call",
-      "file": "src/pages/index.astro",
-      "type": "text",
-      "group": "Homepage / Content"
-    },
-    {
-      "key": "cta_headline",
-      "fallback": "Let's build the clarity and momentum your organization needs.",
-      "file": "src/pages/index.astro",
-      "type": "text",
-      "group": "Homepage / Content"
-    },
-    {
-      "key": "hero_cta",
-      "fallback": "Book a Discovery Call",
-      "file": "src/pages/index.astro",
-      "type": "text",
-      "group": "Homepage / Content"
+      "group": "Contact"
     },
     {
       "key": "hero_headline",
       "fallback": "When growth gets complex, we help you move forward.",
       "file": "src/pages/index.astro",
       "type": "text",
-      "group": "Homepage / Content"
+      "group": "Homepage"
     },
     {
       "key": "hero_subheading",
       "fallback": "We help organizations strengthen leadership, modernize operations, and implement change that lasts.",
       "file": "src/pages/index.astro",
       "type": "text",
-      "group": "Homepage / Content"
+      "group": "Homepage"
+    },
+    {
+      "key": "hero_cta",
+      "fallback": "Book a Discovery Call",
+      "file": "src/pages/index.astro",
+      "type": "text",
+      "group": "Homepage"
     },
     {
       "key": "home_approach_headline",
       "fallback": "A clear, repeatable approach to lasting change.",
       "file": "src/pages/index.astro",
       "type": "text",
-      "group": "Homepage / Content"
+      "group": "Homepage"
+    },
+    {
+      "key": "archetype_callout_heading",
+      "fallback": "Curious what drives your brand?",
+      "file": "src/pages/index.astro",
+      "type": "text",
+      "group": "Homepage"
+    },
+    {
+      "key": "archetype_callout_subhead",
+      "fallback": "Take our Brand Archetype assessment.",
+      "file": "src/pages/index.astro",
+      "type": "text",
+      "group": "Homepage"
+    },
+    {
+      "key": "archetype_callout_cta",
+      "fallback": "Find Your Archetype",
+      "file": "src/pages/index.astro",
+      "type": "text",
+      "group": "Homepage"
+    },
+    {
+      "key": "cta_headline",
+      "fallback": "Let's build the clarity and momentum your organization needs.",
+      "file": "src/pages/index.astro",
+      "type": "text",
+      "group": "Homepage"
+    },
+    {
+      "key": "cta_button",
+      "fallback": "Book a Discovery Call",
+      "file": "src/pages/index.astro",
+      "type": "text",
+      "group": "Homepage"
     },
     {
       "key": "home_services_heading",
@@ -387,81 +387,109 @@
       "group": "Homepage / Work Preview"
     },
     {
-      "key": "services_brand_nudge_cta",
-      "fallback": "Take the assessment",
-      "file": "src/pages/services.astro",
-      "type": "text",
-      "group": "Services / Content"
-    },
-    {
-      "key": "services_brand_nudge_heading",
-      "fallback": "Not sure where to start with brand?",
-      "file": "src/pages/services.astro",
-      "type": "text",
-      "group": "Services / Content"
-    },
-    {
-      "key": "services_brand_nudge_text",
-      "fallback": "Our Brand Archetype assessment helps uncover the deeper personality of your organization and how it should communicate.",
-      "file": "src/pages/services.astro",
-      "type": "textarea",
-      "group": "Services / Content"
-    },
-    {
-      "key": "services_cta",
-      "fallback": "Let's build something that works for your team.",
-      "file": "src/pages/services.astro",
-      "type": "text",
-      "group": "Services / Content"
-    },
-    {
-      "key": "services_cta_button",
-      "fallback": "Let's Build Together",
-      "file": "src/pages/services.astro",
-      "type": "text",
-      "group": "Services / Content"
-    },
-    {
       "key": "services_headline",
       "fallback": "What We Do",
       "file": "src/pages/services.astro",
       "type": "text",
-      "group": "Services / Content"
-    },
-    {
-      "key": "services_intro",
-      "fallback": "We step in when growth feels messy, teams are stretched, systems are disconnected, or leaders know change is needed but need a clear path forward. Our work brings strategy, culture, digital readiness, brand, and implementation together under one roof, so clients do not have to piece together multiple vendors, disconnected advice, or plans that never get put into action.",
-      "file": "src/pages/services.astro",
-      "type": "textarea",
-      "group": "Services / Content"
+      "group": "Services"
     },
     {
       "key": "services_subhead",
       "fallback": "YellowBrolly partners with ambitious businesses, nonprofits, and public-serving organizations that are ready for more, but need the right strategy, structure, and support to get there.",
       "file": "src/pages/services.astro",
       "type": "textarea",
-      "group": "Services / Content"
+      "group": "Services"
+    },
+    {
+      "key": "services_intro",
+      "fallback": "We step in when growth feels messy, teams are stretched, systems are disconnected, or leaders know change is needed but need a clear path forward. Our work brings strategy, culture, digital readiness, brand, and implementation together under one roof, so clients do not have to piece together multiple vendors, disconnected advice, or plans that never get put into action.",
+      "file": "src/pages/services.astro",
+      "type": "textarea",
+      "group": "Services"
     },
     {
       "key": "services_work_eyebrow",
       "fallback": "Our Work",
       "file": "src/pages/services.astro",
       "type": "text",
-      "group": "Services / Content"
+      "group": "Services"
     },
     {
       "key": "services_work_heading",
       "fallback": "Selected Projects",
       "file": "src/pages/services.astro",
       "type": "text",
-      "group": "Services / Content"
+      "group": "Services"
     },
     {
       "key": "services_work_link",
       "fallback": "View all case studies",
       "file": "src/pages/services.astro",
       "type": "text",
-      "group": "Services / Content"
+      "group": "Services"
+    },
+    {
+      "key": "services_brand_nudge_heading",
+      "fallback": "Not sure where to start with brand?",
+      "file": "src/pages/services.astro",
+      "type": "text",
+      "group": "Services"
+    },
+    {
+      "key": "services_brand_nudge_text",
+      "fallback": "Our Brand Archetype assessment helps uncover the deeper personality of your organization and how it should communicate.",
+      "file": "src/pages/services.astro",
+      "type": "textarea",
+      "group": "Services"
+    },
+    {
+      "key": "services_brand_nudge_cta",
+      "fallback": "Take the assessment",
+      "file": "src/pages/services.astro",
+      "type": "text",
+      "group": "Services"
+    },
+    {
+      "key": "services_cta",
+      "fallback": "Let's build something that works for your team.",
+      "file": "src/pages/services.astro",
+      "type": "text",
+      "group": "Services"
+    },
+    {
+      "key": "services_cta_button",
+      "fallback": "Let's Build Together",
+      "file": "src/pages/services.astro",
+      "type": "text",
+      "group": "Services"
+    },
+    {
+      "key": "footer_tagline",
+      "fallback": "When growth gets complex, we help you move forward.",
+      "file": "src/components/astro/Footer.astro",
+      "type": "text",
+      "group": "Sitewide / Footer"
+    },
+    {
+      "key": "footer_nav_heading",
+      "fallback": "Navigate",
+      "file": "src/components/astro/Footer.astro",
+      "type": "text",
+      "group": "Sitewide / Footer"
+    },
+    {
+      "key": "footer_more_heading",
+      "fallback": "More",
+      "file": "src/components/astro/Footer.astro",
+      "type": "text",
+      "group": "Sitewide / Footer"
+    },
+    {
+      "key": "nav_cta_text",
+      "fallback": "Let's Talk",
+      "file": "src/components/astro/Header.astro",
+      "type": "text",
+      "group": "Sitewide / Header"
     }
   ]
 }

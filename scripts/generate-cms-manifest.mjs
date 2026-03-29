@@ -1,5 +1,6 @@
 /**
  * Scans source files for cms() calls and generates a manifest with groups.
+ * Preserves page-flow order within each group.
  * Run before build: node scripts/generate-cms-manifest.mjs
  * Output: public/.cms-manifest.json
  */
@@ -29,52 +30,54 @@ function inferGroup(filePath, key) {
   if (key.startsWith('footer_')) return 'Sitewide / Footer'
 
   const parts = filePath.replace(/\.(astro|tsx|ts)$/, '').split('/')
+  const fileName = parts[parts.length - 1]
+  const readableName = fileName.replace(/([a-z])([A-Z])/g, '$1 $2')
 
-  // Pages: src/pages/about → About / Content
+  // Pages: src/pages/about → About
   if (parts.includes('pages')) {
-    const page = parts[parts.length - 1]
-    if (page === 'index') return 'Homepage / Content'
-    const name = page.charAt(0).toUpperCase() + page.slice(1).replace(/-([a-z])/g, (_, c) => ' ' + c.toUpperCase())
-    return name + ' / Content'
+    if (fileName === 'index') return 'Homepage'
+    return fileName.charAt(0).toUpperCase() + fileName.slice(1).replace(/-([a-z])/g, (_, c) => ' ' + c.toUpperCase())
   }
 
   // Section components: src/components/sections/ServicesOverview → Homepage / Services Overview
   if (parts.includes('sections')) {
-    const comp = parts[parts.length - 1]
-    const name = comp.replace(/([a-z])([A-Z])/g, '$1 $2')
-    return 'Homepage / ' + name
+    return 'Homepage / ' + readableName
   }
 
-  // Layout components: src/components/layout/Footer → Sitewide / Footer
+  // Layout components → Sitewide
   if (parts.includes('layout')) {
-    const comp = parts[parts.length - 1]
-    return 'Sitewide / ' + comp
+    return 'Sitewide / ' + readableName
   }
 
-  // Astro components
+  // Astro components (e.g. src/components/astro/Footer)
   if (parts.includes('astro')) {
-    const comp = parts[parts.length - 1]
-    const name = comp.replace(/([a-z])([A-Z])/g, '$1 $2')
-    if (['Footer', 'Header', 'Nav', 'Navbar'].includes(comp)) return 'Sitewide / ' + name
-    return 'Homepage / ' + name
+    if (['Footer', 'Header', 'Nav', 'Navbar'].includes(fileName)) return 'Sitewide / ' + readableName
+    return 'Homepage / ' + readableName
   }
 
   // React components
   if (parts.includes('react')) {
-    const comp = parts[parts.length - 1]
-    const name = comp.replace(/([a-z])([A-Z])/g, '$1 $2')
-    if (['Footer', 'Header'].includes(comp)) return 'Sitewide / ' + name
-    return 'Homepage / ' + name
+    if (['Footer', 'Header'].includes(fileName)) return 'Sitewide / ' + readableName
+    return 'Homepage / ' + readableName
   }
 
-  return 'Other / Content'
+  // Direct components: src/components/Hero → Homepage / Hero
+  if (parts.includes('components')) {
+    if (['Footer', 'Navbar', 'Nav'].includes(fileName)) return 'Sitewide / ' + readableName
+    if (['LocationPage'].includes(fileName)) return 'Locations'
+    return 'Homepage / ' + readableName
+  }
+
+  return 'Other'
 }
 
-// Match cms(c, 'key', 'fallback') or cms(c, "key", "fallback") — handles apostrophes in fallbacks
-const CMS_PATTERN = /cms\(\s*c\s*,\s*['"]([^'"]+)['"]\s*,\s*(?:'([^']*(?:''[^']*)*)'|"([^"]*)"|`([^`]*)`)\s*\)/g
+// Match cms() calls — handles apostrophes in fallbacks
+const CMS_PATTERN = /cms\(\s*(?:c|cmsContent)\s*,\s*['"]([^'"]+)['"]\s*,\s*(?:'((?:[^'\\]|\\.)*)'|"((?:[^"\\]|\\.)*)"|`((?:[^`\\]|\\.)*)`)\s*\)/g
 
 const files = walk(SRC, ['.astro', '.tsx', '.ts'])
-const fields = []
+
+// Collect fields preserving encounter order, grouped
+const groupedFields = new Map() // group → [{ key, fallback, file, type }]
 const seen = new Set()
 
 for (const file of files) {
@@ -84,24 +87,31 @@ for (const file of files) {
   let match
   while ((match = CMS_PATTERN.exec(content)) !== null) {
     const key = match[1]
-    const fallback = match[2] ?? match[3] ?? match[4] ?? ''
+    const fallback = (match[2] ?? match[3] ?? match[4] ?? '').replace(/\\'/g, "'")
 
     if (!seen.has(key)) {
       seen.add(key)
-      fields.push({
+      const group = inferGroup(rel, key)
+      if (!groupedFields.has(group)) groupedFields.set(group, [])
+      groupedFields.get(group).push({
         key,
         fallback,
         file: rel,
         type: fallback.length > 100 ? 'textarea' : 'text',
-        group: inferGroup(rel, key),
+        group,
       })
     }
   }
 }
 
-fields.sort((a, b) => a.group.localeCompare(b.group) || a.key.localeCompare(b.key))
+// Sort groups alphabetically, preserve encounter order within each group
+const fields = []
+const sortedGroups = [...groupedFields.keys()].sort()
+for (const group of sortedGroups) {
+  fields.push(...groupedFields.get(group))
+}
 
 const manifest = { generatedAt: new Date().toISOString(), fields }
 writeFileSync(resolve(ROOT, 'public', '.cms-manifest.json'), JSON.stringify(manifest, null, 2))
 
-console.log(`CMS manifest: ${fields.length} fields found`)
+console.log(`CMS manifest: ${fields.length} fields in ${sortedGroups.length} groups`)
